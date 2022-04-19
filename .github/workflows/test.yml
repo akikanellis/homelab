@@ -1,0 +1,25 @@
+---
+name: Test
+
+"on":
+  workflow_call:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3.0.1
+
+      - name: Setup just
+        # yamllint disable-line rule:line-length
+        uses: extractions/setup-just@aa5d15c144db4585980a44ebfdd2cf337c4f14cb # tag=v1.4.0
+        with:
+          # renovate: datasource=crate depName=just
+          just-version: 1.1.2
+
+      - name: Test
+        run: just test

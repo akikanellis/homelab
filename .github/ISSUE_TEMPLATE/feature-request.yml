@@ -1,0 +1,58 @@
+---
+name: Feature Request
+description: Request a new feature or enhancement
+title: "feat: <title>"
+labels: [feature-request]
+
+assignees:
+  - akikanellis
+
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to fill out this feature request!
+
+  - type: textarea
+    attributes:
+      label: Use Case
+      description: >
+        Describe the use case(s) that the proposed feature would enable.
+      placeholder: This feature would allow me to do X.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Feature Description
+      description: Provide a brief summary of the feature you would like to see.
+      placeholder: >
+        This feature would work in X way and be implemented with a Y
+        implementation.
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: PR Submission
+      description: >
+        If the feature request is approved, would you be willing to submit a PR?
+        _(Help can be provided if you need assistance submitting a PR)_
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      description: Check the following boxes before opening the issue.
+      options:
+        - label: >
+            I have checked to ensure there aren't other open
+            [Issues](../../../issues) for the same feature request
+          required: true
+        - label: >
+            I have read the
+            [Contributing Guidelines](../blob/main/docs/CONTRIBUTING.md)
+          required: true

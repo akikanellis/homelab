@@ -1,0 +1,26 @@
+---
+name: Build PR
+
+"on":
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Lint
+    uses: ./.github/workflows/lint.yml
+
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yml
+
+  validate-branch-name:
+    name: Validate branch name
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate branch name
+        # yamllint disable-line rule:line-length
+        uses: deepakputhraya/action-branch-name@e0f8db53a8e289f1ae6f6c3e8dc70a3d366fd876 # tag=v1.0.0
+        with:
+          regex: ^[a-z]+([a-z0-9\.-])+$

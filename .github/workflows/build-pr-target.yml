@@ -1,0 +1,68 @@
+---
+name: Build PR Target
+
+"on":
+  pull_request_target:
+    branches: [main]
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+jobs:
+  validate-pr-title:
+    name: Validate PR title
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate PR title
+        # yamllint disable-line rule:line-length
+        uses: amannn/action-semantic-pull-request@b4011711b945563fe63ffa9654c38d1782532528 # tag=v4.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          validateSingleCommit: true
+          validateSingleCommitMatchesPrTitle: true
+          subjectPattern: ^(?![A-Z]).+$
+          subjectPatternError: >
+            The subject "{subject}" found in the pull request title "{title}"
+            didn't match the configured pattern. Please ensure that the subject
+            doesn't start with an uppercase character.
+
+  label-pr:
+    name: Label PR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Label PR
+        # yamllint disable-line rule:line-length
+        uses: bcoe/conventional-release-labels@576dd16fa48b1cb0464dcf7cc3eafde85ff92254 # tag=v1.3.0
+        with:
+          ignored_types: "[]"
+          type_labels: >
+            {
+              "breaking": "breaking",
+              "feat": "feature",
+              "fix": "fix",
+              "perf": "performance",
+              "refactor": "refactor",
+              "build": "build",
+              "ci": "ci",
+              "revert": "revert",
+              "test": "test",
+              "docs": "documentation",
+              "chore": "chore"
+            }
+
+  approve-pr:
+    name: Approve PR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Approve PR
+        # yamllint disable-line rule:line-length
+        uses: hmarr/auto-approve-action@24ec4c8cc344fe1cdde70ff37e55ace9e848a1d8 # tag=v2.2.1
+        if: github.actor == 'akikanellis' || github.actor == 'aki-bot[bot]'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

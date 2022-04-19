@@ -1,0 +1,138 @@
+---
+repository:
+  name: homelab
+  description: My personal homelab setup
+  private: false
+
+  has_issues: true
+  has_projects: true
+  has_wiki: false
+  has_pages: false
+  has_downloads: false
+
+  is_template: false
+
+  default_branch: main
+
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  allow_auto_merge: true
+  delete_branch_on_merge: true
+
+  allow_forking: true
+
+  enable_automated_security_fixes: true
+  enable_vulnerability_alerts: true
+
+branches:
+  - name: main
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+      required_status_checks:
+        strict: true
+        contexts:
+          - Lint / Lint
+          - Test / Test
+          - Validate branch name
+          - Validate PR title
+      enforce_admins: false
+      required_linear_history: true
+      restrictions: null
+      allow_force_pushes: false
+      allow_deletions: false
+      required_conversation_resolution: false
+
+labels:
+  # PR labels
+  - name: breaking
+    color: D93F0B
+    description: Breaking change
+
+  - name: feature
+    color: 0E8A16
+    description: New feature
+
+  - name: fix
+    color: B60205
+    description: Bug fix
+
+  - name: performance
+    color: 0E8A16
+    description: Code change that improves performance
+
+  - name: refactor
+    color: D4C5F9
+    description: Code change that neither fixes a bug nor adds a feature
+
+  - name: build
+    color: C5DEF5
+    description: Changes that affect the build system or external dependencies
+
+  - name: ci
+    color: BFD4F2
+    description: Changes to our CI configuration files and scripts
+
+  - name: revert
+    color: B60205
+    description: Reverts a previous commit
+
+  - name: test
+    color: BFDADC
+    description: Adding missing tests or correcting existing tests
+
+  - name: documentation
+    color: 0052CC
+    description: Improvements or additions to documentation
+
+  - name: chore
+    color: 0052CC
+    description: Other changes that don't modify src or test files
+
+  - name: released
+    color: 5319E7
+    description: Released by Semantic Release
+
+  # Issue labels
+  - name: semantic-release
+    color: 5319E7
+    description: Issue created by Semantic Release
+
+  - name: feature-request
+    color: 0E8A16
+    description: Feature request
+
+  - name: bug
+    color: B60205
+    description: Something isn't working
+
+  - name: duplicate
+    color: CFD3D7
+    description: This issue or pull request already exists
+
+  - name: good first issue
+    color: 7057FF
+    description: Good for newcomers
+
+  - name: help
+    color: 008672
+    description: Extra attention is needed
+
+  - name: question
+    color: D876E3
+    description: Further information is requested
+
+  - name: stale
+    color: FBCA04
+    description: Stale issue or pull request
+
+  - name: invalid
+    color: FFFFFF
+    description: This doesn't seem right
+
+  - name: wontfix
+    color: FFFFFF
+    description: This will not be worked on

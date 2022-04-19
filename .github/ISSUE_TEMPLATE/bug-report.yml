@@ -1,0 +1,75 @@
+---
+name: Bug Report
+description: File a bug report
+title: "bug: <title>"
+labels: [bug]
+
+assignees:
+  - akikanellis
+
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to fill out this bug report!
+
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: Tell us the steps to reproduce this bug.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Expected Behaviour
+      description: >
+        Tell us the behaviour you were expecting from following the above steps.
+      placeholder: I expected X to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Actual Behaviour
+      description: >
+        Tell us the behaviour that happened by following the above steps.
+      placeholder: Instead, Y happened.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional Information
+      description: >
+        Add any additional information like logs, suspected bug causes etc.
+      placeholder: I believe the issue is [here](url).
+
+  - type: dropdown
+    attributes:
+      label: PR Submission
+      description: >
+        If the bug report is confirmed, would you be willing to submit a PR?
+        _(Help can be provided if you need assistance submitting a PR)_
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      description: Check the following boxes before opening the issue.
+      options:
+        - label: >
+            I have checked to ensure there aren't other open
+            [Issues](../../../issues) for the same bug
+          required: true
+        - label: >
+            I have read the
+            [Contributing Guidelines](../blob/main/docs/CONTRIBUTING.md)
+          required: true
