@@ -34,5 +34,12 @@ jobs:
       - name: Install dependencies
         run: just install
 
+      - name: Cache Vagrant boxes
+        uses: actions/cache@v3.0.2
+        with:
+          path: ~/.vagrant.d/boxes
+          key: ${{ runner.os }}-vagrant-${{ hashFiles('ansible/molecule/default/molecule.yml') }}
+          restore-keys: ${{ runner.os }}-vagrant-
+
       - name: Test
         run: just test
