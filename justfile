@@ -6,6 +6,7 @@ super_linter_version := "slim-v4.9.2@sha256:63904379c7293d35915599bb9a27cb166431
 @_default:
   just --list
 
+# TODO probably need to change this for ansible #3
 # Install project dependencies
 install:
   echo "no-op"
@@ -22,14 +23,17 @@ lint *extra_args:
   -v {{justfile_directory()}}:/tmp/lint \
   github/super-linter:{{super_linter_version}}
 
+# TODO probably need to change this for ansible #3
 # Run the tests
 test:
   echo "no-op"
 
+# TODO probably need to change this for ansible #3
 # Run the app
 run:
   echo "no-op"
 
+# TODO probably need to change this for ansible #3
 # Clean generated files
 clean:
   echo "no-op"
