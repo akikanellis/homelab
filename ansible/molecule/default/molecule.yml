@@ -1,0 +1,10 @@
+---
+driver:
+  name: vagrant
+platforms:
+  - name: workstation-pop-os
+    box: ubuntu/focal64
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
