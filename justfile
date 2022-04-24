@@ -8,7 +8,7 @@ super_linter_version := "slim-v4.9.2@sha256:63904379c7293d35915599bb9a27cb166431
 
 # Install project dependencies
 install:
-  echo "no-op"
+  just ansible/install
 
 # Lint the project
 lint *extra_args:
@@ -24,12 +24,12 @@ lint *extra_args:
 
 # Run the tests
 test:
-  echo "no-op"
+  just ansible/test
 
 # Run the app
 run:
-  echo "no-op"
+  just ansible/run
 
 # Clean generated files
 clean:
-  echo "no-op"
+  just ansible/clean

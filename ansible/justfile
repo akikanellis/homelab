@@ -1,0 +1,33 @@
+#!/usr/bin/env just --justfile
+
+export PY_COLORS := "1"
+export ANSIBLE_FORCE_COLOR := "1"
+
+@_default:
+  just --list
+
+# Install project dependencies
+install:
+  #!/usr/bin/env bash
+  python -m venv env
+  source env/bin/activate
+  pip install -r requirements.txt
+
+# Run the tests
+test:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  molecule test
+
+# Run the app
+run:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  molecule converge
+
+# Clean generated files
+clean:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  molecule destroy
+  rm -rf env
