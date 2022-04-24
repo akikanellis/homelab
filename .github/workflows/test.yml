@@ -35,6 +35,7 @@ jobs:
         run: just install
 
       - name: Cache Vagrant boxes
+        # yamllint disable-line rule:line-length
         uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09 # tag=v3.0.2
         with:
           path: ~/.vagrant.d/boxes
