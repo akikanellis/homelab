@@ -11,6 +11,8 @@ insert_final_newline = true
 max_line_length = 80
 trim_trailing_whitespace = true
 
+ij_visual_guides = 80
+
 [*.{yaml,yml}]
 max_line_length = off
 
@@ -19,5 +21,3 @@ ij_yaml_spaces_within_brackets = false
 [*.{markdown,md}]
 indent_size = 4
 max_line_length = off
-
-ij_visual_guides = 80
