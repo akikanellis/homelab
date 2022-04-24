@@ -1,3 +1,10 @@
+### [1.0.6](https://github.com/AkiKanellis/homelab/compare/v1.0.5...v1.0.6) (2022-04-24)
+
+
+### Build System
+
+* increase rate limit for setup-just ([#9](https://github.com/AkiKanellis/homelab/issues/9)) ([2a45067](https://github.com/AkiKanellis/homelab/commit/2a450670c63a60dbf77a70de77ed8693be391d35))
+
 ### [1.0.5](https://github.com/AkiKanellis/homelab/compare/v1.0.4...v1.0.5) (2022-04-24)
 
 
