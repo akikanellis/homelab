@@ -1,3 +1,10 @@
+### [1.0.5](https://github.com/AkiKanellis/homelab/compare/v1.0.4...v1.0.5) (2022-04-24)
+
+
+### Build System
+
+* resolve linter conflicts ([#8](https://github.com/AkiKanellis/homelab/issues/8)) ([61bf763](https://github.com/AkiKanellis/homelab/commit/61bf7633e07b5677f3723b600cf4022340586262)), closes [github/super-linter#2818](https://github.com/github/super-linter/issues/2818)
+
 ### [1.0.4](https://github.com/AkiKanellis/homelab/compare/v1.0.3...v1.0.4) (2022-04-24)
 
 
