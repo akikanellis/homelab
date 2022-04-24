@@ -1,3 +1,10 @@
+### [1.1.2](https://github.com/AkiKanellis/homelab/compare/v1.1.1...v1.1.2) (2022-04-24)
+
+
+### Build System
+
+* remove new-lines from cache key ([#12](https://github.com/AkiKanellis/homelab/issues/12)) ([122de70](https://github.com/AkiKanellis/homelab/commit/122de7008cc1fd1116b0d5da364b3f699eaa450b))
+
 ### [1.1.1](https://github.com/AkiKanellis/homelab/compare/v1.1.0...v1.1.1) (2022-04-24)
 
 
