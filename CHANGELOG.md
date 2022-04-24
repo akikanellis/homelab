@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/AkiKanellis/homelab/compare/v1.0.6...v1.1.0) (2022-04-24)
+
+
+### Features
+
+* add MVP playbook with molecule testing ([#4](https://github.com/AkiKanellis/homelab/issues/4)) ([0197019](https://github.com/AkiKanellis/homelab/commit/0197019bb781b363a4153543725657b032912cce))
+
 ### [1.0.6](https://github.com/AkiKanellis/homelab/compare/v1.0.5...v1.0.6) (2022-04-24)
 
 
