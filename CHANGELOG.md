@@ -1,3 +1,10 @@
+### [1.1.1](https://github.com/AkiKanellis/homelab/compare/v1.1.0...v1.1.1) (2022-04-24)
+
+
+### Build System
+
+* **deps:** update dependency ansible-core to v2.12.4 ([#11](https://github.com/AkiKanellis/homelab/issues/11)) ([89ccf2d](https://github.com/AkiKanellis/homelab/commit/89ccf2dbca576ea6829e8f81c73d585c760df63c))
+
 ## [1.1.0](https://github.com/AkiKanellis/homelab/compare/v1.0.6...v1.1.0) (2022-04-24)
 
 
