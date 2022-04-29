@@ -1,0 +1,44 @@
+---
+name: Deploy to Production
+
+"on":
+  workflow_dispatch:
+    inputs:
+      extra-ansible-options:
+        description: Extra ansible-playbook options
+        required: false
+
+env:
+  # renovate: datasource=pypi depName=ansible-core
+  ANSIBLE_CORE_VERSION: 2.12.3
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    environment: production
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+
+      - name: Set up Python
+        # yamllint disable-line rule:line-length
+        uses: actions/setup-python@98f2ad02fd48d057ee3b4d4f66525b231c3e52b6 # tag=v3.1.2
+        with:
+          # renovate: datasource=docker depName=python versioning=docker
+          python-version: 3.10.4
+
+      - name: Install ansible
+        run: pip install ansible-core=="$ANSIBLE_CORE_VERSION"
+
+      - name: Run playbook
+        # yamllint disable-line rule:line-length
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: main.yml
+          key: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
+          options: >
+            --inventory hosts.yml
+            ${{ github.event.inputs.extra-ansible-options }}
