@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/AkiKanellis/homelab/compare/v1.1.3...v1.2.0) (2022-04-29)
+
+
+### Features
+
+* deploy main playbook manually ([#17](https://github.com/AkiKanellis/homelab/issues/17)) ([2927016](https://github.com/AkiKanellis/homelab/commit/2927016f19c6d307703a8794569d398643ddf735)), closes [#13](https://github.com/AkiKanellis/homelab/issues/13)
+
 ### [1.1.3](https://github.com/AkiKanellis/homelab/compare/v1.1.2...v1.1.3) (2022-04-24)
 
 
