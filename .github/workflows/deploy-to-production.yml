@@ -31,7 +31,7 @@ jobs:
           python-version: 3.10.4
 
       - name: Install ansible
-        run: "pip install ansible-core==$ANSIBLE_CORE_VERSION"
+        run: pip install ansible-core=="$ANSIBLE_CORE_VERSION"
 
       - name: Run playbook
         # yamllint disable-line rule:line-length
