@@ -1,3 +1,10 @@
+### [1.2.7](https://github.com/AkiKanellis/homelab/compare/v1.2.6...v1.2.7) (2022-04-30)
+
+
+### Build System
+
+* add missing job name ([#26](https://github.com/AkiKanellis/homelab/issues/26)) ([123141f](https://github.com/AkiKanellis/homelab/commit/123141fd346beb69ce470ce72759229e82c5cc90))
+
 ### [1.2.6](https://github.com/AkiKanellis/homelab/compare/v1.2.5...v1.2.6) (2022-04-30)
 
 
