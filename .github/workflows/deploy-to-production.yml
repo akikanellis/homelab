@@ -35,7 +35,7 @@ jobs:
 
       - name: Run playbook
         # yamllint disable-line rule:line-length
-        uses: dawidd6/action-ansible-playbook@v2
+        uses: dawidd6/action-ansible-playbook@671974ed60e946e11964cb0c26e69caaa4b1f559 # tag=v2
         with:
           playbook: main.yml
           key: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
