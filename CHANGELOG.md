@@ -1,3 +1,10 @@
+### [1.2.6](https://github.com/AkiKanellis/homelab/compare/v1.2.5...v1.2.6) (2022-04-30)
+
+
+### Bug Fixes
+
+* create ansible user ([#25](https://github.com/AkiKanellis/homelab/issues/25)) ([d58af49](https://github.com/AkiKanellis/homelab/commit/d58af49d886f48e8c9d1d7c48892166003a8a049)), closes [#23](https://github.com/AkiKanellis/homelab/issues/23)
+
 ### [1.2.5](https://github.com/AkiKanellis/homelab/compare/v1.2.4...v1.2.5) (2022-04-30)
 
 
