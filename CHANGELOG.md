@@ -1,3 +1,10 @@
+### [1.2.5](https://github.com/AkiKanellis/homelab/compare/v1.2.4...v1.2.5) (2022-04-30)
+
+
+### Build System
+
+* **deps:** update peter-murray/workflow-application-token-action action to v1.4.0 ([#24](https://github.com/AkiKanellis/homelab/issues/24)) ([d6690dc](https://github.com/AkiKanellis/homelab/commit/d6690dcc71040e51ba9e8a9faef8c4afdd6272be))
+
 ### [1.2.4](https://github.com/AkiKanellis/homelab/compare/v1.2.3...v1.2.4) (2022-04-30)
 
 
