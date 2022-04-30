@@ -1,3 +1,10 @@
+### [1.2.3](https://github.com/AkiKanellis/homelab/compare/v1.2.2...v1.2.3) (2022-04-30)
+
+
+### Build System
+
+* pin dawidd6/action-ansible-playbook to exact version ([#21](https://github.com/AkiKanellis/homelab/issues/21)) ([ab22b06](https://github.com/AkiKanellis/homelab/commit/ab22b06c498ba8bd8c1def0d63d552f82fabbfe1))
+
 ### [1.2.2](https://github.com/AkiKanellis/homelab/compare/v1.2.1...v1.2.2) (2022-04-30)
 
 
