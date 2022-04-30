@@ -1,3 +1,10 @@
+### [1.2.4](https://github.com/AkiKanellis/homelab/compare/v1.2.3...v1.2.4) (2022-04-30)
+
+
+### Build System
+
+* use correct ansible directory ([#22](https://github.com/AkiKanellis/homelab/issues/22)) ([e8ad210](https://github.com/AkiKanellis/homelab/commit/e8ad210ce500499c6d8c859faaf0f08c4473d4b9)), closes [#13](https://github.com/AkiKanellis/homelab/issues/13)
+
 ### [1.2.3](https://github.com/AkiKanellis/homelab/compare/v1.2.2...v1.2.3) (2022-04-30)
 
 
