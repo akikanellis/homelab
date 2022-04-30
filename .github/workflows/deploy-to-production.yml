@@ -13,7 +13,8 @@ env:
   ANSIBLE_CORE_VERSION: 2.12.5
 
 jobs:
-  deploy:
+  deploy-to-production:
+    name: Deploy to production
     runs-on: self-hosted
     environment: production
     if: github.ref == 'refs/heads/main'
