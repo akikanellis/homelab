@@ -16,6 +16,26 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup just
+        # yamllint disable-line rule:line-length
+        uses: extractions/setup-just@aa5d15c144db4585980a44ebfdd2cf337c4f14cb # tag=v1.4.0
+        with:
+          # renovate: datasource=crate depName=just
+          just-version: 1.1.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Python
+        # yamllint disable-line rule:line-length
+        uses: actions/setup-python@98f2ad02fd48d057ee3b4d4f66525b231c3e52b6 # tag=v3.1.2
+        with:
+          # renovate: datasource=docker depName=python versioning=docker
+          python-version: 3.10.4
+          cache: pip
+
+      - name: Install dependencies
+        run: just install
+
       - name: Lint
         # yamllint disable-line rule:line-length
         uses: github/super-linter/slim@ae4e373c56efad95924d9cc6b89624fdb2333007 # tag=v4.9.2
