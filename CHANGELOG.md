@@ -1,3 +1,10 @@
+## [1.3.0](https://github.com/AkiKanellis/homelab/compare/v1.2.7...v1.3.0) (2022-04-30)
+
+
+### Features
+
+* update package cache ([#28](https://github.com/AkiKanellis/homelab/issues/28)) ([0b49c4a](https://github.com/AkiKanellis/homelab/commit/0b49c4a0af71b215e2e683b9ef769281e896529b)), closes [#18](https://github.com/AkiKanellis/homelab/issues/18)
+
 ### [1.2.7](https://github.com/AkiKanellis/homelab/compare/v1.2.6...v1.2.7) (2022-04-30)
 
 
