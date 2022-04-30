@@ -39,5 +39,6 @@ jobs:
         with:
           directory: ansible
           playbook: main.yml
+          requirements: requirements.yml
           key: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
           options: ${{ github.event.inputs.extra-ansible-options }}

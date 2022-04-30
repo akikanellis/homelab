@@ -4,4 +4,5 @@
 
   tasks: []
 
+- import_playbook: ../../perform-initial-setup.yml
 - import_playbook: ../../main.yml
