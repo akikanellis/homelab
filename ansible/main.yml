@@ -1,7 +1,0 @@
----
-- name: Main
-  hosts: all
-
-  tasks:
-    - name: Ping
-      ansible.builtin.ping:
