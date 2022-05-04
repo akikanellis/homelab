@@ -1,3 +1,10 @@
+### [1.4.1](https://github.com/AkiKanellis/homelab/compare/v1.4.0...v1.4.1) (2022-05-04)
+
+
+### Bug Fixes
+
+* update playbook reference ([#34](https://github.com/AkiKanellis/homelab/issues/34)) ([70029a3](https://github.com/AkiKanellis/homelab/commit/70029a369011d0e3af3a21646747a72aa7182c23))
+
 ## [1.4.0](https://github.com/AkiKanellis/homelab/compare/v1.3.2...v1.4.0) (2022-05-04)
 
 
