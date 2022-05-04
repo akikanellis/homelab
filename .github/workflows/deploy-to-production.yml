@@ -2,8 +2,22 @@
 name: Deploy to Production
 
 "on":
+  workflow_call:
+    inputs:
+      version:
+        type: string
+        description: Deployment version
+        required: true
+    secrets:
+      ANSIBLE_SSH_PRIVATE_KEY:
+        description: The SSH private key used by Ansible
+        required: true
   workflow_dispatch:
     inputs:
+      version:
+        type: string
+        description: Deployment version
+        required: true
       extra-ansible-options:
         description: Extra ansible-playbook options
         required: false
@@ -17,12 +31,13 @@ jobs:
     name: Deploy to production
     runs-on: self-hosted
     environment: production
-    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout
         # yamllint disable-line rule:line-length
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        with:
+          ref: ${{ github.event.inputs.version }}
 
       - name: Set up Python
         # yamllint disable-line rule:line-length
