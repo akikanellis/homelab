@@ -1,3 +1,10 @@
+## [1.4.0](https://github.com/AkiKanellis/homelab/compare/v1.3.2...v1.4.0) (2022-05-04)
+
+
+### Features
+
+* deploy as part of CI ([#32](https://github.com/AkiKanellis/homelab/issues/32)) ([a2983c8](https://github.com/AkiKanellis/homelab/commit/a2983c800b61a09a2eac0206cee5ac4113411496)), closes [#29](https://github.com/AkiKanellis/homelab/issues/29)
+
 ### [1.3.2](https://github.com/AkiKanellis/homelab/compare/v1.3.1...v1.3.2) (2022-05-01)
 
 
