@@ -54,7 +54,7 @@ jobs:
         uses: dawidd6/action-ansible-playbook@671974ed60e946e11964cb0c26e69caaa4b1f559 # tag=v2.5.0
         with:
           directory: ansible
-          playbook: main.yml
+          playbook: apply-configuration.yml
           requirements: requirements.yml
           key: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
           options: ${{ github.event.inputs.extra-ansible-options }}
