@@ -1,3 +1,10 @@
+### [1.4.5](https://github.com/AkiKanellis/homelab/compare/v1.4.4...v1.4.5) (2022-05-08)
+
+
+### Bug Fixes
+
+* ignore unreachable hosts ([#39](https://github.com/AkiKanellis/homelab/issues/39)) ([e6e160c](https://github.com/AkiKanellis/homelab/commit/e6e160cb9e64cda4cac2ada7ca4226a26061e481)), closes [#33](https://github.com/AkiKanellis/homelab/issues/33)
+
 ### [1.4.4](https://github.com/AkiKanellis/homelab/compare/v1.4.3...v1.4.4) (2022-05-08)
 
 
