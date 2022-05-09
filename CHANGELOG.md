@@ -1,3 +1,10 @@
+### [1.4.6](https://github.com/AkiKanellis/homelab/compare/v1.4.5...v1.4.6) (2022-05-09)
+
+
+### Build System
+
+* use correct version depending on workflow type ([#40](https://github.com/AkiKanellis/homelab/issues/40)) ([aea33e2](https://github.com/AkiKanellis/homelab/commit/aea33e274f48b15e3e5d9ffa8aa66c642d9b4e83)), closes [#38](https://github.com/AkiKanellis/homelab/issues/38)
+
 ### [1.4.5](https://github.com/AkiKanellis/homelab/compare/v1.4.4...v1.4.5) (2022-05-08)
 
 
