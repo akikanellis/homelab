@@ -1,3 +1,10 @@
+### [1.4.7](https://github.com/AkiKanellis/homelab/compare/v1.4.6...v1.4.7) (2022-05-09)
+
+
+### Build System
+
+* add missing "v" prefix ([#41](https://github.com/AkiKanellis/homelab/issues/41)) ([8ec3829](https://github.com/AkiKanellis/homelab/commit/8ec3829c8e1202d83f18d2d7e66e3f497c8f4582)), closes [#38](https://github.com/AkiKanellis/homelab/issues/38)
+
 ### [1.4.6](https://github.com/AkiKanellis/homelab/compare/v1.4.5...v1.4.6) (2022-05-09)
 
 
