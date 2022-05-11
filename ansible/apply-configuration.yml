@@ -1,13 +1,5 @@
 ---
-- name: Apply Configuration
-  hosts: all
+- name: Apply Workstations Configuration
+  hosts: workstations
+  roles: [workstations]
   become: true
-
-  tasks:
-    - name: Ping
-      ansible.builtin.ping:
-
-    - name: Update package cache
-      ansible.builtin.apt:
-        update_cache: true
-        cache_valid_time: 3600
