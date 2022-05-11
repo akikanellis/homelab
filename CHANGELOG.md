@@ -1,3 +1,10 @@
+## [1.5.0](https://github.com/AkiKanellis/homelab/compare/v1.4.7...v1.5.0) (2022-05-11)
+
+
+### Features
+
+* create workstations role ([#43](https://github.com/AkiKanellis/homelab/issues/43)) ([1477511](https://github.com/AkiKanellis/homelab/commit/14775113f41b7a7cd86358487e2c73ccb8e2318f)), closes [#42](https://github.com/AkiKanellis/homelab/issues/42)
+
 ### [1.4.7](https://github.com/AkiKanellis/homelab/compare/v1.4.6...v1.4.7) (2022-05-09)
 
 
