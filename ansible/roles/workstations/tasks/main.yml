@@ -20,6 +20,18 @@
     user: ansible
     key: "{{ lookup('file', 'files/ssh/id_ansible.pub') }}"
 
+- name: Create "aki" group
+  ansible.builtin.group:
+    name: aki
+
+- name: Create "aki" user
+  ansible.builtin.user:
+    name: aki
+    group: aki
+    groups: sudo
+    append: true
+    password: $6$wGLv4RPOB2GHWk3I$7DLQ6VxTcQXQIvO.hDSvcQwsjMIt5fSGWcsxJYrtfUCXix1Gmp69IXBJ8cPg4RwJaOG6N8kVOj2Q.e4RNDv7.1
+
 - name: Update apt package cache
   ansible.builtin.apt:
     update_cache: true
