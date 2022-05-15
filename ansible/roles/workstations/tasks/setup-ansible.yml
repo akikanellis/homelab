@@ -1,6 +1,6 @@
 ---
 - name: Setup passwordless sudo
-  tags: initial-setup
+  tags: ansible-setup
   ansible.builtin.lineinfile:
     path: /etc/sudoers
     regexp: ^%sudo
@@ -8,14 +8,14 @@
     validate: visudo -cf %s
 
 - name: Create "ansible" user
-  tags: initial-setup
+  tags: ansible-setup
   ansible.builtin.user:
     name: ansible
     groups: sudo
     append: true
 
 - name: Set authorized key for "ansible" user
-  tags: initial-setup
+  tags: ansible-setup
   ansible.posix.authorized_key:
     user: ansible
     key: "{{ lookup('file', 'files/ssh/id_ansible.pub') }}"
