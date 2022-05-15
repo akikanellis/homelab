@@ -54,3 +54,4 @@ jobs:
       version: v${{ needs.release.outputs.release-version }}
     secrets:
       ANSIBLE_SSH_PRIVATE_KEY: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
+      ANSIBLE_VAULT_PASSWORD_PROD: ${{ secrets.ANSIBLE_VAULT_PASSWORD_PROD }}
