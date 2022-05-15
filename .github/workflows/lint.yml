@@ -49,3 +49,4 @@ jobs:
           ANSIBLE_COLLECTIONS_PATH: |
             ansible/galaxy/collections:ansible/collections
           ANSIBLE_ROLES_PATH: ansible/galaxy/roles:ansible/roles
+          FILTER_REGEX_EXCLUDE: .*ansible/.*vault\.yml
