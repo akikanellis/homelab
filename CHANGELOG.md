@@ -1,3 +1,15 @@
+## [1.6.0](https://github.com/AkiKanellis/homelab/compare/v1.5.3...v1.6.0) (2022-05-15)
+
+
+### Features
+
+* create "aki" user ([#52](https://github.com/AkiKanellis/homelab/issues/52)) ([9e29c04](https://github.com/AkiKanellis/homelab/commit/9e29c04760e0708b44931842b317af2154d9545d))
+
+
+### Bug Fixes
+
+* pass missing secret ([#53](https://github.com/AkiKanellis/homelab/issues/53)) ([a969119](https://github.com/AkiKanellis/homelab/commit/a96911982f2aeeff0b63b9faec7a41caf15d1999)), closes [#47](https://github.com/AkiKanellis/homelab/issues/47)
+
 ### [1.5.3](https://github.com/AkiKanellis/homelab/compare/v1.5.2...v1.5.3) (2022-05-15)
 
 
