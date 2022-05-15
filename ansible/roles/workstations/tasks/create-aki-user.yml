@@ -12,6 +12,15 @@
     password: "{{ aki_password }}"
     shell: /bin/bash
 
+- name: Copy "aki" user sudoers file
+  ansible.builtin.copy:
+    src: sudoers-aki.txt
+    dest: /etc/sudoers.d/aki
+    owner: root
+    group: root
+    mode: 0440
+    validate: visudo -cf %s
+
 - name: Create "aki" user home directories
   ansible.builtin.file:
     path: /home/aki/{{ item }}
