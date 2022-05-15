@@ -1,1 +1,2 @@
-echo "todo fill in"
+#!/bin/bash
+echo "${ANSIBLE_VAULT_PASSWORD_PROD}"
