@@ -12,6 +12,9 @@ name: Deploy to Production
       ANSIBLE_SSH_PRIVATE_KEY:
         description: The SSH private key used by Ansible
         required: true
+      ANSIBLE_VAULT_PASSWORD_PROD:
+        description: The vault prod password used by Ansible
+        required: true
   workflow_dispatch:
     inputs:
       version:
@@ -30,7 +33,7 @@ jobs:
   deploy-to-production:
     name: Deploy to production
     runs-on: self-hosted
-    environment: production
+    environment: prod
 
     steps:
       - name: Checkout
@@ -58,3 +61,6 @@ jobs:
           requirements: requirements.yml
           key: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
           options: ${{ github.event.inputs.extra-ansible-options }}
+        env:
+          ANSIBLE_VAULT_PASSWORD_PROD: |
+            ${{ secrets.ANSIBLE_VAULT_PASSWORD_PROD }}

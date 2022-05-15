@@ -32,3 +32,13 @@ clean:
   source env/bin/activate
   molecule destroy
   rm -rf env galaxy
+
+edit-dev-vault:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  ansible-vault edit inventories/dev/group_vars/all/vault.yml
+
+edit-prod-vault:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  ansible-vault edit inventories/prod/group_vars/all/vault.yml

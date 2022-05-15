@@ -1,0 +1,2 @@
+---
+aki_password: "{{ vault_aki_password }}"

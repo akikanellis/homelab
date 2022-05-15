@@ -20,6 +20,7 @@ lint *extra_args:
   -e YAML_ERROR_ON_WARNING=true \
   -e ANSIBLE_COLLECTIONS_PATH=ansible/galaxy/collections:ansible/collections \
   -e ANSIBLE_ROLES_PATH=ansible/galaxy/roles:ansible/roles \
+  -e FILTER_REGEX_EXCLUDE=.*ansible/.*vault\.yml \
   {{extra_args}} \
   -v {{justfile_directory()}}:/tmp/lint \
   github/super-linter:{{super_linter_version}}

@@ -1,0 +1,33 @@
+---
+- name: Create "aki" group
+  ansible.builtin.group:
+    name: aki
+
+- name: Create "aki" user
+  ansible.builtin.user:
+    name: aki
+    group: aki
+    groups: adm,sudo
+    comment: Aki Kanellis
+    password: "{{ aki_password }}"
+    shell: /bin/bash
+
+- name: Copy "aki" user sudoers file
+  ansible.builtin.copy:
+    src: sudoers-aki.txt
+    dest: /etc/sudoers.d/aki
+    owner: root
+    group: root
+    mode: 0440
+    validate: visudo -cf %s
+
+- name: Create "aki" user home directories
+  ansible.builtin.file:
+    path: /home/aki/{{ item }}
+    state: directory
+    owner: aki
+    group: aki
+    mode: 0700
+  loop:
+    - Courses
+    - Projects
