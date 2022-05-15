@@ -16,7 +16,8 @@ provisioner:
   name: ansible
   config_options:
     defaults:
-      vault_password_file: ${MOLECULE_SCENARIO_DIRECTORY}/../../vault-password-dev.txt
+      vault_password_file: |
+        ${MOLECULE_SCENARIO_DIRECTORY}/../../vault-password-dev.txt
   inventory:
     links:
       group_vars: ../../inventories/dev/group_vars/
