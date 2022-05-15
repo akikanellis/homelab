@@ -10,3 +10,14 @@
     groups: sudo
     append: true
     password: "{{ aki_password }}"
+
+- name: Create "aki" user home directories
+  ansible.builtin.file:
+    path: /home/aki/{{ item }}
+    state: directory
+    owner: aki
+    group: aki
+    mode: 0700
+  loop:
+    - Courses
+    - Projects
