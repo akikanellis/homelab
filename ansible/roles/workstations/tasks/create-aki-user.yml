@@ -7,9 +7,10 @@
   ansible.builtin.user:
     name: aki
     group: aki
-    groups: sudo
-    append: true
+    groups: adm,sudo
+    comment: Aki Kanellis
     password: "{{ aki_password }}"
+    shell: /bin/bash
 
 - name: Create "aki" user home directories
   ansible.builtin.file:
