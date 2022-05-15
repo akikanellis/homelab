@@ -1,0 +1,12 @@
+---
+- name: Create "aki" group
+  ansible.builtin.group:
+    name: aki
+
+- name: Create "aki" user
+  ansible.builtin.user:
+    name: aki
+    group: aki
+    groups: sudo
+    append: true
+    password: "{{ aki_password }}"

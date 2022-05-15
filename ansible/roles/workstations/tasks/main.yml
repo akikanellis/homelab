@@ -21,18 +21,7 @@
     user: ansible
     key: "{{ lookup('file', 'files/ssh/id_ansible.pub') }}"
 
-# TODO move to task
-- name: Create "aki" group
-  ansible.builtin.group:
-    name: aki
-
-- name: Create "aki" user
-  ansible.builtin.user:
-    name: aki
-    group: aki
-    groups: sudo
-    append: true
-    password: "{{ aki_password }}"
+- import_tasks: create-aki-user.yml
 
 - name: Update apt package cache
   ansible.builtin.apt:
