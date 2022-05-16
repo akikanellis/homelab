@@ -1,3 +1,10 @@
+## [1.7.0](https://github.com/AkiKanellis/homelab/compare/v1.6.0...v1.7.0) (2022-05-16)
+
+
+### Features
+
+* install zsh ([#56](https://github.com/AkiKanellis/homelab/issues/56)) ([695853d](https://github.com/AkiKanellis/homelab/commit/695853d43dfd9b9419c7efa8704bc79c3177f7cd)), closes [#55](https://github.com/AkiKanellis/homelab/issues/55)
+
 ## [1.6.0](https://github.com/AkiKanellis/homelab/compare/v1.5.3...v1.6.0) (2022-05-15)
 
 
