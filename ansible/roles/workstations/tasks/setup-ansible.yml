@@ -26,3 +26,8 @@
   ansible.posix.authorized_key:
     user: ansible
     key: "{{ lookup('file', 'files/ssh/id_ansible.pub') }}"
+
+- name: Install acl package
+  tags: ansible-setup
+  ansible.builtin.package:
+    name: acl

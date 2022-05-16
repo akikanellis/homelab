@@ -1,3 +1,21 @@
 ---
+- name: Update package cache
+  tags: always
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600
+
 - import_tasks: setup-ansible.yml
 - import_tasks: create-aki-user.yml
+- import_tasks: setup-zsh.yml
+
+- name: Clean package cache
+  tags: always
+  ansible.builtin.apt:
+    autoclean: true
+
+- name: Remove orphan packages
+  tags: always
+  ansible.builtin.apt:
+    autoremove: true
+    purge: true
