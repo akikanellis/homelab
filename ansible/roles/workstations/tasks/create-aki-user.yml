@@ -10,7 +10,6 @@
     groups: adm,sudo
     comment: Aki Kanellis
     password: "{{ aki_password }}"
-    shell: /bin/bash
 
 - name: Copy "aki" user sudoers file
   ansible.builtin.copy:
