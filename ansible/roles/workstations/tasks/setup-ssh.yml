@@ -1,0 +1,5 @@
+- name: Setup SSH
+  ansible.builtin.import_role:
+    name: devsec.hardening.ssh_hardening
+  vars:
+    ssh_allow_users: "{{ ansible_user }} aki"

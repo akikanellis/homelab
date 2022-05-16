@@ -7,6 +7,7 @@
 
 - ansible.builtin.import_tasks: setup-ansible.yml
 - ansible.builtin.import_tasks: create-aki-user.yml
+- ansible.builtin.import_tasks: setup-ssh.yml
 - ansible.builtin.import_tasks: setup-zsh.yml
 
 - name: Clean package cache
