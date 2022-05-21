@@ -27,7 +27,7 @@ name: Deploy to Production
 
 env:
   # renovate: datasource=pypi depName=ansible-core
-  ANSIBLE_CORE_VERSION: 2.12.5
+  ANSIBLE_CORE_VERSION: 2.13.0
 
 jobs:
   deploy-to-production:
