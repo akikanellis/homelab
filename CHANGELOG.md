@@ -1,3 +1,11 @@
+### [1.7.1](https://github.com/AkiKanellis/homelab/compare/v1.7.0...v1.7.1) (2022-05-21)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#57](https://github.com/AkiKanellis/homelab/issues/57)) ([ca03c40](https://github.com/AkiKanellis/homelab/commit/ca03c403b1421126be30731a81eeadd4ebf60a07))
+* **deps:** update renovatebot/github-action action to v32.64.2 ([#58](https://github.com/AkiKanellis/homelab/issues/58)) ([b8445b4](https://github.com/AkiKanellis/homelab/commit/b8445b425b00bb800b407175545c709da2cda75b))
+
 ## [1.7.0](https://github.com/AkiKanellis/homelab/compare/v1.6.0...v1.7.0) (2022-05-16)
 
 
