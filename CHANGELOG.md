@@ -1,3 +1,10 @@
+## [1.8.0](https://github.com/AkiKanellis/homelab/compare/v1.7.4...v1.8.0) (2022-05-29)
+
+
+### Features
+
+* setup SSH ([#62](https://github.com/AkiKanellis/homelab/issues/62)) ([25277c0](https://github.com/AkiKanellis/homelab/commit/25277c0b642a9b3aa8918c2f1ba859f4e74523d1)), closes [#48](https://github.com/AkiKanellis/homelab/issues/48)
+
 ## [1.7.4](https://github.com/AkiKanellis/homelab/compare/v1.7.3...v1.7.4) (2022-05-28)
 
 
