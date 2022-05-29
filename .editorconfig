@@ -26,4 +26,5 @@ indent_size = 4
 [*.{yaml,yml}]
 max_line_length = off
 
+ij_yaml_spaces_within_braces = false
 ij_yaml_spaces_within_brackets = false

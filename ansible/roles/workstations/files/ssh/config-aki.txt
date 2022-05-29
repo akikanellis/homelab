@@ -1,0 +1,10 @@
+Host *
+    User aki
+    Port 22
+    IdentityFile ~/.ssh/id_ed25519_aki.pk
+
+Host nas
+  HostName server-nas.domantaki.com
+
+Host pi
+  HostName server-pi.domantaki.com
