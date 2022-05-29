@@ -25,7 +25,7 @@
   tags: ansible-setup
   ansible.posix.authorized_key:
     user: ansible
-    key: "{{ lookup('file', 'files/ssh/id_ansible.pub') }}"
+    key: "{{ lookup('file', 'files/ssh/id-ed25519-ansible.pub') }}"
 
 - name: Install acl package
   tags: ansible-setup
