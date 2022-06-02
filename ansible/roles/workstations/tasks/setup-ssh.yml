@@ -1,5 +1,14 @@
 ---
-- name: Setup SSH
+- name: Install SSH server
+  ansible.builtin.apt:
+    name: openssh-server
+
+- name: Start SSH server
+  ansible.builtin.service:
+    name: ssh
+    state: started
+
+- name: Harden SSH
   ansible.builtin.import_role:
     name: devsec.hardening.ssh_hardening
   vars:
