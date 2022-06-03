@@ -1,0 +1,6 @@
+---
+- name: Install dev tools
+  ansible.builtin.apt:
+    name:
+      - git
+      - tig
