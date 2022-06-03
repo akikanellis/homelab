@@ -1,0 +1,21 @@
+---
+- name: Install utilities
+  ansible.builtin.apt:
+    name:
+      - arp-scan
+      - cron
+      - curl
+      - dnsutils
+      - htop
+      - iotop
+      - locate
+      - neofetch
+      - net-tools
+      - nmap
+      - resolvconf
+      - traceroute
+      - vim
+      - wget
+      - whois
+      - wireshark-qt
+      - xclip
