@@ -1,3 +1,10 @@
+## [1.9.0](https://github.com/AkiKanellis/homelab/compare/v1.8.1...v1.9.0) (2022-06-03)
+
+
+### Features
+
+* install utilities ([#68](https://github.com/AkiKanellis/homelab/issues/68)) ([272ad38](https://github.com/AkiKanellis/homelab/commit/272ad384a5c54013aa30d696063fa83084d82425)), closes [#65](https://github.com/AkiKanellis/homelab/issues/65)
+
 ## [1.8.1](https://github.com/AkiKanellis/homelab/compare/v1.8.0...v1.8.1) (2022-05-29)
 
 
