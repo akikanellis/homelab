@@ -8,3 +8,7 @@ collections:
 roles:
   - name: gantsign.oh-my-zsh
     version: 2.4.0
+  - name: robertdebock.bootstrap
+    # There is a 'become' bug with versions >= 6.0.1
+    # See: https://github.com/robertdebock/ansible-role-bootstrap/issues/59
+    version: 6.0.0

@@ -27,7 +27,7 @@
     user: ansible
     key: "{{ lookup('file', 'files/ssh/id-ed25519-ansible.pub') }}"
 
-- name: Install acl package
+- name: Install ansible required packages
   tags: ansible-setup
   ansible.builtin.package:
     name: acl

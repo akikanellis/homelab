@@ -1,13 +1,46 @@
 ---
-- name: Bootstrap All for Ansible
+- name: Bootstrap All Hosts for Ansible
+  tags: ansible-setup
   hosts: all
   become: true
   gather_facts: false
 
   roles: [robertdebock.bootstrap]
 
+- name: Update All Hosts Package Cache
+  hosts: all
+  tags: always
+  become: true
+
+  tasks:
+    - name: Update package cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+- name: Apply All Hosts Configuration
+  hosts: all
+  become: true
+
+  roles: [all]
+
 - name: Apply Workstations Configuration
   hosts: workstations
   become: true
 
   roles: [workstations]
+
+- name: Cleanup All Hosts
+  hosts: all
+  tags: always
+  become: true
+
+  tasks:
+    - name: Clean package cache
+      ansible.builtin.apt:
+        autoclean: true
+
+    - name: Remove orphan packages
+      ansible.builtin.apt:
+        autoremove: true
+        purge: true
