@@ -29,5 +29,5 @@
 
 - name: Install ansible required packages
   tags: ansible-setup
-  ansible.builtin.package:
+  ansible.builtin.apt:
     name: acl
