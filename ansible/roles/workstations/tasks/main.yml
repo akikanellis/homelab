@@ -2,6 +2,6 @@
 - ansible.builtin.import_tasks: create-aki-user.yml
 - ansible.builtin.import_tasks: install-package-management-tools.yml
 - ansible.builtin.import_tasks: install-utilities.yml
-- ansible.builtin.import_tasks: install-dev-tools.yml
 - ansible.builtin.import_tasks: setup-ssh.yml
 - ansible.builtin.import_tasks: setup-zsh.yml
+- ansible.builtin.import_tasks: install-dev-tools.yml
