@@ -1,5 +1,13 @@
 ---
+- name: Bootstrap All for Ansible
+  hosts: all
+  become: true
+  gather_facts: false
+
+  roles: [robertdebock.bootstrap]
+
 - name: Apply Workstations Configuration
   hosts: workstations
-  roles: [workstations]
   become: true
+
+  roles: [workstations]
