@@ -3,15 +3,13 @@
   ansible.builtin.apt:
     name:
       - build-essential
-      - git
-      - tig
       - python3
       - python3-pip
       - python3-virtualenv
 
 - name: Install SDKMAN and packages
   tags: test
-  import_role:
+  ansible.builtin.import_role:
     name: Comcast.sdkman
   vars:
     sdkman_user: aki
@@ -43,3 +41,31 @@
       - candidate: java
         name: javac
         link: /usr/bin/javac
+
+- name: Setup git
+  block:
+    - name: Install git
+      ansible.builtin.apt:
+        name:
+          - git
+          - tig
+
+    - name: Copy "aki" user gitconfig
+      ansible.builtin.template:
+        src: gitconfig-aki.j2
+        dest: /home/aki/.gitconfig
+        owner: aki
+        group: aki
+        mode: 0600
+
+    - name: Create project directories for "aki" user
+      ansible.builtin.file:
+        path: /home/aki/Projects/{{ item }}
+        state: directory
+        owner: aki
+        group: aki
+        mode: 0700
+      loop:
+        - aki
+        - forks
+        - other
