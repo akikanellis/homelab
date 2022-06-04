@@ -2,5 +2,9 @@
 - name: Install dev tools
   ansible.builtin.apt:
     name:
+      - build-essential
       - git
       - tig
+      - python3
+      - python3-pip
+      - python3-virtualenv
