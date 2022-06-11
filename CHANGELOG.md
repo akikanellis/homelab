@@ -1,3 +1,10 @@
+## [1.9.6](https://github.com/AkiKanellis/homelab/compare/v1.9.5...v1.9.6) (2022-06-11)
+
+
+### Build System
+
+* **deps:** update actions/setup-python action to v4 ([#73](https://github.com/AkiKanellis/homelab/issues/73)) ([e0a6159](https://github.com/AkiKanellis/homelab/commit/e0a615905d2a94ce00391b59a6513436e2b6b1e8))
+
 ## [1.9.5](https://github.com/AkiKanellis/homelab/compare/v1.9.4...v1.9.5) (2022-06-11)
 
 
