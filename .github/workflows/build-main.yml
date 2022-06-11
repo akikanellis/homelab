@@ -42,7 +42,7 @@ jobs:
           GIT_COMMITTER_EMAIL: 103840025+aki-bot[bot]@users.noreply.github.com
         with:
           # renovate: datasource=npm depName=semantic-release
-          semantic_version: 19.0.2
+          semantic_version: 19.0.3
           extra_plugins: conventional-changelog-conventionalcommits
 
   deploy-to-production:
