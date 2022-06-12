@@ -8,7 +8,6 @@
       - python3-virtualenv
 
 - name: Install SDKMAN and packages
-  tags: test
   ansible.builtin.import_role:
     name: Comcast.sdkman
   vars:
@@ -69,3 +68,11 @@
         - aki
         - forks
         - other
+
+- name: Install jenv
+  tags: test
+  become_user: aki
+  become: true
+  community.general.homebrew:
+    name: jenv
+    path: "/home/aki/.linuxbrew/bin"

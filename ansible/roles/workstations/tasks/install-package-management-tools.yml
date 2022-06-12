@@ -13,3 +13,11 @@
     name: flathub
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     method: user
+
+- name: Install homebrew
+  tags: test
+  ansible.builtin.import_role:
+    name: monolithprojects.homebrew
+  vars:
+    homebrew_user: aki
+  notify: update-brew

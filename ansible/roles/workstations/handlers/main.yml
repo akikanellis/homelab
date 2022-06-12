@@ -1,0 +1,5 @@
+---
+- name: update-brew
+  become_user: aki
+  community.general.homebrew:
+    update_homebrew: true
