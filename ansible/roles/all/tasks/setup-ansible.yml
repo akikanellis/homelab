@@ -13,8 +13,8 @@
 
 - name: Copy "ansible" user sudoers file
   tags: ansible-setup
-  ansible.builtin.copy:
-    src: sudoers-ansible.txt
+  ansible.builtin.template:
+    src: sudoers-ansible.j2
     dest: /etc/sudoers.d/ansible
     owner: root
     group: root

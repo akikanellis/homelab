@@ -12,8 +12,8 @@
     password: "{{ aki_password }}"
 
 - name: Copy "aki" user sudoers file
-  ansible.builtin.copy:
-    src: sudoers-aki.txt
+  ansible.builtin.template:
+    src: sudoers-aki.j2
     dest: /etc/sudoers.d/aki
     owner: root
     group: root
