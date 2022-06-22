@@ -33,11 +33,11 @@ run *extra_args:
   molecule {{extra_args}} converge
 
 # Run the app for test
-run-test:
+run-test *extra_args:
   #!/usr/bin/env bash
   set -ex
   source env/bin/activate
-  molecule converge -- --tags test
+  molecule {{extra_args}} converge -- --tags test
 
 # Tear down the app
 down *extra_args:
