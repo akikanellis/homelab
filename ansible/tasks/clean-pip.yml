@@ -1,0 +1,16 @@
+---
+# TODO this doesn't work yet
+- name: Check if pip exists
+  stat:
+    path: /home/aki/.local/bin/pip
+  register: pip_path
+
+- name: Clean pip
+  tags: test
+  become_user: aki
+  ansible.builtin.shell:
+    executable: /bin/zsh
+    cmd: pip cache purge
+  register: pip_clean
+  changed_when: "pip_clean.stdout not in 'Files removed: 0'"
+  when: pip_path.stat.exists

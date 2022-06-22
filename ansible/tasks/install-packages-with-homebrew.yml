@@ -1,0 +1,8 @@
+---
+- name: Install {{ name }}
+  ansible.builtin.import_role:
+    name: monolithprojects.homebrew
+    tasks_from: formulae
+  vars:
+    homebrew_user: aki
+    brew_formulae: "{{ name }}"

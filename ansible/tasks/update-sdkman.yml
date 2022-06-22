@@ -1,0 +1,15 @@
+---
+- name: Check if SDKMAN! path exists
+  stat:
+    path: /home/aki/.sdkman
+  register: sdkman_path
+
+- name: Update SDKMAN!
+  become_user: aki
+  ansible.builtin.shell:
+    executable: /bin/zsh
+    cmd: sdk update
+  register: sdk_update
+  changed_when: >
+    'No new candidates found at this time' not in sdk_update.stdout
+  when: sdkman_path.stat.exists

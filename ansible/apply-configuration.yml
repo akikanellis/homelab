@@ -18,6 +18,9 @@
         update_cache: true
         cache_valid_time: 3600
 
+    - ansible.builtin.import_tasks: tasks/update-homebrew.yml
+    - ansible.builtin.import_tasks: tasks/update-sdkman.yml
+
 - name: Apply All Hosts Configuration
   hosts: all
   become: true
@@ -44,3 +47,7 @@
       ansible.builtin.apt:
         autoremove: true
         purge: true
+
+    - ansible.builtin.import_tasks: tasks/clean-homebrew.yml
+    - ansible.builtin.import_tasks: tasks/clean-pip.yml
+    - ansible.builtin.import_tasks: tasks/clean-sdkman.yml

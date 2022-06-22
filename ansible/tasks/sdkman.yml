@@ -1,0 +1,11 @@
+---
+- name: Run SDKMAN!
+  become_user: aki
+  ansible.builtin.import_role:
+    name: Comcast.sdkman
+    tasks_from: "{{ tasks }}"
+  vars:
+    sdkman_user: aki
+    sdkman_group: aki
+    sdkman_auto_answer: true
+    sdkman_auto_selfupdate: true

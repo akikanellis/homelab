@@ -3,36 +3,24 @@
   ansible.builtin.apt:
     name:
       - build-essential
-      - python3
-      - python3-pip
+      - python3-full
       - python3-virtualenv
 
-- name: Install SDKMAN and packages
-  ansible.builtin.import_role:
-    name: Comcast.sdkman
+- name: Install "aki" user SDKs
+  import_tasks: sdkman.yml
   vars:
-    sdkman_user: aki
-    sdkman_group: aki
-    sdkman_auto_answer: true
+    tasks: sdkman
     sdkman_install_packages:
-      - {candidate: java, version: 18.0.1-tem}
+      - {candidate: java, version: 18-tem}
       - {candidate: java, version: 17.0.3-tem}
       - {candidate: java, version: 11.0.15-tem}
       - {candidate: java, version: 8.0.332-tem}
-      - {candidate: kotlin, version: 1.6.21}
+      - {candidate: kotlin, version: 1.7.0}
       - {candidate: groovy, version: 4.0.3}
       - {candidate: gradle, version: 7.4.2}
-      - {candidate: maven, version: 3.8.5}
+      - {candidate: maven, version: 3.8.6}
     sdkman_defaults:
-      java: 18.0.1-tem
-    sdkman_flush_caches_before:
-      - temp
-    sdkman_flush_caches_after:
-      - archives
-      - broadcast
-      - candidates
-      - temp
-    sdkman_offline_mode: false
+      java: 18-tem
     sdkman_update_alternatives:
       - candidate: java
         name: java
@@ -69,10 +57,15 @@
         - forks
         - other
 
-- name: Install jenv
+- import_tasks: install-packages-with-homebrew.yml
+  vars:
+    name: just
+
+- name: Install python dev tools
   tags: test
   become_user: aki
-  become: true
-  community.general.homebrew:
-    name: jenv
-    path: "/home/aki/.linuxbrew/bin"
+  ansible.builtin.pip:
+    name:
+      - ansible
+      - molecule
+      - yamllint

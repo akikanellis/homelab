@@ -11,3 +11,40 @@
           name: robbyrussell
         antigen_bundles:
           - name: git
+
+- name: Create "aki" user ZSH directories
+  ansible.builtin.file:
+    path: /home/aki/.zsh
+    state: directory
+    owner: aki
+    group: aki
+    mode: 0700
+
+- name: Copy "aki" user ZSH configs
+  tags: test
+  ansible.builtin.template:
+    src: zsh/{{ item }}.j2
+    dest: /home/aki/.zsh/{{ item }}.zsh
+    owner: aki
+    group: aki
+    mode: 0600
+  loop:
+    - path
+    - sdkman
+
+- name: Copy "aki" user zshenv
+  ansible.builtin.template:
+    src: zsh/zshenv.j2
+    dest: /home/aki/.zshenv
+    owner: aki
+    group: aki
+    mode: 0600
+
+- name: Copy "aki" user zshrc
+  ansible.builtin.template:
+    src: zsh/zshrc.j2
+    dest: /home/aki/.zshrc
+    owner: aki
+    group: aki
+    # This needs to match the mode set by gantsign.antigen
+    mode: 0644
