@@ -1,3 +1,10 @@
+## [1.9.10](https://github.com/AkiKanellis/homelab/compare/v1.9.9...v1.9.10) (2022-06-22)
+
+
+### Build System
+
+* **deps:** update dependency molecule to v4 ([#78](https://github.com/AkiKanellis/homelab/issues/78)) ([71ca642](https://github.com/AkiKanellis/homelab/commit/71ca642a0cb17b8157513657d8641306f75b1757))
+
 ## [1.9.9](https://github.com/AkiKanellis/homelab/compare/v1.9.8...v1.9.9) (2022-06-19)
 
 
