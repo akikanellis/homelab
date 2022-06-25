@@ -6,14 +6,6 @@ collections:
     version: 7.14.1
 
 roles:
-  - name: robertdebock.bootstrap
-    # Unfortunately there is a bug with ansible galaxy causing version 6.0.0
-    # to not be found by name, so we have to use the repository
-    src: https://github.com/robertdebock/ansible-role-bootstrap
-    # There is a 'become' bug with versions >= 6.0.1
-    # See: https://github.com/robertdebock/ansible-role-bootstrap/issues/59
-    version: 6.0.0
-
   - name: gantsign.antigen
     version: 1.4.2
 

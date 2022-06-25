@@ -1,12 +1,4 @@
 ---
-- name: Bootstrap All Hosts for Ansible
-  tags: ansible-setup
-  hosts: all
-  become: true
-  gather_facts: false
-
-  roles: [robertdebock.bootstrap]
-
 - name: Update All Hosts Package Cache
   hosts: all
   tags: always
