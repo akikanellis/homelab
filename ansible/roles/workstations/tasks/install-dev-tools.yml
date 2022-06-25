@@ -5,6 +5,7 @@
       - build-essential
       - python3-full
       - python3-virtualenv
+      - vagrant
 
 - name: Install "aki" user SDKs
   import_tasks: sdkman.yml
