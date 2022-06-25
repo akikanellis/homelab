@@ -98,3 +98,21 @@
 - name: Install MQTT Explorer
   community.general.snap:
     name: mqtt-explorer
+
+- name: Install VirtualBox
+  tags: test
+  block:
+    - name: Accept VirtualBox license
+      ansible.builtin.debconf:
+        name: virtualbox-ext-pack
+        question: virtualbox-ext-pack/license
+        value: "true"
+        vtype: select
+
+    - name: Install VirtualBox
+      tags: test
+      ansible.builtin.apt:
+        name:
+          - virtualbox
+          - virtualbox-ext-pack
+          - virtualbox-guest-utils
