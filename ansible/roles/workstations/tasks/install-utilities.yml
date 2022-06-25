@@ -6,6 +6,7 @@
       - cron
       - curl
       - dnsutils
+      - gnupg
       - htop
       - iotop
       - locate

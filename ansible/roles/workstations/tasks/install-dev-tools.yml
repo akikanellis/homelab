@@ -64,6 +64,24 @@
   vars:
     name: just
 
+- name: Install Terraform
+  block:
+    - name: Install HashiCorp apt key
+      ansible.builtin.apt_key:
+        url: https://apt.releases.hashicorp.com/gpg
+
+    - name: Install HashiCorp apt repository
+      ansible.builtin.apt_repository:
+        repo: >
+          deb [arch=amd64]
+          https://apt.releases.hashicorp.com
+          {{ ansible_distribution_release }}
+          main
+
+    - name: Install Terraform
+      ansible.builtin.package:
+        name: terraform
+
 - name: Install python dev tools
   become_user: aki
   ansible.builtin.pip:
