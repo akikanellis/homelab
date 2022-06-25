@@ -57,7 +57,8 @@
         - forks
         - other
 
-- import_tasks: install-packages-with-homebrew.yml
+- name: Install just
+  import_tasks: install-packages-with-homebrew.yml
   vars:
     name: just
 
