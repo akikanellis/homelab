@@ -116,3 +116,19 @@
           - virtualbox
           - virtualbox-ext-pack
           - virtualbox-guest-utils
+
+- name: Install Node.js
+  become_user: aki
+  block:
+    - name: Install Node.js
+      ansible.builtin.shell:
+        executable: /bin/zsh
+        cmd: nvm install node
+      register: nvm_install
+      changed_when: "'already installed' not in nvm_install.stderr"
+
+    - name: Set default Node.js
+      ansible.builtin.shell:
+        executable: /bin/zsh
+        cmd: nvm alias default node
+      changed_when: false

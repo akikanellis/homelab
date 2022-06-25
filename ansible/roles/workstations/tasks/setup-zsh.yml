@@ -28,6 +28,7 @@
     group: aki
     mode: 0600
   loop:
+    - nvm
     - path
     - sdkman
     - terraform

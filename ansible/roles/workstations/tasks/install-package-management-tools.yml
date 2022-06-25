@@ -36,3 +36,9 @@
   ansible.builtin.package:
     name:
       - python3-pip
+
+- name: Install Node Version Manager
+  tags: test
+  import_tasks: install-packages-with-homebrew.yml
+  vars:
+    name: nvm
