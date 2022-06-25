@@ -73,7 +73,6 @@
       - yamllint
 
 - name: Install Intellij
-  tags: test
   ansible.builtin.snap:
     name: intellij-idea-ultimate
     classic: true
