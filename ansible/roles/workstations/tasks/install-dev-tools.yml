@@ -91,6 +91,10 @@
       - yamllint
 
 - name: Install Intellij
-  ansible.builtin.snap:
+  community.general.snap:
     name: intellij-idea-ultimate
     classic: true
+
+- name: Install MQTT Explorer
+  community.general.snap:
+    name: mqtt-explorer
