@@ -8,5 +8,5 @@
   ansible.builtin.shell:
     cmd: pip cache purge
   register: pip_clean
-  changed_when: "pip_clean.stdout not in 'Files removed: 0'"
+  changed_when: "'Files removed: 0' not in pip_clean.stdout"
   when: pip_path.stat.exists
