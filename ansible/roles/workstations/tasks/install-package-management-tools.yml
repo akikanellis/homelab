@@ -33,7 +33,6 @@
     sdkman_auto_selfupdate: true
 
 - name: Install pip
-  tags: test
   ansible.builtin.package:
     name:
       - python3-pip

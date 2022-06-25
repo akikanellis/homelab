@@ -6,7 +6,6 @@
   register: pip_path
 
 - name: Clean pip
-  tags: test
   become_user: aki
   ansible.builtin.shell:
     executable: /bin/zsh

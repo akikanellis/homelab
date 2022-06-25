@@ -21,7 +21,6 @@
     mode: 0700
 
 - name: Copy "aki" user ZSH configs
-  tags: test
   ansible.builtin.template:
     src: zsh/{{ item }}.j2
     dest: /home/aki/.zsh/{{ item }}.zsh

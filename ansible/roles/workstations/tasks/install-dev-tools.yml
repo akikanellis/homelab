@@ -62,7 +62,6 @@
     name: just
 
 - name: Install python dev tools
-  tags: test
   become_user: aki
   ansible.builtin.pip:
     name:
