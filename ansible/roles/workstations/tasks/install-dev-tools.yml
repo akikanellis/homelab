@@ -90,10 +90,12 @@
       - molecule
       - yamllint
 
-- name: Install Intellij
+- name: Install IDEs
   community.general.snap:
-    name: intellij-idea-ultimate
     classic: true
+    name:
+      - code
+      - intellij-idea-ultimate
 
 - name: Install MQTT Explorer
   community.general.snap:
