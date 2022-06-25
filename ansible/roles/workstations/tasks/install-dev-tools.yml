@@ -3,6 +3,7 @@
   ansible.builtin.apt:
     name:
       - build-essential
+      - perl
       - python3-full
       - python3-virtualenv
       - vagrant
