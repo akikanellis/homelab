@@ -11,7 +11,7 @@ driver:
 platforms:
   - name: workstation-pop-os
     groups: [workstations]
-    box: ubuntu/focal64
+    box: ubuntu/jammy64
     memory: 1024
 
 provisioner:
