@@ -1,15 +1,11 @@
 ---
-- name: Update All Hosts Package Cache
+- name: Update All Hosts Package Caches
   hosts: all
   tags: always
   become: true
 
   tasks:
-    - name: Update package cache
-      ansible.builtin.apt:
-        update_cache: true
-        cache_valid_time: 3600
-
+    - ansible.builtin.import_tasks: tasks/update-apt.yml
     - ansible.builtin.import_tasks: tasks/update-homebrew.yml
     - ansible.builtin.import_tasks: tasks/update-sdkman.yml
 
@@ -31,15 +27,7 @@
   become: true
 
   tasks:
-    - name: Clean package cache
-      ansible.builtin.apt:
-        autoclean: true
-
-    - name: Remove orphan packages
-      ansible.builtin.apt:
-        autoremove: true
-        purge: true
-
+    - ansible.builtin.import_tasks: tasks/clean-apt.yml
     - ansible.builtin.import_tasks: tasks/clean-homebrew.yml
     - ansible.builtin.import_tasks: tasks/clean-pip.yml
     - ansible.builtin.import_tasks: tasks/clean-sdkman.yml
