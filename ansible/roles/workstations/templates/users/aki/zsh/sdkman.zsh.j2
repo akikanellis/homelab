@@ -1,4 +1,6 @@
 {{ ansible_managed | comment }}
 
 export SDKMAN_DIR=/home/aki/.sdkman
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
+[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] \
+  && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
