@@ -22,7 +22,9 @@
     homebrew_user: aki
 
 - name: Install SDKMAN! for "aki" user
-  import_tasks: sdkman.yml
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: sdkman
 
 - name: Install pip
   ansible.builtin.package:

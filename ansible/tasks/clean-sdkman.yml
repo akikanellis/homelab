@@ -5,7 +5,9 @@
   register: sdkman_path
 
 - name: Clean SDKMAN!
-  import_tasks: sdkman.yml
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: sdkman
   vars:
     sdkman_flush_caches_after:
       - archives

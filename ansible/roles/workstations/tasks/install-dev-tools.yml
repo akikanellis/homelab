@@ -9,7 +9,9 @@
       - vagrant
 
 - name: Install "aki" user SDKs
-  import_tasks: sdkman.yml
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: sdkman
   vars:
     sdkman_install_packages:
       - {candidate: java, version: 18-tem}
