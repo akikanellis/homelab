@@ -103,9 +103,11 @@
       - code
       - intellij-idea-ultimate
 
-- name: Install MQTT Explorer
+- name: Install Snap dev tools
   community.general.snap:
-    name: mqtt-explorer
+    name:
+      - mqtt-explorer
+      - postman
 
 - name: Install VirtualBox
   block:
