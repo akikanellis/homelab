@@ -1,6 +1,6 @@
 ---
 - name: Install SSH server
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name: openssh-server
 
 - name: Start SSH server

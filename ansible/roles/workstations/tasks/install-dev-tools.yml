@@ -1,6 +1,6 @@
 ---
 - name: Install dev tools
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name:
       - build-essential
       - perl
@@ -34,7 +34,7 @@
 - name: Setup git
   block:
     - name: Install git
-      ansible.builtin.apt:
+      ansible.builtin.package:
         name:
           - git
           - tig
@@ -113,7 +113,7 @@
 
     - name: Install VirtualBox
       tags: test
-      ansible.builtin.apt:
+      ansible.builtin.package:
         name:
           - virtualbox
           - virtualbox-ext-pack

@@ -1,6 +1,6 @@
 ---
 - name: Install package management tools
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name:
       - aptitude
       - flatpak
