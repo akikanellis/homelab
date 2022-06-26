@@ -5,16 +5,8 @@
   register: sdkman_path
 
 - name: Clean SDKMAN!
-  become_user: aki
-  ansible.builtin.import_role:
-    name: Comcast.sdkman
-    tasks_from: sdkman
+  import_tasks: sdkman.yml
   vars:
-    sdkman_user: aki
-    sdkman_group: aki
-    sdkman_dir: /home/aki/.sdkman
-    sdkman_auto_answer: true
-    sdkman_auto_selfupdate: true
     sdkman_flush_caches_after:
       - archives
       - broadcast
@@ -22,4 +14,5 @@
       - metadata
       - tmp
       - version
+
   when: sdkman_path.stat.exists

@@ -11,7 +11,6 @@
 - name: Install "aki" user SDKs
   import_tasks: sdkman.yml
   vars:
-    tasks: sdkman
     sdkman_install_packages:
       - {candidate: java, version: 18-tem}
       - {candidate: java, version: 17.0.3-tem}
@@ -21,8 +20,10 @@
       - {candidate: groovy, version: 4.0.3}
       - {candidate: gradle, version: 7.4.2}
       - {candidate: maven, version: 3.8.6}
+
     sdkman_defaults:
       java: 18-tem
+
     sdkman_update_alternatives:
       - candidate: java
         name: java
@@ -59,10 +60,13 @@
         - forks
         - other
 
-- name: Install just
-  import_tasks: install-packages-with-homebrew.yml
+- name: Install just for "aki" user
+  ansible.builtin.import_role:
+    name: monolithprojects.homebrew
+    tasks_from: formulae
   vars:
-    name: just
+    homebrew_user: aki
+    brew_formulae: just
 
 - name: Install Terraform
   block:
@@ -102,7 +106,6 @@
     name: mqtt-explorer
 
 - name: Install VirtualBox
-  tags: test
   block:
     - name: Accept VirtualBox license
       ansible.builtin.debconf:
@@ -112,7 +115,6 @@
         vtype: select
 
     - name: Install VirtualBox
-      tags: test
       ansible.builtin.package:
         name:
           - virtualbox

@@ -14,31 +14,24 @@
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     method: user
 
-- name: Install Homebrew
+- name: Install Homebrew for "aki" user
   ansible.builtin.import_role:
     name: monolithprojects.homebrew
     tasks_from: install
   vars:
     homebrew_user: aki
 
-- name: Install SDKMAN!
-  ansible.builtin.import_role:
-    name: Comcast.sdkman
-    tasks_from: install
-  vars:
-    sdkman_user: aki
-    sdkman_group: aki
-    sdkman_dir: /home/aki/.sdkman
-    sdkman_auto_answer: true
-    sdkman_auto_selfupdate: true
+- name: Install SDKMAN! for "aki" user
+  import_tasks: sdkman.yml
 
 - name: Install pip
   ansible.builtin.package:
-    name:
-      - python3-pip
+    name: python3-pip
 
-- name: Install Node Version Manager
-  tags: test
-  import_tasks: install-packages-with-homebrew.yml
+- name: Install Node Version Manager for "aki" user
+  ansible.builtin.import_role:
+    name: monolithprojects.homebrew
+    tasks_from: formulae
   vars:
-    name: nvm
+    homebrew_user: aki
+    brew_formulae: nvm
