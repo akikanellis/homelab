@@ -35,7 +35,7 @@
 
 - name: Copy "aki" user ssh client config
   ansible.builtin.template:
-    src: ssh/config-aki.j2
+    src: users/aki/ssh/config.j2
     dest: /home/aki/.ssh/config
     owner: aki
     group: aki

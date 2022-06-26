@@ -41,7 +41,7 @@
 
     - name: Copy "aki" user gitconfig
       ansible.builtin.template:
-        src: gitconfig-aki.j2
+        src: users/aki/gitconfig.j2
         dest: /home/aki/.gitconfig
         owner: aki
         group: aki

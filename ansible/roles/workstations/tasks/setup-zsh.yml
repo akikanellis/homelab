@@ -22,7 +22,7 @@
 
 - name: Copy "aki" user ZSH configs
   ansible.builtin.template:
-    src: zsh/{{ item }}.zsh.j2
+    src: users/aki/zsh/{{ item }}.zsh.j2
     dest: /home/aki/.zsh/{{ item }}.zsh
     owner: aki
     group: aki
@@ -34,7 +34,7 @@
 
 - name: Copy "aki" user zshenv
   ansible.builtin.template:
-    src: zsh/zshenv.j2
+    src: users/aki/zsh/zshenv.j2
     dest: /home/aki/.zshenv
     owner: aki
     group: aki
@@ -42,7 +42,7 @@
 
 - name: Copy "aki" user zshrc
   ansible.builtin.template:
-    src: zsh/zshrc.j2
+    src: users/aki/zsh/zshrc.j2
     dest: /home/aki/.zshrc
     owner: aki
     group: aki

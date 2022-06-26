@@ -13,7 +13,7 @@
 
 - name: Copy "aki" user sudoers file
   ansible.builtin.template:
-    src: sudoers-aki.j2
+    src: users/aki/sudoer.j2
     dest: /etc/sudoers.d/aki
     owner: root
     group: root
