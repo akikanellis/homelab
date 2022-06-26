@@ -5,7 +5,7 @@
   register: pip_path
 
 - name: Clean pip
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: pip cache purge
   register: pip_clean
   changed_when: "'Files removed: 0' not in pip_clean.stdout"
