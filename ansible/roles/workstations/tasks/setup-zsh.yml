@@ -31,7 +31,6 @@
     - nvm
     - path
     - sdkman
-    - terraform
 
 - name: Copy "aki" user zshenv
   ansible.builtin.template:
