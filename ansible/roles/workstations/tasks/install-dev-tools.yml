@@ -125,14 +125,12 @@
   become_user: aki
   block:
     - name: Install Node.js
-      ansible.builtin.shell:
-        executable: /bin/zsh
-        cmd: nvm install node
+      ansible.builtin.command:
+        cmd: zsh -c "nvm install node"
       register: nvm_install
       changed_when: "'already installed' not in nvm_install.stderr"
 
     - name: Set default Node.js
-      ansible.builtin.shell:
-        executable: /bin/zsh
-        cmd: nvm alias default node
+      ansible.builtin.command:
+        cmd: zsh -c "nvm alias default node"
       changed_when: false

@@ -6,9 +6,8 @@
 
 - name: Update SDKMAN!
   become_user: aki
-  ansible.builtin.shell:
-    executable: /bin/zsh
-    cmd: sdk update
+  ansible.builtin.command:
+    cmd: zsh -c "sdk update"
   register: sdk_update
   changed_when: >
     'No new candidates found at this time' not in sdk_update.stdout

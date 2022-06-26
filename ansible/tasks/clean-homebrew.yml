@@ -6,9 +6,8 @@
 
 - name: Clean Homebrew
   become_user: aki
-  ansible.builtin.shell:
-    executable: /bin/zsh
-    cmd: brew autoremove && brew cleanup
+  ansible.builtin.command:
+    cmd: zsh -c "brew autoremove && brew cleanup"
   register: brew_clean
   changed_when: brew_clean.stdout
   when: homebrew_path.stat.exists
