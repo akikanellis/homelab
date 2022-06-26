@@ -22,7 +22,7 @@
 
 - name: Copy "aki" user ZSH configs
   ansible.builtin.template:
-    src: zsh/{{ item }}.j2
+    src: zsh/{{ item }}.zsh.j2
     dest: /home/aki/.zsh/{{ item }}.zsh
     owner: aki
     group: aki
@@ -47,5 +47,6 @@
     dest: /home/aki/.zshrc
     owner: aki
     group: aki
-    # This needs to match the mode set by gantsign.antigen
+    # This needs to match the mode set by gantsign.antigen otherwise it will
+    # keep changing on each task execution
     mode: 0644
