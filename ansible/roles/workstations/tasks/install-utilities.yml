@@ -1,5 +1,6 @@
 ---
 - name: Install utilities
+  tags: test
   ansible.builtin.package:
     name:
       - arp-scan
@@ -10,6 +11,7 @@
       - gnupg
       - htop
       - iotop
+      - jq
       - locate
       - neofetch
       - net-tools
@@ -24,3 +26,8 @@
       - wireshark-qt
       - xclip
       - zip
+
+- name: Install Snap utilities
+  tags: test
+  community.general.snap:
+    name: yq
