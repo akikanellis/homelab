@@ -1,6 +1,6 @@
 ---
 - name: Install package management tools
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name:
       - aptitude
       - flatpak
@@ -13,3 +13,27 @@
     name: flathub
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     method: user
+
+- name: Install Homebrew for "aki" user
+  ansible.builtin.import_role:
+    name: monolithprojects.homebrew
+    tasks_from: install
+  vars:
+    homebrew_user: aki
+
+- name: Install SDKMAN! for "aki" user
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: sdkman
+
+- name: Install pip
+  ansible.builtin.package:
+    name: python3-pip
+
+- name: Install Node Version Manager for "aki" user
+  ansible.builtin.import_role:
+    name: monolithprojects.homebrew
+    tasks_from: formulae
+  vars:
+    homebrew_user: aki
+    brew_formulae: nvm

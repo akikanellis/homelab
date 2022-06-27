@@ -1,0 +1,20 @@
+---
+- name: Check if SDKMAN! path exists
+  ansible.builtin.stat:
+    path: /home/aki/.sdkman
+  register: sdkman_path
+
+- name: Clean SDKMAN!
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: sdkman
+  vars:
+    sdkman_flush_caches_after:
+      - archives
+      - broadcast
+      - candidates
+      - metadata
+      - tmp
+      - version
+
+  when: sdkman_path.stat.exists

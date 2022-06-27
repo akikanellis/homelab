@@ -1,0 +1,13 @@
+---
+- name: Check if Homebrew path exists
+  ansible.builtin.stat:
+    path: /home/aki/.linuxbrew/bin
+  register: homebrew_path
+
+- name: Clean Homebrew
+  become_user: aki
+  ansible.builtin.command:
+    cmd: zsh -c "brew autoremove && brew cleanup"
+  register: brew_clean
+  changed_when: brew_clean.stdout
+  when: homebrew_path.stat.exists

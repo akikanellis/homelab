@@ -1,7 +1,51 @@
 ---
 - name: Setup ZSH
   ansible.builtin.import_role:
-    name: gantsign.oh-my-zsh
+    name: gantsign.antigen
   vars:
     users:
       - username: aki
+        antigen_libraries:
+          - name: oh-my-zsh
+        antigen_theme:
+          name: robbyrussell
+        antigen_bundles:
+          - name: git
+
+- name: Create "aki" user ZSH directories
+  ansible.builtin.file:
+    path: /home/aki/.zsh
+    state: directory
+    owner: aki
+    group: aki
+    mode: 0700
+
+- name: Copy "aki" user ZSH configs
+  ansible.builtin.template:
+    src: users/aki/zsh/{{ item }}.zsh.j2
+    dest: /home/aki/.zsh/{{ item }}.zsh
+    owner: aki
+    group: aki
+    mode: 0600
+  loop:
+    - nvm
+    - path
+    - sdkman
+
+- name: Copy "aki" user zshenv
+  ansible.builtin.template:
+    src: users/aki/zsh/zshenv.j2
+    dest: /home/aki/.zshenv
+    owner: aki
+    group: aki
+    mode: 0600
+
+- name: Copy "aki" user zshrc
+  ansible.builtin.template:
+    src: users/aki/zsh/zshrc.j2
+    dest: /home/aki/.zshrc
+    owner: aki
+    group: aki
+    # This needs to match the mode set by gantsign.antigen otherwise it will
+    # keep changing on each task execution
+    mode: 0644

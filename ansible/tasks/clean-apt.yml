@@ -1,0 +1,9 @@
+---
+- name: Clean apt package cache
+  ansible.builtin.apt:
+    autoclean: true
+
+- name: Remove apt orphan packages
+  ansible.builtin.apt:
+    autoremove: true
+    purge: true

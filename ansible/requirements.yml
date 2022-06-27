@@ -6,5 +6,11 @@ collections:
     version: 7.14.1
 
 roles:
-  - name: gantsign.oh-my-zsh
-    version: 2.4.0
+  - name: gantsign.antigen
+    version: 1.4.2
+
+  - name: Comcast.sdkman
+    version: 1.7.0
+
+  - name: monolithprojects.homebrew
+    version: 1.2.3

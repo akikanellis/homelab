@@ -1,0 +1,12 @@
+---
+- name: Check if Homebrew path exists
+  ansible.builtin.stat:
+    path: /home/aki/.linuxbrew/bin
+  register: homebrew_path
+
+- name: Update Homebrew
+  become_user: aki
+  community.general.homebrew:
+    update_homebrew: true
+    path: /home/aki/.linuxbrew/bin
+  when: homebrew_path.stat.exists

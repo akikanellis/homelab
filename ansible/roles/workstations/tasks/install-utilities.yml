@@ -1,11 +1,12 @@
 ---
 - name: Install utilities
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name:
       - arp-scan
       - cron
       - curl
       - dnsutils
+      - gnupg
       - htop
       - iotop
       - locate

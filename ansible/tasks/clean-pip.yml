@@ -1,0 +1,12 @@
+---
+- name: Check if pip path exists
+  ansible.builtin.stat:
+    path: /usr/bin/pip
+  register: pip_path
+
+- name: Clean pip
+  ansible.builtin.command:
+    cmd: pip cache purge
+  register: pip_clean
+  changed_when: "'Files removed: 0' not in pip_clean.stdout"
+  when: pip_path.stat.exists

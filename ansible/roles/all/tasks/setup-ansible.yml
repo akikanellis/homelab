@@ -13,8 +13,8 @@
 
 - name: Copy "ansible" user sudoers file
   tags: ansible-setup
-  ansible.builtin.copy:
-    src: sudoers-ansible.txt
+  ansible.builtin.template:
+    src: users/ansible/sudoer.j2
     dest: /etc/sudoers.d/ansible
     owner: root
     group: root
@@ -25,9 +25,9 @@
   tags: ansible-setup
   ansible.posix.authorized_key:
     user: ansible
-    key: "{{ lookup('file', 'files/ssh/id-ed25519-ansible.pub') }}"
+    key: "{{ lookup('file', 'files/users/ansible/ssh/id-ed25519.pub') }}"
 
-- name: Install acl package
+- name: Install ansible required packages
   tags: ansible-setup
   ansible.builtin.package:
     name: acl

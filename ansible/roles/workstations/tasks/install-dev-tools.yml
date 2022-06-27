@@ -1,0 +1,140 @@
+---
+- name: Install dev tools
+  ansible.builtin.package:
+    name:
+      - build-essential
+      - perl
+      - python3-full
+      - python3-virtualenv
+      - vagrant
+
+- name: Install "aki" user SDKs
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: sdkman
+  vars:
+    sdkman_install_packages:
+      - {candidate: java, version: 18-tem}
+      - {candidate: java, version: 17.0.3-tem}
+      - {candidate: java, version: 11.0.15-tem}
+      - {candidate: java, version: 8.0.332-tem}
+      - {candidate: kotlin, version: 1.7.0}
+      - {candidate: groovy, version: 4.0.3}
+      - {candidate: gradle, version: 7.4.2}
+      - {candidate: maven, version: 3.8.6}
+
+    sdkman_defaults:
+      java: 18-tem
+
+    sdkman_update_alternatives:
+      - candidate: java
+        name: java
+        link: /usr/bin/java
+      - candidate: java
+        name: javac
+        link: /usr/bin/javac
+
+- name: Setup git
+  block:
+    - name: Install git
+      ansible.builtin.package:
+        name:
+          - git
+          - tig
+
+    - name: Copy "aki" user gitconfig
+      ansible.builtin.template:
+        src: users/aki/gitconfig.j2
+        dest: /home/aki/.gitconfig
+        owner: aki
+        group: aki
+        mode: 0600
+
+    - name: Create project directories for "aki" user
+      ansible.builtin.file:
+        path: /home/aki/Projects/{{ item }}
+        state: directory
+        owner: aki
+        group: aki
+        mode: 0700
+      loop:
+        - aki
+        - forks
+        - other
+
+- name: Install just for "aki" user
+  ansible.builtin.import_role:
+    name: monolithprojects.homebrew
+    tasks_from: formulae
+  vars:
+    homebrew_user: aki
+    brew_formulae: just
+
+- name: Install Terraform
+  block:
+    - name: Install HashiCorp apt key
+      ansible.builtin.apt_key:
+        url: https://apt.releases.hashicorp.com/gpg
+
+    - name: Install HashiCorp apt repository
+      ansible.builtin.apt_repository:
+        repo: >
+          deb [arch=amd64]
+          https://apt.releases.hashicorp.com
+          {{ ansible_distribution_release }}
+          main
+
+    - name: Install Terraform
+      ansible.builtin.package:
+        name: terraform
+
+- name: Install python dev tools
+  become_user: aki
+  ansible.builtin.pip:
+    name:
+      - ansible
+      - molecule
+      - yamllint
+
+- name: Install IDEs
+  community.general.snap:
+    classic: true
+    name:
+      - code
+      - intellij-idea-ultimate
+
+- name: Install Snap dev tools
+  community.general.snap:
+    name:
+      - mqtt-explorer
+      - postman
+
+- name: Install VirtualBox
+  block:
+    - name: Accept VirtualBox license
+      ansible.builtin.debconf:
+        name: virtualbox-ext-pack
+        question: virtualbox-ext-pack/license
+        value: "true"
+        vtype: select
+
+    - name: Install VirtualBox
+      ansible.builtin.package:
+        name:
+          - virtualbox
+          - virtualbox-ext-pack
+          - virtualbox-guest-utils
+
+- name: Install Node.js
+  become_user: aki
+  block:
+    - name: Install Node.js
+      ansible.builtin.command:
+        cmd: zsh -c "nvm install node"
+      register: nvm_install
+      changed_when: "'already installed' not in nvm_install.stderr"
+
+    - name: Set default Node.js
+      ansible.builtin.command:
+        cmd: zsh -c "nvm alias default node"
+      changed_when: false

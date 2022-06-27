@@ -1,6 +1,6 @@
 ---
 - name: Install SSH server
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name: openssh-server
 
 - name: Start SSH server
@@ -34,8 +34,8 @@
     - {src: "{{ aki_ssh_public_key_file }}", dest: id_ed25519_aki.pub}
 
 - name: Copy "aki" user ssh client config
-  ansible.builtin.copy:
-    src: ssh/config-aki.txt
+  ansible.builtin.template:
+    src: users/aki/ssh/config.j2
     dest: /home/aki/.ssh/config
     owner: aki
     group: aki
