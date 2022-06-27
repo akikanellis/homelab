@@ -1,3 +1,10 @@
+## [1.10.2](https://github.com/AkiKanellis/homelab/compare/v1.10.1...v1.10.2) (2022-06-27)
+
+
+### Bug Fixes
+
+* add missing VirtualBox apt key and repository ([#87](https://github.com/AkiKanellis/homelab/issues/87)) ([3b4947a](https://github.com/AkiKanellis/homelab/commit/3b4947af98e4496f238ff2e2b2cdb82ea404ba65)), closes [#81](https://github.com/AkiKanellis/homelab/issues/81)
+
 ## [1.10.1](https://github.com/AkiKanellis/homelab/compare/v1.10.0...v1.10.1) (2022-06-27)
 
 
