@@ -1,3 +1,10 @@
+## [1.10.1](https://github.com/AkiKanellis/homelab/compare/v1.10.0...v1.10.1) (2022-06-27)
+
+
+### Bug Fixes
+
+* rekey prod vault ([#86](https://github.com/AkiKanellis/homelab/issues/86)) ([d4af09c](https://github.com/AkiKanellis/homelab/commit/d4af09c306c1da0fa9e81141f704f8d901feebb5))
+
 ## [1.10.0](https://github.com/AkiKanellis/homelab/compare/v1.9.14...v1.10.0) (2022-06-27)
 
 
