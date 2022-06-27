@@ -1,3 +1,10 @@
+## [1.10.0](https://github.com/AkiKanellis/homelab/compare/v1.9.14...v1.10.0) (2022-06-27)
+
+
+### Features
+
+* install dev tools ([#85](https://github.com/AkiKanellis/homelab/issues/85)) ([d1f997f](https://github.com/AkiKanellis/homelab/commit/d1f997f5913bb0a521f158b91d2c9725cf9ff343)), closes [#81](https://github.com/AkiKanellis/homelab/issues/81)
+
 ## [1.9.14](https://github.com/AkiKanellis/homelab/compare/v1.9.13...v1.9.14) (2022-06-26)
 
 
