@@ -5,6 +5,7 @@
       - arp-scan
       - cron
       - curl
+      - dialog
       - dnsutils
       - gnupg
       - htop
@@ -13,10 +14,13 @@
       - neofetch
       - net-tools
       - nmap
+      - p7zip-full
       - resolvconf
       - traceroute
+      - unrar
       - vim
       - wget
       - whois
       - wireshark-qt
       - xclip
+      - zip
