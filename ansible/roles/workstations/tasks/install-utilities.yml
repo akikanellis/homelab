@@ -1,6 +1,5 @@
 ---
 - name: Install utilities
-  tags: test
   ansible.builtin.package:
     name:
       - arp-scan
@@ -28,6 +27,5 @@
       - zip
 
 - name: Install Snap utilities
-  tags: test
   community.general.snap:
     name: yq
