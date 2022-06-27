@@ -1,0 +1,9 @@
+---
+- name: Install misc tools
+  tags: test
+  ansible.builtin.package:
+    name:
+      - asunder
+      - audacity
+      - caffeine
+      - cups
