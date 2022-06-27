@@ -32,7 +32,7 @@ run *extra_args:
   source env/bin/activate
   molecule {{extra_args}} converge
 
-# Run the app for test
+# Run the app for testing
 run-test *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
