@@ -110,7 +110,6 @@
       - postman
 
 - name: Install VirtualBox
-  tags: test
   block:
     - name: Add VirtualBox apt key
       ansible.builtin.apt_key:
@@ -131,7 +130,7 @@
         value: "true"
         vtype: select
 
-    # virtualbox needs to be installed before the extensions otherwise the
+    # VirtualBox needs to be installed before the extensions otherwise the
     # package dependencies will conflict
     - name: Install VirtualBox
       ansible.builtin.package:
