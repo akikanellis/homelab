@@ -118,7 +118,7 @@
     - name: Install VirtualBox apt repository
       ansible.builtin.apt_repository:
         repo: >
-          deb
+          deb [arch=amd64]
           https://download.virtualbox.org/virtualbox/debian
           {{ ansible_distribution_release }}
           contrib
@@ -130,10 +130,15 @@
         value: "true"
         vtype: select
 
+    # virtualbox needs to be installed before the extensions otherwise the
+    # package dependencies will conflict
     - name: Install VirtualBox
       ansible.builtin.package:
+        name: virtualbox
+
+    - name: Install VirtualBox extensions
+      ansible.builtin.package:
         name:
-          - virtualbox
           - virtualbox-ext-pack
           - virtualbox-guest-utils
 
