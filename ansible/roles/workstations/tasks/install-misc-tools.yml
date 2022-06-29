@@ -10,3 +10,8 @@
       - flameshot
       - gimp
       - gparted
+
+- name: Install Snap misc tools
+  tags: test
+  ansible.builtin.snap:
+    name: vlc
