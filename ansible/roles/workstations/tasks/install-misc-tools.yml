@@ -15,6 +15,7 @@
   tags: test
   ansible.builtin.snap:
     name:
+      - libreoffice
       - signal-desktop
       - slack
       - vlc
