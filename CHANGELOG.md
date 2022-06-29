@@ -1,3 +1,10 @@
+## [1.10.3](https://github.com/AkiKanellis/homelab/compare/v1.10.2...v1.10.3) (2022-06-29)
+
+
+### Bug Fixes
+
+* separate VirtualBox installation from extensions ([#88](https://github.com/AkiKanellis/homelab/issues/88)) ([8b6d868](https://github.com/AkiKanellis/homelab/commit/8b6d868e864ad91343fefbe6bb7ef2b6a16cde82)), closes [#81](https://github.com/AkiKanellis/homelab/issues/81)
+
 ## [1.10.2](https://github.com/AkiKanellis/homelab/compare/v1.10.1...v1.10.2) (2022-06-27)
 
 
