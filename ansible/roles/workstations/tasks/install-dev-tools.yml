@@ -72,14 +72,14 @@
 
 - name: Install Terraform
   block:
-    - name: Install HashiCorp apt key
+    - name: Add HashiCorp apt key
       ansible.builtin.apt_key:
         url: https://apt.releases.hashicorp.com/gpg
 
-    - name: Install HashiCorp apt repository
+    - name: Add HashiCorp apt repository
       ansible.builtin.apt_repository:
         repo: >
-          deb [arch=amd64]
+          deb
           https://apt.releases.hashicorp.com
           {{ ansible_distribution_release }}
           main
@@ -110,15 +110,16 @@
       - postman
 
 - name: Install VirtualBox
+  tags: test
   block:
-    - name: Install VirtualBox apt key
+    - name: Add VirtualBox apt key
       ansible.builtin.apt_key:
         url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
 
-    - name: Install VirtualBox apt repository
+    - name: Add VirtualBox apt repository
       ansible.builtin.apt_repository:
         repo: >
-          deb [arch=amd64]
+          deb
           https://download.virtualbox.org/virtualbox/debian
           {{ ansible_distribution_release }}
           contrib
