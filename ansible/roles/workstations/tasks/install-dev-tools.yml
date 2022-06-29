@@ -72,14 +72,14 @@
 
 - name: Install Terraform
   block:
-    - name: Install HashiCorp apt key
+    - name: Add HashiCorp apt key
       ansible.builtin.apt_key:
         url: https://apt.releases.hashicorp.com/gpg
 
-    - name: Install HashiCorp apt repository
+    - name: Add HashiCorp apt repository
       ansible.builtin.apt_repository:
         repo: >
-          deb [arch=amd64]
+          deb
           https://apt.releases.hashicorp.com
           {{ ansible_distribution_release }}
           main
@@ -111,11 +111,11 @@
 
 - name: Install VirtualBox
   block:
-    - name: Install VirtualBox apt key
+    - name: Add VirtualBox apt key
       ansible.builtin.apt_key:
         url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
 
-    - name: Install VirtualBox apt repository
+    - name: Add VirtualBox apt repository
       ansible.builtin.apt_repository:
         repo: >
           deb
@@ -130,10 +130,15 @@
         value: "true"
         vtype: select
 
+    # VirtualBox needs to be installed before the extensions otherwise the
+    # package dependencies will conflict
     - name: Install VirtualBox
       ansible.builtin.package:
+        name: virtualbox
+
+    - name: Install VirtualBox extensions
+      ansible.builtin.package:
         name:
-          - virtualbox
           - virtualbox-ext-pack
           - virtualbox-guest-utils
 
