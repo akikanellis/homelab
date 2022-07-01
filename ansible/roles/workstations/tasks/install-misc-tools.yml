@@ -3,19 +3,20 @@
   tags: test
   ansible.builtin.package:
     name:
-      - asunder
-      - audacity
       - caffeine
-      - cups
-      - flameshot
-      - gimp
-      - gparted
 
-- name: Install Snap misc tools
+# TODO pop os time was wrong, maybe need to install ntp
+
+- name: Install Flatpak misc tools
   tags: test
-  ansible.builtin.snap:
+  become_user: aki
+  ansible.builtin.flatpak:
+    method: user
     name:
-      - libreoffice
-      - signal-desktop
-      - slack
-      - vlc
+      - org.audacityteam.Audacity
+      - org.flameshot.Flameshot
+      - org.gimp.GIMP
+      - org.libreoffice.LibreOffice
+      - org.signal.Signal
+      - com.slack.Slack
+      - org.videolan.VLC
