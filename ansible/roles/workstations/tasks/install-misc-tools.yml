@@ -13,10 +13,14 @@
   ansible.builtin.flatpak:
     method: user
     name:
+      - com.google.Chrome
+      - com.slack.Slack
+      - com.uploadedlobster.peek
       - org.audacityteam.Audacity
       - org.flameshot.Flameshot
       - org.gimp.GIMP
+      - org.kde.kdenlive
       - org.libreoffice.LibreOffice
+      - org.mozilla.firefox
       - org.signal.Signal
-      - com.slack.Slack
       - org.videolan.VLC
