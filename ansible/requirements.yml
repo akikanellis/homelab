@@ -3,7 +3,7 @@ collections:
   - name: ansible.posix
     version: 1.4.0
   - name: devsec.hardening
-    version: 7.14.1
+    version: 7.14.3
 
 roles:
   - name: gantsign.antigen
