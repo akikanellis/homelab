@@ -1,3 +1,10 @@
+## [1.10.4](https://github.com/AkiKanellis/homelab/compare/v1.10.3...v1.10.4) (2022-07-02)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#89](https://github.com/AkiKanellis/homelab/issues/89)) ([848905c](https://github.com/AkiKanellis/homelab/commit/848905c31f1f8b2e23f44333ac0f853a27c08738))
+
 ## [1.10.3](https://github.com/AkiKanellis/homelab/compare/v1.10.2...v1.10.3) (2022-06-29)
 
 
