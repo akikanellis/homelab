@@ -8,6 +8,7 @@
     name: aki
     group: aki
     groups: adm,sudo
+    append: true
     comment: Aki Kanellis
     password: "{{ aki_password }}"
 
