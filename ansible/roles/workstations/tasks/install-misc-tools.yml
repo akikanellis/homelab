@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name:
       - caffeine
+      - gnome-tweaks
 
 # TODO pop os time was wrong, maybe need to install ntp
 
