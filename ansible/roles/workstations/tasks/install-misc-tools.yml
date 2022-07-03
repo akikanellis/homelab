@@ -17,6 +17,7 @@
     method: user
     name:
       - com.slack.Slack
+      - com.system76.Popsicle
       - com.uploadedlobster.peek
       - org.audacityteam.Audacity
       - org.flameshot.Flameshot
