@@ -105,10 +105,14 @@
 
 - name: Install Snap dev tools
   community.general.snap:
+    name: mqtt-explorer
+
+- name: Install Snap dev tools with classic confinenment
+  community.general.snap:
+    classic: true
     name:
       - code
       - intellij-idea-ultimate
-      - mqtt-explorer
 
 - name: Install VirtualBox
   block:
