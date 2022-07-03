@@ -113,7 +113,7 @@
     channel: edge
     classic: true
 
-- name: Install Snap dev tools with classic confinenment
+- name: Install Snap dev tools with classic confinement
   community.general.snap:
     classic: true
     name:
