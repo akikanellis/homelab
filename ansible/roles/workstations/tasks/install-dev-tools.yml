@@ -103,9 +103,15 @@
     method: user
     name: com.getpostman.Postman
 
-- name: Install Snap dev tools
+- name: Install mqtt-explorer
   community.general.snap:
     name: mqtt-explorer
+
+- name: Install just
+  community.general.snap:
+    name: just
+    channel: edge
+    classic: true
 
 - name: Install Snap dev tools with classic confinenment
   community.general.snap:
