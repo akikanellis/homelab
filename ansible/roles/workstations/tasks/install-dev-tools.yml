@@ -181,7 +181,8 @@
         vtype: boolean
 
     - name: Reconfigure Wireshark
-      command: dpkg-reconfigure -f noninteractive wireshark-common
+      ansible.builtin.command: >
+        dpkg-reconfigure -f noninteractive wireshark-common
       changed_when: false
 
     - name: Add "aki" user to "wireshark" group
