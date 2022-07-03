@@ -1,8 +1,10 @@
 ---
 - name: Install utilities
+  tags: test
   ansible.builtin.package:
     name:
       - arp-scan
+      - ca-certificates
       - cron
       - curl
       - dialog
@@ -12,6 +14,7 @@
       - iotop
       - jq
       - locate
+      - lsb-release
       - neofetch
       - net-tools
       - nmap
