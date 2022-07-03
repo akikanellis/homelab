@@ -96,18 +96,19 @@
       - molecule
       - yamllint
 
-- name: Install IDEs
-  community.general.snap:
-    classic: true
-    name:
-      - code
-      - intellij-idea-ultimate
+- name: Install Flatpak dev tools
+  tags: test
+  become_user: aki
+  ansible.builtin.flatpak:
+    method: user
+    name: com.getpostman.Postman
 
 - name: Install Snap dev tools
   community.general.snap:
     name:
+      - code
+      - intellij-idea-ultimate
       - mqtt-explorer
-      - postman
 
 - name: Install VirtualBox
   block:

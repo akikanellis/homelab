@@ -13,7 +13,6 @@
   ansible.builtin.flatpak:
     method: user
     name:
-      - com.google.Chrome
       - com.slack.Slack
       - com.uploadedlobster.peek
       - org.audacityteam.Audacity
@@ -24,3 +23,21 @@
       - org.mozilla.firefox
       - org.signal.Signal
       - org.videolan.VLC
+
+- name: Install Google Chrome
+  block:
+    - name: Add Google apt key
+      ansible.builtin.apt_key:
+        url: https://dl.google.com/linux/linux_signing_key.pub
+
+    - name: Install Google Chrome apt repository
+      ansible.builtin.apt_repository:
+        repo: >
+          deb [arch=amd64]
+          http://dl.google.com/linux/chrome/deb/
+          stable
+          main
+
+    - name: Install Google Chrome
+      ansible.builtin.package:
+        name: google-chrome-stable
