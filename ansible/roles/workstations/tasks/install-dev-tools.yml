@@ -4,35 +4,44 @@
     name:
       - build-essential
       - perl
-      - python3-full
-      - python3-virtualenv
       - vagrant
 
-- name: Install "aki" user SDKs
+- name: Install asdf dev tools for "aki" user
+  # There is currently a bug in cimon-io.asdf where the task setting the global
+  # packages always report that it's changed even if it is not. Due to that we
+  # need to skip the molecule idempotence test.
+  tags: molecule-idempotence-notest
   ansible.builtin.import_role:
-    name: common
-    tasks_from: sdkman
+    name: cimon-io.asdf
+    tasks_from: plugins
   vars:
-    sdkman_install_packages:
-      - {candidate: java, version: 18-tem}
-      - {candidate: java, version: 17.0.3-tem}
-      - {candidate: java, version: 11.0.15-tem}
-      - {candidate: java, version: 8.0.332-tem}
-      - {candidate: kotlin, version: 1.7.0}
-      - {candidate: groovy, version: 4.0.3}
-      - {candidate: gradle, version: 7.4.2}
-      - {candidate: maven, version: 3.8.6}
+    asdf_user: aki
+    asdf_plugins:
+      # Using 'latest:temurin' install the JRE instead of the JDK so we need to
+      # specify the major version
+      - name: java
+        versions: [latest:temurin-18]
+        global: latest:temurin-18
 
-    sdkman_defaults:
-      java: 18-tem
+      - name: kotlin
+        versions: [latest]
+        global: latest
 
-    sdkman_update_alternatives:
-      - candidate: java
-        name: java
-        link: /usr/bin/java
-      - candidate: java
-        name: javac
-        link: /usr/bin/javac
+      - name: groovy
+        versions: [latest]
+        global: latest
+
+      - name: gradle
+        versions: [latest]
+        global: latest
+
+      - name: maven
+        versions: [latest]
+        global: latest
+
+      - name: awscli
+        versions: [latest]
+        global: latest
 
 - name: Setup git
   block:
@@ -62,14 +71,6 @@
         - forks
         - other
 
-- name: Install just for "aki" user
-  ansible.builtin.import_role:
-    name: monolithprojects.homebrew
-    tasks_from: formulae
-  vars:
-    homebrew_user: aki
-    brew_formulae: just
-
 - name: Install Terraform
   block:
     - name: Add HashiCorp apt key
@@ -89,15 +90,18 @@
         name: terraform
 
 - name: Install python dev tools
-  become_user: aki
-  ansible.builtin.pip:
-    name:
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: pip
+  vars:
+    package_names:
       - ansible
+      - bpytop
       - molecule
+      - pip_search
       - yamllint
 
 - name: Install Flatpak dev tools
-  tags: test
   become_user: aki
   ansible.builtin.flatpak:
     method: user
@@ -152,20 +156,6 @@
         name:
           - virtualbox-ext-pack
           - virtualbox-guest-utils
-
-- name: Install Node.js
-  become_user: aki
-  block:
-    - name: Install Node.js
-      ansible.builtin.command:
-        cmd: zsh -c "nvm install node"
-      register: nvm_install
-      changed_when: "'already installed' not in nvm_install.stderr"
-
-    - name: Set default Node.js
-      ansible.builtin.command:
-        cmd: zsh -c "nvm alias default node"
-      changed_when: false
 
 - name: Install Wireshark
   block:
@@ -222,17 +212,3 @@
         name: aki
         groups: docker
         append: true
-
-- name: Install AWS CLI
-  block:
-    - name: Download and extract AWS CLI
-      ansible.builtin.unarchive:
-        src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
-        dest: /tmp
-        remote_src: true
-        creates: /tmp/aws
-
-    - name: Install AWS CLI
-      ansible.builtin.command:
-        cmd: /tmp/aws/install
-        creates: /usr/local/bin/aws

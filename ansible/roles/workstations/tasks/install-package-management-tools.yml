@@ -14,26 +14,48 @@
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     method: user
 
-- name: Install Homebrew for "aki" user
-  ansible.builtin.import_role:
-    name: monolithprojects.homebrew
-    tasks_from: install
-  vars:
-    homebrew_user: aki
+- name: Install asdf package managers for "aki" user
+  # There is currently a bug in cimon-io.asdf where the task setting the global
+  # packages always report that it's changed even if it is not. Due to that we
+  # need to skip the molecule idempotence test.
+  tags: molecule-idempotence-notest
+  block:
+    - name: Install asdf package managers for "aki" user
+      ansible.builtin.import_role:
+        name: cimon-io.asdf
+      vars:
+        asdf_version: v0.10.2
+        asdf_user: aki
+        asdf_plugins:
+          - name: python
+            versions: [latest]
+            global: latest
 
-- name: Install SDKMAN! for "aki" user
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: sdkman
+          - name: nodejs
+            versions: [latest]
+            global: latest
 
-- name: Install pip
-  ansible.builtin.package:
-    name: python3-pip
+        # Needed by the python plugin due to pyenv
+        # See: https://github.com/pyenv/pyenv/wiki#suggested-build-environment
+        asdf_apt_optional_dependencies:
+          - build-essential
+          - libbz2-dev
+          - libffi-dev
+          - liblzma-dev
+          - libncursesw5-dev
+          - libsqlite3-dev
+          - libssl-dev
+          - libxml2-dev
+          - libxmlsec1-dev
+          - llvm
+          - tar
+          - tk-dev
+          - wget
+          - xz-utils
+          - zlib1g-dev
 
-- name: Install Node Version Manager for "aki" user
-  ansible.builtin.import_role:
-    name: monolithprojects.homebrew
-    tasks_from: formulae
-  vars:
-    homebrew_user: aki
-    brew_formulae: nvm
+    - name: Recreate shims for python
+      become_user: aki
+      ansible.builtin.command:
+        cmd: bash -lc "asdf reshim python"
+      changed_when: false

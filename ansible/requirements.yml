@@ -9,8 +9,7 @@ roles:
   - name: gantsign.antigen
     version: 1.4.2
 
-  - name: Comcast.sdkman
-    version: 1.7.0
-
-  - name: monolithprojects.homebrew
-    version: 1.2.3
+  - name: cimon-io.asdf
+    src: https://github.com/cimon-io/ansible-role-asdf.git
+    # TODO add explanation here
+    version: 95c83a682e5734154ff4f5d28160d17621a42f18

@@ -1,6 +1,5 @@
 ---
 - name: Install misc tools
-  tags: test
   ansible.builtin.package:
     name:
       - caffeine
@@ -11,7 +10,6 @@
 # TODO pop os time was wrong, maybe need to install ntp
 
 - name: Install Flatpak misc tools
-  tags: test
   become_user: aki
   ansible.builtin.flatpak:
     method: user

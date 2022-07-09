@@ -10,6 +10,7 @@
         antigen_theme:
           name: robbyrussell
         antigen_bundles:
+          - name: asdf
           - name: git
 
 - name: Create "aki" user ZSH directories
@@ -28,9 +29,8 @@
     group: aki
     mode: 0600
   loop:
-    - nvm
+    - java
     - path
-    - sdkman
 
 - name: Copy "aki" user zshenv
   ansible.builtin.template:

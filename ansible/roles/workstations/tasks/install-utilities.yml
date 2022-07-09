@@ -1,6 +1,5 @@
 ---
 - name: Install utilities
-  tags: test
   ansible.builtin.package:
     name:
       - arp-scan
@@ -15,6 +14,7 @@
       - jq
       - locate
       - lsb-release
+      - make
       - neofetch
       - net-tools
       - nmap
