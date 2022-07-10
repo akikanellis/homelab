@@ -28,6 +28,6 @@
       - xclip
       - zip
 
-- name: Install Snap utilities
+- name: Install yq
   community.general.snap:
     name: yq

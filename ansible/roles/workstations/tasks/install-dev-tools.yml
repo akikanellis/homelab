@@ -116,7 +116,7 @@
       - pip_search
       - yamllint
 
-- name: Install Flatpak dev tools
+- name: Install Postman
   become_user: aki
   ansible.builtin.flatpak:
     method: user
@@ -132,7 +132,7 @@
     channel: edge
     classic: true
 
-- name: Install Snap dev tools with classic confinement
+- name: Install Visual Studio Code and IntelliJ
   community.general.snap:
     classic: true
     name:
