@@ -17,8 +17,8 @@
   vars:
     asdf_user: aki
     asdf_plugins:
-      # Using 'latest:temurin' install the JRE instead of the JDK so we need to
-      # specify the major version
+      # Using 'latest:temurin' installs the latest JRE instead of the JDK, so we
+      # need to specify the major version
       - name: java
         versions: [latest:temurin-18]
         global: latest:temurin-18
