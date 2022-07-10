@@ -71,6 +71,21 @@
         - forks
         - other
 
+- name: Install GitHub CLI
+  tags: test
+  block:
+    - name: Add GitHub CLI apt key
+      ansible.builtin.apt_key:
+        url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+
+    - name: Add GitHub CLI apt repository
+      ansible.builtin.apt_repository:
+        repo: deb https://cli.github.com/packages stable main
+
+    - name: Install {{ name }}
+      ansible.builtin.package:
+        name: gh
+
 - name: Install Terraform
   block:
     - name: Add HashiCorp apt key
