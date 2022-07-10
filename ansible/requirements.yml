@@ -11,5 +11,8 @@ roles:
 
   - name: cimon-io.asdf
     src: https://github.com/cimon-io/ansible-role-asdf.git
-    # TODO add explanation here
+    # There is currently a bug in cimon-io.asdf where during the nodejs plugin
+    # setup it always attempts to add the keyring even if it doesn't exist. The
+    # bug was fixed but no official version has been released yet.
+    # See: https://github.com/cimon-io/ansible-role-asdf/pull/16
     version: 95c83a682e5734154ff4f5d28160d17621a42f18
