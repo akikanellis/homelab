@@ -1,0 +1,14 @@
+---
+- name: Install timesyncd
+  ansible.builtin.package:
+    name: systemd-timesyncd
+
+- name: Start timesyncd
+  ansible.builtin.service:
+    name: systemd-timesyncd
+    state: started
+    enabled: true
+
+- name: Set timezone
+  ansible.builtin.timezone:
+    name: Europe/London

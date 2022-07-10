@@ -7,8 +7,6 @@
       - dconf-editor
       - gnome-tweaks
 
-# TODO pop os time was wrong, maybe need to install ntp
-
 - name: Install Flatpak misc tools
   become_user: aki
   ansible.builtin.flatpak:
