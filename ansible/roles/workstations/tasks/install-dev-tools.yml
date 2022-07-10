@@ -82,7 +82,7 @@
       ansible.builtin.apt_repository:
         repo: deb https://cli.github.com/packages stable main
 
-    - name: Install {{ name }}
+    - name: Install GitHub CLI
       ansible.builtin.package:
         name: gh
 
