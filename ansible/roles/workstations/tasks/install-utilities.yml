@@ -31,3 +31,10 @@
 - name: Install yq
   community.general.snap:
     name: yq
+
+# TODO integrate renovate
+- name: Install hyperfine
+  tags: test
+  ansible.builtin.apt:
+    deb: >-
+      https://github.com/sharkdp/hyperfine/releases/download/v1.14.0/hyperfine_1.14.0_amd64.deb
