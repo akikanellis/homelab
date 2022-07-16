@@ -57,7 +57,6 @@
     cmd: >
       zsh -c "source ~/.asdf/asdf.sh &&
       asdf global {{ item.name }} {{ item.version | default('latest') }}"
-  register: asdf_global
   with_items: "{{ asdf_plugins }}"
   changed_when: false
 
