@@ -1,0 +1,14 @@
+{{ ansible_managed | comment }}
+
+# The asdf-java hook is too slow so we are updating JAVA_HOME on demand instead
+# See: https://github.com/halcyon/asdf-java#java_home
+function update_java_home() {
+  local java_path
+  java_path="$(asdf which java)"
+
+  if [[ -n "${java_path}" ]]; then
+    export JAVA_HOME
+    JAVA_HOME="$(dirname "$(dirname "${java_path:A}")")"
+    export JDK_HOME=${JAVA_HOME}
+  fi
+}

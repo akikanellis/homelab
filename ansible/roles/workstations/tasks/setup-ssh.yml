@@ -1,7 +1,10 @@
 ---
-- name: Install SSH server
+- name: Install SSH packages
   ansible.builtin.package:
-    name: openssh-server
+    name:
+      - openssh-server
+      - ssh-askpass
+      - ssh-askpass-gnome
 
 - name: Start SSH server
   ansible.builtin.service:

@@ -2,45 +2,29 @@
 - name: Install dev tools
   ansible.builtin.package:
     name:
-      - build-essential
       - perl
-      - python3-full
-      - python3-virtualenv
       - vagrant
 
-- name: Install "aki" user SDKs
+- name: Install asdf dev tools for "aki" user
   ansible.builtin.import_role:
     name: common
-    tasks_from: sdkman
+    tasks_from: asdf
   vars:
-    sdkman_install_packages:
-      - {candidate: java, version: 18-tem}
-      - {candidate: java, version: 17.0.3-tem}
-      - {candidate: java, version: 11.0.15-tem}
-      - {candidate: java, version: 8.0.332-tem}
-      - {candidate: kotlin, version: 1.7.0}
-      - {candidate: groovy, version: 4.0.3}
-      - {candidate: gradle, version: 7.4.2}
-      - {candidate: maven, version: 3.8.6}
+    asdf_plugins:
+      - name: java
+        version: latest:temurin-18
 
-    sdkman_defaults:
-      java: 18-tem
-
-    sdkman_update_alternatives:
-      - candidate: java
-        name: java
-        link: /usr/bin/java
-      - candidate: java
-        name: javac
-        link: /usr/bin/javac
+      - name: kotlin
+      - name: groovy
+      - name: gradle
+      - name: maven
+      - name: awscli
 
 - name: Setup git
   block:
-    - name: Install git
+    - name: Install tig
       ansible.builtin.package:
-        name:
-          - git
-          - tig
+        name: tig
 
     - name: Copy "aki" user gitconfig
       ansible.builtin.template:
@@ -62,13 +46,19 @@
         - forks
         - other
 
-- name: Install just for "aki" user
-  ansible.builtin.import_role:
-    name: monolithprojects.homebrew
-    tasks_from: formulae
-  vars:
-    homebrew_user: aki
-    brew_formulae: just
+- name: Install GitHub CLI
+  block:
+    - name: Add GitHub CLI apt key
+      ansible.builtin.apt_key:
+        url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+
+    - name: Add GitHub CLI apt repository
+      ansible.builtin.apt_repository:
+        repo: deb https://cli.github.com/packages stable main
+
+    - name: Install GitHub CLI
+      ansible.builtin.package:
+        name: gh
 
 - name: Install Terraform
   block:
@@ -89,25 +79,37 @@
         name: terraform
 
 - name: Install python dev tools
-  become_user: aki
-  ansible.builtin.pip:
-    name:
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: pip
+  vars:
+    package_names:
       - ansible
       - molecule
       - yamllint
 
-- name: Install IDEs
+- name: Install Postman
+  become_user: aki
+  ansible.builtin.flatpak:
+    method: user
+    name: com.getpostman.Postman
+
+- name: Install mqtt-explorer
+  community.general.snap:
+    name: mqtt-explorer
+
+- name: Install just
+  community.general.snap:
+    name: just
+    channel: edge
+    classic: true
+
+- name: Install Visual Studio Code and IntelliJ
   community.general.snap:
     classic: true
     name:
       - code
       - intellij-idea-ultimate
-
-- name: Install Snap dev tools
-  community.general.snap:
-    name:
-      - mqtt-explorer
-      - postman
 
 - name: Install VirtualBox
   block:
@@ -142,16 +144,58 @@
           - virtualbox-ext-pack
           - virtualbox-guest-utils
 
-- name: Install Node.js
-  become_user: aki
+- name: Install Wireshark
   block:
-    - name: Install Node.js
-      ansible.builtin.command:
-        cmd: zsh -c "nvm install node"
-      register: nvm_install
-      changed_when: "'already installed' not in nvm_install.stderr"
+    - name: Install Wireshark
+      ansible.builtin.package:
+        name: wireshark
 
-    - name: Set default Node.js
-      ansible.builtin.command:
-        cmd: zsh -c "nvm alias default node"
+    - name: Allow non-root users to capture packets with Wireshark
+      ansible.builtin.debconf:
+        name: wireshark-common
+        question: wireshark-common/install-setuid
+        value: "true"
+        vtype: boolean
+
+    - name: Reconfigure Wireshark
+      ansible.builtin.command: >
+        dpkg-reconfigure -f noninteractive wireshark-common
       changed_when: false
+
+    - name: Add "aki" user to "wireshark" group
+      ansible.builtin.user:
+        name: aki
+        groups: wireshark
+        append: true
+
+- name: Install Docker
+  block:
+    - name: Add Docker apt key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+
+    - name: Add Docker apt repository
+      ansible.builtin.apt_repository:
+        repo: >
+          deb [arch=amd64]
+          https://download.docker.com/linux/ubuntu
+          {{ ansible_distribution_release }}
+          stable
+
+    - name: Install Docker Engine
+      ansible.builtin.package:
+        name:
+          - containerd.io
+          - docker-ce
+          - docker-ce-cli
+          - docker-compose-plugin
+
+    - name: Create "docker" group
+      ansible.builtin.group:
+        name: docker
+
+    - name: Add "aki" user to "docker" group
+      ansible.builtin.user:
+        name: aki
+        groups: docker
+        append: true

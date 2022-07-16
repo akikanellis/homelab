@@ -1,0 +1,17 @@
+---
+- name: Clone asdf
+  become_user: aki
+  ansible.builtin.git:
+    repo: https://github.com/asdf-vm/asdf.git
+    dest: ~/.asdf
+    version: "{{ asdf_version }}"
+    single_branch: true
+    force: true
+
+- name: Install direnv
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: asdf
+  vars:
+    asdf_plugins:
+      - name: direnv

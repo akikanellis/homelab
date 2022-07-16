@@ -1,0 +1,15 @@
+---
+- name: Install package managers
+  ansible.builtin.package:
+    name:
+      - aptitude
+      - flatpak
+      - snapd
+      - software-properties-common
+
+- name: Add the flathub flatpak repository remote for "aki" user
+  become_user: aki
+  community.general.flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    method: user

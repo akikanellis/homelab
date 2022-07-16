@@ -6,8 +6,6 @@
 
   tasks:
     - ansible.builtin.import_tasks: tasks/update-apt.yml
-    - ansible.builtin.import_tasks: tasks/update-homebrew.yml
-    - ansible.builtin.import_tasks: tasks/update-sdkman.yml
 
 - name: Apply All Hosts Configuration
   hosts: all
@@ -28,6 +26,3 @@
 
   tasks:
     - ansible.builtin.import_tasks: tasks/clean-apt.yml
-    - ansible.builtin.import_tasks: tasks/clean-homebrew.yml
-    - ansible.builtin.import_tasks: tasks/clean-pip.yml
-    - ansible.builtin.import_tasks: tasks/clean-sdkman.yml

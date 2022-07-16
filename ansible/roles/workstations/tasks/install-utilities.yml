@@ -3,20 +3,46 @@
   ansible.builtin.package:
     name:
       - arp-scan
+      - bash
+      - build-essential
+      - ca-certificates
       - cron
       - curl
+      - dialog
       - dnsutils
+      - g++
+      - gcc
+      - git
       - gnupg
-      - htop
       - iotop
+      - jq
       - locate
+      - lsb-release
+      - make
       - neofetch
       - net-tools
       - nmap
+      - p7zip-full
       - resolvconf
+      - tar
       - traceroute
+      - unrar
+      - unzip
       - vim
       - wget
       - whois
-      - wireshark-qt
       - xclip
+      - zip
+
+- name: Install yq
+  community.general.snap:
+    name: yq
+
+- name: Install hyperfine
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/sharkdp/hyperfine/releases/download/\
+      {{ hyperfine_version }}/\
+      hyperfine_\
+      {{ hyperfine_version | regex_replace('v(.+)', '\\1') }}\
+      _amd64.deb"
