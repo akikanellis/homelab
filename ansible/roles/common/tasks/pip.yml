@@ -1,12 +1,6 @@
 ---
-- name: Install pip packages "{{ package_names }}"
+- name: Install pip packages
   become_user: aki
   ansible.builtin.pip:
-    executable: ~/.asdf/shims/pip
+    executable: "{{ pip_executable }}"
     name: "{{ package_names }}"
-
-- name: Recreate shims for pip packages "{{ package_names }}"
-  become_user: aki
-  ansible.builtin.command:
-    cmd: bash -lc "asdf reshim python"
-  changed_when: false

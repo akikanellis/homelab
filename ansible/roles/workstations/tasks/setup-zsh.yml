@@ -29,6 +29,8 @@
     group: aki
     mode: 0600
   loop:
+    - env
+    - functions
     - java
     - path
 

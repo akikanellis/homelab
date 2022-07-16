@@ -3,13 +3,17 @@
   ansible.builtin.package:
     name:
       - arp-scan
+      - bash
+      - build-essential
       - ca-certificates
       - cron
       - curl
       - dialog
       - dnsutils
+      - g++
+      - gcc
+      - git
       - gnupg
-      - htop
       - iotop
       - jq
       - locate
@@ -20,8 +24,10 @@
       - nmap
       - p7zip-full
       - resolvconf
+      - tar
       - traceroute
       - unrar
+      - unzip
       - vim
       - wget
       - whois
@@ -34,7 +40,6 @@
 
 # TODO integrate renovate
 - name: Install hyperfine
-  tags: test
   ansible.builtin.apt:
     deb: >-
       https://github.com/sharkdp/hyperfine/releases/download/v1.14.0/hyperfine_1.14.0_amd64.deb

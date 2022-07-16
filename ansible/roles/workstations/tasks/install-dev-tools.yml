@@ -2,54 +2,29 @@
 - name: Install dev tools
   ansible.builtin.package:
     name:
-      - build-essential
       - perl
       - vagrant
 
 - name: Install asdf dev tools for "aki" user
-  # There is currently a bug in cimon-io.asdf where the task setting the global
-  # packages always report that it's changed even if it is not. Due to that we
-  # need to skip the molecule idempotence test.
-  tags: molecule-idempotence-notest
   ansible.builtin.import_role:
-    name: cimon-io.asdf
-    tasks_from: plugins
+    name: common
+    tasks_from: asdf
   vars:
-    asdf_user: aki
     asdf_plugins:
-      # Using 'latest:temurin' installs the latest JRE instead of the JDK, so we
-      # need to specify the major version
       - name: java
-        versions: [latest:temurin-18]
-        global: latest:temurin-18
+        version: latest:temurin-18
 
       - name: kotlin
-        versions: [latest]
-        global: latest
-
       - name: groovy
-        versions: [latest]
-        global: latest
-
       - name: gradle
-        versions: [latest]
-        global: latest
-
       - name: maven
-        versions: [latest]
-        global: latest
-
       - name: awscli
-        versions: [latest]
-        global: latest
 
 - name: Setup git
   block:
-    - name: Install git
+    - name: Install tig
       ansible.builtin.package:
-        name:
-          - git
-          - tig
+        name: tig
 
     - name: Copy "aki" user gitconfig
       ansible.builtin.template:
@@ -72,7 +47,6 @@
         - other
 
 - name: Install GitHub CLI
-  tags: test
   block:
     - name: Add GitHub CLI apt key
       ansible.builtin.apt_key:
@@ -111,9 +85,7 @@
   vars:
     package_names:
       - ansible
-      - bpytop
       - molecule
-      - pip_search
       - yamllint
 
 - name: Install Postman
