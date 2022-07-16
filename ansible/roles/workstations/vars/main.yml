@@ -1,6 +1,6 @@
 ---
 # renovate: datasource=github-releases depName=asdf-vm/asdf
-asdf_version: v0.10.1
+asdf_version: v0.10.2
 
 # renovate: datasource=github-releases depName=sharkdp/hyperfine
-hyperfine_version: v1.13.0
+hyperfine_version: v1.14.0
