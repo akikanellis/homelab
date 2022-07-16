@@ -1,3 +1,15 @@
+## [1.11.0](https://github.com/AkiKanellis/homelab/compare/v1.10.9...v1.11.0) (2022-07-16)
+
+
+### Features
+
+* install misc tools ([#97](https://github.com/AkiKanellis/homelab/issues/97)) ([296359a](https://github.com/AkiKanellis/homelab/commit/296359a93d27a9b166283b450604b2b30e75d3b4)), closes [#66](https://github.com/AkiKanellis/homelab/issues/66)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#98](https://github.com/AkiKanellis/homelab/issues/98)) ([e630bf7](https://github.com/AkiKanellis/homelab/commit/e630bf7574d1de36975e1b67d8f83d3398144f63))
+
 ## [1.10.9](https://github.com/AkiKanellis/homelab/compare/v1.10.8...v1.10.9) (2022-07-16)
 
 
