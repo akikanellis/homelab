@@ -1,6 +1,6 @@
 ---
 - ansible.builtin.import_tasks: create-aki-user.yml
-- ansible.builtin.import_tasks: install-package-management-tools.yml
+- ansible.builtin.import_tasks: install-package-managers.yml
 - ansible.builtin.import_tasks: setup-time.yml
 - ansible.builtin.import_tasks: remove-preinstalled-packages.yml
 - ansible.builtin.import_tasks: install-utilities.yml

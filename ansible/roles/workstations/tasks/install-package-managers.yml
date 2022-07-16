@@ -1,5 +1,5 @@
 ---
-- name: Install package management tools
+- name: Install package managers
   ansible.builtin.package:
     name:
       - aptitude
