@@ -13,7 +13,7 @@ platforms:
     groups: [workstations]
     box: ubuntu/jammy64
     # `cpus` need to match the core count used by the CI. Currently, we are
-    # using a 3-core macos-10.15 instance in '.github/workflows/test.yml'.
+    # using a 3-core macos-12 instance in '.github/workflows/test.yml'.
     # See:
     # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
     cpus: 3
