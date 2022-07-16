@@ -32,7 +32,8 @@
         /* eslint-disable jsonc/no-useless-escape */
         "(^|/)justfile$",
         "(^workflow-templates|\.github\/workflows)\/[^/]+\.ya?ml$",
-        "(^|\/)action\.ya?ml$"
+        "(^|\/)action\.ya?ml$",
+        "^ansible\/.*vars\/[^/]+.ya?ml$"
         /* eslint-enable jsonc/no-useless-escape */
       ],
       matchStrings: [

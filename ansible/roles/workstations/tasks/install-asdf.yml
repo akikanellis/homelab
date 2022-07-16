@@ -4,7 +4,7 @@
   ansible.builtin.git:
     repo: https://github.com/asdf-vm/asdf.git
     dest: ~/.asdf
-    version: v0.10.2 # TODO downgrade for renovate testing
+    version: "{{ asdf_version }}"
     single_branch: true
     force: true
 
