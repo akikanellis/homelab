@@ -5,7 +5,7 @@
     repo: https://github.com/asdf-vm/asdf.git
     dest: ~/.asdf
     version: v0.10.2 # TODO downgrade for renovate testing
-    single_branch: yes
+    single_branch: true
     force: true
 
 - name: Install direnv
