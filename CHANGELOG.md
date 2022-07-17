@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/AkiKanellis/homelab/compare/v1.11.0...v1.11.1) (2022-07-17)
+
+
+### Build System
+
+* update to macos-12 for vagrant tests ([#99](https://github.com/AkiKanellis/homelab/issues/99)) ([8168cf8](https://github.com/AkiKanellis/homelab/commit/8168cf89cf09d2d8dcc2ab5fef9b45fdbb0ceae6)), closes [#100](https://github.com/AkiKanellis/homelab/issues/100)
+
 ## [1.11.0](https://github.com/AkiKanellis/homelab/compare/v1.10.9...v1.11.0) (2022-07-16)
 
 
