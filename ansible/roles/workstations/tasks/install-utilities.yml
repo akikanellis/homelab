@@ -11,6 +11,7 @@
       - curl
       - dialog
       - dnsutils
+      - duf
       - g++
       - gcc
       - git
