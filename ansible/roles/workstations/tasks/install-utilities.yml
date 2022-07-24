@@ -49,9 +49,11 @@
         group: aki
         state: link
 
-- name: Install yq
+- name: Install Snap utilities
   community.general.snap:
-    name: yq
+    name:
+      - btop
+      - yq
 
 - name: Install hyperfine
   ansible.builtin.apt:

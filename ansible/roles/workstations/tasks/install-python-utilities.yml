@@ -1,9 +1,7 @@
 ---
-- name: Install python utilities
+- name: Install pip_search
   ansible.builtin.import_role:
     name: common
     tasks_from: pip
   vars:
-    package_names:
-      - bpytop
-      - pip_search
+    package_names: pip_search
