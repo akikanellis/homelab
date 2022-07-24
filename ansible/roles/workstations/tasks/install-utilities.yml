@@ -62,8 +62,8 @@
       "https://github.com/sharkdp/hyperfine/releases/download/\
       {{ hyperfine_version }}/\
       hyperfine_\
-      {{ hyperfine_version | regex_replace('v(.+)', '\\1') }}\
-      _amd64.deb"
+      {{ hyperfine_version | regex_replace('v(.+)', '\\1') }}_\
+      amd64.deb"
 
 - name: Install curlie
   ansible.builtin.apt:
@@ -71,5 +71,15 @@
       "https://github.com/rs/curlie/releases/download/\
       {{ curlie_version }}/\
       curlie_\
-      {{ curlie_version | regex_replace('v(.+)', '\\1') }}\
-      _linux_amd64.deb"
+      {{ curlie_version | regex_replace('v(.+)', '\\1') }}_\
+      linux_amd64.deb"
+
+- name: Install delta
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/dandavison/delta/releases/download/\
+      {{ delta_version }}/\
+      git-delta_\
+      {{ delta_version }}_\
+      amd64.deb"
+
