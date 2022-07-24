@@ -28,6 +28,7 @@
       - net-tools
       - nmap
       - p7zip-full
+      - pv
       - resolvconf
       - tar
       - thefuck
