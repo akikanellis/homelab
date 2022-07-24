@@ -18,6 +18,7 @@
       - gcc
       - git
       - gnupg
+      - hexyl
       - iotop
       - jq
       - locate
