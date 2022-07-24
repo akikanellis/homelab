@@ -34,6 +34,21 @@
       - xclip
       - zip
 
+- name: Install bat
+  tags: test
+  block:
+    - name: Install bat
+      ansible.builtin.package:
+        name: bat
+
+    - name: Create bat -> batcat symlink
+      ansible.builtin.file:
+        src: /usr/bin/batcat
+        dest: /home/aki/.local/bin/bat
+        owner: aki
+        group: aki
+        state: link
+
 - name: Install yq
   community.general.snap:
     name: yq
