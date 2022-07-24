@@ -7,7 +7,6 @@
 - ansible.builtin.import_tasks: setup-ssh.yml
 - ansible.builtin.import_tasks: setup-zsh.yml
 - ansible.builtin.import_tasks: install-asdf.yml
-- ansible.builtin.import_tasks: install-python.yml
-- ansible.builtin.import_tasks: install-python-utilities.yml
+- ansible.builtin.import_tasks: install-asdf-utilities.yml
 - ansible.builtin.import_tasks: install-dev-tools.yml
 - ansible.builtin.import_tasks: install-misc-tools.yml

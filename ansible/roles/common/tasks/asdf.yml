@@ -37,9 +37,11 @@
 - name: Install asdf plugins
   become_user: aki
   ansible.builtin.command:
-    cmd: zsh -c "source ~/.asdf/asdf.sh && asdf plugin add {{ item }}"
-    creates: ~/.asdf/plugins/{{ item }}
-  with_items: "{{ asdf_plugins_names }}"
+    cmd: >
+      zsh -c "source ~/.asdf/asdf.sh &&
+      asdf plugin add {{ item.name }} {{ item.repository | default('') }}"
+    creates: ~/.asdf/plugins/{{ item.name }}
+  with_items: "{{ asdf_plugins }}"
 
 - name: Install asdf tools versions
   become_user: aki

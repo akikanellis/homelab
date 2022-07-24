@@ -101,3 +101,36 @@
       git-delta_\
       {{ delta_version }}_\
       amd64.deb"
+
+- name: Install Docker
+  tags: test
+  block:
+    - name: Add Docker apt key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+
+    - name: Add Docker apt repository
+      ansible.builtin.apt_repository:
+        repo: >
+          deb [arch=amd64]
+          https://download.docker.com/linux/ubuntu
+          {{ ansible_distribution_release }}
+          stable
+
+    - name: Install Docker Engine
+      ansible.builtin.package:
+        name:
+          - containerd.io
+          - docker-ce
+          - docker-ce-cli
+          - docker-compose-plugin
+
+    - name: Create "docker" group
+      ansible.builtin.group:
+        name: docker
+
+    - name: Add "aki" user to "docker" group
+      ansible.builtin.user:
+        name: aki
+        groups: docker
+        append: true
