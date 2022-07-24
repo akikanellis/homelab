@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Label PR
         # yamllint disable-line rule:line-length
-        uses: bcoe/conventional-release-labels@576dd16fa48b1cb0464dcf7cc3eafde85ff92254 # tag=v1.3.0
+        uses: bcoe/conventional-release-labels@886f696738527c7be444262c327c89436dfb95a8 # tag=v1.3.1
         with:
           ignored_types: "[]"
           type_labels: >
