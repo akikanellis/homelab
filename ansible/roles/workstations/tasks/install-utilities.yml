@@ -12,6 +12,7 @@
       - dialog
       - dnsutils
       - duf
+      - exa
       - g++
       - gcc
       - git
