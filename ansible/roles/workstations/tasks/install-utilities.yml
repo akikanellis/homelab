@@ -38,7 +38,6 @@
       - zip
 
 - name: Install bat
-  tags: test
   block:
     - name: Install bat
       ansible.builtin.package:
@@ -48,6 +47,20 @@
       ansible.builtin.file:
         src: /usr/bin/batcat
         dest: /home/aki/.local/bin/bat
+        owner: aki
+        group: aki
+        state: link
+
+- name: Install fd
+  block:
+    - name: Install fd
+      ansible.builtin.package:
+        name: fd-find
+
+    - name: Create fd -> fdfind symlink
+      ansible.builtin.file:
+        src: /usr/bin/fdfind
+        dest: /home/aki/.local/bin/fd
         owner: aki
         group: aki
         state: link
