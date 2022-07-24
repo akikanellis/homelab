@@ -30,6 +30,7 @@
       - p7zip-full
       - pv
       - resolvconf
+      - ripgrep
       - tar
       - thefuck
       - traceroute
