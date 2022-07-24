@@ -30,6 +30,7 @@
     mode: 0600
   loop:
     - env
+    - fuck
     - path
 
 - name: Copy "aki" user zshenv
