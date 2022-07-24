@@ -22,9 +22,19 @@
 
 - name: Setup git
   block:
-    - name: Install tig
-      ansible.builtin.package:
-        name: tig
+    - name: Install lazygit
+      ansible.builtin.unarchive:
+        src:
+          "https://github.com/jesseduffield/lazygit/releases/download/\
+          {{ lazygit_version }}/\
+          lazygit_\
+          {{ lazygit_version | regex_replace('v(.+)', '\\1') }}_\
+          Linux_x86_64.tar.gz"
+        dest: /home/aki/.local/bin
+        include: lazygit
+        remote_src: true
+        owner: aki
+        group: aki
 
     - name: Copy "aki" user gitconfig
       ansible.builtin.template:
