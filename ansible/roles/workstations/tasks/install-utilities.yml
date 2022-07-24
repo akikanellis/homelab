@@ -13,6 +13,7 @@
       - dnsutils
       - duf
       - exa
+      - fzf
       - g++
       - gcc
       - git
