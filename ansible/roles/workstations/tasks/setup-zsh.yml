@@ -32,6 +32,7 @@
     - env
     - fuck
     - path
+    - starship
 
 - name: Copy "aki" user zshenv
   ansible.builtin.template:
@@ -42,6 +43,7 @@
     mode: 0600
 
 - name: Copy "aki" user zshrc
+  tags: test
   ansible.builtin.template:
     src: users/aki/zsh/zshrc.j2
     dest: /home/aki/.zshrc

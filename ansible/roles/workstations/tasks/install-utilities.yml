@@ -75,6 +75,7 @@
     name:
       - btop
       - httpie
+      - starship
       - yq
 
 - name: Install hyperfine
