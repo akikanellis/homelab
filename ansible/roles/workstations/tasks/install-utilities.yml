@@ -6,6 +6,7 @@
       - bash
       - build-essential
       - ca-certificates
+      - coreutils
       - cron
       - curl
       - dialog
@@ -63,3 +64,12 @@
       hyperfine_\
       {{ hyperfine_version | regex_replace('v(.+)', '\\1') }}\
       _amd64.deb"
+
+- name: Install curlie
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/rs/curlie/releases/download/\
+      {{ curlie_version }}/\
+      curlie_\
+      {{ curlie_version | regex_replace('v(.+)', '\\1') }}\
+      _linux_amd64.deb"
