@@ -80,12 +80,12 @@
 - name: Discover pip executable
   become_user: aki
   ansible.builtin.command:
-    cmd: zsh -c "source ~/.asdf/asdf.sh && asdf which pip"
-  register: asdf_which_pip
+    cmd: zsh -c "source ~/.asdf/asdf.sh && direnv exec /home/aki which pip"
+  register: which_pip
   when: "'python' in asdf_plugins_names"
   changed_when: false
 
 - name: Set pip executable
   ansible.builtin.set_fact:
-    pip_executable: "{{ asdf_which_pip.stdout }}"
+    pip_executable: "{{ which_pip.stdout }}"
   when: "'python' in asdf_plugins_names"

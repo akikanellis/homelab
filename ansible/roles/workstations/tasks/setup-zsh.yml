@@ -30,8 +30,6 @@
     mode: 0600
   loop:
     - env
-    - functions
-    - java
     - path
 
 - name: Copy "aki" user zshenv
