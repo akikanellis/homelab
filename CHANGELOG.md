@@ -1,3 +1,10 @@
+## [1.11.4](https://github.com/AkiKanellis/homelab/compare/v1.11.3...v1.11.4) (2022-07-25)
+
+
+### Bug Fixes
+
+* silence direnv ([#101](https://github.com/AkiKanellis/homelab/issues/101)) ([a596547](https://github.com/AkiKanellis/homelab/commit/a596547718d1ebb9446e025cb8584ee558ce9998)), closes [#66](https://github.com/AkiKanellis/homelab/issues/66)
+
 ## [1.11.3](https://github.com/AkiKanellis/homelab/compare/v1.11.2...v1.11.3) (2022-07-17)
 
 
