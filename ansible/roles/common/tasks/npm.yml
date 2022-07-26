@@ -1,0 +1,12 @@
+---
+# We can't use Ansible's npm module due to Ansible not being able to find node
+# in the path.
+# See:
+# https://stackoverflow.com/questions/66494099/npm-module-not-working-with-nvm-in-ansible
+- name: Install global npm packages
+  become_user: aki
+  ansible.builtin.command:
+    cmd: >
+      zsh -c "source ~/.asdf/asdf.sh && direnv exec ~ npm install -g {{ item }}"
+    creates: "{{ npm_binaries_dir }}/{{ item }}"
+  loop: "{{ package_names }}"

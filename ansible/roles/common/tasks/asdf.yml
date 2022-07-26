@@ -82,7 +82,7 @@
 - name: Discover pip executable
   become_user: aki
   ansible.builtin.command:
-    cmd: zsh -c "source ~/.asdf/asdf.sh && direnv exec /home/aki which pip"
+    cmd: zsh -c "source ~/.asdf/asdf.sh && direnv exec ~ which pip"
   register: which_pip
   when: "'python' in asdf_plugins_names"
   changed_when: false
@@ -91,3 +91,16 @@
   ansible.builtin.set_fact:
     pip_executable: "{{ which_pip.stdout }}"
   when: "'python' in asdf_plugins_names"
+
+- name: Discover npm binaries directory
+  become_user: aki
+  ansible.builtin.command:
+    cmd: zsh -c "source ~/.asdf/asdf.sh && direnv exec ~ npm bin -g"
+  register: npm_bin_result
+  when: "'nodejs' in asdf_plugins_names"
+  changed_when: false
+
+- name: Set npm binaries directory
+  ansible.builtin.set_fact:
+    npm_binaries_dir: "{{ npm_bin_result.stdout }}"
+  when: "'nodejs' in asdf_plugins_names"

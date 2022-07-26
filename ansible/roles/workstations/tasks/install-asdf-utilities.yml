@@ -1,5 +1,6 @@
 ---
 - name: Install asdf plugins
+  tags: test
   ansible.builtin.import_role:
     name: common
     tasks_from: asdf
@@ -8,7 +9,17 @@
       - name: lazydocker
         repository: https://github.com/comdotlinux/asdf-lazydocker.git
 
+      - name: nodejs
+
       - name: python
+
+- name: Install tldr
+  tags: test
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: npm
+  vars:
+    package_names: [tldr]
 
 - name: Install pip_search
   ansible.builtin.import_role:
