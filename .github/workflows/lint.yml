@@ -21,7 +21,7 @@ jobs:
         uses: extractions/setup-just@aa5d15c144db4585980a44ebfdd2cf337c4f14cb # tag=v1.4.0
         with:
           # renovate: datasource=crate depName=just
-          just-version: 1.2.0
+          just-version: 1.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -38,7 +38,7 @@ jobs:
 
       - name: Lint
         # yamllint disable-line rule:line-length
-        uses: github/super-linter/slim@a320804d310fdeb8d1a46c6c6c1e615d443b10c9 # tag=v4.9.4
+        uses: github/super-linter/slim@2d64ac1c067c34beaf7d24cc12733cd46236f76e # tag=v4.9.5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: main
