@@ -106,7 +106,6 @@
       amd64.deb"
 
 - name: Install Docker
-  tags: test
   block:
     - name: Add Docker apt key
       ansible.builtin.apt_key:

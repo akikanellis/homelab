@@ -43,7 +43,6 @@
     mode: 0600
 
 - name: Copy "aki" user zshrc
-  tags: test
   ansible.builtin.template:
     src: users/aki/zsh/zshrc.j2
     dest: /home/aki/.zshrc

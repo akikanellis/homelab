@@ -1,6 +1,5 @@
 ---
 - name: Install asdf plugins
-  tags: test
   ansible.builtin.import_role:
     name: common
     tasks_from: asdf
@@ -14,7 +13,6 @@
       - name: python
 
 - name: Install tldr
-  tags: test
   ansible.builtin.import_role:
     name: common
     tasks_from: npm

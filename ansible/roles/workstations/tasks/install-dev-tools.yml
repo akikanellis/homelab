@@ -142,6 +142,11 @@
     - name: Install VirtualBox
       ansible.builtin.package:
         name: virtualbox
+      # VirtualBox can't be installed if already running
+      register: package_virtualbox_result
+      failed_when: >
+        package_virtualbox_result.failed and
+        'VirtualBox is currently running' not in package_virtualbox_result.msg
 
     - name: Install VirtualBox extensions
       ansible.builtin.package:
