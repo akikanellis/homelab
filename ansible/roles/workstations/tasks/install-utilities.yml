@@ -78,6 +78,15 @@
       - starship
       - yq
 
+- name: Install zoxide
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/ajeetdsouza/zoxide/releases/download/\
+      {{ zoxide_version }}/\
+      zoxide_\
+      {{ zoxide_version | regex_replace('v(.+)', '\\1') }}_\
+      amd64.deb"
+
 - name: Install hyperfine
   ansible.builtin.apt:
     deb:

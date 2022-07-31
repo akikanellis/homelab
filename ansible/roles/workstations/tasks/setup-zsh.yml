@@ -33,6 +33,7 @@
     - fuck
     - path
     - starship
+    - zoxide
 
 - name: Copy "aki" user zshenv
   ansible.builtin.template:
