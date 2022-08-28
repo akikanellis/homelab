@@ -19,16 +19,16 @@ jobs:
         uses: extractions/setup-just@aa5d15c144db4585980a44ebfdd2cf337c4f14cb # tag=v1.4.0
         with:
           # renovate: datasource=crate depName=just
-          just-version: 1.3.0
+          just-version: 1.4.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Python
         # yamllint disable-line rule:line-length
-        uses: actions/setup-python@c4e89fac7e8767b327bbad6cb4d859eda999cf08 # tag=v4.1.0
+        uses: actions/setup-python@b55428b1882923874294fa556849718a1d7f2ca5 # tag=v4.2.0
         with:
           # renovate: datasource=docker depName=python versioning=docker
-          python-version: 3.10.5
+          python-version: 3.10.6
           cache: pip
 
       - name: Install dependencies
@@ -36,7 +36,7 @@ jobs:
 
       - name: Cache Vagrant boxes
         # yamllint disable-line rule:line-length
-        uses: actions/cache@0865c47f36e68161719c5b124609996bb5c40129 # tag=v3.0.5
+        uses: actions/cache@fd5de65bc895cf536527842281bea11763fefd77 # tag=v3.0.8
         with:
           path: ~/.vagrant.d/boxes
           key: "${{ runner.os }}-\

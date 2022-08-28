@@ -33,7 +33,7 @@ jobs:
       - name: Release
         id: release
         # yamllint disable-line rule:line-length
-        uses: cycjimmy/semantic-release-action@3b88c82b34098e8b51e401c1082c9170b0a3ec3c # tag=v3.0.0
+        uses: cycjimmy/semantic-release-action@071ef4c9640be3700de2aa7f39e8f4038e0269ed # tag=v3.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
           GIT_AUTHOR_NAME: aki-bot[bot]
@@ -42,7 +42,7 @@ jobs:
           GIT_COMMITTER_EMAIL: 103840025+aki-bot[bot]@users.noreply.github.com
         with:
           # renovate: datasource=npm depName=semantic-release
-          semantic_version: 19.0.3
+          semantic_version: 19.0.5
           extra_plugins: conventional-changelog-conventionalcommits
 
   deploy-to-production:
