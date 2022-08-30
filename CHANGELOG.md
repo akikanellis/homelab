@@ -1,3 +1,12 @@
+## [1.11.9](https://github.com/AkiKanellis/homelab/compare/v1.11.8...v1.11.9) (2022-08-30)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#108](https://github.com/AkiKanellis/homelab/issues/108)) ([20ffd52](https://github.com/AkiKanellis/homelab/commit/20ffd52b3224b4783d8604295e4e607f1e68ab1a))
+* **deps:** update dependency devsec.hardening to v8 ([#109](https://github.com/AkiKanellis/homelab/issues/109)) ([c2d8155](https://github.com/AkiKanellis/homelab/commit/c2d81551e8bd986ef39628748a81789a3e95e2f6))
+* **deps:** update renovatebot/github-action action to v32.180.1 ([#110](https://github.com/AkiKanellis/homelab/issues/110)) ([7778352](https://github.com/AkiKanellis/homelab/commit/7778352e0c3f7bff7c24dba0ab8907e016803f1d))
+
 ## [1.11.8](https://github.com/AkiKanellis/homelab/compare/v1.11.7...v1.11.8) (2022-07-30)
 
 
