@@ -1,3 +1,10 @@
+## [1.11.10](https://github.com/AkiKanellis/homelab/compare/v1.11.9...v1.11.10) (2022-09-03)
+
+
+### Bug Fixes
+
+* change GitHub CLI installation to GitHub releases ([#113](https://github.com/AkiKanellis/homelab/issues/113)) ([7d619f7](https://github.com/AkiKanellis/homelab/commit/7d619f76d040c60bf194a771405df5168a2da2ab)), closes [#112](https://github.com/AkiKanellis/homelab/issues/112)
+
 ## [1.11.9](https://github.com/AkiKanellis/homelab/compare/v1.11.8...v1.11.9) (2022-08-30)
 
 
