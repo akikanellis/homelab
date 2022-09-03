@@ -4,3 +4,6 @@ asdf_version: v0.10.2
 
 # renovate: datasource=github-releases depName=sharkdp/hyperfine
 hyperfine_version: v1.14.0
+
+# renovate: datasource=github-releases depName=cli/cli
+github_cli_version: v2.14.7

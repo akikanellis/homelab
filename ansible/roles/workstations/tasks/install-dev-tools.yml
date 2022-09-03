@@ -47,18 +47,13 @@
         - other
 
 - name: Install GitHub CLI
-  block:
-    - name: Add GitHub CLI apt key
-      ansible.builtin.apt_key:
-        url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-
-    - name: Add GitHub CLI apt repository
-      ansible.builtin.apt_repository:
-        repo: deb https://cli.github.com/packages stable main
-
-    - name: Install GitHub CLI
-      ansible.builtin.package:
-        name: gh
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/cli/cli/releases/download/\
+      {{ github_cli_version }}/\
+      gh_\
+      {{ github_cli_version | regex_replace('v(.+)', '\\1') }}\
+      _linux_amd64.deb"
 
 - name: Install Terraform
   block:
