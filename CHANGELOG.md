@@ -1,3 +1,10 @@
+## [1.11.12](https://github.com/AkiKanellis/homelab/compare/v1.11.11...v1.11.12) (2022-09-04)
+
+
+### Build System
+
+* **deps:** update renovatebot/github-action action to v32.190.2 ([#114](https://github.com/AkiKanellis/homelab/issues/114)) ([76bda61](https://github.com/AkiKanellis/homelab/commit/76bda61952bc2e7acddca9e1a13f9ebee755dd25))
+
 ## [1.11.11](https://github.com/AkiKanellis/homelab/compare/v1.11.10...v1.11.11) (2022-09-03)
 
 
