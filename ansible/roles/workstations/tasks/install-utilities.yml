@@ -25,6 +25,7 @@
       - lsb-release
       - make
       - neofetch
+      - neovim
       - net-tools
       - nmap
       - p7zip-full
