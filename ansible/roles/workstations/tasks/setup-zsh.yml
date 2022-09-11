@@ -13,27 +13,32 @@
           - name: asdf
           - name: git
 
-- name: Create "aki" user ZSH directories
+- name: Create "aki" user config directories
   ansible.builtin.file:
-    path: /home/aki/.zsh
+    path: /home/aki/{{ item }}
     state: directory
     owner: aki
     group: aki
     mode: 0700
+  loop:
+    - .config
+    - .config/bat
+    - .zsh
 
 - name: Copy "aki" user ZSH configs
   ansible.builtin.template:
-    src: users/aki/zsh/{{ item }}.zsh.j2
-    dest: /home/aki/.zsh/{{ item }}.zsh
+    src: users/aki/zsh/{{ item.name }}.zsh.j2
+    dest: /home/aki/.zsh/{{ item.name }}.zsh
     owner: aki
     group: aki
-    mode: 0600
+    mode: "{{ item.mode | default('0600') }}"
   loop:
-    - env
-    - fuck
-    - path
-    - starship
-    - zoxide
+    - name: env
+    - name: fuck
+    - {name: lessfilter, mode: "0700"}
+    - name: path
+    - name: starship
+    - name: zoxide
 
 - name: Copy "aki" user zshenv
   ansible.builtin.template:
@@ -52,3 +57,13 @@
     # This needs to match the mode set by gantsign.antigen otherwise it will
     # keep changing on each task execution
     mode: 0644
+
+- name: Copy "aki" user configs
+  ansible.builtin.template:
+    src: users/aki/{{ item.src }}.j2
+    dest: /home/aki/{{ item.dest }}
+    owner: aki
+    group: aki
+    mode: 0600
+  loop:
+    - {src: bat/config, dest: .config/bat/config}
