@@ -18,7 +18,7 @@ jobs:
       - name: Get token
         id: get-token
         # yamllint disable-line rule:line-length
-        uses: peter-murray/workflow-application-token-action@e8782d687a306fb13d733244d0f2a50e272d3752 # tag=v1.4.0
+        uses: peter-murray/workflow-application-token-action@7b0e459e3557d2d86465abbe0a7dcdfa7577e233 # tag=v2.0.0
         with:
           application_id: ${{ secrets.AKI_BOT_APP_ID }}
           application_private_key: ${{ secrets.AKI_BOT_APP_PRIVATE_KEY }}
