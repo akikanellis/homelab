@@ -8,6 +8,7 @@
       - ca-certificates
       - coreutils
       - cron
+      - csvkit
       - curl
       - dialog
       - dnsutils
@@ -21,6 +22,7 @@
       - hexyl
       - iotop
       - jq
+      - libimage-exiftool-perl
       - locate
       - lsb-release
       - make
