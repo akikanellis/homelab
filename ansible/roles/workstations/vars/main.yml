@@ -2,6 +2,12 @@
 # renovate: datasource=github-releases depName=asdf-vm/asdf
 asdf_version: v0.10.2
 
+# renovate: datasource=github-releases depName=sharkdp/bat
+bat_version: v0.22.1
+
+# renovate: datasource=github-releases depName=sharkdp/fd
+fd_version: v8.4.0
+
 # renovate: datasource=github-releases depName=ajeetdsouza/zoxide
 zoxide_version: v0.8.2
 

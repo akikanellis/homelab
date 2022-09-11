@@ -1,0 +1,44 @@
+{{ ansible_managed | comment }}
+
+# Enable aliases to be sudo’ed
+alias sudo="sudo "
+
+alias path='echo -e ${PATH//:/\\n}'
+
+alias reload='exec ${SHELL} -l'
+alias o="open ."
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
+
+alias d="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias p="cd ~/Projects"
+
+alias c="clear"
+
+alias exa="exa --colour=always --classify --icons --group-directories-first"
+alias ls="exa"
+alias l="ls"
+alias ll="l --long --binary --group --header --time-style=long-iso"
+alias la="ll --all"
+alias lm="ll --sort=modified --reverse"
+alias lam="lm --all"
+alias lt="l --tree"
+
+alias cat="bat"
+
+alias rg="rg --pretty --follow --smart-case"
+alias grep="rg"
+
+alias top="btop"
+
+alias vim="nvim"
+alias vi="nvim"
+
+alias dig="doggo"
+
+alias fzfp="fzf --preview 'less {}' --preview-window 'wrap'"
