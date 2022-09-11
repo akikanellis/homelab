@@ -36,7 +36,13 @@ run *extra_args:
 run-test *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
-  molecule {{extra_args}} converge -- --tags test
+  molecule {{extra_args}} converge -- --tags test -vv
+
+# Run the app for testing with debugging on
+run-test-debug *extra_args:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  molecule {{extra_args}} converge -- --tags test -vvv
 
 # Run the app for debugging
 run-debug *extra_args:
