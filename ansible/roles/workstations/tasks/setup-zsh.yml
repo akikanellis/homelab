@@ -36,6 +36,7 @@
     - name: env
     - name: fuck
     - {name: lessfilter, mode: "0700"}
+    - name: options
     - name: path
     - name: starship
     - name: zoxide
