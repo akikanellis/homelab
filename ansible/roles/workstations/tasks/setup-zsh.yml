@@ -35,6 +35,7 @@
   loop:
     - name: env
     - name: fuck
+    - name: fzf
     - {name: lessfilter, mode: "0700"}
     - name: options
     - name: path
