@@ -54,6 +54,20 @@
       {{ bat_version | regex_replace('v(.+)', '\\1') }}_\
       amd64.deb"
 
+- name: Install doggo
+  ansible.builtin.unarchive:
+    src:
+      "https://github.com/mr-karan/doggo/releases/download/\
+      {{ doggo_version }}/\
+      doggo_\
+      {{ doggo_version | regex_replace('v(.+)', '\\1') }}_\
+      linux_amd64.tar.gz"
+    dest: /home/aki/.local/bin
+    include: doggo
+    remote_src: true
+    owner: aki
+    group: aki
+
 - name: Install fd
   ansible.builtin.apt:
     deb:
