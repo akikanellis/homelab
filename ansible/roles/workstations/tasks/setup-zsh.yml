@@ -11,7 +11,26 @@
           name: robbyrussell
         antigen_bundles:
           - name: asdf
+          - name: aws
+          - name: brew
+          - name: dirhistory
+          - name: docker
+          - name: docker-compose
           - name: git
+          - name: fzf
+          - name: sudo
+          - name: web-search
+
+          - name: fzf-tab
+            url: Aloxaf/fzf-tab
+          - name: clipboard
+            url: zpm-zsh/clipboard
+          - name: zsh-syntax-highlighting
+            url: zsh-users/zsh-syntax-highlighting
+          - name: zsh-autosuggestions
+            url: zsh-users/zsh-autosuggestions
+          - name: zsh-completions
+            url: zsh-users/zsh-completions
 
 - name: Create "aki" user config directories
   ansible.builtin.file:
