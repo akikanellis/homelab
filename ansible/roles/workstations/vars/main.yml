@@ -6,4 +6,4 @@ asdf_version: v0.10.2
 hyperfine_version: v1.15.0
 
 # renovate: datasource=github-releases depName=cli/cli
-github_cli_version: v2.16.0
+github_cli_version: v2.16.1
