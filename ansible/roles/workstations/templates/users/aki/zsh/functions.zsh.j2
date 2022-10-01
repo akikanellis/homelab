@@ -82,29 +82,41 @@ function publicip() {
 }
 
 function help() {
-  local command alias_text help_text
+  local command \
+  alias_text alias_return_code \
+  help_text help_return_code \
+  man_text man_return_code
 
   command="$*"
 
-  alias_text=$(alias "$command")
-
-  if [ -n "$alias_text" ]; then
+  alias_text=$(alias "$command" 2>&1)
+  alias_return_code=$?
+  if [ $alias_return_code -eq 0 ] && [ -n "$alias_text" ]; then
     echo "$alias_text"
     return 0
   fi
 
   help_text=$(
-    eval "$command --help" 2>/dev/null ||
-      eval "$command -help" 2>/dev/null ||
-      eval "$command -h" 2>/dev/null
+    eval "$command --help" 2>&1 ||
+      eval "$command -help" 2>&1 ||
+      eval "$command -h" 2>&1 ||
+      eval "$command help" 2>&1
   )
-
-  if [ -n "$help_text" ]; then
+  help_return_code=$?
+  if [ $help_return_code -eq 0 ] && [ -n "$help_text" ]; then
     echo "$help_text" | bat --plain --language=help
     return 0
   fi
 
-  man "$command"
+  man_text=$(man "$command" 2>&1)
+  man_return_code=$?
+  if [ $man_return_code -eq 0 ] && [ -n "$man_text" ]; then
+    echo "$man_text" | bat --plain --language=man
+    return 0
+  fi
+
+  echo "No help found for '$command'"
+  return 1
 }
 
 function cdp() {
