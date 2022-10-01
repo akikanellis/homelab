@@ -1,3 +1,10 @@
+## [1.11.17](https://github.com/AkiKanellis/homelab/compare/v1.11.16...v1.11.17) (2022-10-01)
+
+
+### Build System
+
+* **deps:** update github/super-linter:slim-v4.9.6 docker digest to 8a81df9 ([#120](https://github.com/AkiKanellis/homelab/issues/120)) ([9386740](https://github.com/AkiKanellis/homelab/commit/9386740fc64a9886a6edec6f14304b537c2f7928))
+
 ## [1.11.16](https://github.com/AkiKanellis/homelab/compare/v1.11.15...v1.11.16) (2022-09-28)
 
 
