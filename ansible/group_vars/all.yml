@@ -1,2 +1,3 @@
 ---
 aki_password: "{{ vault_aki_password }}"
+aki_github_workstation_token: "{{ vault_aki_github_workstation_token }}"
