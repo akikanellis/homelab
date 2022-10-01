@@ -3,6 +3,7 @@
   ansible.builtin.package:
     name:
       - perl
+      - tilix
       - vagrant
 
 - name: Install asdf dev tools for "aki" user
