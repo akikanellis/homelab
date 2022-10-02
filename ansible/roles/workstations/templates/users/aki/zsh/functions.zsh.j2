@@ -13,8 +13,8 @@ function update() {
 
   if [[ "$OSTYPE" == linux* ]] && command_exists apt; then
     echo "Updating apt..."
-    sudo apt update
-    sudo apt upgrade -y
+    sudo apt update --assume-yes
+    sudo apt upgrade --assume-yes
     echo "apt updated!"
   fi
 
@@ -50,9 +50,9 @@ function update() {
 function clean() {
   if [[ "$OSTYPE" == linux* ]] && command_exists apt; then
     echo "Cleaning apt..."
-    sudo apt autoclean
-    sudo apt autoremove -y
-    sudo apt purge
+    sudo apt autoclean --assume-yes
+    sudo apt autoremove --assume-yes
+    sudo apt purge --assume-yes
     echo "apt cleaned!"
   fi
 
