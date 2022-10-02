@@ -97,6 +97,8 @@
     # keep changing on each task execution
     mode: 0644
 
+# TODO sort out bat task location
+
 - name: Copy "aki" user configs
   ansible.builtin.template:
     src: users/aki/{{ item.src }}.j2
