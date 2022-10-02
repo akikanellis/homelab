@@ -30,7 +30,7 @@ jobs:
 
       - name: Update dependencies
         # yamllint disable-line rule:line-length
-        uses: renovatebot/github-action@57cb42c5b95724d35bb52ea7a3e028f7776288b7 # tag=v32.211.2
+        uses: renovatebot/github-action@a3b10f9b105b46aeda1d358f0d7f040dafd4fae6 # tag=v32.213.0
         with:
           configurationFile: renovate.json5
           token: x-access-token:${{ steps.get-token.outputs.token }}
