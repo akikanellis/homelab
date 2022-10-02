@@ -131,6 +131,7 @@
 
 - name: Install doggo
   ansible.builtin.unarchive:
+    remote_src: true
     src:
       "https://github.com/mr-karan/doggo/releases/download/\
       {{ doggo_version }}/\
@@ -139,7 +140,6 @@
       linux_amd64.tar.gz"
     dest: /home/aki/.local/bin
     include: doggo
-    remote_src: true
     owner: aki
     group: aki
 
@@ -168,6 +168,7 @@
 
     - name: Install lazygit for "aki" user
       ansible.builtin.unarchive:
+        remote_src: true
         src:
           "https://github.com/jesseduffield/lazygit/releases/download/\
           {{ lazygit_version }}/\
@@ -176,7 +177,6 @@
           Linux_x86_64.tar.gz"
         dest: /home/aki/.local/bin
         include: lazygit
-        remote_src: true
         owner: aki
         group: aki
 
