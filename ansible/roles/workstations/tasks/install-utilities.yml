@@ -10,6 +10,8 @@
       - cron
       - csvkit
       - curl
+      - dconf-cli
+      - dconf-editor
       - dialog
       - dnsutils
       - duf
