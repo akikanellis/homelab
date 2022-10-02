@@ -3,7 +3,6 @@
   ansible.builtin.package:
     name:
       - perl
-      - tilix
       - vagrant
 
 - name: Install asdf dev tools for "aki" user
@@ -20,42 +19,6 @@
       - name: gradle
       - name: maven
       - name: awscli
-
-- name: Setup git
-  block:
-    - name: Install lazygit
-      ansible.builtin.unarchive:
-        src:
-          "https://github.com/jesseduffield/lazygit/releases/download/\
-          {{ lazygit_version }}/\
-          lazygit_\
-          {{ lazygit_version | regex_replace('v(.+)', '\\1') }}_\
-          Linux_x86_64.tar.gz"
-        dest: /home/aki/.local/bin
-        include: lazygit
-        remote_src: true
-        owner: aki
-        group: aki
-
-    - name: Copy "aki" user gitconfig
-      ansible.builtin.template:
-        src: users/aki/gitconfig.j2
-        dest: /home/aki/.gitconfig
-        owner: aki
-        group: aki
-        mode: 0600
-
-    - name: Create project directories for "aki" user
-      ansible.builtin.file:
-        path: /home/aki/Projects/{{ item }}
-        state: directory
-        owner: aki
-        group: aki
-        mode: 0700
-      loop:
-        - aki
-        - forks
-        - other
 
 - name: Install GitHub CLI
   ansible.builtin.apt:
@@ -178,3 +141,46 @@
         name: aki
         groups: wireshark
         append: true
+
+# TODO set font to "Hack Nerd Font Mono 14"
+
+- name: Install Tilix
+  block:
+    - name: Install Tilix
+      ansible.builtin.package:
+        name: tilix
+
+    - name: Create "aki" user Tilix config directory
+      ansible.builtin.file:
+        path: /home/aki/.config/tilix/schemes
+        state: directory
+        owner: aki
+        group: aki
+        mode: 0700
+
+    - name: Create "aki" user Tilix default profile
+      become_user: aki
+      ansible.builtin.dconf:
+        key:
+          "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/\
+          {{ item.key }}"
+        value: "{{ item.value }}"
+      loop:
+        - {key: font, value: "'Hack 14'"}
+        - {key: use-system-font, value: "false"}
+        - {key: visible-name, value: "'Default'"}
+
+    - name: Set "aki" user Tilix default profile
+      become_user: aki
+      ansible.builtin.dconf:
+        key: /com/gexperts/Tilix/profiles/default
+        value: "'2b7c4080-0ddd-46c5-8f23-563fd3ba789d'"
+
+    - name: Add "aki" user Tilix One Dark theme
+      ansible.builtin.get_url:
+        # See: https://github.com/storm119/Tilix-Themes/blob/master/Themes.md
+        url: https://git.io/v7Qaw
+        dest: /home/aki/.config/tilix/schemes/one-dark.json
+        owner: aki
+        group: aki
+        mode: 0600

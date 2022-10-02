@@ -96,15 +96,3 @@
     # This needs to match the mode set by gantsign.antigen otherwise it will
     # keep changing on each task execution
     mode: 0644
-
-# TODO sort out bat task location
-
-- name: Copy "aki" user configs
-  ansible.builtin.template:
-    src: users/aki/{{ item.src }}.j2
-    dest: /home/aki/{{ item.dest }}
-    owner: aki
-    group: aki
-    mode: 0600
-  loop:
-    - {src: bat/config, dest: .config/bat/config}

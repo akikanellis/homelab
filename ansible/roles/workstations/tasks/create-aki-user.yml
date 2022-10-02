@@ -21,8 +21,6 @@
     mode: 0440
     validate: visudo -cf %s
 
-# TODO sort out dot directories creation location
-
 - name: Create "aki" user home directories
   ansible.builtin.file:
     path: /home/aki/{{ item }}
@@ -32,13 +30,15 @@
     mode: 0700
   loop:
     - .config
-    - .config/tilix/schemes
     - .local/bin
     - .local/lib
     - .local/share/applications
     - .local/share/fonts
     - Courses
     - Projects
+    - Projects/aki
+    - Projects/forks
+    - Projects/other
 
 - name: Install "aki" user fonts
   ansible.builtin.unarchive:
@@ -47,36 +47,8 @@
       {{ nerd_fonts_version }}/\
       Hack.zip"
     dest: /home/aki/.local/share/fonts
+    include: "*.ttf"
     remote_src: true
     owner: aki
     group: aki
     mode: 0600
-
-- name: Setup Tilix
-  block:
-    - name: Create Tilix default profile
-      become_user: aki
-      ansible.builtin.dconf:
-        key:
-          "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/\
-          {{ item.key }}"
-        value: "{{ item.value }}"
-      loop:
-        - {key: font, value: "'Hack 14'"}
-        - {key: use-system-font, value: "false"}
-        - {key: visible-name, value: "'Default'"}
-
-    - name: Set Tilix default profile
-      become_user: aki
-      ansible.builtin.dconf:
-        key: /com/gexperts/Tilix/profiles/default
-        value: "'2b7c4080-0ddd-46c5-8f23-563fd3ba789d'"
-
-    - name: Add Tilix One Dark theme
-      ansible.builtin.get_url:
-        # See: https://github.com/storm119/Tilix-Themes/blob/master/Themes.md
-        url: https://git.io/v7Qaw
-        dest: /home/aki/.config/tilix/schemes/one-dark.json
-        owner: aki
-        group: aki
-        mode: 0600
