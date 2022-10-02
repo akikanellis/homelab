@@ -20,32 +20,6 @@
       - name: maven
       - name: awscli
 
-- name: Setup git
-  block:
-    - name: Install tig
-      ansible.builtin.package:
-        name: tig
-
-    - name: Copy "aki" user gitconfig
-      ansible.builtin.template:
-        src: users/aki/gitconfig.j2
-        dest: /home/aki/.gitconfig
-        owner: aki
-        group: aki
-        mode: 0600
-
-    - name: Create project directories for "aki" user
-      ansible.builtin.file:
-        path: /home/aki/Projects/{{ item }}
-        state: directory
-        owner: aki
-        group: aki
-        mode: 0700
-      loop:
-        - aki
-        - forks
-        - other
-
 - name: Install GitHub CLI
   ansible.builtin.apt:
     deb:
@@ -132,6 +106,11 @@
     - name: Install VirtualBox
       ansible.builtin.package:
         name: virtualbox
+      # VirtualBox can't be installed if already running
+      register: package_virtualbox_result
+      failed_when: >
+        package_virtualbox_result.failed and
+        'VirtualBox is currently running' not in package_virtualbox_result.msg
 
     - name: Install VirtualBox extensions
       ansible.builtin.package:
@@ -163,34 +142,43 @@
         groups: wireshark
         append: true
 
-- name: Install Docker
+- name: Install Tilix
   block:
-    - name: Add Docker apt key
-      ansible.builtin.apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
-
-    - name: Add Docker apt repository
-      ansible.builtin.apt_repository:
-        repo: >
-          deb [arch=amd64]
-          https://download.docker.com/linux/ubuntu
-          {{ ansible_distribution_release }}
-          stable
-
-    - name: Install Docker Engine
+    - name: Install Tilix
       ansible.builtin.package:
-        name:
-          - containerd.io
-          - docker-ce
-          - docker-ce-cli
-          - docker-compose-plugin
+        name: tilix
 
-    - name: Create "docker" group
-      ansible.builtin.group:
-        name: docker
+    - name: Create "aki" user Tilix config directory
+      ansible.builtin.file:
+        path: /home/aki/.config/tilix/schemes
+        state: directory
+        owner: aki
+        group: aki
+        mode: 0700
 
-    - name: Add "aki" user to "docker" group
-      ansible.builtin.user:
-        name: aki
-        groups: docker
-        append: true
+    - name: Create "aki" user Tilix default profile
+      become_user: aki
+      ansible.builtin.dconf:
+        key:
+          "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/\
+          {{ item.key }}"
+        value: "{{ item.value }}"
+      loop:
+        - {key: font, value: "'Hack Nerd Font Mono 14'"}
+        - {key: use-system-font, value: "false"}
+        - {key: visible-name, value: "'Default'"}
+
+    - name: Set "aki" user Tilix default profile
+      become_user: aki
+      ansible.builtin.dconf:
+        key: /com/gexperts/Tilix/profiles/default
+        value: "'2b7c4080-0ddd-46c5-8f23-563fd3ba789d'"
+
+    - name: Add "aki" user Tilix One Dark theme
+      ansible.builtin.get_url:
+        # See: https://github.com/storm119/Tilix-Themes/blob/master/Themes.md
+        url: https://git.io/v7Qaw
+        dest: /home/aki/.config/tilix/schemes/one-dark.json
+        owner: aki
+        group: aki
+        mode: 0600

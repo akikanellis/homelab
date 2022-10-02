@@ -29,5 +29,12 @@
     group: aki
     mode: 0700
   loop:
+    - .config
+    - .local/bin
+    - .local/lib
+    - .local/share/applications
+    - .local/share/fonts
     - Courses
-    - Projects
+    - Projects/aki
+    - Projects/forks
+    - Projects/other

@@ -1,0 +1,239 @@
+{{ ansible_managed | comment }}
+
+function command_exists() {
+  command -v "$1" &>/dev/null
+}
+
+function update() {
+  if [[ "$OSTYPE" == darwin* ]] && command_exists softwareupdate; then
+    echo "Updating softwareupdate..."
+    sudo softwareupdate -ia
+    echo "softwareupdate updated!"
+  fi
+
+  if [[ "$OSTYPE" == linux* ]] && command_exists apt; then
+    echo "Updating apt..."
+    sudo apt update --assume-yes
+    sudo apt upgrade --assume-yes
+    echo "apt updated!"
+  fi
+
+  if command_exists brew; then
+    echo "Updating brew..."
+    brew update
+    brew upgrade
+    echo "brew updated!"
+  fi
+
+  if command_exists asdf; then
+    echo "Updating asdf..."
+    asdf update
+    asdf plugin update --all
+    echo "asdf updated!"
+  fi
+
+  if command_exists npm; then
+    echo "Updating npm..."
+    npm update --location=global
+    echo "npm updated!"
+  fi
+
+  if command_exists pip; then
+    echo "Updating pip..."
+    pip install -r <(pip freeze) --upgrade
+    echo "pip updated!"
+  fi
+
+  clean
+}
+
+function clean() {
+  if [[ "$OSTYPE" == linux* ]] && command_exists apt; then
+    echo "Cleaning apt..."
+    sudo apt autoclean --assume-yes
+    sudo apt autoremove --assume-yes
+    sudo apt purge --assume-yes
+    echo "apt cleaned!"
+  fi
+
+  if command_exists brew; then
+    echo "Cleaning brew..."
+    brew cleanup
+    brew autoremove
+    echo "brew cleaned!"
+  fi
+}
+
+function localip() {
+  if [[ "$OSTYPE" == linux* ]]; then
+    ip -json addr show |
+      jq -r '.[] |
+      .addr_info[] |
+      select(.family == "inet") |
+      [.label,.local] |
+      join(": ")'
+  elif [[ "$OSTYPE" == darwin* ]]; then
+    ifconfig -l | xargs -n1 ipconfig getifaddr || true
+  fi
+}
+
+function publicip() {
+  dig +short myip.opendns.com @resolver1.opendns.com
+}
+
+function help() {
+  local command \
+  alias_text alias_return_code \
+  help_text help_return_code \
+  man_text man_return_code
+
+  command="$*"
+
+  alias_text=$(alias "$command" 2>&1)
+  alias_return_code=$?
+  if [ $alias_return_code -eq 0 ] && [ -n "$alias_text" ]; then
+    echo "$alias_text"
+    return 0
+  fi
+
+  help_text=$(
+    eval "$command --help" 2>&1 ||
+      eval "$command -help" 2>&1 ||
+      eval "$command -h" 2>&1 ||
+      eval "$command help" 2>&1
+  )
+  help_return_code=$?
+  if [ $help_return_code -eq 0 ] && [ -n "$help_text" ]; then
+    echo "$help_text" | bat --plain --language=help
+    return 0
+  fi
+
+  man_text=$(man "$command" 2>&1)
+  man_return_code=$?
+  if [ $man_return_code -eq 0 ] && [ -n "$man_text" ]; then
+    echo "$man_text" | bat --plain --language=man
+    return 0
+  fi
+
+  echo "No help found for '$command'"
+  return 1
+}
+
+function cdp() {
+  local project_dir
+
+  project_dir=$(
+    fd '.git$' ~/Projects --type d --unrestricted --exec echo "{//}" |
+      fzfp --query "${*:-}"
+  )
+
+  if [ -n "$project_dir" ]; then
+    cd "$project_dir" || exit
+  fi
+}
+
+function ghprco() {
+  local jq_template pr_number
+
+  jq_template="\"\
+#\(.number) - \(.title)\
+\t\
+Author: \(.user.login)
+Created: \(.created_at)
+Updated: \(.updated_at)
+
+\(.body)
+\""
+
+  pr_number=$(
+    gh api "repos/:owner/:repo/pulls" |
+      jq ".[] | $jq_template" |
+      sed -e 's/"\(.*\)"/\1/' -e "s/\\t/\t/" |
+      fzf \
+        --with-nth=1 \
+        --delimiter="\t" \
+        --preview="echo -e {2}" \
+        --preview-window=top:wrap |
+      sed -r "s/^#([0-9]+).*/\1/"
+  )
+
+  if [ -n "$pr_number" ]; then
+    gh pr checkout "$pr_number"
+  fi
+}
+
+function f() {
+  local selected
+
+  selected=$(fzfp --query "${*:-}")
+
+  echo "$selected"
+}
+
+function fcd() {
+  local selected
+
+  selected=$(f "$@")
+
+  if [[ -n "$selected" ]]; then
+    cd "$(dirname "$selected")" || exit
+  fi
+}
+
+function fe() {
+  local selected
+
+  selected=$(f "$@")
+
+  if [[ -n "$selected" ]]; then
+    $EDITOR "$selected"
+  fi
+}
+
+function ff() {
+  local selected
+
+  selected=$(
+    rg --no-heading "${*:-}" 2>/dev/null |
+      fzfp --ansi \
+        --color "hl:-1:underline,hl+:-1:underline:reverse" \
+        --delimiter : \
+        --preview "bat --highlight-line {2} {1}" \
+        --preview-window "+{2}+3/3,~3"
+  )
+
+  echo "$selected"
+}
+
+function ffcd() {
+  local selected
+
+  IFS=: read -rA selected <<<"$(ff "$@")"
+
+  if [[ -n "$selected" ]]; then
+    local file
+
+    file="${selected[1]}"
+
+    cd "$(dirname "$file")" || exit
+  fi
+}
+
+function ffe() {
+  local selected
+
+  IFS=: read -rA selected <<<"$(ff "$@")"
+
+  if [[ -n "$selected" ]]; then
+    local file line
+
+    file="${selected[1]}"
+    line="${selected[2]}"
+
+    $EDITOR "$file" +"$line"
+  fi
+}
+
+function logs() {
+  tail -f "$@" | bat --paging=never --language=log
+}

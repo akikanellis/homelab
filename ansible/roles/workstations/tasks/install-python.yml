@@ -1,8 +1,0 @@
----
-- name: Install python
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: asdf
-  vars:
-    asdf_plugins:
-      - name: python

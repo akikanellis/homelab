@@ -1,0 +1,57 @@
+# shellcheck disable=SC2016
+
+{{ ansible_managed | comment }}
+
+# Enable homebrew completions. This needs to be done before compinit.
+if command_exists brew; then
+  fpath+="$HOMEBREW_PREFIX/share/zsh/site-functions"
+fi
+
+# Enable manually created completions
+fpath+=~/.zsh/completions
+
+# Enable completions
+autoload -U compinit
+compinit
+
+# Enable completers, in order.
+# See https://zsh.sourceforge.io/Guide/zshguide06.html
+zstyle ':completion:*' completer _extensions _complete _correct _prefix
+
+# Completion formats and colours
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*:default' list-colors '${(s.:.)LS_COLORS}'
+
+zstyle ':completion:*:git-checkout:*' sort false
+
+# Preview any command
+zstyle ':fzf-tab:complete:*:*' fzf-preview \
+  '[[ -n "$realpath" ]] && less "${(Q)realpath}"'
+
+zstyle ':fzf-tab:complete:-command-:*' fzf-preview \
+  'source ~/.zshrc && help "$word"'
+
+# Preview `ps` and `kill`
+if [[ "$OSTYPE" == linux* ]]; then
+  PS_PREVIEW_COMMAND='ps --pid="$word" -o cmd --no-headers -w -w'
+elif [[ "$OSTYPE" == darwin* ]]; then
+  PS_PREVIEW_COMMAND='ps -p "$word" -o command= -w -w'
+fi
+
+zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
+  "[[ \$group == '[process ID]' ]] && $PS_PREVIEW_COMMAND"
+
+unset PS_PREVIEW_COMMAND
+
+# Preview systemctl
+if command_exists systemctl; then
+  zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview \
+    'SYSTEMD_COLORS=1 systemctl status "$word"'
+fi
+
+# Preview brew
+if command_exists brew; then
+  zstyle \
+    ':fzf-tab:complete:brew-(install|uninstall|search|info):*-argument-rest' \
+    fzf-preview 'brew info "$word"'
+fi

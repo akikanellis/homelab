@@ -2,8 +2,32 @@
 # renovate: datasource=github-releases depName=asdf-vm/asdf
 asdf_version: v0.10.2
 
-# renovate: datasource=github-releases depName=sharkdp/hyperfine
-hyperfine_version: v1.15.0
+# renovate: datasource=github-releases depName=sharkdp/bat
+bat_version: v0.22.1
+
+# renovate: datasource=github-releases depName=rs/curlie
+curlie_version: v1.6.9
+
+# renovate: datasource=github-releases depName=dandavison/delta
+delta_version: 0.13.0
+
+# renovate: datasource=github-releases depName=mr-karan/doggo
+doggo_version: v0.5.4
+
+# renovate: datasource=github-releases depName=sharkdp/fd
+fd_version: v8.4.0
 
 # renovate: datasource=github-releases depName=cli/cli
 github_cli_version: v2.16.1
+
+# renovate: datasource=github-releases depName=sharkdp/hyperfine
+hyperfine_version: v1.15.0
+
+# renovate: datasource=github-releases depName=jesseduffield/lazygit
+lazygit_version: v0.35
+
+# renovate: datasource=github-releases depName=ryanoasis/nerd-fonts
+nerd_fonts_version: v2.2.2
+
+# renovate: datasource=github-releases depName=ajeetdsouza/zoxide
+zoxide_version: v0.8.2

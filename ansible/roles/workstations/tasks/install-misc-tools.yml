@@ -3,8 +3,6 @@
   ansible.builtin.package:
     name:
       - caffeine
-      - dconf-cli
-      - dconf-editor
       - gnome-tweaks
 
 - name: Install Flatpak misc tools
@@ -41,3 +39,16 @@
     - name: Install Google Chrome
       ansible.builtin.package:
         name: google-chrome-stable
+
+- name: Install "aki" user fonts
+  ansible.builtin.unarchive:
+    remote_src: true
+    src:
+      "https://github.com/ryanoasis/nerd-fonts/releases/download/\
+      {{ nerd_fonts_version }}/\
+      Hack.zip"
+    dest: /home/aki/.local/share/fonts
+    include: "*.ttf"
+    owner: aki
+    group: aki
+    mode: 0600
