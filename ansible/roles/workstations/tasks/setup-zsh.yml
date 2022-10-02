@@ -23,12 +23,16 @@
 
           - name: fzf-tab
             url: Aloxaf/fzf-tab
+
           - name: clipboard
             url: zpm-zsh/clipboard
+
           - name: zsh-syntax-highlighting
             url: zsh-users/zsh-syntax-highlighting
+
           - name: zsh-autosuggestions
             url: zsh-users/zsh-autosuggestions
+
           - name: zsh-completions
             url: zsh-users/zsh-completions
 
