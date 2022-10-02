@@ -4,4 +4,5 @@
 
   tasks: []
 
-- import_playbook: ../../apply-configuration.yml
+- name: Apply Configuration
+  import_playbook: ../../apply-configuration.yml

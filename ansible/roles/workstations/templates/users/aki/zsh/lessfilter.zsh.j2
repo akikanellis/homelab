@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+# shellcheck disable=SC1009,SC1054,SC1056,SC1072,SC1073,SC1083
 {{ ansible_managed | comment }}
 
 mime=$(file --brief --dereference --mime-type "$1")
