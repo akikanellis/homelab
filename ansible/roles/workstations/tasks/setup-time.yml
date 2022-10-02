@@ -1,15 +1,15 @@
 ---
-- name: Install timesyncd
+- name: Install chrony
   ansible.builtin.package:
-    name: systemd-timesyncd
+    name: chrony
 
-- name: Start timesyncd
+- name: Start chrony
   ansible.builtin.service:
-    name: systemd-timesyncd
+    name: chrony
     state: started
     enabled: true
 
 - name: Set timezone
   ansible.builtin.timezone:
     name: Europe/London
-  notify: restart-timesyncd
+  notify: restart-chrony
