@@ -7,6 +7,7 @@
   become_user: aki
   ansible.builtin.command:
     cmd: >
-      zsh -c "source ~/.asdf/asdf.sh && direnv exec ~ npm install -g {{ item }}"
+      zsh -c "source ~/.asdf/asdf.sh &&
+      direnv exec ~ npm install --location=global {{ item }}"
     creates: "{{ npm_binaries_dir }}/{{ item }}"
   loop: "{{ package_names }}"
