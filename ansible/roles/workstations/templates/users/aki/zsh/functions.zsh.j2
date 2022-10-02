@@ -123,7 +123,7 @@ function cdp() {
   local project_dir
 
   project_dir=$(
-    fd '.git$' ~/Projects --type d --unrestricted --exec echo "{//}" |
+    fd '.git$' ~/Projects --type d --hidden --no-ignore --exec echo "{//}" |
       fzfp --query "${*:-}"
   )
 
