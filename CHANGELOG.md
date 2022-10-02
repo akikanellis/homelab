@@ -1,3 +1,15 @@
+## [1.12.0](https://github.com/AkiKanellis/homelab/compare/v1.11.23...v1.12.0) (2022-10-02)
+
+
+### Features
+
+* add dotfiles and tools ([#128](https://github.com/AkiKanellis/homelab/issues/128)) ([85b21a4](https://github.com/AkiKanellis/homelab/commit/85b21a41e85526379bde924c732c40b216489255)), closes [#46](https://github.com/AkiKanellis/homelab/issues/46)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#129](https://github.com/AkiKanellis/homelab/issues/129)) ([869a14e](https://github.com/AkiKanellis/homelab/commit/869a14e6f8f0587de37a0f8e405ffd160caeb155))
+
 ## [1.11.23](https://github.com/AkiKanellis/homelab/compare/v1.11.22...v1.11.23) (2022-10-02)
 
 
