@@ -146,13 +146,18 @@
     group: aki
 
 - name: Install fd
-  ansible.builtin.apt:
-    deb:
-      "https://github.com/sharkdp/fd/releases/download/\
-      {{ fd_version }}/\
-      fd_\
-      {{ fd_version | regex_replace('v(.+)', '\\1') }}_\
-      amd64.deb"
+  block:
+    - name: Install fd
+      ansible.builtin.package:
+        name: fd-find
+
+    - name: Create fd->fdfind symlink
+      ansible.builtin.file:
+        src: /usr/bin/fdfind
+        dest: /home/aki/.local/bin/fd
+        owner: aki
+        group: aki
+        state: link
 
 - name: Install git
   block:
