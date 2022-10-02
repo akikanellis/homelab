@@ -32,18 +32,13 @@
           - name: zsh-completions
             url: zsh-users/zsh-completions
 
-- name: Create "aki" user config directories
+- name: Create "aki" user ZSH directories
   ansible.builtin.file:
-    path: /home/aki/{{ item }}
+    path: /home/aki/.zsh/completions
     state: directory
     owner: aki
     group: aki
     mode: 0700
-  loop:
-    - .config
-    - .config/bat
-    - .zsh
-    - .zsh/completions
 
 - name: Copy "aki" user ZSH configs
   ansible.builtin.template:
