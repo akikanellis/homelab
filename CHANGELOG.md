@@ -1,3 +1,10 @@
+## [1.11.22](https://github.com/AkiKanellis/homelab/compare/v1.11.21...v1.11.22) (2022-10-02)
+
+
+### Bug Fixes
+
+* replace timesyncd with chrony ([#126](https://github.com/AkiKanellis/homelab/issues/126)) ([60ed818](https://github.com/AkiKanellis/homelab/commit/60ed818b5aa4b241b4bf1ec772589935ae48b9e2)), closes [#125](https://github.com/AkiKanellis/homelab/issues/125)
+
 ## [1.11.21](https://github.com/AkiKanellis/homelab/compare/v1.11.20...v1.11.21) (2022-10-02)
 
 
