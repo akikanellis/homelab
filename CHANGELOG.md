@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/AkiKanellis/homelab/compare/v1.12.0...v1.12.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* install fd from apt ([#131](https://github.com/AkiKanellis/homelab/issues/131)) ([759f178](https://github.com/AkiKanellis/homelab/commit/759f1782cf2e6057a16fce4918dbc31879548d5d)), closes [#46](https://github.com/AkiKanellis/homelab/issues/46)
+
 ## [1.12.0](https://github.com/AkiKanellis/homelab/compare/v1.11.23...v1.12.0) (2022-10-02)
 
 
