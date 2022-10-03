@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/AkiKanellis/homelab/compare/v1.12.1...v1.12.2) (2022-10-03)
+
+
+### Build System
+
+* optimise concurrent builds ([#132](https://github.com/AkiKanellis/homelab/issues/132)) ([77caa49](https://github.com/AkiKanellis/homelab/commit/77caa49ff921dac3b1d97cc495e8acd4ee13464d)), closes [#130](https://github.com/AkiKanellis/homelab/issues/130)
+
 ## [1.12.1](https://github.com/AkiKanellis/homelab/compare/v1.12.0...v1.12.1) (2022-10-03)
 
 
