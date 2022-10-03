@@ -25,6 +25,8 @@ name: Deploy to Production
         description: Extra ansible-playbook options
         required: false
 
+concurrency: ${{ github.workflow }}
+
 env:
   # renovate: datasource=pypi depName=ansible-core
   ANSIBLE_CORE_VERSION: 2.13.4
