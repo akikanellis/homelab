@@ -48,7 +48,7 @@ jobs:
   deploy-to-production:
     name: Deploy to production
     needs: release
-    if: needs.release.outputs.release-published
+    if: needs.release.outputs.release-published == 'true'
     uses: ./.github/workflows/deploy-to-production.yml
     with:
       version: v${{ needs.release.outputs.release-version }}
