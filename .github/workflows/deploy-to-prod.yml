@@ -1,5 +1,5 @@
 ---
-name: Deploy to Production
+name: Deploy to Prod
 
 "on":
   workflow_call:
@@ -32,8 +32,8 @@ env:
   ANSIBLE_CORE_VERSION: 2.13.4
 
 jobs:
-  deploy-to-production:
-    name: Deploy to production
+  deploy-to-prod:
+    name: Deploy to prod
     runs-on: self-hosted
     environment: prod
 
