@@ -1,0 +1,8 @@
+---
+- name: Harden OS
+  ansible.builtin.import_role:
+    name: devsec.hardening.os_hardening
+  vars:
+    # Disable password expiration
+    os_auth_pw_max_age: 99999
+    os_desktop_enable: true
