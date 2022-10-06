@@ -18,6 +18,18 @@ function update() {
     echo "apt updated!"
   fi
 
+  if [[ "$OSTYPE" == linux* ]] && command_exists snap; then
+    echo "Updating snap..."
+    sudo snap refresh
+    echo "snap updated!"
+  fi
+
+  if [[ "$OSTYPE" == linux* ]] && command_exists flatpak; then
+    echo "Updating flatpak..."
+    flatpak update --assumeyes
+    echo "flatpak updated!"
+  fi
+
   if command_exists brew; then
     echo "Updating brew..."
     brew update
