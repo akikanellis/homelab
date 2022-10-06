@@ -11,3 +11,4 @@
 - ansible.builtin.import_tasks: install-asdf-utilities.yml
 - ansible.builtin.import_tasks: install-dev-tools.yml
 - ansible.builtin.import_tasks: install-misc-tools.yml
+- ansible.builtin.import_tasks: tweak-settings.yml
