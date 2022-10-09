@@ -164,7 +164,7 @@
           {{ item.key }}"
         value: "{{ item.value }}"
       loop:
-        - {key: font, value: "'Hack Nerd Font Mono 14'"}
+        - {key: font, value: "'Hack Nerd Font Mono 11'"}
         - {key: use-system-font, value: "false"}
         - {key: visible-name, value: "'Default'"}
 

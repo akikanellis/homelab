@@ -1,0 +1,138 @@
+---
+- name: Set "aki" user settings
+  become_user: aki
+  block:
+    - name: Set "aki" user input sources
+      community.general.dconf:
+        key: /org/gnome/desktop/input-sources/sources
+        value: "[('xkb', 'gb'), ('xkb', 'gr')]"
+
+    - name: Set "aki" user clock format
+      community.general.dconf:
+        key: /org/{{ item }}
+        value: "'24h'"
+      loop:
+        - gnome/desktop/interface/clock-format
+        - gtk/settings/file-chooser/clock-format
+
+    - name: Set "aki" user dark theme
+      community.general.dconf:
+        key: /org/gnome/{{ item.key }}
+        value: "{{ item.value }}"
+      loop:
+        - {key: desktop/interface/color-scheme, value: "'prefer-dark'"}
+        - {key: desktop/interface/gtk-theme, value: "'Pop-dark'"}
+        - {key: gedit/preferences/editor/scheme, value: "'pop-dark'"}
+
+    - name: Set "aki" user mouse settings
+      community.general.dconf:
+        key: /org/gnome/desktop/peripherals/mouse/{{ item.key }}
+        value: "{{ item.value }}"
+      loop:
+        - {key: accel-profile, value: "'flat'"}
+        # For some reason, -0.3 gets changed to -0.29 which breaks idempotency
+        - {key: speed, value: "-0.31"}
+
+    - name: Set "aki" user mutter keybindings
+      community.general.dconf:
+        key: /org/gnome/mutter/keybindings/{{ item.key }}
+        value: "{{ item.value }}"
+      loop:
+        - {key: toggle-tiled-left, value: "@as []"}
+        - {key: toggle-tiled-right, value: "@as []"}
+
+    - name: Set "aki" user pop-shell keybindings
+      community.general.dconf:
+        key: /org/gnome/shell/extensions/pop-shell/{{ item.key }}
+        value: "{{ item.value }}"
+      loop:
+        - {key: focus-down, value: "['<Primary><Super>Down']"}
+        - {key: focus-left, value: "['<Primary><Super>Left']"}
+        - {key: focus-right, value: "['<Primary><Super>Right']"}
+        - {key: focus-up, value: "['<Primary><Super>Up']"}
+
+        - {key: pop-monitor-down, value: "@as []"}
+        - {key: pop-monitor-left, value: "@as []"}
+        - {key: pop-monitor-right, value: "@as []"}
+        - {key: pop-monitor-up, value: "@as []"}
+
+        - {key: pop-workspace-down, value: "@as []"}
+        - {key: pop-workspace-up, value: "@as []"}
+
+    - name: Set "aki" user wm keybindings
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/{{ item.key }}
+        value: "{{ item.value }}"
+      loop:
+        - {key: move-to-monitor-down, value: "@as []"}
+        - {key: move-to-monitor-left, value: "@as []"}
+        - {key: move-to-monitor-right, value: "@as []"}
+        - {key: move-to-monitor-up, value: "@as []"}
+
+        - {key: move-to-workspace-down, value: "@as []"}
+        - {key: move-to-workspace-left, value: "['<Super><Shift>Left']"}
+        - {key: move-to-workspace-right, value: "['<Super><Shift>Right']"}
+        - {key: move-to-workspace-up, value: "@as []"}
+
+        - {key: switch-to-workspace-down, value: "@as []"}
+        - {key: switch-to-workspace-left, value: "['<Super>Left']"}
+        - {key: switch-to-workspace-right, value: "['<Super>Right']"}
+        - {key: switch-to-workspace-up, value: "@as []"}
+
+    - name: Set "aki" user window manager preferences settings
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/preferences/{{ item.key }}
+        value: "{{ item.value }}"
+      loop:
+        - {key: button-layout, value: "'appmenu:minimize,maximize,close'"}
+        - {key: num-workspaces, value: "5"}
+
+    - name: Set "aki" user mutter settings
+      community.general.dconf:
+        key: /org/gnome/mutter/dynamic-workspaces
+        value: "false"
+
+    # chrome-cinhimbnkkaeohfgghhklpknlkffjgod is YouTube Music
+    # chrome-hnpfjngllnobngcgfapefoaidbinmjnm is WhatsApp
+    - name: Set "aki" user dock pins
+      community.general.dconf:
+        key: /org/gnome/shell/favorite-apps
+        value:
+          "[\
+          'pop-cosmic-launcher.desktop', \
+          'pop-cosmic-workspaces.desktop', \
+          'pop-cosmic-applications.desktop', \
+          'org.gnome.Nautilus.desktop', \
+          'google-chrome.desktop', \
+          'chrome-cinhimbnkkaeohfgghhklpknlkffjgod-Default.desktop', \
+          'chrome-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop', \
+          'org.signal.Signal.desktop', \
+          'com.slack.Slack.desktop', \
+          'org.gnome.Calculator.desktop', \
+          'com.gexperts.Tilix.desktop', \
+          'com.getpostman.Postman.desktop', \
+          'code_code.desktop', \
+          'intellij-idea-ultimate_intellij-idea-ultimate.desktop', \
+          'virtualbox.desktop', \
+          'io.elementary.appcenter.desktop', \
+          'gnome-control-center.desktop'\
+          ]"
+
+    - name: Set "aki" user dash-to-dock settings
+      community.general.dconf:
+        key: /org/gnome/shell/extensions/dash-to-dock/{{ item.key }}
+        value: "{{ item.value }}"
+      loop:
+        - {key: dock-fixed, value: "false"}
+        - {key: extend-height, value: "false"}
+        - {key: intellihide, value: "true"}
+        - {key: manualhide, value: "false"}
+
+    - name: Set "aki" user pop-cosmic settings
+      community.general.dconf:
+        key: /org/gnome/shell/extensions/pop-cosmic/{{ item.key }}
+        value: "{{ item.value }}"
+      loop:
+        - {key: overlay-key-action, value: "'LAUNCHER'"}
+        - {key: show-applications-button, value: "false"}
+        - {key: show-workspaces-button, value: "false"}

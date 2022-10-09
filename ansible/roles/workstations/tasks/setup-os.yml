@@ -1,0 +1,16 @@
+---
+- name: Harden OS
+  ansible.builtin.import_role:
+    name: devsec.hardening.os_hardening
+  vars:
+    # Disable password expiration
+    os_auth_pw_max_age: 99999
+    os_desktop_enable: true
+
+    sysctl_overwrite:
+      # This is set to `0` by the role to mitigate CVE-2021-33909 which can
+      # affect Linux kernel versions < 5.13.4. This playbook is targeting hosts
+      # with Linux kernel versions > 5.13.4 and also this setting causes issues
+      # with flatpak package installation.
+      # See: https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-33909
+      kernel.unprivileged_userns_clone: 1

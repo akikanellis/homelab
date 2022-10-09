@@ -10,6 +10,7 @@
     name: ansible
     group: ansible
     groups: sudo
+    system: true
 
 - name: Copy "ansible" user sudoers file
   tags: ansible-setup
