@@ -1,3 +1,10 @@
+## [1.13.0](https://github.com/AkiKanellis/homelab/compare/v1.12.6...v1.13.0) (2022-10-09)
+
+
+### Features
+
+* tweak workstation settings ([#139](https://github.com/AkiKanellis/homelab/issues/139)) ([f1eee78](https://github.com/AkiKanellis/homelab/commit/f1eee7841c68ee33fbd51fd9489203f832d89812)), closes [#133](https://github.com/AkiKanellis/homelab/issues/133)
+
 ## [1.12.6](https://github.com/AkiKanellis/homelab/compare/v1.12.5...v1.12.6) (2022-10-09)
 
 
