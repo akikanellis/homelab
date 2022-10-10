@@ -19,6 +19,13 @@ platforms:
     cpus: 3
     memory: 1024
 
+  - name: server-pi
+    groups: [servers]
+    box: ubuntu/jammy64
+    # Same applies to `cpus` here as above
+    cpus: 3
+    memory: 1024
+
 provisioner:
   name: ansible
   config_options:
