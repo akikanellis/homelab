@@ -173,6 +173,21 @@
         group: aki
         mode: 0600
 
+    - name: Install lazydocker for "aki" user
+      tags: test
+      ansible.builtin.unarchive:
+        remote_src: true
+        src:
+          "https://github.com/jesseduffield/lazydocker/releases/download/\
+          {{ lazydocker_version }}/\
+          lazydocker_\
+          {{ lazydocker_version | regex_replace('v(.+)', '\\1') }}_\
+          Linux_x86_64.tar.gz"
+        dest: /home/aki/.local/bin
+        include: lazydocker
+        owner: aki
+        group: aki
+
     - name: Install lazygit for "aki" user
       ansible.builtin.unarchive:
         remote_src: true

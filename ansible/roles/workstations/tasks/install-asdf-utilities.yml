@@ -5,11 +5,7 @@
     tasks_from: asdf
   vars:
     asdf_plugins:
-      - name: lazydocker
-        repository: https://github.com/comdotlinux/asdf-lazydocker.git
-
       - name: nodejs
-
       - name: python
 
 - name: Install tldr
