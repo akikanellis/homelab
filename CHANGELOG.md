@@ -1,3 +1,11 @@
+## [1.13.1](https://github.com/AkiKanellis/homelab/compare/v1.13.0...v1.13.1) (2022-10-11)
+
+
+### Bug Fixes
+
+* allow ansible user to login ([#144](https://github.com/AkiKanellis/homelab/issues/144)) ([84a9a5f](https://github.com/AkiKanellis/homelab/commit/84a9a5fbf1a8df0787553eded3a7250446417bf9)), closes [#133](https://github.com/AkiKanellis/homelab/issues/133)
+* install lazydocker reliably ([#145](https://github.com/AkiKanellis/homelab/issues/145)) ([a9cb6f9](https://github.com/AkiKanellis/homelab/commit/a9cb6f90233d0b608fbc24824b32ef67c9d6abe8)), closes [#146](https://github.com/AkiKanellis/homelab/issues/146)
+
 ## [1.13.0](https://github.com/AkiKanellis/homelab/compare/v1.12.6...v1.13.0) (2022-10-09)
 
 
