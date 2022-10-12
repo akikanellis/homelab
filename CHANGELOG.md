@@ -1,3 +1,10 @@
+## [1.13.2](https://github.com/AkiKanellis/homelab/compare/v1.13.1...v1.13.2) (2022-10-12)
+
+
+### Bug Fixes
+
+* manually parameterise ansible username ([#148](https://github.com/AkiKanellis/homelab/issues/148)) ([55f95c6](https://github.com/AkiKanellis/homelab/commit/55f95c66abcf12f19113a840016e75b882ecbee0)), closes [#147](https://github.com/AkiKanellis/homelab/issues/147)
+
 ## [1.13.1](https://github.com/AkiKanellis/homelab/compare/v1.13.0...v1.13.1) (2022-10-11)
 
 
