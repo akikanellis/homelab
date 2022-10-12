@@ -16,7 +16,7 @@
   tags: ansible-setup
   ansible.builtin.template:
     src: users/ansible/sudoer.j2
-    dest: /etc/sudoers.d/"{{ ansible_username }}"
+    dest: /etc/sudoers.d/{{ ansible_username }}
     owner: root
     group: root
     mode: 0440
