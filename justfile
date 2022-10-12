@@ -18,8 +18,6 @@ lint *extra_args:
   -e IGNORE_GENERATED_FILES=true \
   -e IGNORE_GITIGNORED_FILES=true \
   -e YAML_ERROR_ON_WARNING=true \
-  -e ANSIBLE_COLLECTIONS_PATH=ansible/galaxy/collections:ansible/collections \
-  -e ANSIBLE_ROLES_PATH=ansible/galaxy/roles:ansible/roles \
   -e FILTER_REGEX_EXCLUDE=.*ansible/.*vault\.yml \
   {{extra_args}} \
   -v {{justfile_directory()}}:/tmp/lint \

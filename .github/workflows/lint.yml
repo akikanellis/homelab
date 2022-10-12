@@ -46,7 +46,4 @@ jobs:
           IGNORE_GENERATED_FILES: true
           IGNORE_GITIGNORED_FILES: true
           YAML_ERROR_ON_WARNING: true
-          ANSIBLE_COLLECTIONS_PATH: |
-            ansible/galaxy/collections:ansible/collections
-          ANSIBLE_ROLES_PATH: ansible/galaxy/roles:ansible/roles
           FILTER_REGEX_EXCLUDE: .*ansible/.*vault\.yml
