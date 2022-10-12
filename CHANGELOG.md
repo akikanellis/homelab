@@ -1,3 +1,10 @@
+## [1.13.3](https://github.com/AkiKanellis/homelab/compare/v1.13.2...v1.13.3) (2022-10-12)
+
+
+### Bug Fixes
+
+* remove accidental quotes in filename ([#149](https://github.com/AkiKanellis/homelab/issues/149)) ([ebc858f](https://github.com/AkiKanellis/homelab/commit/ebc858f906c816c00cd55c9d41960c45ad844d49)), closes [#147](https://github.com/AkiKanellis/homelab/issues/147)
+
 ## [1.13.2](https://github.com/AkiKanellis/homelab/compare/v1.13.1...v1.13.2) (2022-10-12)
 
 
