@@ -1,3 +1,7 @@
 ---
 aki_ssh_private_key_file: users/aki/ssh/id-ed25519-dev.pk
 aki_ssh_public_key_file: users/aki/ssh/id-ed25519-dev.pub
+
+# Using `ansible_user` is unfortunately not very reliable.
+# See: https://github.com/akikanellis/homelab/issues/147
+ansible_username: vagrant

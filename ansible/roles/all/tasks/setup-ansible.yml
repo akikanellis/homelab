@@ -1,31 +1,31 @@
 ---
-- name: Create "ansible" group
+- name: Create ansible group
   tags: ansible-setup
   ansible.builtin.group:
-    name: ansible
+    name: "{{ ansible_username }}"
 
-- name: Create "ansible" user
+- name: Create ansible user
   tags: ansible-setup
   ansible.builtin.user:
-    name: ansible
-    group: ansible
+    name: "{{ ansible_username }}"
+    group: "{{ ansible_username }}"
     groups: sudo
     system: true
 
-- name: Copy "ansible" user sudoers file
+- name: Copy ansible user sudoers file
   tags: ansible-setup
   ansible.builtin.template:
     src: users/ansible/sudoer.j2
-    dest: /etc/sudoers.d/ansible
+    dest: /etc/sudoers.d/"{{ ansible_username }}"
     owner: root
     group: root
     mode: 0440
     validate: visudo -cf %s
 
-- name: Set authorized key for "ansible" user
+- name: Set authorized key for ansible user
   tags: ansible-setup
   ansible.posix.authorized_key:
-    user: ansible
+    user: "{{ ansible_username }}"
     key: "{{ lookup('file', 'files/users/ansible/ssh/id-ed25519.pub') }}"
 
 - name: Install ansible required packages
