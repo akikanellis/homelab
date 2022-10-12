@@ -1,10 +1,10 @@
 ---
-- name: Create "{{ ansible_username }}" group
+- name: Create ansible group
   tags: ansible-setup
   ansible.builtin.group:
     name: "{{ ansible_username }}"
 
-- name: Create "{{ ansible_username }}" user
+- name: Create ansible user
   tags: ansible-setup
   ansible.builtin.user:
     name: "{{ ansible_username }}"
@@ -12,7 +12,7 @@
     groups: sudo
     system: true
 
-- name: Copy "{{ ansible_username }}" user sudoers file
+- name: Copy ansible user sudoers file
   tags: ansible-setup
   ansible.builtin.template:
     src: users/ansible/sudoer.j2
@@ -22,7 +22,7 @@
     mode: 0440
     validate: visudo -cf %s
 
-- name: Set authorized key for "{{ ansible_username }}" user
+- name: Set authorized key for ansible user
   tags: ansible-setup
   ansible.posix.authorized_key:
     user: "{{ ansible_username }}"
