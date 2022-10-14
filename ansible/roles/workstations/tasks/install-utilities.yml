@@ -174,7 +174,6 @@
         mode: 0600
 
     - name: Install lazydocker for "aki" user
-      tags: test
       ansible.builtin.unarchive:
         remote_src: true
         src:
