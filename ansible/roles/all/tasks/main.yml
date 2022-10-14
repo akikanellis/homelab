@@ -1,2 +1,3 @@
 ---
 - ansible.builtin.import_tasks: setup-ansible.yml
+- ansible.builtin.import_tasks: create-aki-user.yml
