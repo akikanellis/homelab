@@ -7,6 +7,10 @@
     version: "{{ asdf_version }}"
     single_branch: true
     force: true
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
 
 - name: Install direnv
   ansible.builtin.import_role:
