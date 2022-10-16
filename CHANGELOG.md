@@ -1,3 +1,10 @@
+## [1.14.0](https://github.com/AkiKanellis/homelab/compare/v1.13.4...v1.14.0) (2022-10-16)
+
+
+### Features
+
+* add servers configuration ([#153](https://github.com/AkiKanellis/homelab/issues/153)) ([546649f](https://github.com/AkiKanellis/homelab/commit/546649ff57fc54a14d44d05690b729edecb37401)), closes [#141](https://github.com/AkiKanellis/homelab/issues/141)
+
 ## [1.13.4](https://github.com/AkiKanellis/homelab/compare/v1.13.3...v1.13.4) (2022-10-16)
 
 
