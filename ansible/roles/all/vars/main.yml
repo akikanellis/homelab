@@ -14,3 +14,11 @@ architecture_to_curlie_architecture:
 curlie_architecture:
   "{{ ansible_system | lower }}_\
   {{ architecture_to_curlie_architecture[ansible_architecture] }}"
+
+# renovate: datasource=github-releases depName=dandavison/delta
+delta_version: 0.14.0
+architecture_to_delta_architecture:
+  x86_64: amd64
+  armv7l: armhf
+delta_architecture:
+  "{{ architecture_to_delta_architecture[ansible_architecture] }}"

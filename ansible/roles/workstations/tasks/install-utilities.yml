@@ -3,19 +3,6 @@
   ansible.builtin.package:
     name: dconf-editor
 
-- name: Install delta
-  ansible.builtin.apt:
-    deb:
-      "https://github.com/dandavison/delta/releases/download/\
-      {{ delta_version }}/\
-      git-delta_\
-      {{ delta_version }}_\
-      amd64.deb"
-  register: result
-  retries: 10
-  delay: 2
-  until: result is success
-
 - name: Install Docker
   block:
     - name: Add Docker apt key
