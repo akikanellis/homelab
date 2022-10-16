@@ -83,3 +83,17 @@
         owner: aki
         group: aki
         mode: 0600
+
+- name: Install curlie
+  tags: test
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/rs/curlie/releases/download/\
+      {{ curlie_version }}/\
+      curlie_\
+      {{ curlie_version | regex_replace('v(.+)', '\\1') }}_\
+      {{ curlie_architecture }}.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
