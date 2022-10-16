@@ -3,37 +3,6 @@
   ansible.builtin.package:
     name: dconf-editor
 
-- name: Install bat
-  block:
-    - name: Install bat
-      ansible.builtin.apt:
-        deb:
-          "https://github.com/sharkdp/bat/releases/download/\
-          {{ bat_version }}/\
-          bat_\
-          {{ bat_version | regex_replace('v(.+)', '\\1') }}_\
-          amd64.deb"
-      register: result
-      retries: 10
-      delay: 2
-      until: result is success
-
-    - name: Create "aki" user bat config directory
-      ansible.builtin.file:
-        path: /home/aki/.config/bat
-        state: directory
-        owner: aki
-        group: aki
-        mode: 0700
-
-    - name: Copy "aki" user bat config
-      ansible.builtin.template:
-        src: users/aki/bat/config.j2
-        dest: /home/aki/.config/bat/config
-        owner: aki
-        group: aki
-        mode: 0600
-
 - name: Install curlie
   ansible.builtin.apt:
     deb:
