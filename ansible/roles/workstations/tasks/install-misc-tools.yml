@@ -27,6 +27,10 @@
     - name: Add Google apt key
       ansible.builtin.apt_key:
         url: https://dl.google.com/linux/linux_signing_key.pub
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
 
     - name: Install Google Chrome apt repository
       ansible.builtin.apt_repository:
@@ -52,3 +56,7 @@
     owner: aki
     group: aki
     mode: 0600
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success

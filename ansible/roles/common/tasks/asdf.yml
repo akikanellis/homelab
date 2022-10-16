@@ -52,6 +52,9 @@
   register: asdf_install
   with_items: "{{ asdf_plugins }}"
   changed_when: "'already installed' not in asdf_install.stdout"
+  retries: 10
+  delay: 2
+  until: asdf_install is success
 
 - name: Set global asdf tools versions
   become_user: aki
