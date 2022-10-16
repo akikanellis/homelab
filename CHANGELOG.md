@@ -1,3 +1,15 @@
+## [1.13.4](https://github.com/AkiKanellis/homelab/compare/v1.13.3...v1.13.4) (2022-10-16)
+
+
+### Bug Fixes
+
+* add retries on external connections ([#156](https://github.com/AkiKanellis/homelab/issues/156)) ([4625e54](https://github.com/AkiKanellis/homelab/commit/4625e54ec06b0bccc3966d7510e1694f87017c19)), closes [#155](https://github.com/AkiKanellis/homelab/issues/155)
+
+
+### Build System
+
+* **deps:** update hmarr/auto-approve-action action to v3 ([#152](https://github.com/AkiKanellis/homelab/issues/152)) ([7513cdd](https://github.com/AkiKanellis/homelab/commit/7513cdd4f27aa675ec7a20386f4ede0af37fae09))
+
 ## [1.13.3](https://github.com/AkiKanellis/homelab/compare/v1.13.2...v1.13.3) (2022-10-12)
 
 
