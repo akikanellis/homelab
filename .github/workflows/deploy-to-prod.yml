@@ -62,7 +62,9 @@ jobs:
           playbook: apply-configuration.yml
           requirements: requirements.yml
           key: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
-          options: ${{ github.event.inputs.extra-ansible-options }}
+          options: >
+            -vv
+            ${{ github.event.inputs.extra-ansible-options }}
         env:
           ANSIBLE_VAULT_PASSWORD_PROD: |
             ${{ secrets.ANSIBLE_VAULT_PASSWORD_PROD }}
