@@ -24,7 +24,7 @@ github_cli_version: v2.17.0
 hyperfine_version: v1.15.0
 
 # renovate: datasource=github-releases depName=jesseduffield/lazydocker
-lazydocker_version: v0.18.1
+lazydocker_version: v0.19.0
 
 # renovate: datasource=github-releases depName=jesseduffield/lazygit
 lazygit_version: v0.35
