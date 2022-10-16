@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/AkiKanellis/homelab/compare/v1.14.0...v1.14.1) (2022-10-16)
+
+
+### Build System
+
+* **deps:** update amannn/action-semantic-pull-request action to v5 ([#151](https://github.com/AkiKanellis/homelab/issues/151)) ([8db6b75](https://github.com/AkiKanellis/homelab/commit/8db6b75565ea86195e9a3d68389951f71a6a80a5))
+
 ## [1.14.0](https://github.com/AkiKanellis/homelab/compare/v1.13.4...v1.14.0) (2022-10-16)
 
 
