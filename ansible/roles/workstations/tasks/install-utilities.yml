@@ -64,6 +64,10 @@
           bat_\
           {{ bat_version | regex_replace('v(.+)', '\\1') }}_\
           amd64.deb"
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
 
     - name: Create "aki" user bat config directory
       ansible.builtin.file:
@@ -89,6 +93,10 @@
       curlie_\
       {{ curlie_version | regex_replace('v(.+)', '\\1') }}_\
       linux_amd64.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
 
 - name: Install delta
   ansible.builtin.apt:
@@ -98,12 +106,20 @@
       git-delta_\
       {{ delta_version }}_\
       amd64.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
 
 - name: Install Docker
   block:
     - name: Add Docker apt key
       ansible.builtin.apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
 
     - name: Add Docker apt repository
       ansible.builtin.apt_repository:
@@ -144,6 +160,10 @@
     include: doggo
     owner: aki
     group: aki
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
 
 - name: Install fd
   block:
@@ -187,6 +207,10 @@
         include: lazydocker
         owner: aki
         group: aki
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
 
     - name: Install lazygit for "aki" user
       ansible.builtin.unarchive:
@@ -201,6 +225,10 @@
         include: lazygit
         owner: aki
         group: aki
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
 
 - name: Install hyperfine
   ansible.builtin.apt:
@@ -210,6 +238,10 @@
       hyperfine_\
       {{ hyperfine_version | regex_replace('v(.+)', '\\1') }}_\
       amd64.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
 
 - name: Install zoxide
   ansible.builtin.apt:
@@ -219,3 +251,7 @@
       zoxide_\
       {{ zoxide_version | regex_replace('v(.+)', '\\1') }}_\
       amd64.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success

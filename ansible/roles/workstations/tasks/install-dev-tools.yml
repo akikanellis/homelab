@@ -28,12 +28,20 @@
       gh_\
       {{ github_cli_version | regex_replace('v(.+)', '\\1') }}\
       _linux_amd64.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
 
 - name: Install Terraform
   block:
     - name: Add HashiCorp apt key
       ansible.builtin.apt_key:
         url: https://apt.releases.hashicorp.com/gpg
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
 
     - name: Add HashiCorp apt repository
       ansible.builtin.apt_repository:
@@ -85,6 +93,10 @@
     - name: Add VirtualBox apt key
       ansible.builtin.apt_key:
         url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
 
     - name: Add VirtualBox apt repository
       ansible.builtin.apt_repository:
@@ -182,3 +194,7 @@
         owner: aki
         group: aki
         mode: 0600
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
