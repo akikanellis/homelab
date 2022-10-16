@@ -19,6 +19,12 @@
 
   roles: [workstations]
 
+- name: Apply Servers Configuration
+  hosts: servers
+  become: true
+
+  roles: [servers]
+
 - name: Cleanup All Hosts
   hosts: all
   tags: always

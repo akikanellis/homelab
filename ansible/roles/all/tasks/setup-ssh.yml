@@ -1,0 +1,30 @@
+---
+- name: Install SSH packages
+  ansible.builtin.package:
+    name:
+      - openssh-server
+      - ssh-askpass
+
+- name: Start SSH server
+  ansible.builtin.service:
+    name: ssh
+    state: started
+
+- name: Harden SSH
+  ansible.builtin.import_role:
+    name: devsec.hardening.ssh_hardening
+  vars:
+    ssh_allow_users: "{{ ansible_username }} aki"
+
+- name: Ensure .ssh directory exists for "aki" user
+  ansible.builtin.file:
+    path: /home/aki/.ssh
+    state: directory
+    owner: aki
+    group: aki
+    mode: 0700
+
+- name: Set authorized key for "aki" user
+  ansible.posix.authorized_key:
+    user: aki
+    key: "{{ lookup('file', '{{ aki_ssh_public_key_file }}') }}"
