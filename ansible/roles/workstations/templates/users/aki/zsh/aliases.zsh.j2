@@ -41,7 +41,9 @@ alias top="btop"
 alias vim="nvim"
 alias vi="nvim"
 
-alias dig="doggo"
+if command_exists doggo; then
+  alias dig="doggo"
+fi
 
 alias fzfp="fzf --preview 'less {}' --preview-window 'wrap'"
 

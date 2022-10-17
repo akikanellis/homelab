@@ -2,9 +2,10 @@
 
 source ~/.antigenrc
 
-# Aliases and functions must be first due to dependencies
-source ~/.zsh/aliases.zsh
+# Aliases and functions must be first due to dependencies. Also `aliases` has a
+# dependency on `functions`.
 source ~/.zsh/functions.zsh
+source ~/.zsh/aliases.zsh
 
 source ~/.zsh/completion.zsh
 source ~/.zsh/fuck.zsh

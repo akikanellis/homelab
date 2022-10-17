@@ -91,7 +91,7 @@
       {{ curlie_version }}/\
       curlie_\
       {{ curlie_version | regex_replace('v(.+)', '\\1') }}_\
-      {{ curlie_architecture }}.deb"
+      {{ system }}_{{ curlie_architecture }}.deb"
   register: result
   retries: 10
   delay: 2
@@ -111,7 +111,6 @@
   until: result is success
 
 - name: Install Docker
-  tags: test
   block:
     - name: Add Docker apt key
       ansible.builtin.apt_key:
@@ -146,3 +145,22 @@
         name: aki
         groups: docker
         append: true
+
+- name: Install doggo
+  ansible.builtin.unarchive:
+    remote_src: true
+    src:
+      "https://github.com/mr-karan/doggo/releases/download/\
+      {{ doggo_version }}/\
+      doggo_\
+      {{ doggo_version | regex_replace('v(.+)', '\\1') }}_\
+      {{ system }}_{{ doggo_architecture }}.tar.gz"
+    dest: /home/aki/.local/bin
+    include: doggo
+    owner: aki
+    group: aki
+  when: doggo_architecture
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success

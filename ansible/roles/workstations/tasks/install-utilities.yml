@@ -3,24 +3,6 @@
   ansible.builtin.package:
     name: dconf-editor
 
-- name: Install doggo
-  ansible.builtin.unarchive:
-    remote_src: true
-    src:
-      "https://github.com/mr-karan/doggo/releases/download/\
-      {{ doggo_version }}/\
-      doggo_\
-      {{ doggo_version | regex_replace('v(.+)', '\\1') }}_\
-      linux_amd64.tar.gz"
-    dest: /home/aki/.local/bin
-    include: doggo
-    owner: aki
-    group: aki
-  register: result
-  retries: 10
-  delay: 2
-  until: result is success
-
 - name: Install fd
   block:
     - name: Install fd
