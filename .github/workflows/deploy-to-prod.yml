@@ -29,7 +29,7 @@ concurrency: ${{ github.workflow }}
 
 env:
   # renovate: datasource=pypi depName=ansible-core
-  ANSIBLE_CORE_VERSION: 2.13.4
+  ANSIBLE_CORE_VERSION: 2.13.5
 
 jobs:
   deploy-to-prod:
@@ -46,7 +46,7 @@ jobs:
 
       - name: Set up Python
         # yamllint disable-line rule:line-length
-        uses: actions/setup-python@b55428b1882923874294fa556849718a1d7f2ca5 # tag=v4.2.0
+        uses: actions/setup-python@13ae5bb136fac2878aff31522b9efb785519f984 # tag=v4.3.0
         with:
           # renovate: datasource=docker depName=python versioning=docker
           python-version: 3.10.7
@@ -56,7 +56,7 @@ jobs:
 
       - name: Run playbook
         # yamllint disable-line rule:line-length
-        uses: dawidd6/action-ansible-playbook@671974ed60e946e11964cb0c26e69caaa4b1f559 # tag=v2.5.0
+        uses: dawidd6/action-ansible-playbook@009b88e9b8894bd8838475d799b7dca5024e91d5 # tag=v2.6.0
         with:
           directory: ansible
           playbook: apply-configuration.yml
