@@ -23,24 +23,6 @@
       delay: 2
       until: result is success
 
-    - name: Install lazygit for "aki" user
-      ansible.builtin.unarchive:
-        remote_src: true
-        src:
-          "https://github.com/jesseduffield/lazygit/releases/download/\
-          {{ lazygit_version }}/\
-          lazygit_\
-          {{ lazygit_version | regex_replace('v(.+)', '\\1') }}_\
-          Linux_x86_64.tar.gz"
-        dest: /home/aki/.local/bin
-        include: lazygit
-        owner: aki
-        group: aki
-      register: result
-      retries: 10
-      delay: 2
-      until: result is success
-
 - name: Install hyperfine
   ansible.builtin.apt:
     deb:

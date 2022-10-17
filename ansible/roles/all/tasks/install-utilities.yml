@@ -91,7 +91,7 @@
       {{ curlie_version }}/\
       curlie_\
       {{ curlie_version | regex_replace('v(.+)', '\\1') }}_\
-      {{ system }}_{{ curlie_architecture }}.deb"
+      {{ ansible_system | lower }}_{{ curlie_architecture }}.deb"
   register: result
   retries: 10
   delay: 2
@@ -154,7 +154,7 @@
       {{ doggo_version }}/\
       doggo_\
       {{ doggo_version | regex_replace('v(.+)', '\\1') }}_\
-      {{ system }}_{{ doggo_architecture }}.tar.gz"
+      {{ ansible_system | lower }}_{{ doggo_architecture }}.tar.gz"
     dest: /home/aki/.local/bin
     include: doggo
     owner: aki
@@ -192,3 +192,21 @@
         owner: aki
         group: aki
         mode: 0600
+
+    - name: Install lazygit for "aki" user
+      ansible.builtin.unarchive:
+        remote_src: true
+        src:
+          "https://github.com/jesseduffield/lazygit/releases/download/\
+          {{ lazygit_version }}/\
+          lazygit_\
+          {{ lazygit_version | regex_replace('v(.+)', '\\1') }}_\
+          {{ ansible_system }}_{{ lazygit_architecture }}.tar.gz"
+        dest: /home/aki/.local/bin
+        include: lazygit
+        owner: aki
+        group: aki
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success

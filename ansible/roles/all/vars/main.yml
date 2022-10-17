@@ -1,6 +1,4 @@
 ---
-system: "{{ ansible_system | lower }}"
-
 # renovate: datasource=github-releases depName=sharkdp/bat
 bat_version: v0.22.1
 architecture_to_bat_architecture:
@@ -31,3 +29,11 @@ architecture_to_doggo_architecture:
   armv7l:
 doggo_architecture:
   "{{ architecture_to_doggo_architecture[ansible_architecture] }}"
+
+# renovate: datasource=github-releases depName=jesseduffield/lazygit
+lazygit_version: v0.35
+architecture_to_lazygit_architecture:
+  x86_64: x86_64
+  armv7l: armv6
+lazygit_architecture:
+  "{{ architecture_to_lazygit_architecture[ansible_architecture] }}"
