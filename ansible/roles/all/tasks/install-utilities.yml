@@ -178,3 +178,17 @@
         owner: aki
         group: aki
         state: link
+
+- name: Install git
+  block:
+    - name: Install git
+      ansible.builtin.package:
+        name: git
+
+    - name: Copy "aki" user gitconfig
+      ansible.builtin.template:
+        src: users/aki/gitconfig.j2
+        dest: /home/aki/.gitconfig
+        owner: aki
+        group: aki
+        mode: 0600

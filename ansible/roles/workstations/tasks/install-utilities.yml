@@ -5,18 +5,6 @@
 
 - name: Install git
   block:
-    - name: Install git
-      ansible.builtin.package:
-        name: git
-
-    - name: Copy "aki" user gitconfig
-      ansible.builtin.template:
-        src: users/aki/gitconfig.j2
-        dest: /home/aki/.gitconfig
-        owner: aki
-        group: aki
-        mode: 0600
-
     - name: Install lazydocker for "aki" user
       ansible.builtin.unarchive:
         remote_src: true
