@@ -146,6 +146,24 @@
         groups: docker
         append: true
 
+    - name: Install lazydocker for "aki" user
+      ansible.builtin.unarchive:
+        remote_src: true
+        src:
+          "https://github.com/jesseduffield/lazydocker/releases/download/\
+          {{ lazydocker_version }}/\
+          lazydocker_\
+          {{ lazydocker_version | regex_replace('v(.+)', '\\1') }}_\
+          {{ ansible_system }}_{{ lazydocker_architecture }}.tar.gz"
+        dest: /home/aki/.local/bin
+        include: lazydocker
+        owner: aki
+        group: aki
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
+
 - name: Install doggo
   ansible.builtin.unarchive:
     remote_src: true
