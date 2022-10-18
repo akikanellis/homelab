@@ -228,3 +228,16 @@
       retries: 10
       delay: 2
       until: result is success
+
+- name: Install hyperfine
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/sharkdp/hyperfine/releases/download/\
+      {{ hyperfine_version }}/\
+      hyperfine_\
+      {{ hyperfine_version | regex_replace('v(.+)', '\\1') }}_\
+      {{ hyperfine_architecture }}.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
