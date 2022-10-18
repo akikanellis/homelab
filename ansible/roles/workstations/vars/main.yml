@@ -7,6 +7,3 @@ github_cli_version: v2.18.1
 
 # renovate: datasource=github-releases depName=ryanoasis/nerd-fonts
 nerd_fonts_version: v2.2.2
-
-# renovate: datasource=github-releases depName=ajeetdsouza/zoxide
-zoxide_version: v0.8.3

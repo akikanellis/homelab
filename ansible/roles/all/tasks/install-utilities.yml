@@ -241,3 +241,39 @@
   retries: 10
   delay: 2
   until: result is success
+
+- name: Install zoxide
+  block:
+    - name: Install zoxide from deb
+      ansible.builtin.apt:
+        deb:
+          "https://github.com/ajeetdsouza/zoxide/releases/download/\
+          {{ zoxide_version }}/\
+          zoxide_\
+          {{ zoxide_version | regex_replace('v(.+)', '\\1') }}_\
+          amd64.deb"
+      when: zoxide_packaging == 'deb'
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
+
+    - name: Install zoxide from archive
+      ansible.builtin.unarchive:
+        remote_src: true
+        src:
+          "https://github.com/ajeetdsouza/zoxide/releases/download/\
+          {{ zoxide_version }}/\
+          zoxide-\
+          {{ zoxide_version | regex_replace('v(.+)', '\\1') }}-\
+          {{ zoxide_architecture }}-unknown-{{ ansible_system | lower }}-\
+          musleabihf.tar.gz"
+        dest: /home/aki/.local/bin
+        include: zoxide
+        owner: aki
+        group: aki
+      when: zoxide_packaging == 'archive'
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
