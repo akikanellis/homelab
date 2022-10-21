@@ -114,7 +114,10 @@
   block:
     - name: Add Docker apt key
       ansible.builtin.apt_key:
-        url: https://download.docker.com/linux/ubuntu/gpg
+        url:
+          "https://download.docker.com/linux/\
+          {{ ansible_distribution | lower }}\
+          /gpg"
       register: result
       retries: 10
       delay: 2
@@ -124,7 +127,7 @@
       ansible.builtin.apt_repository:
         repo: >
           deb [arch=amd64,armhf]
-          https://download.docker.com/linux/ubuntu
+          https://download.docker.com/linux/{{ ansible_distribution | lower }}
           {{ ansible_distribution_release }}
           stable
 
