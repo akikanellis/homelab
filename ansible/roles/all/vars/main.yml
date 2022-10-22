@@ -72,3 +72,12 @@ zoxide_architecture_to_zoxide_packaging:
   armv7: archive
 zoxide_packaging:
   "{{ zoxide_architecture_to_zoxide_packaging[zoxide_architecture] }}"
+
+# By default, this is set to `32`. Some 32bit systems unfortunately do not
+# support larger values therefore we set this to `8` on 32bit systems.
+# See: https://github.com/dev-sec/ansible-collection-hardening/blob/master/roles/os_hardening/README.md#sysctl---vmmmap_rnd_bits
+userspace_bits_to_vm_mmap_rnd_bits:
+  "32": 8
+  "64": 32
+vm_mmap_rnd_bits:
+  "{{ userspace_bits_to_vm_mmap_rnd_bits[ansible_userspace_bits] }}"
