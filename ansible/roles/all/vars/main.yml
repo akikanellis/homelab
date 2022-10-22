@@ -22,6 +22,12 @@ architecture_to_delta_architecture:
 delta_architecture:
   "{{ architecture_to_delta_architecture[ansible_architecture] }}"
 
+architecture_to_docker_architecture:
+  x86_64: amd64
+  armv7l: armhf
+docker_architecture:
+  "{{ architecture_to_docker_architecture[ansible_architecture] }}"
+
 # renovate: datasource=github-releases depName=mr-karan/doggo
 doggo_version: v0.5.4
 architecture_to_doggo_architecture:
