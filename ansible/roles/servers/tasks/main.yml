@@ -1,1 +1,2 @@
 ---
+- ansible.builtin.import_tasks: setup-zsh.yml

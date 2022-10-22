@@ -7,3 +7,4 @@
 - ansible.builtin.import_tasks: install-utilities.yml
 - ansible.builtin.import_tasks: setup-os.yml
 - ansible.builtin.import_tasks: setup-ssh.yml
+- ansible.builtin.import_tasks: setup-zsh.yml
