@@ -1,9 +1,7 @@
 ---
 - name: Install dev tools
   ansible.builtin.package:
-    name:
-      - perl
-      - vagrant
+    name: vagrant
 
 - name: Install asdf dev tools for "aki" user
   ansible.builtin.import_role:

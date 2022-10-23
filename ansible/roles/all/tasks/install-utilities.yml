@@ -31,6 +31,7 @@
       - net-tools
       - nmap
       - p7zip-full
+      - perl
       - pv
       - resolvconf
       - ripgrep
