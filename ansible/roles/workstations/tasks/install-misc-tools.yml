@@ -26,7 +26,10 @@
   block:
     - name: Add Google apt key
       ansible.builtin.apt_key:
-        url: https://dl.google.com/linux/linux_signing_key.pub
+        url:
+          "https://dl.google.com/\
+          {{ ansible_system | lower }}/\
+          {{ ansible_system | lower }}_signing_key.pub"
       register: result
       retries: 10
       delay: 2
@@ -35,8 +38,8 @@
     - name: Install Google Chrome apt repository
       ansible.builtin.apt_repository:
         repo: >
-          deb [arch=amd64]
-          http://dl.google.com/linux/chrome/deb/
+          deb [arch={{ google_chrome_architecture }}]
+          http://dl.google.com/{{ ansible_system | lower }}/chrome/deb/
           stable
           main
 

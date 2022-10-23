@@ -24,8 +24,8 @@
       "https://github.com/cli/cli/releases/download/\
       {{ github_cli_version }}/\
       gh_\
-      {{ github_cli_version | regex_replace('v(.+)', '\\1') }}\
-      _linux_amd64.deb"
+      {{ github_cli_version | regex_replace('v(.+)', '\\1') }}_\
+      {{ ansible_system | lower }}_{{ github_cli_architecture }}.deb"
   register: result
   retries: 10
   delay: 2
@@ -98,11 +98,12 @@
 
     - name: Add VirtualBox apt repository
       ansible.builtin.apt_repository:
-        repo: >
-          deb
-          https://download.virtualbox.org/virtualbox/debian
-          {{ ansible_distribution_release }}
-          contrib
+        repo:
+          "deb
+           https://download.virtualbox.org/virtualbox/\
+          {{ ansible_os_family | lower }}
+           {{ ansible_distribution_release }}
+           contrib"
 
     - name: Accept VirtualBox license
       ansible.builtin.debconf:
