@@ -22,7 +22,6 @@
     validate: visudo -cf %s
 
 - name: Create "aki" user home directories
-  tags: test
   ansible.builtin.file:
     path: /home/aki/{{ item }}
     state: directory
