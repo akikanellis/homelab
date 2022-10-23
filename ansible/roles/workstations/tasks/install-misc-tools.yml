@@ -5,7 +5,7 @@
       - caffeine
       - gnome-tweaks
 
-- name: Install Flatpak misc tools
+- name: Install "aki" user Flatpak misc tools
   become_user: aki
   ansible.builtin.flatpak:
     method: user

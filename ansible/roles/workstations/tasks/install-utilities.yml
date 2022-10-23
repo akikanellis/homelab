@@ -1,4 +1,4 @@
 ---
-- name: Install utilities
+- name: Install dconf editor
   ansible.builtin.package:
     name: dconf-editor

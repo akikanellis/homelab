@@ -22,24 +22,23 @@
     validate: visudo -cf %s
 
 - name: Create "aki" user home directories
+  tags: test
   ansible.builtin.file:
     path: /home/aki/{{ item }}
     state: directory
     owner: aki
     group: aki
     mode: 0700
-  loop:
-    - .config
-    - .local/bin
-    - .local/lib
-    - .local/share/applications
-    - .local/share/fonts
-
-- name: Create "aki" user additional home directories
-  ansible.builtin.file:
-    path: /home/aki/{{ item }}
-    state: directory
-    owner: aki
-    group: aki
-    mode: 0700
-  loop: "{{ aki_user_additional_home_directories }}"
+  loop: "{{ aki_user_home_directories }}"
+  vars:
+    aki_user_base_home_directories:
+      - .config
+      - .local/bin
+      - .local/lib
+      - .local/share/applications
+      - .local/share/fonts
+    aki_user_home_directories: >
+      {{
+      aki_user_base_home_directories +
+      aki_user_additional_home_directories
+      }}

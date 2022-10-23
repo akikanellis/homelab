@@ -1,9 +1,9 @@
 ---
-- name: Install dev tools
+- name: Install vagrant
   ansible.builtin.package:
     name: vagrant
 
-- name: Install asdf dev tools for "aki" user
+- name: Install "aki" user asdf dev tools
   ansible.builtin.import_role:
     name: common
     tasks_from: asdf
@@ -63,7 +63,7 @@
       - molecule
       - yamllint
 
-- name: Install Postman
+- name: Install "aki" user Postman
   become_user: aki
   ansible.builtin.flatpak:
     method: user

@@ -184,11 +184,11 @@
     include: doggo
     owner: aki
     group: aki
-  when: doggo_architecture
   register: result
   retries: 10
   delay: 2
   until: result is success
+  when: doggo_architecture
 
 - name: Install fd
   block:
@@ -259,11 +259,11 @@
           zoxide_\
           {{ zoxide_version | regex_replace('v(.+)', '\\1') }}_\
           amd64.deb"
-      when: zoxide_packaging == 'deb'
       register: result
       retries: 10
       delay: 2
       until: result is success
+      when: zoxide_packaging == "deb"
 
     - name: Install zoxide from archive
       ansible.builtin.unarchive:
@@ -279,8 +279,8 @@
         include: zoxide
         owner: aki
         group: aki
-      when: zoxide_packaging == 'archive'
       register: result
       retries: 10
       delay: 2
       until: result is success
+      when: zoxide_packaging == "archive"

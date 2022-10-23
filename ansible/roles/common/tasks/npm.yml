@@ -3,7 +3,7 @@
 # in the path.
 # See:
 # https://stackoverflow.com/questions/66494099/npm-module-not-working-with-nvm-in-ansible
-- name: Install global npm packages
+- name: Install "aki" user global npm packages
   become_user: aki
   ansible.builtin.command:
     cmd: >
