@@ -128,12 +128,12 @@
     - name: Add Docker apt repository
       ansible.builtin.apt_repository:
         repo:
-          "deb [arch={{ docker_architecture }}]
-           https://download.docker.com/\
+          "deb [arch={{ docker_architecture }}] \
+          https://download.docker.com/\
           {{ ansible_system | lower }}/\
-          {{ ansible_distribution | lower }}
-           {{ ansible_distribution_release }}
-           stable"
+          {{ ansible_distribution | lower }} \
+          {{ ansible_distribution_release }} \
+          stable"
 
     - name: Install Docker Engine
       ansible.builtin.package:

@@ -99,11 +99,11 @@
     - name: Add VirtualBox apt repository
       ansible.builtin.apt_repository:
         repo:
-          "deb
-           https://download.virtualbox.org/virtualbox/\
-          {{ ansible_os_family | lower }}
-           {{ ansible_distribution_release }}
-           contrib"
+          "deb \
+          https://download.virtualbox.org/virtualbox/\
+          {{ ansible_os_family | lower }} \
+          {{ ansible_distribution_release }} \
+          contrib"
 
     - name: Accept VirtualBox license
       ansible.builtin.debconf:
