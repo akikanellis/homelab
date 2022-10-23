@@ -4,4 +4,4 @@ aki_user_additional_home_directories:
   - Projects/aki
   - Projects/forks
   - Projects/other
-gui: true
+desktop_available: true

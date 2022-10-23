@@ -6,7 +6,7 @@
     # Disable password expiration
     os_auth_pw_max_age: 99999
     os_ignore_users: "{{ ansible_username }}"
-    os_desktop_enable: "{{ gui }}"
+    os_desktop_enable: "{{ desktop_available }}"
 
     sysctl_overwrite:
       # This is set to `0` by the role to mitigate CVE-2021-33909 which can
