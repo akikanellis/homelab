@@ -17,7 +17,8 @@
       kernel.unprivileged_userns_clone: 1
 
       # This is needed for docker.
-      # See: https://github.com/dev-sec/ansible-collection-hardening/blob/master/roles/os_hardening/README.md#docker-support
+      # See:
+      # https://github.com/dev-sec/ansible-collection-hardening/blob/master/roles/os_hardening/README.md#docker-support
       net.ipv4.ip_forward: 1
 
       vm.mmap_rnd_bits: "{{ vm_mmap_rnd_bits }}"
