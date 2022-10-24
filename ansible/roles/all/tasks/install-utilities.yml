@@ -118,7 +118,7 @@
         url:
           "https://download.docker.com/\
           {{ ansible_system | lower }}/\
-          ubuntu\
+          {{ docker_distribution }}\
           /gpg"
       register: result
       retries: 10
@@ -131,7 +131,7 @@
           "deb [arch={{ docker_architecture }}] \
           https://download.docker.com/\
           {{ ansible_system | lower }}/\
-          ubuntu \
+          {{ docker_distribution }} \
           {{ ansible_distribution_release }} \
           stable"
 

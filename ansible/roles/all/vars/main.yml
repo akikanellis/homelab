@@ -30,6 +30,13 @@ architecture_to_docker_architecture:
   armv7l: armhf
 docker_architecture:
   "{{ architecture_to_docker_architecture[ansible_architecture] }}"
+distribution_to_docker_distribution:
+  pop!_os: ubuntu
+docker_distribution:
+  "{{\
+  distribution_to_docker_distribution[ansible_distribution | lower] |\
+  default(ansible_distribution | lower)\
+  }}"
 
 # renovate: datasource=github-releases depName=mr-karan/doggo
 doggo_version: v0.5.4
