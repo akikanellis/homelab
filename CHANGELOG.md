@@ -1,3 +1,10 @@
+## [1.15.0](https://github.com/AkiKanellis/homelab/compare/v1.14.7...v1.15.0) (2022-10-24)
+
+
+### Features
+
+* add packages and tweaks to pi server ([#163](https://github.com/AkiKanellis/homelab/issues/163)) ([876dd41](https://github.com/AkiKanellis/homelab/commit/876dd41adb9af6c52178bfe472e68e22a828c272)), closes [#142](https://github.com/AkiKanellis/homelab/issues/142)
+
 ## [1.14.7](https://github.com/AkiKanellis/homelab/compare/v1.14.6...v1.14.7) (2022-10-23)
 
 
