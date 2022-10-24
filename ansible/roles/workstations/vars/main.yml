@@ -1,36 +1,17 @@
 ---
-# renovate: datasource=github-releases depName=asdf-vm/asdf
-asdf_version: v0.10.2
-
-# renovate: datasource=github-releases depName=sharkdp/bat
-bat_version: v0.22.1
-
-# renovate: datasource=github-releases depName=rs/curlie
-curlie_version: v1.6.9
-
-# renovate: datasource=github-releases depName=dandavison/delta
-delta_version: 0.14.0
-
-# renovate: datasource=github-releases depName=mr-karan/doggo
-doggo_version: v0.5.4
-
-# renovate: datasource=github-releases depName=sharkdp/fd
-fd_version: v8.4.0
-
 # renovate: datasource=github-releases depName=cli/cli
 github_cli_version: v2.18.1
+architecture_to_github_cli_architecture:
+  x86_64: amd64
+  armv7l: armv6
+github_cli_architecture:
+  "{{ architecture_to_github_cli_architecture[ansible_architecture] }}"
 
-# renovate: datasource=github-releases depName=sharkdp/hyperfine
-hyperfine_version: v1.15.0
-
-# renovate: datasource=github-releases depName=jesseduffield/lazydocker
-lazydocker_version: v0.19.0
-
-# renovate: datasource=github-releases depName=jesseduffield/lazygit
-lazygit_version: v0.35
+architecture_to_google_chrome_architecture:
+  x86_64: amd64
+  armv7l: armhf
+google_chrome_architecture:
+  "{{ architecture_to_google_chrome_architecture[ansible_architecture] }}"
 
 # renovate: datasource=github-releases depName=ryanoasis/nerd-fonts
 nerd_fonts_version: v2.2.2
-
-# renovate: datasource=github-releases depName=ajeetdsouza/zoxide
-zoxide_version: v0.8.3

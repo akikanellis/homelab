@@ -1,5 +1,5 @@
 ---
-- name: Install SSH packages
+- name: Install SSH password prompt for Gnome
   ansible.builtin.package:
     name: ssh-askpass-gnome
 

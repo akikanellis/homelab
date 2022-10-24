@@ -7,23 +7,25 @@ dependency:
 
 driver:
   name: vagrant
+  default_box: ubuntu/jammy64
 
 platforms:
   - name: workstation-pop-os
     groups: [workstations]
     box: ubuntu/jammy64
-    # `cpus` need to match the core count used by the CI. Currently, we are
-    # using a 3-core macos-12 instance in '.github/workflows/test.yml'.
+    # `cpus` need to roughly match the core count used by the CI. Currently, we
+    # are using a 3-core macos-12 instance in '.github/workflows/test.yml',
+    # therefore we are using 2x 2-core instances with vagrant.
     # See:
     # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
-    cpus: 3
+    cpus: 2
     memory: 1024
 
   - name: server-pi
     groups: [servers]
     box: ubuntu/jammy64
-    # Same applies to `cpus` here as above
-    cpus: 3
+    # See note on `cpus` above
+    cpus: 2
     memory: 1024
 
 provisioner:

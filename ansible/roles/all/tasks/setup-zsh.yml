@@ -1,0 +1,96 @@
+---
+- name: Setup ZSH
+  ansible.builtin.import_role:
+    name: gantsign.antigen
+  vars:
+    users:
+      - username: aki
+        antigen_libraries:
+          - name: oh-my-zsh
+        antigen_theme:
+          name: robbyrussell
+        antigen_bundles:
+          - name: asdf
+          - name: aws
+          - name: brew
+          - name: dirhistory
+          - name: docker
+          - name: docker-compose
+          - name: git
+          - name: fzf
+          - name: sudo
+          - name: web-search
+
+          - name: fzf-tab
+            url: Aloxaf/fzf-tab
+
+          - name: clipboard
+            url: zpm-zsh/clipboard
+
+          - name: zsh-syntax-highlighting
+            url: zsh-users/zsh-syntax-highlighting
+
+          - name: zsh-autosuggestions
+            url: zsh-users/zsh-autosuggestions
+
+          - name: zsh-completions
+            url: zsh-users/zsh-completions
+
+- name: Create "aki" user ZSH directories
+  ansible.builtin.file:
+    path: /home/aki/.zsh/completions
+    state: directory
+    owner: aki
+    group: aki
+    mode: 0700
+
+- name: Copy "aki" user ZSH configs
+  ansible.builtin.template:
+    src: users/aki/zsh/{{ item.name }}.zsh.j2
+    dest: /home/aki/.zsh/{{ item.name }}.zsh
+    owner: aki
+    group: aki
+    mode: "{{ item.mode | default('0600') }}"
+  loop:
+    - name: aliases
+    - name: completion
+    - name: env
+    - name: fuck
+    - name: functions
+    - name: fzf
+    - {name: lessfilter, mode: "0700"}
+    - name: options
+    - name: path
+    - name: starship
+    - name: zoxide
+
+- name: Create "aki" user extra ZSH configs
+  ansible.builtin.file:
+    path: /home/aki/.zsh/{{ item }}.zsh
+    state: touch
+    owner: aki
+    group: aki
+    mode: 0600
+    modification_time: preserve
+    access_time: preserve
+  loop:
+    - extra-zshrc-config
+    - extra-zshenv-config
+
+- name: Copy "aki" user zshenv
+  ansible.builtin.template:
+    src: users/aki/zsh/zshenv.j2
+    dest: /home/aki/.zshenv
+    owner: aki
+    group: aki
+    mode: 0600
+
+- name: Copy "aki" user zshrc
+  ansible.builtin.template:
+    src: users/aki/zsh/zshrc.j2
+    dest: /home/aki/.zshrc
+    owner: aki
+    group: aki
+    # This needs to match the mode set by gantsign.antigen otherwise it will
+    # keep changing on each task execution
+    mode: 0644

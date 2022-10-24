@@ -1,0 +1,286 @@
+---
+- name: Install utilities
+  ansible.builtin.package:
+    name:
+      - arp-scan
+      - bash
+      - build-essential
+      - ca-certificates
+      - coreutils
+      - cron
+      - csvkit
+      - curl
+      - dconf-cli
+      - dialog
+      - dnsutils
+      - duf
+      - exa
+      - fzf
+      - g++
+      - gcc
+      - gnupg
+      - hexyl
+      - iotop
+      - jq
+      - libimage-exiftool-perl
+      - locate
+      - lsb-release
+      - make
+      - neofetch
+      - neovim
+      - net-tools
+      - nmap
+      - p7zip-full
+      - perl
+      - pv
+      - resolvconf
+      - ripgrep
+      - tar
+      - thefuck
+      - traceroute
+      - unrar
+      - unzip
+      - vim
+      - wget
+      - whois
+      - xclip
+      - zip
+
+- name: Install Snap utilities
+  community.general.snap:
+    name:
+      - btop
+      - httpie
+      - starship
+      - yq
+
+- name: Install bat
+  block:
+    - name: Install bat
+      ansible.builtin.apt:
+        deb:
+          "https://github.com/sharkdp/bat/releases/download/\
+          {{ bat_version }}/\
+          bat_\
+          {{ bat_version | regex_replace('v(.+)', '\\1') }}_\
+          {{ bat_architecture }}.deb"
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
+
+    - name: Create "aki" user bat config directory
+      ansible.builtin.file:
+        path: /home/aki/.config/bat
+        state: directory
+        owner: aki
+        group: aki
+        mode: 0700
+
+    - name: Copy "aki" user bat config
+      ansible.builtin.template:
+        src: users/aki/bat/config.j2
+        dest: /home/aki/.config/bat/config
+        owner: aki
+        group: aki
+        mode: 0600
+
+- name: Install curlie
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/rs/curlie/releases/download/\
+      {{ curlie_version }}/\
+      curlie_\
+      {{ curlie_version | regex_replace('v(.+)', '\\1') }}_\
+      {{ ansible_system | lower }}_{{ curlie_architecture }}.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
+
+- name: Install delta
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/dandavison/delta/releases/download/\
+      {{ delta_version }}/\
+      git-delta_\
+      {{ delta_version }}_\
+      {{ delta_architecture }}.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
+
+- name: Install Docker
+  block:
+    - name: Add Docker apt key
+      ansible.builtin.apt_key:
+        url:
+          "https://download.docker.com/\
+          {{ ansible_system | lower }}/\
+          {{ docker_distribution }}\
+          /gpg"
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
+
+    - name: Add Docker apt repository
+      ansible.builtin.apt_repository:
+        repo:
+          "deb [arch={{ docker_architecture }}] \
+          https://download.docker.com/\
+          {{ ansible_system | lower }}/\
+          {{ docker_distribution }} \
+          {{ ansible_distribution_release }} \
+          stable"
+
+    - name: Install Docker Engine
+      ansible.builtin.package:
+        name:
+          - containerd.io
+          - docker-ce
+          - docker-ce-cli
+          - docker-compose-plugin
+
+    - name: Create "docker" group
+      ansible.builtin.group:
+        name: docker
+
+    - name: Add "aki" user to "docker" group
+      ansible.builtin.user:
+        name: aki
+        groups: docker
+        append: true
+
+    - name: Install lazydocker for "aki" user
+      ansible.builtin.unarchive:
+        remote_src: true
+        src:
+          "https://github.com/jesseduffield/lazydocker/releases/download/\
+          {{ lazydocker_version }}/\
+          lazydocker_\
+          {{ lazydocker_version | regex_replace('v(.+)', '\\1') }}_\
+          {{ ansible_system }}_{{ lazydocker_architecture }}.tar.gz"
+        dest: /home/aki/.local/bin
+        include: lazydocker
+        owner: aki
+        group: aki
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
+
+- name: Install doggo
+  ansible.builtin.unarchive:
+    remote_src: true
+    src:
+      "https://github.com/mr-karan/doggo/releases/download/\
+      {{ doggo_version }}/\
+      doggo_\
+      {{ doggo_version | regex_replace('v(.+)', '\\1') }}_\
+      {{ ansible_system | lower }}_{{ doggo_architecture }}.tar.gz"
+    dest: /home/aki/.local/bin
+    include: doggo
+    owner: aki
+    group: aki
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
+  when: doggo_architecture
+
+- name: Install fd
+  block:
+    - name: Install fd
+      ansible.builtin.package:
+        name: fd-find
+
+    - name: Create fd->fdfind symlink
+      ansible.builtin.file:
+        src: /usr/bin/fdfind
+        dest: /home/aki/.local/bin/fd
+        owner: aki
+        group: aki
+        state: link
+
+- name: Install git
+  block:
+    - name: Install git
+      ansible.builtin.package:
+        name: git
+
+    - name: Copy "aki" user gitconfig
+      ansible.builtin.template:
+        src: users/aki/gitconfig.j2
+        dest: /home/aki/.gitconfig
+        owner: aki
+        group: aki
+        mode: 0600
+
+    - name: Install lazygit for "aki" user
+      ansible.builtin.unarchive:
+        remote_src: true
+        src:
+          "https://github.com/jesseduffield/lazygit/releases/download/\
+          {{ lazygit_version }}/\
+          lazygit_\
+          {{ lazygit_version | regex_replace('v(.+)', '\\1') }}_\
+          {{ ansible_system }}_{{ lazygit_architecture }}.tar.gz"
+        dest: /home/aki/.local/bin
+        include: lazygit
+        owner: aki
+        group: aki
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
+
+- name: Install hyperfine
+  ansible.builtin.apt:
+    deb:
+      "https://github.com/sharkdp/hyperfine/releases/download/\
+      {{ hyperfine_version }}/\
+      hyperfine_\
+      {{ hyperfine_version | regex_replace('v(.+)', '\\1') }}_\
+      {{ hyperfine_architecture }}.deb"
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success
+
+- name: Install zoxide
+  block:
+    - name: Install zoxide from deb
+      ansible.builtin.apt:
+        deb:
+          "https://github.com/ajeetdsouza/zoxide/releases/download/\
+          {{ zoxide_version }}/\
+          zoxide_\
+          {{ zoxide_version | regex_replace('v(.+)', '\\1') }}_\
+          amd64.deb"
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
+      when: zoxide_packaging == "deb"
+
+    - name: Install zoxide from archive
+      ansible.builtin.unarchive:
+        remote_src: true
+        src:
+          "https://github.com/ajeetdsouza/zoxide/releases/download/\
+          {{ zoxide_version }}/\
+          zoxide-\
+          {{ zoxide_version | regex_replace('v(.+)', '\\1') }}-\
+          {{ zoxide_architecture }}-unknown-{{ ansible_system | lower }}-\
+          musleabihf.tar.gz"
+        dest: /home/aki/.local/bin
+        include: zoxide
+        owner: aki
+        group: aki
+      register: result
+      retries: 10
+      delay: 2
+      until: result is success
+      when: zoxide_packaging == "archive"

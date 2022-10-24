@@ -1,5 +1,5 @@
 ---
-- name: Install pip packages
+- name: Install "aki" user pip packages
   become_user: aki
   ansible.builtin.pip:
     executable: "{{ pip_executable }}"
