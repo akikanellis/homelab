@@ -153,6 +153,12 @@
         groups: docker
         append: true
 
+    - name: Add ansible user to "docker" group
+      ansible.builtin.user:
+        name: "{{ ansible_username }}"
+        groups: docker
+        append: true
+
     - name: Install lazydocker for "aki" user
       ansible.builtin.unarchive:
         remote_src: true

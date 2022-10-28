@@ -10,6 +10,7 @@
     name: "{{ ansible_username }}"
     group: "{{ ansible_group }}"
     groups: sudo
+    append: true
     system: true
   register: ansible_user_result
 
