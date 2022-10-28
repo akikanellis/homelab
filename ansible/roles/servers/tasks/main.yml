@@ -1,2 +1,4 @@
 ---
 - ansible.builtin.import_tasks: setup-zsh.yml
+- ansible.builtin.import_tasks: start-docker-containers.yml
+  tags: test

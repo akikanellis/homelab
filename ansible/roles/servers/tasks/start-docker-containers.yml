@@ -1,0 +1,58 @@
+---
+- name: Set stacks
+  ansible.builtin.set_fact:
+    stacks: >
+      {{
+      lookup(
+      "community.general.filetree",
+      "templates/docker/stacks/{{ ansible_hostname }}/"
+      )
+      | selectattr("state", "equalto", "directory")
+      | rejectattr("path", "contains", "/")
+      | map(attribute="path")
+      }}
+
+- name: Create docker directories
+  ansible.builtin.file:
+    path: /{{ item }}
+    state: directory
+    owner: "{{ ansible_username }}"
+    group: "{{ ansible_group }}"
+    mode: 0700
+  loop:
+    - docker
+    - docker/stacks
+
+- name: Create directories per stack
+  ansible.builtin.file:
+    path: /docker/stacks/{{ item.0 }}/{{ item.1 }}
+    state: directory
+    owner: "{{ ansible_username }}"
+    group: "{{ ansible_group }}"
+    mode: 0700
+  loop: "{{ stacks | product(directories) }}"
+  vars:
+    directories:
+      - ""
+      - "volumes"
+
+- name: Copy docker-compose template per stack
+  ansible.builtin.template:
+    src: docker/stacks/{{ ansible_hostname }}/{{ item }}/docker-compose.yml.j2
+    dest: /docker/stacks/{{ item }}/docker-compose.yml
+    owner: "{{ ansible_username }}"
+    group: "{{ ansible_group }}"
+    mode: 0600
+  loop: "{{ stacks }}"
+  vars:
+    volumes_directory: /docker/stacks/{{ item }}/volumes
+
+- name: Create stack
+  command:
+    chdir: /docker/stacks/{{ item }}
+    cmd: docker compose up --detach --remove-orphans
+  loop: "{{ stacks }}"
+  register: docker_compose_result
+  changed_when: >
+    'Started' in docker_compose_result.stderr or
+    'Stopped' in docker_compose_result.stderr
