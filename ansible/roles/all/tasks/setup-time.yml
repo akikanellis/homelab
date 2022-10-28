@@ -11,5 +11,5 @@
 
 - name: Set timezone
   ansible.builtin.timezone:
-    name: Europe/London
+    name: "{{ timezone }}"
   notify: Restart chrony
