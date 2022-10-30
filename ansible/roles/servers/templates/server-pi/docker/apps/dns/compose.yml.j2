@@ -4,6 +4,7 @@ name: dns
 services:
   pihole:
     image: pihole/pihole:v5.8.1
+    hostname: dns-primary.domantaki.com
     environment:
       TZ: {{ timezone }}
       WEBPASSWORD: {{ server_pi_pihole_password }}
