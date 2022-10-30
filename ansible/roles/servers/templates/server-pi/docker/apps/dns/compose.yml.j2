@@ -1,0 +1,21 @@
+---
+name: dns
+
+services:
+  pihole:
+    image: pihole/pihole:v5.8.1
+    environment:
+      TZ: {{ timezone }}
+      WEBPASSWORD: {{ server_pi_pihole_password }}
+    volumes:
+      - {{ volumes_directory }}/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+      - {{ volumes_directory }}/pihole/etc-pihole:/etc/pihole
+    ports:
+      - "53:53"
+      - "53:53/udp"
+      - "80:80"
+      - "443:443"
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
+    restart: always
