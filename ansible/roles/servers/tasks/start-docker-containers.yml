@@ -1,11 +1,11 @@
 ---
-- name: Set stacks
+- name: Set apps
   ansible.builtin.set_fact:
-    stacks: >
+    apps: >
       {{
       lookup(
       "community.general.filetree",
-      "templates/docker/stacks/{{ ansible_hostname }}/"
+      "templates/{{ ansible_hostname }}/docker/apps"
       )
       | selectattr("state", "equalto", "directory")
       | rejectattr("path", "contains", "/")
@@ -21,16 +21,16 @@
     mode: 0700
   loop:
     - docker
-    - docker/stacks
+    - docker/apps
 
 - name: Create directories per stack
   ansible.builtin.file:
-    path: /docker/stacks/{{ item.0 }}/{{ item.1 }}
+    path: /docker/apps/{{ item.0 }}/{{ item.1 }}
     state: directory
     owner: "{{ ansible_username }}"
     group: "{{ ansible_group }}"
     mode: 0700
-  loop: "{{ stacks | product(directories) }}"
+  loop: "{{ apps | product(directories) }}"
   vars:
     directories:
       - ""
@@ -38,20 +38,20 @@
 
 - name: Copy docker-compose template per stack
   ansible.builtin.template:
-    src: docker/stacks/{{ ansible_hostname }}/{{ item }}/docker-compose.yml.j2
-    dest: /docker/stacks/{{ item }}/docker-compose.yml
+    src: "{{ ansible_hostname }}/docker/apps/{{ item }}/docker-compose.yml.j2"
+    dest: /docker/apps/{{ item }}/docker-compose.yml
     owner: "{{ ansible_username }}"
     group: "{{ ansible_group }}"
     mode: 0600
-  loop: "{{ stacks }}"
+  loop: "{{ apps }}"
   vars:
-    volumes_directory: /docker/stacks/{{ item }}/volumes
+    volumes_directory: /docker/apps/{{ item }}/volumes
 
 - name: Create stack
   command:
-    chdir: /docker/stacks/{{ item }}
+    chdir: /docker/apps/{{ item }}
     cmd: docker compose up --detach --remove-orphans
-  loop: "{{ stacks }}"
+  loop: "{{ apps }}"
   register: docker_compose_result
   changed_when: >
     'Started' in docker_compose_result.stderr or
