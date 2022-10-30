@@ -12,4 +12,10 @@
 - name: Set timezone
   ansible.builtin.timezone:
     name: "{{ timezone }}"
-  notify: Restart chrony
+  register: set_timezone_result
+
+- name: Restart chrony
+  ansible.builtin.service:
+    name: chrony
+    state: restarted
+  when: set_timezone_result.changed
