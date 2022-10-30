@@ -23,7 +23,7 @@
     - docker
     - docker/apps
 
-- name: Create directories per stack
+- name: Create directories per app
   ansible.builtin.file:
     path: /docker/apps/{{ item.0 }}/{{ item.1 }}
     state: directory
@@ -36,10 +36,10 @@
       - ""
       - "volumes"
 
-- name: Copy docker-compose template per stack
+- name: Copy compose file
   ansible.builtin.template:
-    src: "{{ ansible_hostname }}/docker/apps/{{ item }}/docker-compose.yml.j2"
-    dest: /docker/apps/{{ item }}/docker-compose.yml
+    src: "{{ ansible_hostname }}/docker/apps/{{ item }}/compose.yml.j2"
+    dest: /docker/apps/{{ item }}/compose.yml
     owner: "{{ ansible_username }}"
     group: "{{ ansible_group }}"
     mode: 0600
@@ -47,12 +47,12 @@
   vars:
     volumes_directory: /docker/apps/{{ item }}/volumes
 
-- name: Create stack
+- name: Create and start containers
   command:
     chdir: /docker/apps/{{ item }}
     cmd: docker compose up --detach --remove-orphans
   loop: "{{ apps }}"
-  register: docker_compose_result
+  register: docker_compose_up_result
   changed_when: >
-    'Started' in docker_compose_result.stderr or
-    'Stopped' in docker_compose_result.stderr
+    'Started' in docker_compose_up_result.stderr or
+    'Stopped' in docker_compose_up_result.stderr
