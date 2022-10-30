@@ -48,7 +48,7 @@
     volumes_directory: /docker/apps/{{ item }}/volumes
 
 - name: Create and start containers
-  command:
+  ansible.builtin.command:
     chdir: /docker/apps/{{ item }}
     cmd: docker compose up --detach --remove-orphans
   loop: "{{ apps }}"
