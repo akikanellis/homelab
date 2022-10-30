@@ -1,0 +1,41 @@
+---
+name: monitoring
+
+services:
+  netdata:
+    image: netdata/netdata:v1.32.1
+    environment:
+      DOCKER_HOST: docker-socket-proxy:2375
+    volumes:
+      - {{ volumes_directory }}/netdata:/etc/netdata
+
+      - /etc/group:/host/etc/group:ro
+      - /etc/passwd:/host/etc/passwd:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    ports:
+      - "19999:19999"
+    security_opt:
+      - apparmor:unconfined
+    cap_add:
+      - SYS_PTRACE
+    restart: always
+
+  docker-socket-proxy:
+    # Unfortunately this image does not provide versions other than latest
+    image: tecnativa/docker-socket-proxy:latest
+    environment:
+      CONTAINERS: 1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "2375:2375"
+    restart: always
+
+  autoheal:
+    image: willfarrell/autoheal:1.2.0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      AUTOHEAL_CONTAINER_LABEL: all
+    restart: always
