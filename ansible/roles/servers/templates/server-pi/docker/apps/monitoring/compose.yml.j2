@@ -22,8 +22,8 @@ services:
     restart: always
 
   docker-socket-proxy:
-    # Unfortunately this image does not provide versions other than latest
-    image: tecnativa/docker-socket-proxy:latest
+    # Unfortunately this image does not provide versions other than `latest`
+    image: ghcr.io/tecnativa/docker-socket-proxy:latest
     environment:
       CONTAINERS: 1
     volumes:
