@@ -23,7 +23,7 @@
     - docker
     - docker/apps
 
-- name: Create directories per app
+- name: Create app directories
   ansible.builtin.file:
     path: /docker/apps/{{ item.0 }}/{{ item.1 }}
     state: directory
@@ -36,7 +36,7 @@
       - ""
       - "volumes"
 
-- name: Copy compose file
+- name: Copy app compose file
   ansible.builtin.template:
     src: "{{ inventory_hostname_short }}/docker/apps/{{ item }}/compose.yml.j2"
     dest: /docker/apps/{{ item }}/compose.yml
@@ -47,7 +47,7 @@
   vars:
     volumes_directory: /docker/apps/{{ item }}/volumes
 
-- name: Create and start containers
+- name: Create and start app containers
   ansible.builtin.command:
     chdir: /docker/apps/{{ item }}
     cmd: docker compose up --detach --remove-orphans
