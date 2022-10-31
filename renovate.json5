@@ -22,7 +22,7 @@
   repositories: ["akikanellis/homelab"],
   branchPrefix: "update-dependencies-",
   onboarding: false,
-  requireConfig: false,
+  requireConfig: "required",
   platformAutomerge: true,
   rollbackPrs: true,
   regexManagers: [
