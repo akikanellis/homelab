@@ -1,0 +1,2 @@
+---
+pihole_password: "{{ vault_server_pi_pihole_password }}"

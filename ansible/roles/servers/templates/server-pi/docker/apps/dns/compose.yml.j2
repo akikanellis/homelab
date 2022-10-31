@@ -7,7 +7,7 @@ services:
     hostname: dns-primary.domantaki.com
     environment:
       TZ: {{ timezone }}
-      WEBPASSWORD: {{ server_pi_pihole_password }}
+      WEBPASSWORD: {{ pihole_password }}
     volumes:
       - {{ volumes_directory }}/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
       - {{ volumes_directory }}/pihole/etc-pihole:/etc/pihole
