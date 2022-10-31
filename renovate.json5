@@ -66,5 +66,8 @@ v?\
 (\\.(?<minor>\\d+))?\
 (\\.(?<patch>\\d+))?$"
     }
-  ]
+  ],
+  "docker-compose": {
+    fileMatch: ["(^|/)(?:docker-)?compose[^/]*\.ya?ml\.j2$"]
+  }
 }
