@@ -3,7 +3,7 @@ name: dns
 
 services:
   pihole:
-    image: pihole/pihole:v5.8.1
+    image: pihole/pihole:v5.8.1 # editorconfig-checker-disable-line
     hostname: dns-primary.domantaki.com
     environment:
       TZ: "{{ timezone }}"
