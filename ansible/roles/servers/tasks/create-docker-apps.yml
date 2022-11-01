@@ -3,10 +3,8 @@
   ansible.builtin.set_fact:
     apps: >
       {{
-      lookup(
-      "community.general.filetree",
-      "templates/{{ inventory_hostname_short }}/docker/apps"
-      )
+      lookup("community.general.filetree",
+      "templates/{{ inventory_hostname_short }}/docker/apps")
       | selectattr("state", "equalto", "directory")
       | rejectattr("path", "contains", "/")
       | map(attribute="path")

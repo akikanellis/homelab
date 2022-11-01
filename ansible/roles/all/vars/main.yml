@@ -14,74 +14,74 @@ curlie_version: v1.6.9
 architecture_to_curlie_architecture:
   x86_64: amd64
   armv7l: armv6
-curlie_architecture:
-  "{{ architecture_to_curlie_architecture[ansible_architecture] }}"
+curlie_architecture: >
+  {{ architecture_to_curlie_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=dandavison/delta
 delta_version: 0.14.0
 architecture_to_delta_architecture:
   x86_64: amd64
   armv7l: armhf
-delta_architecture:
-  "{{ architecture_to_delta_architecture[ansible_architecture] }}"
+delta_architecture: >
+  {{ architecture_to_delta_architecture[ansible_architecture] }}
 
 architecture_to_docker_architecture:
   x86_64: amd64
   armv7l: armhf
-docker_architecture:
-  "{{ architecture_to_docker_architecture[ansible_architecture] }}"
+docker_architecture: >
+  {{ architecture_to_docker_architecture[ansible_architecture] }}
 distribution_to_docker_distribution:
   pop!_os: ubuntu
-docker_distribution:
-  "{{\
-  distribution_to_docker_distribution[ansible_distribution | lower] |\
-  default(ansible_distribution | lower)\
-  }}"
+docker_distribution: >
+  {{
+  distribution_to_docker_distribution[ansible_distribution | lower]
+  | default(ansible_distribution | lower)
+  }}
 
 # renovate: datasource=github-releases depName=mr-karan/doggo
 doggo_version: v0.5.4
 architecture_to_doggo_architecture:
   x86_64: amd64
   armv7l:
-doggo_architecture:
-  "{{ architecture_to_doggo_architecture[ansible_architecture] }}"
+doggo_architecture: >
+  {{ architecture_to_doggo_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=sharkdp/hyperfine
 hyperfine_version: v1.15.0
 architecture_to_hyperfine_architecture:
   x86_64: amd64
   armv7l: armhf
-hyperfine_architecture:
-  "{{ architecture_to_hyperfine_architecture[ansible_architecture] }}"
+hyperfine_architecture: >
+  {{ architecture_to_hyperfine_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jesseduffield/lazydocker
 lazydocker_version: v0.19.0
 architecture_to_lazydocker_architecture:
   x86_64: x86_64
   armv7l: armv7
-lazydocker_architecture:
-  "{{ architecture_to_lazydocker_architecture[ansible_architecture] }}"
+lazydocker_architecture: >
+  {{ architecture_to_lazydocker_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jesseduffield/lazygit
 lazygit_version: v0.35
 architecture_to_lazygit_architecture:
   x86_64: x86_64
   armv7l: armv6
-lazygit_architecture:
-  "{{ architecture_to_lazygit_architecture[ansible_architecture] }}"
+lazygit_architecture: >
+  {{ architecture_to_lazygit_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=ajeetdsouza/zoxide
 zoxide_version: v0.8.3
 architecture_to_zoxide_architecture:
   x86_64: amd64
   armv7l: armv7
-zoxide_architecture:
-  "{{ architecture_to_zoxide_architecture[ansible_architecture] }}"
+zoxide_architecture: >
+  {{ architecture_to_zoxide_architecture[ansible_architecture] }}
 zoxide_architecture_to_zoxide_packaging:
   amd64: deb
   armv7: archive
-zoxide_packaging:
-  "{{ zoxide_architecture_to_zoxide_packaging[zoxide_architecture] }}"
+zoxide_packaging: >
+  {{ zoxide_architecture_to_zoxide_packaging[zoxide_architecture] }}
 
 # By default, this is set to `32`. Some 32bit systems unfortunately do not
 # support larger values therefore we set this to `8` on 32bit systems.
@@ -90,5 +90,5 @@ zoxide_packaging:
 userspace_bits_to_vm_mmap_rnd_bits:
   "32": 8
   "64": 32
-vm_mmap_rnd_bits:
-  "{{ userspace_bits_to_vm_mmap_rnd_bits[ansible_userspace_bits] }}"
+vm_mmap_rnd_bits: >
+  {{ userspace_bits_to_vm_mmap_rnd_bits[ansible_userspace_bits] }}
