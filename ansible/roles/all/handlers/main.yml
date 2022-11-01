@@ -3,8 +3,3 @@
   ansible.builtin.service:
     name: chrony
     state: restarted
-
-- name: Restart systemd-resolved
-  ansible.builtin.service:
-    name: systemd-resolved
-    state: restarted
