@@ -7,10 +7,7 @@
     path: /etc/systemd/resolved.conf
     regexp: ^#DNSStubListener=
     line: DNSStubListener=no
-  register: disable_dns_stub_listener_result
+  notify: Restart systemd-resolved
 
-- name: Restart systemd-resolved
-  ansible.builtin.service:
-    name: systemd-resolved
-    state: restarted
-  when: disable_dns_stub_listener_result.changed
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers

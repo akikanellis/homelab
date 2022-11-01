@@ -12,10 +12,7 @@
 - name: Set timezone
   ansible.builtin.timezone:
     name: "{{ timezone }}"
-  register: set_timezone_result
+  notify: Restart chrony
 
-- name: Restart chrony
-  ansible.builtin.service:
-    name: chrony
-    state: restarted
-  when: set_timezone_result.changed
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers
