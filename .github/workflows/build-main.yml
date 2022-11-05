@@ -34,7 +34,7 @@ jobs:
       - name: Release
         id: release
         # yamllint disable-line rule:line-length
-        uses: cycjimmy/semantic-release-action@be27b56c2b7c71f71285b5a52067a40ad8b4c516 # tag=v3.1.2
+        uses: cycjimmy/semantic-release-action@8f6ceb9d5aae5578b1dcda6af00008235204e7fa # tag=v3.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}
           GIT_AUTHOR_NAME: aki-bot[bot]
