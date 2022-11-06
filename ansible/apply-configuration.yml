@@ -1,6 +1,8 @@
 ---
-- name: Update All Hosts Package Caches
-  hosts: all
+- name: Update All Managed Hosts Package Caches
+  hosts:
+    - all
+    - "!unmanaged"
   tags: always
   become: true
 
@@ -8,8 +10,10 @@
     - name: Update apt
       ansible.builtin.import_tasks: tasks/update-apt.yml
 
-- name: Apply All Hosts Configuration
-  hosts: all
+- name: Apply All Managed Hosts Configuration
+  hosts:
+    - all
+    - "!unmanaged"
   become: true
 
   roles: [all]
@@ -20,14 +24,24 @@
 
   roles: [workstations]
 
+- name: Apply Managed Servers Configuration
+  hosts:
+    - servers
+    - "!unmanaged"
+  become: true
+
+  roles: [servers-managed]
+
 - name: Apply Servers Configuration
   hosts: servers
   become: true
 
   roles: [servers]
 
-- name: Cleanup All Hosts
-  hosts: all
+- name: Cleanup All Managed Hosts
+  hosts:
+    - all
+    - "!unmanaged"
   tags: always
   become: true
 

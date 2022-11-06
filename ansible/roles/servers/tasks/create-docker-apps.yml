@@ -10,20 +10,17 @@
       | map(attribute="path")
       }}
 
-- name: Create docker directories
+- name: Create docker app directory
   ansible.builtin.file:
-    path: /{{ item }}
+    path: "{{ docker_directory }}/apps"
     state: directory
     owner: "{{ ansible_username }}"
     group: "{{ ansible_group }}"
     mode: 0700
-  loop:
-    - docker
-    - docker/apps
 
 - name: Create app directories
   ansible.builtin.file:
-    path: /docker/apps/{{ item.0 }}/{{ item.1 }}
+    path: "{{ docker_directory }}/apps/{{ item.0 }}/{{ item.1 }}"
     state: directory
     owner: "{{ ansible_username }}"
     group: "{{ ansible_group }}"
@@ -37,13 +34,13 @@
 - name: Copy app compose file
   ansible.builtin.template:
     src: "{{ inventory_hostname }}/docker/apps/{{ item }}/compose.yml.j2"
-    dest: /docker/apps/{{ item }}/compose.yml
+    dest: "{{ docker_directory }}/apps/{{ item }}/compose.yml"
     owner: "{{ ansible_username }}"
     group: "{{ ansible_group }}"
     mode: 0600
   loop: "{{ apps }}"
   vars:
-    volumes_directory: /docker/apps/{{ item }}/volumes
+    volumes_directory: "{{ docker_directory }}/apps/{{ item }}/volumes"
 
 - name: Create and start app containers
   # `docker compose up` has a bug where if this is the first time an image is
@@ -52,7 +49,7 @@
   # See: https://github.com/docker/compose/issues/9600
   tags: molecule-idempotence-notest
   ansible.builtin.command:
-    chdir: /docker/apps/{{ item }}
+    chdir: "{{ docker_directory }}/apps/{{ item }}"
     cmd: docker compose up --detach --remove-orphans
   loop: "{{ apps }}"
   register: docker_compose_up_result
