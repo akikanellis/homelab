@@ -4,7 +4,7 @@
     apps: >
       {{
       lookup("community.general.filetree",
-      "templates/{{ inventory_hostname_short }}/docker/apps")
+      "templates/{{ inventory_hostname }}/docker/apps")
       | selectattr("state", "equalto", "directory")
       | rejectattr("path", "contains", "/")
       | map(attribute="path")
@@ -36,7 +36,7 @@
 
 - name: Copy app compose file
   ansible.builtin.template:
-    src: "{{ inventory_hostname_short }}/docker/apps/{{ item }}/compose.yml.j2"
+    src: "{{ inventory_hostname }}/docker/apps/{{ item }}/compose.yml.j2"
     dest: /docker/apps/{{ item }}/compose.yml
     owner: "{{ ansible_username }}"
     group: "{{ ansible_group }}"
