@@ -25,7 +25,7 @@ services:
 
   docker-socket-proxy:
     # Unfortunately this image does not provide versions other than `latest`
-    image: ghcr.io/tecnativa/docker-socket-proxy:latest # editorconfig-checker-disable-line
+    image: ghcr.io/tecnativa/docker-socket-proxy:latest@sha256:6c22b9545adc95258af9deffdde6c0ce0a0a70716771e5a4e02d24d1b6e0dda1 # editorconfig-checker-disable-line
     environment:
       CONTAINERS: 1
     volumes:
@@ -35,7 +35,7 @@ services:
     restart: always
 
   autoheal:
-    image: willfarrell/autoheal:1.2.0 # editorconfig-checker-disable-line
+    image: willfarrell/autoheal:1.2.0@sha256:31f580ef0279eaced5b38d631b08c474d70d8403c1c2fdd6ddcf2e879d5f3f7c # editorconfig-checker-disable-line
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
