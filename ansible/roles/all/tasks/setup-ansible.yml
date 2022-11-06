@@ -2,15 +2,23 @@
 - name: Create ansible group
   tags: ansible-setup
   ansible.builtin.group:
-    name: "{{ ansible_username }}"
+    name: "{{ ansible_group }}"
 
 - name: Create ansible user
   tags: ansible-setup
   ansible.builtin.user:
     name: "{{ ansible_username }}"
-    group: "{{ ansible_username }}"
+    group: "{{ ansible_group }}"
     groups: sudo
+    append: true
     system: true
+  register: ansible_user_result
+
+- name: Set ansible user and group ID
+  tags: ansible-setup
+  ansible.builtin.set_fact:
+    ansible_user_id: "{{ ansible_user_result['uid'] }}"
+    ansible_group_id: "{{ ansible_user_result['group'] }}"
 
 - name: Copy ansible user sudoers file
   tags: ansible-setup

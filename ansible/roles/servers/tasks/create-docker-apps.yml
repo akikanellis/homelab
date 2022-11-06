@@ -1,0 +1,61 @@
+---
+- name: Set apps
+  ansible.builtin.set_fact:
+    apps: >
+      {{
+      lookup("community.general.filetree",
+      "templates/{{ inventory_hostname_short }}/docker/apps")
+      | selectattr("state", "equalto", "directory")
+      | rejectattr("path", "contains", "/")
+      | map(attribute="path")
+      }}
+
+- name: Create docker directories
+  ansible.builtin.file:
+    path: /{{ item }}
+    state: directory
+    owner: "{{ ansible_username }}"
+    group: "{{ ansible_group }}"
+    mode: 0700
+  loop:
+    - docker
+    - docker/apps
+
+- name: Create app directories
+  ansible.builtin.file:
+    path: /docker/apps/{{ item.0 }}/{{ item.1 }}
+    state: directory
+    owner: "{{ ansible_username }}"
+    group: "{{ ansible_group }}"
+    mode: 0700
+  loop: "{{ apps | product(directories) }}"
+  vars:
+    directories:
+      - ""
+      - "volumes"
+
+- name: Copy app compose file
+  ansible.builtin.template:
+    src: "{{ inventory_hostname_short }}/docker/apps/{{ item }}/compose.yml.j2"
+    dest: /docker/apps/{{ item }}/compose.yml
+    owner: "{{ ansible_username }}"
+    group: "{{ ansible_group }}"
+    mode: 0600
+  loop: "{{ apps }}"
+  vars:
+    volumes_directory: /docker/apps/{{ item }}/volumes
+
+- name: Create and start app containers
+  # `docker compose up` has a bug where if this is the first time an image is
+  # pulled, running `docker compose up` again will cause the containers to be
+  # recreated.
+  # See: https://github.com/docker/compose/issues/9600
+  tags: molecule-idempotence-notest
+  ansible.builtin.command:
+    chdir: /docker/apps/{{ item }}
+    cmd: docker compose up --detach --remove-orphans
+  loop: "{{ apps }}"
+  register: docker_compose_up_result
+  changed_when: >
+    'Started' in docker_compose_up_result.stderr or
+    'Stopped' in docker_compose_up_result.stderr

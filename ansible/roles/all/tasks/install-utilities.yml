@@ -153,6 +153,12 @@
         groups: docker
         append: true
 
+    - name: Add ansible user to "docker" group
+      ansible.builtin.user:
+        name: "{{ ansible_username }}"
+        groups: docker
+        append: true
+
     - name: Install lazydocker for "aki" user
       ansible.builtin.unarchive:
         remote_src: true
@@ -196,7 +202,7 @@
       ansible.builtin.package:
         name: fd-find
 
-    - name: Create fd->fdfind symlink
+    - name: Create  `/home/aki/.local/bin/fd -> /usr/bin/fdfind` symlink
       ansible.builtin.file:
         src: /usr/bin/fdfind
         dest: /home/aki/.local/bin/fd

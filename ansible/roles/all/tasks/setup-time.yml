@@ -11,5 +11,8 @@
 
 - name: Set timezone
   ansible.builtin.timezone:
-    name: Europe/London
+    name: "{{ timezone }}"
   notify: Restart chrony
+
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers

@@ -1,4 +1,8 @@
 ---
+- name: Set hostname
+  ansible.builtin.hostname:
+    name: "{{ inventory_hostname_short }}"
+
 - name: Harden OS
   ansible.builtin.import_role:
     name: devsec.hardening.os_hardening

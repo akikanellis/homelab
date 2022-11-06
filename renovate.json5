@@ -22,7 +22,7 @@
   repositories: ["akikanellis/homelab"],
   branchPrefix: "update-dependencies-",
   onboarding: false,
-  requireConfig: false,
+  requireConfig: "required",
   platformAutomerge: true,
   rollbackPrs: true,
   regexManagers: [
@@ -31,9 +31,9 @@
       fileMatch: [
         /* eslint-disable jsonc/no-useless-escape */
         "(^|/)justfile$",
-        "(^workflow-templates|\.github\/workflows)\/[^/]+\.ya?ml$",
-        "(^|\/)action\.ya?ml$",
-        "^ansible\/.*vars\/[^/]+.ya?ml$"
+        "(^workflow-templates|\.github/workflows)/[^/]+\.ya?ml$",
+        "(^|/)action\.ya?ml$",
+        "^ansible/.*vars/[^/]+\.ya?ml$"
         /* eslint-enable jsonc/no-useless-escape */
       ],
       matchStrings: [
@@ -66,5 +66,9 @@ v?\
 (\\.(?<minor>\\d+))?\
 (\\.(?<patch>\\d+))?$"
     }
-  ]
+  ],
+  "docker-compose": {
+    // eslint-disable-next-line jsonc/no-useless-escape
+    fileMatch: ["(^|/)(?:docker-)?compose[^/]*\.ya?ml\.j2$"]
+  }
 }
