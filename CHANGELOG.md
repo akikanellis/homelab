@@ -1,3 +1,16 @@
+## [1.16.0](https://github.com/AkiKanellis/homelab/compare/v1.15.4...v1.16.0) (2022-11-06)
+
+
+### Features
+
+* add docker containers to pi server ([#167](https://github.com/AkiKanellis/homelab/issues/167)) ([515bb54](https://github.com/AkiKanellis/homelab/commit/515bb54579568373ff4dd8155d938a4f9db524ca)), closes [#164](https://github.com/AkiKanellis/homelab/issues/164)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#171](https://github.com/AkiKanellis/homelab/issues/171)) ([2c0d2cf](https://github.com/AkiKanellis/homelab/commit/2c0d2cf674522b435b1d9b789ba9944fbc177b4f))
+* **deps:** update pihole/pihole docker tag to v2022 ([#172](https://github.com/AkiKanellis/homelab/issues/172)) ([95497aa](https://github.com/AkiKanellis/homelab/commit/95497aabc5613ac494da700fa1ff077eb36a7215))
+
 ## [1.15.4](https://github.com/AkiKanellis/homelab/compare/v1.15.3...v1.15.4) (2022-11-06)
 
 
