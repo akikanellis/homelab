@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/AkiKanellis/homelab/compare/v1.16.0...v1.16.1) (2022-11-06)
+
+
+### Build System
+
+* **deps:** pin dependencies ([#170](https://github.com/AkiKanellis/homelab/issues/170)) ([d8a3595](https://github.com/AkiKanellis/homelab/commit/d8a3595d16affc3005a4576404c327ffb29a3bcf))
+
 ## [1.16.0](https://github.com/AkiKanellis/homelab/compare/v1.15.4...v1.16.0) (2022-11-06)
 
 
