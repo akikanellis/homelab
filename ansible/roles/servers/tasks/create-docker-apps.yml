@@ -46,6 +46,11 @@
     volumes_directory: /docker/apps/{{ item }}/volumes
 
 - name: Create and start app containers
+  # `docker compose up` has a bug where if this is the first time an image is
+  # pulled, running `docker compose up` again will cause the containers to be
+  # recreated.
+  # See: https://github.com/docker/compose/issues/9600
+  tags: molecule-idempotence-notest
   ansible.builtin.command:
     chdir: /docker/apps/{{ item }}
     cmd: docker compose up --detach --remove-orphans
