@@ -42,6 +42,25 @@
   vars:
     volumes_directory: "{{ docker_directory }}/apps/{{ item }}/volumes"
 
+- name: Discover docker compose command
+  ansible.builtin.command:
+    cmd: >
+      bash -c
+      'source /etc/profile &&
+      (
+      (docker compose version &>/dev/null) && echo "$(which docker) compose"
+      ) ||
+      (
+      (docker-compose version &>/dev/null) && echo "$(which docker-compose)"
+      )'
+  register: docker_compose_result
+  changed_when: false
+
+- name: Set docker compose command
+  ansible.builtin.set_fact:
+    docker_compose_command: "{{ docker_compose_result.stdout }}"
+  changed_when: false
+
 - name: Create and start app containers
   # `docker compose up` has a bug where if this is the first time an image is
   # pulled, running `docker compose up` again will cause the containers to be
@@ -50,7 +69,13 @@
   tags: molecule-idempotence-notest
   ansible.builtin.command:
     chdir: "{{ docker_directory }}/apps/{{ item }}"
-    cmd: docker compose up --detach --remove-orphans
+    cmd: >
+      {{ docker_compose_command }}
+      --file compose.yml
+      --project-name {{ item }}
+      up
+      --detach
+      --remove-orphans
   loop: "{{ apps }}"
   register: docker_compose_up_result
   changed_when: >
