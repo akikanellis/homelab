@@ -79,5 +79,6 @@
   loop: "{{ apps }}"
   register: docker_compose_up_result
   changed_when: >
+    'Creating' in docker_compose_up_result.stderr or
     'Started' in docker_compose_up_result.stderr or
     'Stopped' in docker_compose_up_result.stderr
