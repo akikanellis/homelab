@@ -1,3 +1,10 @@
+## [1.16.2](https://github.com/AkiKanellis/homelab/compare/v1.16.1...v1.16.2) (2022-11-07)
+
+
+### Bug Fixes
+
+* use correct hostname in prod hosts ([#175](https://github.com/AkiKanellis/homelab/issues/175)) ([3b7f286](https://github.com/AkiKanellis/homelab/commit/3b7f286d9126d0fcb7653a8e7cb332fa3b26ef37)), closes [#164](https://github.com/AkiKanellis/homelab/issues/164)
+
 ## [1.16.1](https://github.com/AkiKanellis/homelab/compare/v1.16.0...v1.16.1) (2022-11-06)
 
 
