@@ -1,3 +1,10 @@
+## [1.16.4](https://github.com/AkiKanellis/homelab/compare/v1.16.3...v1.16.4) (2022-11-12)
+
+
+### Build System
+
+* **deps:** update dependency jesseduffield/lazydocker to v0.20.0 ([#177](https://github.com/AkiKanellis/homelab/issues/177)) ([32ec4e5](https://github.com/AkiKanellis/homelab/commit/32ec4e5e58e35704d6a0566a2a0ffd67244b6f66))
+
 ## [1.16.3](https://github.com/AkiKanellis/homelab/compare/v1.16.2...v1.16.3) (2022-11-12)
 
 
