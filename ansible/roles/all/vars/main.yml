@@ -55,7 +55,7 @@ hyperfine_architecture: >-
   {{ architecture_to_hyperfine_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jesseduffield/lazydocker
-lazydocker_version: v0.19.0
+lazydocker_version: v0.20.0
 architecture_to_lazydocker_architecture:
   x86_64: x86_64
   armv7l: armv7
