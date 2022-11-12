@@ -1,0 +1,19 @@
+---
+- name: Get ansible user uid
+  ansible.builtin.command:
+    cmd: id -u {{ ansible_username }}
+  register: uid_result
+
+- name: Set ansible user uid
+  set_fact:
+    # TODO find a better name for this and the _gid
+    ansible_manager_user_uid: "{{ uid_result.stdout }}"
+
+- name: Get ansible user gid
+  command:
+    cmd: id -g {{ ansible_username }}
+  register: gid_result
+
+- name: Set ansible user gid
+  set_fact:
+    ansible_manager_user_gid: "{{ gid_result.stdout }}"

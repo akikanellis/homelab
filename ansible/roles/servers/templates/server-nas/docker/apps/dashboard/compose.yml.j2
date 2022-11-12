@@ -1,0 +1,14 @@
+---
+services:
+  heimdall:
+    image: linuxserver/heimdall:version-2.2.2
+    environment:
+      PUID: "{{ ansible_manager_user_uid }}"
+      PGID: "{{ ansible_manager_user_gid }}"
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/heimdall:/config"
+    ports:
+      - "180:80"
+      - "1443:443"
+    restart: always
