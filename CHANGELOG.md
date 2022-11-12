@@ -1,3 +1,10 @@
+## [1.16.6](https://github.com/AkiKanellis/homelab/compare/v1.16.5...v1.16.6) (2022-11-12)
+
+
+### Bug Fixes
+
+* increase timeout for slow server ([#179](https://github.com/AkiKanellis/homelab/issues/179)) ([a6bc9c5](https://github.com/AkiKanellis/homelab/commit/a6bc9c55c52f33fd6ed4efdfc5bdba41b592ced6)), closes [#164](https://github.com/AkiKanellis/homelab/issues/164)
+
 ## [1.16.5](https://github.com/AkiKanellis/homelab/compare/v1.16.4...v1.16.5) (2022-11-12)
 
 
