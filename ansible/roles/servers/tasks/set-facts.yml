@@ -3,6 +3,7 @@
   ansible.builtin.command:
     cmd: id -u {{ ansible_username }}
   register: uid_result
+  changed_when: false
 
 - name: Set ansible user uid
   set_fact:
@@ -13,6 +14,7 @@
   command:
     cmd: id -g {{ ansible_username }}
   register: gid_result
+  changed_when: false
 
 - name: Set ansible user gid
   set_fact:
