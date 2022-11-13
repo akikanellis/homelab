@@ -1,7 +1,7 @@
 ---
 services:
   heimdall:
-    image: linuxserver/heimdall:version-2.2.2
+    image: lscr.io/linuxserver/heimdall:version-2.2.2
     environment:
       PUID: "{{ ansible_manager_user_uid }}"
       PGID: "{{ ansible_manager_user_gid }}"
