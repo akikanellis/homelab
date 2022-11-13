@@ -36,7 +36,6 @@ services:
 
   autoheal:
     image: willfarrell/autoheal:1.2.0@sha256:31f580ef0279eaced5b38d631b08c474d70d8403c1c2fdd6ddcf2e879d5f3f7c # editorconfig-checker-disable-line
-    user: "{{ ansible_manager_user_uid }}:{{ ansible_manager_user_gid }}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
