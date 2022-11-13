@@ -7,6 +7,7 @@ services:
     hostname: netdata-server-pi.domantaki.com
     environment:
       DOCKER_HOST: docker-socket-proxy:2375
+      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/netdata:/etc/netdata:ro"
 
@@ -28,6 +29,7 @@ services:
     image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1@sha256:6c22b9545adc95258af9deffdde6c0ce0a0a70716771e5a4e02d24d1b6e0dda1 # editorconfig-checker-disable-line
     environment:
       CONTAINERS: 1
+      TZ: "{{ timezone }}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
@@ -40,4 +42,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       AUTOHEAL_CONTAINER_LABEL: all
+      TZ: "{{ timezone }}"
     restart: always

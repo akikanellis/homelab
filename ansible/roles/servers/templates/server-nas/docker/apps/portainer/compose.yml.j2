@@ -2,6 +2,8 @@
 services:
   portainer:
     image: portainer/portainer-ce:2.11.0
+    environment:
+      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/portainer:/data"
 

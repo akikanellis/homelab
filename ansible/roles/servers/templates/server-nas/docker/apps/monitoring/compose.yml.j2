@@ -5,6 +5,7 @@ services:
     hostname: netdata-server-nas.domantaki.com
     environment:
       DOCKER_HOST: docker-socket-proxy:2375
+      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/netdata:/etc/netdata:ro"
 
@@ -24,6 +25,7 @@ services:
     image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1 # editorconfig-checker-disable-line
     environment:
       CONTAINERS: 1
+      TZ: "{{ timezone }}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
@@ -33,6 +35,8 @@ services:
   prometheus:
     image: prom/prometheus:v2.32.1
     user: "{{ ansible_manager_user_uid }}:{{ ansible_manager_user_gid }}"
+    environment:
+      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/prometheus/etc-prometheus:/etc/prometheus"
       - "{{ volumes_directory }}/prometheus/prometheus:/prometheus"
@@ -43,6 +47,8 @@ services:
   unifi-poller:
     image: golift/unifi-poller:2.1.3
     user: "{{ ansible_manager_user_uid }}:{{ ansible_manager_user_gid }}"
+    environment:
+      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/unifi-poller:/config"
     ports:
@@ -55,6 +61,7 @@ services:
     environment:
       GF_INSTALL_PLUGINS: >
           grafana-clock-panel,grafana-piechart-panel,natel-discrete-panel
+      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/grafana/etc-grafana:/etc/grafana"
       - "{{ volumes_directory }}/grafana/var-lib-grafana:/var/lib/grafana"
@@ -64,6 +71,8 @@ services:
 
   graylog:
     image: graylog/graylog:4.2.5
+    environment:
+      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/graylog:/usr/share/graylog/data"
     ports:
@@ -88,18 +97,21 @@ services:
   mongodb:
     image: mongo:4.4.11
     user: "{{ ansible_manager_user_uid }}:{{ ansible_manager_user_gid }}"
+    environment:
+      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/mongodb/db:/data/db"
     restart: always
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
-    volumes:
-      - "{{ volumes_directory }}/elasticsearch:/usr/share/elasticsearch/data"
     environment:
       http.host: 0.0.0.0
       network.host: 0.0.0.0
       transport.host: localhost
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/elasticsearch:/usr/share/elasticsearch/data"
     restart: always
 
   autoheal:
@@ -108,4 +120,5 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       AUTOHEAL_CONTAINER_LABEL: all
+      TZ: "{{ timezone }}"
     restart: always
