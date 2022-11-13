@@ -1,0 +1,148 @@
+---
+services:
+  gluetun:
+    image: qmcgaw/gluetun:v3.32.0
+    ports:
+      # prowlarr
+      - "9696:9696"
+      # qbittorrent
+      - "6881:6881"
+      - "6881:6881/udp"
+      - "28080:28080"
+      # radarr
+      - "7878:7878"
+      # sabnzbd
+      - "18080:8080"
+      # sonarr
+      - "18989:8989"
+      - "19090:9090"
+    environment:
+      FIREWALL_OUTBOUND_SUBNETS:
+        "{{ ansible_default_ipv4.network }}/{{ ansible_default_ipv4.prefix }}"
+      VPN_SERVICE_PROVIDER: cyberghost
+      OPENVPN_USER: "{{ openvpn_user }}"
+      OPENVPN_PASSWORD: "{{ openvpn_password }}"
+      SERVER_COUNTRIES: United Kingdom
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/gluetun/gluetun:/gluetun"
+      # We need to override the resolv.conf due to a bug in gluetun.
+      # See: https://github.com/qdm12/gluetun/issues/281
+      - "{{ volumes_directory }}/gluetun/etc-resolv.conf:/etc/resolv.conf:ro"
+    cap_add:
+      - NET_ADMIN
+    restart: always
+
+  plex:
+    image: lscr.io/linuxserver/plex:1.25.3
+    network_mode: host
+    environment:
+      PUID: "{{ ansible_manager_user_uid }}"
+      PGID: "{{ ansible_manager_user_gid }}"
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/plex/config:/config"
+      - "{{ media_directory }}/tv:/tv"
+      - "{{ media_directory }}/movies:/movies"
+    healthcheck:
+      test: (curl -f http://localhost:32400/identity && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    devices:
+      - /dev/dri:/dev/dri
+    restart: always
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:0.4.9-develop
+    environment:
+      PUID: "{{ ansible_manager_user_uid }}"
+      PGID: "{{ ansible_manager_user_gid }}"
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/prowlarr/config:/config"
+    healthcheck:
+      test: (curl -f http://localhost:9696 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    network_mode: service:gluetun
+    restart: always
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:14.3.9
+    environment:
+      PUID: "{{ ansible_manager_user_uid }}"
+      PGID: "{{ ansible_manager_user_gid }}"
+      TZ: "{{ timezone }}"
+      WEBUI_PORT: 28080
+    volumes:
+      - "{{ volumes_directory }}/qbittorrent/config:/config"
+      - "{{ downloads_directory }}/torrents:/downloads"
+    healthcheck:
+      test: (curl -f http://localhost:28080 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    network_mode: service:gluetun
+    restart: always
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:3.2.2
+    environment:
+      PUID: "{{ ansible_manager_user_uid }}"
+      PGID: "{{ ansible_manager_user_gid }}"
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/radarr/config:/config"
+      - "{{ downloads_directory }}:/downloads"
+      - "{{ media_directory }}/movies:/movies"
+    healthcheck:
+      test: (curl -f http://localhost:7878 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    network_mode: service:gluetun
+    restart: always
+
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:version-3.4.2
+    environment:
+      PUID: "{{ ansible_manager_user_uid }}"
+      PGID: "{{ ansible_manager_user_gid }}"
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/sabnzbd/config:/config"
+      - "{{ downloads_directory }}/usenet/complete:/downloads"
+      - "{{ downloads_directory }}/usenet/temp:/incomplete-downloads"
+    healthcheck:
+      test: (curl -f http://localhost:8080 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    network_mode: service:gluetun
+    restart: always
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:3.0.6
+    environment:
+      PUID: "{{ ansible_manager_user_uid }}"
+      PGID: "{{ ansible_manager_user_gid }}"
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/sonarr/config:/config"
+      - "{{ downloads_directory }}:/downloads"
+      - "{{ media_directory }}/tv:/tv"
+    healthcheck:
+      test: (curl -f http://localhost:8989 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 120s
+    network_mode: service:gluetun
+    restart: always

@@ -1,2 +1,6 @@
 ---
 docker_directory: /volumeSATA/satashare/docker
+downloads_directory: /volumeSATA/satashare/docker/volumes/downloads
+media_directory: /volume1/media
+openvpn_user: "{{ vault_server_nas_openvpn_user }}"
+openvpn_password: "{{ vault_server_nas_openvpn_password }}"
