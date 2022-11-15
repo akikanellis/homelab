@@ -17,8 +17,7 @@ services:
       - "18989:8989"
       - "19090:9090"
     environment:
-      FIREWALL_OUTBOUND_SUBNETS:
-        "{{ ansible_default_ipv4.network }}/{{ ansible_default_ipv4.prefix }}"
+      FIREWALL_OUTBOUND_SUBNETS: "{{ network_subnet }}"
       VPN_SERVICE_PROVIDER: cyberghost
       OPENVPN_USER: "{{ openvpn_user }}"
       OPENVPN_PASSWORD: "{{ openvpn_password }}"
