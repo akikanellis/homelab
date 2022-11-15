@@ -87,6 +87,3 @@
     'Started' in docker_compose_up_result.stderr or
     'Stopping' in docker_compose_up_result.stderr or
     'Stopped' in docker_compose_up_result.stderr
-
-# TODO think about selectively using --force-recreate
-# TODO add editorconfig-checker-disable-line on all version

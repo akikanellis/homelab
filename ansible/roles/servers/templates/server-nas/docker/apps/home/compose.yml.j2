@@ -1,7 +1,7 @@
 ---
 services:
   home-assistant:
-    image: lscr.io/linuxserver/homeassistant:2021.12.9
+    image: lscr.io/linuxserver/homeassistant:2021.12.9 # editorconfig-checker-disable-line
     environment:
       PUID: "{{ ansible_manager_user_uid }}"
       PGID: "{{ ansible_manager_user_gid }}"
@@ -12,7 +12,7 @@ services:
     restart: always
 
   tasmoadmin:
-    image: ghcr.io/tasmoadmin/tasmoadmin:v1.8.0
+    image: ghcr.io/tasmoadmin/tasmoadmin:v1.8.0 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
@@ -22,7 +22,7 @@ services:
     restart: always
 
   mosquitto:
-    image: eclipse-mosquitto:2.0.14
+    image: eclipse-mosquitto:2.0.14 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
@@ -35,7 +35,7 @@ services:
     restart: always
 
   node-red:
-    image: nodered/node-red:2.1.5
+    image: nodered/node-red:2.1.5 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
