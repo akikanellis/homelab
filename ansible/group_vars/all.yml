@@ -2,4 +2,7 @@
 aki_password: "{{ vault_aki_password }}"
 aki_github_workstation_token: "{{ vault_aki_github_workstation_token }}"
 
+site_domain: domantaki.com
+host_fqdn: "{{ inventory_hostname }}.{{ site_domain }}"
+
 timezone: Europe/London
