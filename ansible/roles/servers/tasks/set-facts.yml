@@ -6,16 +6,15 @@
   changed_when: false
 
 - name: Set ansible user uid
-  set_fact:
-    # TODO find a better name for this and the _gid
+  ansible.builtin.set_fact:
     ansible_manager_user_uid: "{{ uid_result.stdout }}"
 
 - name: Get ansible user gid
-  command:
+  ansible.builtin.command:
     cmd: id -g {{ ansible_username }}
   register: gid_result
   changed_when: false
 
 - name: Set ansible user gid
-  set_fact:
+  ansible.builtin.set_fact:
     ansible_manager_user_gid: "{{ gid_result.stdout }}"
