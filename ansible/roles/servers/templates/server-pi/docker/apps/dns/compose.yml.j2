@@ -4,7 +4,7 @@ name: dns
 services:
   pihole:
     image: pihole/pihole:2022.12.1@sha256:fbca32973ebe1ae3c774677482ba0895d08d8e3c2d1a2a18a8817e449eaffcaf # editorconfig-checker-disable-line
-    hostname: dns-primary.domantaki.com
+    hostname: dns-primary
     environment:
       TZ: "{{ timezone }}"
       WEBPASSWORD: "{{ pihole_password }}"
