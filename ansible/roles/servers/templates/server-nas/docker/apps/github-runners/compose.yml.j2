@@ -5,9 +5,11 @@ services:
     # creating an access token from a GitHub application.
     # See: https://github.com/myoung34/docker-github-actions-runner/pull/254
     image: myoung34/github-runner:latest # editorconfig-checker-disable-line
+
     # This is the `runner` user.
     # See: https://github.com/myoung34/docker-github-actions-runner/wiki/Usage#non-root-runners editorconfig-checker-disable-line
     user: "1001:121"
+
     environment:
       # Runner
       RUNNER_NAME_PREFIX: homelab

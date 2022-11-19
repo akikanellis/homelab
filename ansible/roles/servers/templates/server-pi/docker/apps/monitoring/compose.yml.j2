@@ -25,7 +25,6 @@ services:
     restart: always
 
   docker-socket-proxy:
-    # Unfortunately this image does not provide versions other than `latest`
     image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1@sha256:6c22b9545adc95258af9deffdde6c0ce0a0a70716771e5a4e02d24d1b6e0dda1 # editorconfig-checker-disable-line
     environment:
       CONTAINERS: 1
