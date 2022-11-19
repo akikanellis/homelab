@@ -1,4 +1,7 @@
 ---
+aki_bot_app_id: "{{ vault_aki_bot_app_id }}"
+aki_bot_app_private_key: "{{ vault_aki_bot_app_private_key }}"
+
 docker_directory: /volumeSATA/satashare/docker
 downloads_directory: /volumeSATA/satashare/docker/volumes/downloads
 media_directory: /volume1/media
