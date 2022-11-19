@@ -16,6 +16,6 @@ reverse_proxy_macvlan_network_ip_range:
   "{{ network_subnet | ansible.utils.ipmath(240) }}/30"
 reverse_proxy_macvlan_network_first_usable_ip:
   "{{
-   reverse_proxy_macvlan_network_ip_range
-   | ansible.utils.ipaddr('next_usable')
-   }}"
+  reverse_proxy_macvlan_network_ip_range
+  | ansible.utils.ipaddr('next_usable')
+  }}"
