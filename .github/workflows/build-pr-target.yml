@@ -74,7 +74,7 @@ jobs:
             token=${{ secrets.AKI_APPROVE_PRS_TOKEN }}
           fi
 
-          echo "token=$token" >> $GITHUB_OUTPUT
+          echo "token=$token" >> "$GITHUB_OUTPUT"
 
       - name: Approve PR
         # yamllint disable-line rule:line-length
