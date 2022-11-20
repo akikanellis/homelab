@@ -62,11 +62,22 @@ jobs:
   approve-pr:
     name: Approve PR
     runs-on: ubuntu-latest
+    if: github.actor == 'AkiKanellis' || github.actor == 'aki-bot[bot]'
 
     steps:
+      - name: Get token
+        id: get-token
+        run: |
+          if [[ ${{ github.actor }} == "AkiKanellis" ]]; then
+            token=${{ secrets.GITHUB_TOKEN }}
+          else
+            token=${{ secrets.AKI_APPROVE_PRS_TOKEN }}
+          fi
+
+          echo "token=$token" >> $GITHUB_OUTPUT
+
       - name: Approve PR
         # yamllint disable-line rule:line-length
         uses: hmarr/auto-approve-action@de8ae18c173c131e182d4adf2c874d8d2308a85b # tag=v3.1.0
-        if: github.actor == 'akikanellis' || github.actor == 'aki-bot[bot]'
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ steps.get-token.outputs.token }}
