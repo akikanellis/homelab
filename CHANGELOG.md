@@ -1,3 +1,10 @@
+## [1.16.12](https://github.com/AkiKanellis/homelab/compare/v1.16.11...v1.16.12) (2022-11-21)
+
+
+### Bug Fixes
+
+* integrate correctly with CODEOWNERS ([#186](https://github.com/AkiKanellis/homelab/issues/186)) ([be864f4](https://github.com/AkiKanellis/homelab/commit/be864f42acbb9bf61757df5242be4c6493b3d743)), closes [#185](https://github.com/AkiKanellis/homelab/issues/185)
+
 ## [1.16.11](https://github.com/AkiKanellis/homelab/compare/v1.16.10...v1.16.11) (2022-11-21)
 
 
