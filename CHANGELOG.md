@@ -1,3 +1,11 @@
+## [1.16.17](https://github.com/AkiKanellis/homelab/compare/v1.16.16...v1.16.17) (2022-11-28)
+
+
+### Build System
+
+* **deps:** update pihole/pihole docker tag to v2022.11.2 ([#193](https://github.com/AkiKanellis/homelab/issues/193)) ([eb8f022](https://github.com/AkiKanellis/homelab/commit/eb8f0228fd997e8121153f376c8e606b0c3be40e))
+* **deps:** update renovatebot/github-action action to v34.40.0 ([#192](https://github.com/AkiKanellis/homelab/issues/192)) ([6b75f4f](https://github.com/AkiKanellis/homelab/commit/6b75f4f840e5a3782256c1cdc38ae26851da2c23))
+
 ## [1.16.16](https://github.com/AkiKanellis/homelab/compare/v1.16.15...v1.16.16) (2022-11-27)
 
 
