@@ -1,3 +1,10 @@
+## [1.16.20](https://github.com/AkiKanellis/homelab/compare/v1.16.19...v1.16.20) (2022-12-03)
+
+
+### Build System
+
+* **deps:** update dependency dandavison/delta to v0.15.1 ([#196](https://github.com/AkiKanellis/homelab/issues/196)) ([a95c6e0](https://github.com/AkiKanellis/homelab/commit/a95c6e012bc55ff8b0344d3060c613049205e8d2))
+
 ## [1.16.19](https://github.com/AkiKanellis/homelab/compare/v1.16.18...v1.16.19) (2022-12-03)
 
 
