@@ -29,7 +29,7 @@ concurrency: ${{ github.workflow }}
 
 env:
   # renovate: datasource=pypi depName=ansible-core
-  ANSIBLE_CORE_VERSION: 2.14.0
+  ANSIBLE_CORE_VERSION: 2.14.1
 
 jobs:
   deploy-to-prod:
@@ -46,10 +46,10 @@ jobs:
 
       - name: Set up Python
         # yamllint disable-line rule:line-length
-        uses: actions/setup-python@13ae5bb136fac2878aff31522b9efb785519f984 # tag=v4.3.0
+        uses: actions/setup-python@2c3dd9e7e29afd70cc0950079bde6c979d1f69f9 # v4.3.1
         with:
           # renovate: datasource=docker depName=python versioning=docker
-          python-version: 3.11.0
+          python-version: 3.11.1
 
       - name: Install ansible
         run: pip install ansible-core=="$ANSIBLE_CORE_VERSION"
