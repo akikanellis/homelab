@@ -95,16 +95,16 @@
     pip_executable: "{{ which_pip.stdout }}"
   when: "'python' in asdf_plugins_names"
 
-- name: Discover "aki" user npm binaries directory
+- name: Discover "aki" user npm prefix
   become_user: aki
   ansible.builtin.command:
     cmd: >
-      zsh -c "source ~/.asdf/asdf.sh && direnv exec ~ npm bin --location=global"
-  register: npm_bin_result
+      zsh -c "source ~/.asdf/asdf.sh && direnv exec ~ npm prefix --global"
+  register: npm_prefix_result
   changed_when: false
   when: "'nodejs' in asdf_plugins_names"
 
 - name: Set npm binaries directory
   ansible.builtin.set_fact:
-    npm_binaries_dir: "{{ npm_bin_result.stdout }}"
+    npm_binaries_dir: "{{ npm_prefix_result.stdout }}/bin"
   when: "'nodejs' in asdf_plugins_names"

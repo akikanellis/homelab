@@ -8,6 +8,6 @@
   ansible.builtin.command:
     cmd: >
       zsh -c "source ~/.asdf/asdf.sh &&
-      direnv exec ~ npm install --location=global {{ item }}"
+      direnv exec ~ npm install --global {{ item }}"
     creates: "{{ npm_binaries_dir }}/{{ item }}"
   loop: "{{ package_names }}"
