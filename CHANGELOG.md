@@ -1,3 +1,15 @@
+## [1.16.27](https://github.com/AkiKanellis/homelab/compare/v1.16.26...v1.16.27) (2023-01-05)
+
+
+### Bug Fixes
+
+* use `prefix` instead of `bin` ([#205](https://github.com/AkiKanellis/homelab/issues/205)) ([a4c6146](https://github.com/AkiKanellis/homelab/commit/a4c6146fe28df86dc2dd266ebb20fd9581490fe0))
+
+
+### Build System
+
+* **deps:** update actions/stale action to v7 ([#204](https://github.com/AkiKanellis/homelab/issues/204)) ([d920b88](https://github.com/AkiKanellis/homelab/commit/d920b885fda77826bbfb53fe6fcff541c69e65f2))
+
 ## [1.16.26](https://github.com/AkiKanellis/homelab/compare/v1.16.25...v1.16.26) (2022-12-17)
 
 
