@@ -46,7 +46,6 @@ services:
 
   unpoller:
     image: ghcr.io/unpoller/unpoller:v2.1.9 # editorconfig-checker-disable-line
-    #user: "{{ ansible_manager_user_uid }}:{{ ansible_manager_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
     volumes:
