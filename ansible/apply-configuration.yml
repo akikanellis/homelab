@@ -5,7 +5,8 @@
   become: true
 
   tasks:
-    - ansible.builtin.import_tasks: tasks/update-apt.yml
+    - name: Update apt
+      ansible.builtin.import_tasks: tasks/update-apt.yml
 
 - name: Apply All Hosts Configuration
   hosts: all
@@ -31,4 +32,5 @@
   become: true
 
   tasks:
-    - ansible.builtin.import_tasks: tasks/clean-apt.yml
+    - name: Clean apt
+      ansible.builtin.import_tasks: tasks/clean-apt.yml

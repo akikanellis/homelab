@@ -65,7 +65,7 @@
 
 - name: Install "aki" user Postman
   become_user: aki
-  ansible.builtin.flatpak:
+  community.general.flatpak:
     method: user
     name: com.getpostman.Postman
 
@@ -169,7 +169,7 @@
 
     - name: Create "aki" user Tilix default profile
       become_user: aki
-      ansible.builtin.dconf:
+      community.general.dconf:
         key:
           "/com/gexperts/Tilix/profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d/\
           {{ item.key }}"
@@ -181,7 +181,7 @@
 
     - name: Set "aki" user Tilix default profile
       become_user: aki
-      ansible.builtin.dconf:
+      community.general.dconf:
         key: /com/gexperts/Tilix/profiles/default
         value: "'2b7c4080-0ddd-46c5-8f23-563fd3ba789d'"
 

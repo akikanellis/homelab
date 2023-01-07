@@ -1,12 +1,33 @@
 ---
-- ansible.builtin.import_tasks: setup-ansible.yml
-- ansible.builtin.import_tasks: create-aki-user.yml
-- ansible.builtin.import_tasks: install-package-managers.yml
-- ansible.builtin.import_tasks: setup-time.yml
-- ansible.builtin.import_tasks: remove-preinstalled-packages.yml
-- ansible.builtin.import_tasks: install-utilities.yml
-- ansible.builtin.import_tasks: setup-os.yml
-- ansible.builtin.import_tasks: setup-ssh.yml
-- ansible.builtin.import_tasks: setup-zsh.yml
-- ansible.builtin.import_tasks: install-asdf.yml
-- ansible.builtin.import_tasks: install-asdf-utilities.yml
+- name: Setup ansible
+  ansible.builtin.import_tasks: setup-ansible.yml
+
+- name: Create aki user
+  ansible.builtin.import_tasks: create-aki-user.yml
+
+- name: Install package managers
+  ansible.builtin.import_tasks: install-package-managers.yml
+
+- name: Setup time
+  ansible.builtin.import_tasks: setup-time.yml
+
+- name: Remove preinstalled packages
+  ansible.builtin.import_tasks: remove-preinstalled-packages.yml
+
+- name: Install utilities
+  ansible.builtin.import_tasks: install-utilities.yml
+
+- name: Setup OS
+  ansible.builtin.import_tasks: setup-os.yml
+
+- name: Setup SSH
+  ansible.builtin.import_tasks: setup-ssh.yml
+
+- name: Setup ZSH
+  ansible.builtin.import_tasks: setup-zsh.yml
+
+- name: Install asdf
+  ansible.builtin.import_tasks: install-asdf.yml
+
+- name: Install asdf utilities
+  ansible.builtin.import_tasks: install-asdf-utilities.yml

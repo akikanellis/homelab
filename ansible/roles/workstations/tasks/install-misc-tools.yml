@@ -7,7 +7,7 @@
 
 - name: Install "aki" user Flatpak misc tools
   become_user: aki
-  ansible.builtin.flatpak:
+  community.general.flatpak:
     method: user
     name:
       - com.slack.Slack
