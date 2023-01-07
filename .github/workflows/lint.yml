@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout
         # yamllint disable-line rule:line-length
-        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
         with:
           fetch-depth: 0
 
@@ -21,13 +21,13 @@ jobs:
         uses: extractions/setup-just@95b912dc5d3ed106a72907f2f9b91e76d60bdb76 # v1.5.0
         with:
           # renovate: datasource=crate depName=just
-          just-version: 1.9.0
+          just-version: 1.11.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Python
         # yamllint disable-line rule:line-length
-        uses: actions/setup-python@2c3dd9e7e29afd70cc0950079bde6c979d1f69f9 # v4.3.1
+        uses: actions/setup-python@5ccb29d8773c3f3f653e1705f474dfaa8a06a912 # v4.4.0
         with:
           # renovate: datasource=docker depName=python versioning=docker
           python-version: 3.11.1
@@ -38,7 +38,7 @@ jobs:
 
       - name: Lint
         # yamllint disable-line rule:line-length
-        uses: github/super-linter/slim@bb2d833b08b6c288608686672b93a8a4589cdc49 # tag=v4.9.7
+        uses: github/super-linter/slim@985ef206aaca4d560cb9ee2af2b42ba44adc1d55 # v4.10.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: main
