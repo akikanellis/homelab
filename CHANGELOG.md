@@ -1,3 +1,11 @@
+## [1.16.29](https://github.com/AkiKanellis/homelab/compare/v1.16.28...v1.16.29) (2023-01-07)
+
+
+### Build System
+
+* **deps:** update dependency molecule-vagrant to v2 ([#207](https://github.com/AkiKanellis/homelab/issues/207)) ([72f573f](https://github.com/AkiKanellis/homelab/commit/72f573fd848bf59b5751524246c517eba7168f82))
+* **deps:** update renovatebot/github-action action to v34.92.0 ([#209](https://github.com/AkiKanellis/homelab/issues/209)) ([8a0256f](https://github.com/AkiKanellis/homelab/commit/8a0256fac23dcf3047fa6c5635fab94525776348))
+
 ## [1.16.28](https://github.com/AkiKanellis/homelab/compare/v1.16.27...v1.16.28) (2023-01-07)
 
 
