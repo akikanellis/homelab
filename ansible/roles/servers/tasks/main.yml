@@ -1,4 +1,9 @@
 ---
-- ansible.builtin.import_tasks: setup-zsh.yml
-- ansible.builtin.import_tasks: disable-dns-stub-listener.yml
-- ansible.builtin.import_tasks: create-docker-apps.yml
+- name: Setup ZSH
+  ansible.builtin.import_tasks: setup-zsh.yml
+
+- name: Disable DNS stub listener
+  ansible.builtin.import_tasks: disable-dns-stub-listener.yml
+
+- name: Create Docker apps
+  ansible.builtin.import_tasks: create-docker-apps.yml
