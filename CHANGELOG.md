@@ -1,3 +1,10 @@
+## [1.16.31](https://github.com/AkiKanellis/homelab/compare/v1.16.30...v1.16.31) (2023-01-08)
+
+
+### Build System
+
+* **deps:** update dependency ajeetdsouza/zoxide to v0.9.0 ([#211](https://github.com/AkiKanellis/homelab/issues/211)) ([ea3c658](https://github.com/AkiKanellis/homelab/commit/ea3c6580642d118b72122ec1f5c62fba89bc91c9))
+
 ## [1.16.30](https://github.com/AkiKanellis/homelab/compare/v1.16.29...v1.16.30) (2023-01-07)
 
 
