@@ -12,9 +12,7 @@
 
     "group:allNonMajor",
 
-    "helpers:pinGitHubActionDigests",
-
-    "schedule:weekends"
+    "helpers:pinGitHubActionDigests"
   ],
   username: "aki-bot[bot]",
   gitAuthor: "aki-bot <103840025+aki-bot[bot]@users.noreply.github.com>",
@@ -25,6 +23,7 @@
   requireConfig: "required",
   platformAutomerge: true,
   rollbackPrs: true,
+  schedule: ["after 3:00 and before 6:00 on Saturday"],
   regexManagers: [
     {
       description: "Any other file with dependencies",
