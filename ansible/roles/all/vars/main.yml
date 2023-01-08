@@ -71,7 +71,7 @@ lazygit_architecture: >-
   {{ architecture_to_lazygit_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=ajeetdsouza/zoxide
-zoxide_version: v0.8.3
+zoxide_version: v0.9.0
 architecture_to_zoxide_architecture:
   x86_64: amd64
   armv7l: armv7
