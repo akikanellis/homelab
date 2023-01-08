@@ -1,3 +1,10 @@
+## [1.16.34](https://github.com/AkiKanellis/homelab/compare/v1.16.33...v1.16.34) (2023-01-08)
+
+
+### Build System
+
+* limit renovate schedule to 3:00 - 6:00 every Saturday ([#214](https://github.com/AkiKanellis/homelab/issues/214)) ([63f7178](https://github.com/AkiKanellis/homelab/commit/63f7178520bab985b4b946cc62703b9562913f46))
+
 ## [1.16.33](https://github.com/AkiKanellis/homelab/compare/v1.16.32...v1.16.33) (2023-01-08)
 
 
