@@ -67,6 +67,7 @@
     state: directory
     owner: "{{ ansible_admin_user_uid }}"
     group: "{{ ansible_admin_user_gid }}"
+    mode: 0700
   loop: "{{ docker_prerequisite_service_files }}"
 
 - name: Create prerequisite service files
@@ -75,6 +76,7 @@
     state: touch
     owner: "{{ ansible_admin_user_uid }}"
     group: "{{ ansible_admin_user_gid }}"
+    mode: 0600
     modification_time: preserve
     access_time: preserve
   loop: "{{ docker_prerequisite_service_files }}"
