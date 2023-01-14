@@ -14,16 +14,16 @@
   ansible.builtin.file:
     path: "{{ docker_directory }}/apps"
     state: directory
-    owner: "{{ ansible_manager_user_uid }}"
-    group: "{{ ansible_manager_user_gid }}"
+    owner: "{{ ansible_admin_user_uid }}"
+    group: "{{ ansible_admin_user_gid }}"
     mode: 0700
 
 - name: Create app directories
   ansible.builtin.file:
     path: "{{ docker_directory }}/apps/{{ item.0 }}/{{ item.1 }}"
     state: directory
-    owner: "{{ ansible_manager_user_uid }}"
-    group: "{{ ansible_manager_user_gid }}"
+    owner: "{{ ansible_admin_user_uid }}"
+    group: "{{ ansible_admin_user_gid }}"
     mode: 0700
   loop: "{{ apps | product(directories) }}"
   vars:
@@ -35,8 +35,8 @@
   ansible.builtin.template:
     src: "{{ inventory_hostname }}/docker/apps/{{ item }}/compose.yml.j2"
     dest: "{{ docker_directory }}/apps/{{ item }}/compose.yml"
-    owner: "{{ ansible_manager_user_uid }}"
-    group: "{{ ansible_manager_user_gid }}"
+    owner: "{{ ansible_admin_user_uid }}"
+    group: "{{ ansible_admin_user_gid }}"
     mode: 0600
   loop: "{{ apps }}"
   vars:

@@ -9,7 +9,7 @@
   vars:
     # Disable password expiration
     os_auth_pw_max_age: 99999
-    os_ignore_users: "{{ ansible_username }}"
+    os_ignore_users: "{{ ansible_admin_user_name }}"
     os_desktop_enable: "{{ desktop_available }}"
 
     sysctl_overwrite:

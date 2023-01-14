@@ -36,8 +36,8 @@ services:
     image: lscr.io/linuxserver/plex:1.29.2 # editorconfig-checker-disable-line
     network_mode: host
     environment:
-      PUID: "{{ ansible_manager_user_uid }}"
-      PGID: "{{ ansible_manager_user_gid }}"
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
       TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/plex/config:/config"
@@ -58,8 +58,8 @@ services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:0.4.9-develop # editorconfig-checker-disable-line
     environment:
-      PUID: "{{ ansible_manager_user_uid }}"
-      PGID: "{{ ansible_manager_user_gid }}"
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
       TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/prowlarr/config:/config"
@@ -75,8 +75,8 @@ services:
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:4.4.5 # editorconfig-checker-disable-line
     environment:
-      PUID: "{{ ansible_manager_user_uid }}"
-      PGID: "{{ ansible_manager_user_gid }}"
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
       TZ: "{{ timezone }}"
       WEBUI_PORT: 28080
     volumes:
@@ -94,8 +94,8 @@ services:
   radarr:
     image: lscr.io/linuxserver/radarr:4.2.4 # editorconfig-checker-disable-line
     environment:
-      PUID: "{{ ansible_manager_user_uid }}"
-      PGID: "{{ ansible_manager_user_gid }}"
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
       TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/radarr/config:/config"
@@ -113,8 +113,8 @@ services:
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:3.7.0 # editorconfig-checker-disable-line
     environment:
-      PUID: "{{ ansible_manager_user_uid }}"
-      PGID: "{{ ansible_manager_user_gid }}"
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
       TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/sabnzbd/config:/config"
@@ -132,8 +132,8 @@ services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:3.0.9 # editorconfig-checker-disable-line
     environment:
-      PUID: "{{ ansible_manager_user_uid }}"
-      PGID: "{{ ansible_manager_user_gid }}"
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
       TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/sonarr/config:/config"
