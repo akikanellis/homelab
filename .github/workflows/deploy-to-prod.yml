@@ -54,7 +54,7 @@ jobs:
           # renovate: datasource=docker depName=python versioning=docker
           python-version: 3.11.1
 
-      - name: Install necessary ansible packages
+      - name: Install ansible playbook packages
         run: >
           pip install
           ansible-core=="$ANSIBLE_CORE_VERSION"
