@@ -20,9 +20,9 @@ services:
         {{ aki_bot_app_private_key | indent(width=8) }}
 
       # Other
-      RUN_AS_ROOT: "false"
       DISABLE_AUTO_UPDATE: "true"
       RUNNER_WORKDIR: /data/work
+      RUN_AS_ROOT: "false"
     volumes:
       - "{{ volumes_directory }}/github-runner-homelab/data:/data"
 

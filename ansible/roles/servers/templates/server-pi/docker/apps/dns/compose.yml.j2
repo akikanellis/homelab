@@ -7,6 +7,7 @@ services:
     hostname: dns-primary
     environment:
       TZ: "{{ timezone }}"
+
       WEBPASSWORD: "{{ pihole_password }}"
     volumes:
       - "{{ volumes_directory }}/pihole/etc-dnsmasq.d:/etc/dnsmasq.d"

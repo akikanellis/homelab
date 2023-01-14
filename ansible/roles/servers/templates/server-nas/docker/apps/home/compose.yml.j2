@@ -3,9 +3,10 @@ services:
   home-assistant:
     image: lscr.io/linuxserver/homeassistant:2022.11.3 # editorconfig-checker-disable-line
     environment:
+      TZ: "{{ timezone }}"
+
       PUID: "{{ ansible_admin_user_uid }}"
       PGID: "{{ ansible_admin_user_gid }}"
-      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/home-assistant/config:/config"
     network_mode: host

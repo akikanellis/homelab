@@ -4,8 +4,9 @@ services:
     image: netdata/netdata:v1.36.1 # editorconfig-checker-disable-line
     hostname: "netdata-{{ inventory_hostname }}"
     environment:
-      DOCKER_HOST: docker-socket-proxy:2375
       TZ: "{{ timezone }}"
+
+      DOCKER_HOST: docker-socket-proxy:2375
     volumes:
       - "{{ volumes_directory }}/netdata:/etc/netdata:ro"
 
@@ -24,8 +25,9 @@ services:
   docker-socket-proxy:
     image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1 # editorconfig-checker-disable-line
     environment:
-      CONTAINERS: 1
       TZ: "{{ timezone }}"
+
+      CONTAINERS: 1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
@@ -58,9 +60,10 @@ services:
     image: grafana/grafana-oss:9.2.5 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
+      TZ: "{{ timezone }}"
+
       GF_INSTALL_PLUGINS: >
           grafana-clock-panel,grafana-piechart-panel,natel-discrete-panel
-      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/grafana/etc-grafana:/etc/grafana"
       - "{{ volumes_directory }}/grafana/var-lib-grafana:/var/lib/grafana"
@@ -75,11 +78,13 @@ services:
     volumes:
       - "{{ volumes_directory }}/graylog:/usr/share/graylog/data"
     ports:
+      # Web interface and REST API
+      - "9900:9900"
+
       # Syslog
       - "514:514"
       - "514:514/udp"
-      # Web interface and REST API
-      - "9900:9900"
+
       # GELF
       - "12201:12201"
       - "12201:12201/udp"
@@ -105,19 +110,21 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2 # editorconfig-checker-disable-line
     environment:
+      TZ: "{{ timezone }}"
+
       http.host: 0.0.0.0
       network.host: 0.0.0.0
       transport.host: localhost
-      TZ: "{{ timezone }}"
     volumes:
       - "{{ volumes_directory }}/elasticsearch:/usr/share/elasticsearch/data"
     restart: always
 
   autoheal:
     image: willfarrell/autoheal:1.2.0 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      AUTOHEAL_CONTAINER_LABEL: all
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      AUTOHEAL_CONTAINER_LABEL: all
-      TZ: "{{ timezone }}"
     restart: always

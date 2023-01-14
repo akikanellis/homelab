@@ -11,6 +11,7 @@ media_directory: /volume1/media
 
 openvpn_user: "{{ vault_server_nas_openvpn_user }}"
 openvpn_password: "{{ vault_server_nas_openvpn_password }}"
+vpn_provider: "{{ vault_server_nas_vpn_provider }}"
 
 # As an example, a `network_subnet` of `192.168.1.0/24` would give us an IP
 # range of `192.168.1.240/30` and a first usable IP of `192.168.1.241`.
