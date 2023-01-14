@@ -3,8 +3,12 @@ aki_bot_app_id: "{{ vault_aki_bot_app_id }}"
 aki_bot_app_private_key: "{{ vault_aki_bot_app_private_key }}"
 
 docker_directory: /volumeSATA/satashare/docker
+docker_prerequisite_app_files:
+  - media/gluetun/etc-resolv.conf
+
 downloads_directory: /volumeSATA/satashare/docker/volumes/downloads
 media_directory: /volume1/media
+
 openvpn_user: "{{ vault_server_nas_openvpn_user }}"
 openvpn_password: "{{ vault_server_nas_openvpn_password }}"
 

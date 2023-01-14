@@ -61,6 +61,17 @@
     docker_compose_command: "{{ docker_compose_result.stdout }}"
   changed_when: false
 
+- name: Create prerequisite app files
+  ansible.builtin.file:
+    path: "{{ docker_directory }}/apps/{{ item }}"
+    state: touch
+    owner: "{{ ansible_admin_user_uid }}"
+    group: "{{ ansible_admin_user_gid }}"
+    mode: 0600
+    modification_time: preserve
+    access_time: preserve
+  loop: "{{ docker_prerequisite_app_files }}"
+
 - name: Create and start app containers
   # `docker compose up` has a bug where if this is the first time an image is
   # pulled, running `docker compose up` again will cause the containers to be
