@@ -18,19 +18,19 @@ platforms:
     # See:
     # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
     cpus: 2
-    memory: 1024
+    memory: 2048
 
   - name: server-nas
     groups: [servers]
     # See note on `cpus` above
     cpus: 2
-    memory: 1024
+    memory: 2048
 
   - name: server-pi
     groups: [servers]
     # See note on `cpus` above
     cpus: 2
-    memory: 1024
+    memory: 2048
 
 provisioner:
   name: ansible

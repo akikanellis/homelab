@@ -2,6 +2,6 @@
 aki_password: "{{ vault_aki_password }}"
 aki_github_workstation_token: "{{ vault_aki_github_workstation_token }}"
 
-docker_prerequisite_app_files: []
+docker_prerequisite_service_files: []
 
 timezone: Europe/London

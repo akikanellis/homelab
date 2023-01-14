@@ -3,8 +3,8 @@ aki_bot_app_id: "{{ vault_aki_bot_app_id }}"
 aki_bot_app_private_key: "{{ vault_aki_bot_app_private_key }}"
 
 docker_directory: /volumeSATA/satashare/docker
-docker_prerequisite_app_files:
-  - media/gluetun/etc-resolv.conf
+docker_prerequisite_service_files:
+  - "{{ docker_directory }}/apps/media/volumes/gluetun/etc-resolv.conf"
 
 downloads_directory: /volumeSATA/satashare/docker/volumes/downloads
 media_directory: /volume1/media
