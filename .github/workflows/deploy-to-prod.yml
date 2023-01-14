@@ -31,6 +31,9 @@ env:
   # renovate: datasource=pypi depName=ansible-core
   ANSIBLE_CORE_VERSION: 2.14.1
 
+  # renovate: datasource=pypi depName=netaddr
+  NETADDR_VERSION: 0.8.0
+
 jobs:
   deploy-to-prod:
     name: Deploy to prod
@@ -51,8 +54,11 @@ jobs:
           # renovate: datasource=docker depName=python versioning=docker
           python-version: 3.11.1
 
-      - name: Install ansible
-        run: pip install ansible-core=="$ANSIBLE_CORE_VERSION"
+      - name: Install necessary ansible packages
+        run: >
+          pip install
+          ansible-core=="$ANSIBLE_CORE_VERSION"
+          netaddr=="$NETADDR_VERSION"
 
       - name: Run playbook
         # yamllint disable-line rule:line-length
