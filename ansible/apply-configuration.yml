@@ -30,7 +30,7 @@
     - "!unmanaged"
   become: true
 
-  roles: [servers-managed]
+  roles: [servers_managed]
 
 - name: Apply Servers Configuration
   hosts: servers
