@@ -1,3 +1,8 @@
 ---
 aki_user_additional_home_directories: []
 desktop_available: false
+
+network_interface: "{{ ansible_default_ipv4.interface }}"
+network_subnet:
+  "{{ ansible_default_ipv4.network }}/{{ ansible_default_ipv4.prefix }}"
+network_gateway: "{{ ansible_default_ipv4.gateway }}"

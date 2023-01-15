@@ -1,0 +1,29 @@
+---
+networks:
+  macvlan:
+    driver: macvlan
+    driver_opts:
+      parent: "{{ network_interface }}"
+    ipam:
+      config:
+        - subnet: "{{ network_subnet }}"
+          gateway: "{{ network_gateway }}"
+          ip_range: "{{ reverse_proxy_macvlan_network_ip_range }}"
+
+services:
+  nginx-proxy-manager:
+    image: jc21/nginx-proxy-manager:2.9.19 # editorconfig-checker-disable-line
+    volumes:
+      - "{{ volumes_directory }}/nginx-proxy-manager/data:/data"
+      - "{{ volumes_directory }}/nginx-proxy-manager/etc-letsencrypt:\
+        /etc/letsencrypt"
+    networks:
+      macvlan:
+        ipv4_address: "{{ reverse_proxy_macvlan_network_first_usable_ip }}"
+    healthcheck:
+      test: [CMD, /bin/check-health]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 60s
+    restart: always

@@ -1,0 +1,26 @@
+---
+aki_bot_app_id: "{{ vault_aki_bot_app_id }}"
+aki_bot_app_private_key: "{{ vault_aki_bot_app_private_key }}"
+
+docker_directory: /volumeSATA/satashare/docker
+docker_prerequisite_service_files:
+  - "{{ docker_directory }}/apps/media/volumes/gluetun/etc-resolv.conf"
+
+downloads_directory: /volumeSATA/satashare/docker/volumes/downloads
+media_directory: /volume1/media
+
+openvpn_user: "{{ vault_server_nas_openvpn_user }}"
+openvpn_password: "{{ vault_server_nas_openvpn_password }}"
+vpn_provider: "{{ vault_server_nas_vpn_provider }}"
+
+# As an example, a `network_subnet` of `192.168.1.0/24` would give us an IP
+# range of `192.168.1.240/30` and a first usable IP of `192.168.1.241`.
+# See:
+# https://docs.ansible.com/ansible/latest/collections/ansible/utils/docsite/filters_ipaddr.html#subnet-manipulation
+reverse_proxy_macvlan_network_ip_range:
+  "{{ network_subnet | ansible.utils.ipmath(240) }}/30"
+reverse_proxy_macvlan_network_first_usable_ip:
+  "{{
+  reverse_proxy_macvlan_network_ip_range
+  | ansible.utils.ipaddr('next_usable')
+  }}"

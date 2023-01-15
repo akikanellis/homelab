@@ -1,0 +1,166 @@
+---
+services:
+  gluetun:
+    image: qmcgaw/gluetun:v3.32.0 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      FIREWALL_OUTBOUND_SUBNETS: "{{ network_subnet }}"
+      OPENVPN_PASSWORD: "{{ openvpn_password }}"
+      OPENVPN_USER: "{{ openvpn_user }}"
+      SERVER_COUNTRIES: United Kingdom
+      VPN_SERVICE_PROVIDER: "{{ vpn_provider }}"
+    volumes:
+      - "{{ volumes_directory }}/gluetun/gluetun:/gluetun"
+      # We need to override the resolv.conf due to a bug in gluetun.
+      # See: https://github.com/qdm12/gluetun/issues/281
+      - "{{ volumes_directory }}/gluetun/etc-resolv.conf:/etc/resolv.conf:ro"
+    ports:
+      # prowlarr
+      - "9696:9696"
+
+      # qbittorrent
+      - "6881:6881"
+      - "6881:6881/udp"
+      - "28080:28080"
+
+      # radarr
+      - "7878:7878"
+
+      # sabnzbd
+      - "18080:8080"
+
+      # sonarr
+      - "18989:8989"
+      - "19090:9090"
+    cap_add:
+      - NET_ADMIN
+    restart: always
+
+  plex:
+    image: lscr.io/linuxserver/plex:1.29.2 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
+    volumes:
+      - "{{ volumes_directory }}/plex/config:/config"
+
+      - "{{ media_directory }}/tv:/tv"
+      - "{{ media_directory }}/movies:/movies"
+    devices:
+      - /dev/dri:/dev/dri
+    network_mode: host
+    healthcheck:
+      test: >
+        (curl -f http://localhost:32400/identity && curl -f api.ipify.org) ||
+        exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    restart: always
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:0.4.9-develop # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
+    volumes:
+      - "{{ volumes_directory }}/prowlarr/config:/config"
+    network_mode: service:gluetun
+    healthcheck:
+      test: (curl -f http://localhost:9696 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    restart: always
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:4.4.5 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
+
+      WEBUI_PORT: 28080
+    volumes:
+      - "{{ volumes_directory }}/qbittorrent/config:/config"
+
+      - "{{ downloads_directory }}/torrents:/downloads"
+    network_mode: service:gluetun
+    healthcheck:
+      test: (curl -f http://localhost:28080 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    restart: always
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:4.2.4 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
+    volumes:
+      - "{{ volumes_directory }}/radarr/config:/config"
+
+      - "{{ downloads_directory }}:/downloads"
+      - "{{ media_directory }}/movies:/movies"
+    network_mode: service:gluetun
+    healthcheck:
+      test: (curl -f http://localhost:7878 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    restart: always
+
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:3.7.0 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
+    volumes:
+      - "{{ volumes_directory }}/sabnzbd/config:/config"
+
+      - "{{ downloads_directory }}/usenet/complete:/downloads"
+      - "{{ downloads_directory }}/usenet/temp:/incomplete-downloads"
+    network_mode: service:gluetun
+    healthcheck:
+      test: (curl -f http://localhost:8080 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 60s
+    restart: always
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:3.0.9 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
+    volumes:
+      - "{{ volumes_directory }}/sonarr/config:/config"
+
+      - "{{ downloads_directory }}:/downloads"
+      - "{{ media_directory }}/tv:/tv"
+    network_mode: service:gluetun
+    healthcheck:
+      test: (curl -f http://localhost:8989 && curl -f api.ipify.org) || exit 1
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 120s
+    restart: always

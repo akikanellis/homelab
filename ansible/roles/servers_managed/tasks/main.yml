@@ -1,0 +1,6 @@
+---
+- name: Setup ZSH
+  ansible.builtin.import_tasks: setup-zsh.yml
+
+- name: Disable DNS setub listener
+  ansible.builtin.import_tasks: disable-dns-stub-listener.yml

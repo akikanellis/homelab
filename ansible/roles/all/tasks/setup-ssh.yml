@@ -14,7 +14,7 @@
   ansible.builtin.import_role:
     name: devsec.hardening.ssh_hardening
   vars:
-    ssh_allow_users: "{{ ansible_username }} aki"
+    ssh_allow_users: "{{ ansible_admin_user_name }} aki"
 
 - name: Ensure .ssh directory exists for "aki" user
   ansible.builtin.file:

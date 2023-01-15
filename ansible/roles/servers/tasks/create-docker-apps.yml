@@ -10,23 +10,20 @@
       | map(attribute="path")
       }}
 
-- name: Create docker directories
+- name: Create docker app directory
   ansible.builtin.file:
-    path: /{{ item }}
+    path: "{{ docker_directory }}/apps"
     state: directory
-    owner: "{{ ansible_username }}"
-    group: "{{ ansible_group }}"
+    owner: "{{ ansible_admin_user_uid }}"
+    group: "{{ ansible_admin_user_gid }}"
     mode: 0700
-  loop:
-    - docker
-    - docker/apps
 
 - name: Create app directories
   ansible.builtin.file:
-    path: /docker/apps/{{ item.0 }}/{{ item.1 }}
+    path: "{{ docker_directory }}/apps/{{ item.0 }}/{{ item.1 }}"
     state: directory
-    owner: "{{ ansible_username }}"
-    group: "{{ ansible_group }}"
+    owner: "{{ ansible_admin_user_uid }}"
+    group: "{{ ansible_admin_user_gid }}"
     mode: 0700
   loop: "{{ apps | product(directories) }}"
   vars:
@@ -37,13 +34,52 @@
 - name: Copy app compose file
   ansible.builtin.template:
     src: "{{ inventory_hostname }}/docker/apps/{{ item }}/compose.yml.j2"
-    dest: /docker/apps/{{ item }}/compose.yml
-    owner: "{{ ansible_username }}"
-    group: "{{ ansible_group }}"
+    dest: "{{ docker_directory }}/apps/{{ item }}/compose.yml"
+    owner: "{{ ansible_admin_user_uid }}"
+    group: "{{ ansible_admin_user_gid }}"
     mode: 0600
   loop: "{{ apps }}"
   vars:
-    volumes_directory: /docker/apps/{{ item }}/volumes
+    volumes_directory: "{{ docker_directory }}/apps/{{ item }}/volumes"
+
+- name: Discover docker compose command
+  ansible.builtin.command:
+    cmd: >
+      bash -c
+      'source /etc/profile &&
+      (
+      (docker compose version &>/dev/null) && echo "$(which docker) compose"
+      ) ||
+      (
+      (docker-compose version &>/dev/null) && echo "$(which docker-compose)"
+      )'
+  register: docker_compose_result
+  changed_when: false
+
+- name: Set docker compose command
+  ansible.builtin.set_fact:
+    docker_compose_command: "{{ docker_compose_result.stdout }}"
+  changed_when: false
+
+- name: Create prerequisite service directories
+  ansible.builtin.file:
+    path: "{{ item | dirname }}"
+    state: directory
+    owner: "{{ ansible_admin_user_uid }}"
+    group: "{{ ansible_admin_user_gid }}"
+    mode: 0700
+  loop: "{{ docker_prerequisite_service_files }}"
+
+- name: Create prerequisite service files
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: touch
+    owner: "{{ ansible_admin_user_uid }}"
+    group: "{{ ansible_admin_user_gid }}"
+    mode: 0600
+    modification_time: preserve
+    access_time: preserve
+  loop: "{{ docker_prerequisite_service_files }}"
 
 - name: Create and start app containers
   # `docker compose up` has a bug where if this is the first time an image is
@@ -52,10 +88,18 @@
   # See: https://github.com/docker/compose/issues/9600
   tags: molecule-idempotence-notest
   ansible.builtin.command:
-    chdir: /docker/apps/{{ item }}
-    cmd: docker compose up --detach --remove-orphans
+    chdir: "{{ docker_directory }}/apps/{{ item }}"
+    cmd: >
+      {{ docker_compose_command }}
+      --file compose.yml
+      --project-name {{ item }}
+      up
+      --detach
+      --remove-orphans
   loop: "{{ apps }}"
   register: docker_compose_up_result
   changed_when: >
-    'Started' in docker_compose_up_result.stderr or
-    'Stopped' in docker_compose_up_result.stderr
+    'Creating' in docker_compose_up_result.stderr or
+    'Recreating' in docker_compose_up_result.stderr or
+    'Starting' in docker_compose_up_result.stderr or
+    'Stopping' in docker_compose_up_result.stderr

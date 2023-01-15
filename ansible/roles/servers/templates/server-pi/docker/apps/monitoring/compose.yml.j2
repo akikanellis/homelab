@@ -4,8 +4,10 @@ name: monitoring
 services:
   netdata:
     image: netdata/netdata:v1.37.1@sha256:e789f8af0983660ca3617882adbd41636a6c6f6cdf1da7dd994e84e0b8247295 # editorconfig-checker-disable-line
-    hostname: netdata-server-pi.domantaki.com
+    hostname: "netdata-{{ inventory_hostname }}"
     environment:
+      TZ: "{{ timezone }}"
+
       DOCKER_HOST: docker-socket-proxy:2375
     volumes:
       - "{{ volumes_directory }}/netdata:/etc/netdata:ro"
@@ -24,9 +26,10 @@ services:
     restart: always
 
   docker-socket-proxy:
-    # Unfortunately this image does not provide versions other than `latest`
-    image: ghcr.io/tecnativa/docker-socket-proxy:latest@sha256:6c22b9545adc95258af9deffdde6c0ce0a0a70716771e5a4e02d24d1b6e0dda1 # editorconfig-checker-disable-line
+    image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1@sha256:6c22b9545adc95258af9deffdde6c0ce0a0a70716771e5a4e02d24d1b6e0dda1 # editorconfig-checker-disable-line
     environment:
+      TZ: "{{ timezone }}"
+
       CONTAINERS: 1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -36,8 +39,10 @@ services:
 
   autoheal:
     image: willfarrell/autoheal:1.2.0@sha256:31f580ef0279eaced5b38d631b08c474d70d8403c1c2fdd6ddcf2e879d5f3f7c # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      AUTOHEAL_CONTAINER_LABEL: all
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      AUTOHEAL_CONTAINER_LABEL: all
     restart: always

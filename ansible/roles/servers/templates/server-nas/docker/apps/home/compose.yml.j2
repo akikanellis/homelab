@@ -1,0 +1,46 @@
+---
+services:
+  home-assistant:
+    image: lscr.io/linuxserver/homeassistant:2022.11.3 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
+    volumes:
+      - "{{ volumes_directory }}/home-assistant/config:/config"
+    network_mode: host
+    restart: always
+
+  tasmoadmin:
+    image: ghcr.io/tasmoadmin/tasmoadmin:v2.1.1 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/tasmoadmin/data:/data"
+    ports:
+      - "5880:80"
+    restart: always
+
+  mosquitto:
+    image: eclipse-mosquitto:2.0.15 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/mosquitto/config:/mosquitto/config"
+      - "{{ volumes_directory }}/mosquitto/data:/mosquitto/data"
+      - "{{ volumes_directory }}/mosquitto/log:/mosquitto/log"
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    restart: always
+
+  node-red:
+    image: nodered/node-red:3.0.2 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/node-red/data:/data"
+    ports:
+      - "1880:1880"
+    restart: always

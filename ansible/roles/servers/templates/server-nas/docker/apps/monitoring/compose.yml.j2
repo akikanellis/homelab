@@ -1,0 +1,130 @@
+---
+services:
+  netdata:
+    image: netdata/netdata:v1.36.1 # editorconfig-checker-disable-line
+    hostname: "netdata-{{ inventory_hostname }}"
+    environment:
+      TZ: "{{ timezone }}"
+
+      DOCKER_HOST: docker-socket-proxy:2375
+    volumes:
+      - "{{ volumes_directory }}/netdata:/etc/netdata:ro"
+
+      - /etc/group:/host/etc/group:ro
+      - /etc/passwd:/host/etc/passwd:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    ports:
+      - "19999:19999"
+    security_opt:
+      - apparmor:unconfined
+    cap_add:
+      - SYS_PTRACE
+    restart: always
+
+  docker-socket-proxy:
+    image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      CONTAINERS: 1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - "2375:2375"
+    restart: always
+
+  prometheus:
+    image: prom/prometheus:v2.40.2 # editorconfig-checker-disable-line
+    user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
+    environment:
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/prometheus/etc-prometheus:/etc/prometheus"
+      - "{{ volumes_directory }}/prometheus/prometheus:/prometheus"
+    ports:
+      - "9090:9090"
+    restart: always
+
+  unpoller:
+    image: ghcr.io/unpoller/unpoller:v2.1.9 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/unpoller/config:/config"
+    ports:
+      - "9130:9130"
+    restart: always
+
+  grafana:
+    image: grafana/grafana-oss:9.2.5 # editorconfig-checker-disable-line
+    user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
+    environment:
+      TZ: "{{ timezone }}"
+
+      GF_INSTALL_PLUGINS: >
+          grafana-clock-panel,grafana-piechart-panel,natel-discrete-panel
+    volumes:
+      - "{{ volumes_directory }}/grafana/etc-grafana:/etc/grafana"
+      - "{{ volumes_directory }}/grafana/var-lib-grafana:/var/lib/grafana"
+    ports:
+      - "3000:3000"
+    restart: always
+
+  graylog:
+    image: graylog/graylog:4.3.9 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/graylog:/usr/share/graylog/data"
+    ports:
+      # Web interface and REST API
+      - "9900:9900"
+
+      # Syslog
+      - "514:514"
+      - "514:514/udp"
+
+      # GELF
+      - "12201:12201"
+      - "12201:12201/udp"
+    entrypoint: >
+      /usr/bin/tini -- wait-for-it elasticsearch:9200 -- /docker-entrypoint.sh
+    links:
+      - mongodb:mongo
+      - elasticsearch
+    depends_on:
+      - mongodb
+      - elasticsearch
+    restart: always
+
+  mongodb:
+    image: mongo:4.4.18 # editorconfig-checker-disable-line
+    user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
+    environment:
+      TZ: "{{ timezone }}"
+    volumes:
+      - "{{ volumes_directory }}/mongodb/db:/data/db"
+    restart: always
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      http.host: 0.0.0.0
+      network.host: 0.0.0.0
+      transport.host: localhost
+    volumes:
+      - "{{ volumes_directory }}/elasticsearch:/usr/share/elasticsearch/data"
+    restart: always
+
+  autoheal:
+    image: willfarrell/autoheal:1.2.0 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      AUTOHEAL_CONTAINER_LABEL: all
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always

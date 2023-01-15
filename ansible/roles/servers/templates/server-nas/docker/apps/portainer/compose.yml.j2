@@ -1,9 +1,7 @@
 ---
-name: portainer
-
 services:
   portainer:
-    image: portainer/portainer-ce:2.16.2@sha256:f7607310051ee21f58f99d7b7f7878a6a49d4850422d88a31f8c61c248bbc3a4 # editorconfig-checker-disable-line
+    image: portainer/portainer-ce:2.16.1 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:

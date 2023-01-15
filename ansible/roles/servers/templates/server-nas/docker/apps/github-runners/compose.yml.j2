@@ -1,0 +1,30 @@
+---
+services:
+  github-runner-homelab:
+    image: myoung34/github-runner:2.300.2 # editorconfig-checker-disable-line
+
+    # This is the `runner` user.
+    # See: https://github.com/myoung34/docker-github-actions-runner/wiki/Usage#non-root-runners editorconfig-checker-disable-line
+    user: "1001:121"
+
+    environment:
+      # Runner
+      RUNNER_NAME_PREFIX: homelab
+      REPO_URL: https://github.com/akikanellis/homelab
+      RUNNER_SCOPE: repo
+      LABELS: linux,x64,prod
+
+      # GitHub app
+      APP_ID: "{{ aki_bot_app_id }}"
+      APP_PRIVATE_KEY: |-
+        {{ aki_bot_app_private_key | indent(width=8) }}
+
+      # Other
+      DISABLE_AUTO_UPDATE: "true"
+      RUNNER_WORKDIR: /data/work
+      RUN_AS_ROOT: "false"
+    volumes:
+      - "{{ volumes_directory }}/github-runner-homelab/data:/data"
+
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always

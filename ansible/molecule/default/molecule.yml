@@ -12,21 +12,27 @@ driver:
 platforms:
   - name: workstation-pop-os
     groups: [workstations]
-    box: ubuntu/jammy64
     # `cpus` need to roughly match the core count used by the CI. Currently, we
     # are using a 3-core macos-12 instance in '.github/workflows/test.yml',
     # therefore we are using 2x 2-core instances with vagrant.
     # See:
     # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
     cpus: 2
-    memory: 1024
+    memory: 2048
+
+  - name: server-nas
+    groups: [servers]
+    # See note on `cpus` above
+    cpus: 2
+    # server-nas needs extra memory primarily due to the amount of docker apps
+    # that are running
+    memory: 4096
 
   - name: server-pi
     groups: [servers]
-    box: ubuntu/jammy64
     # See note on `cpus` above
     cpus: 2
-    memory: 1024
+    memory: 2048
 
 provisioner:
   name: ansible

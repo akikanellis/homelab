@@ -4,5 +4,5 @@ aki_ssh_public_key_file: users/aki/ssh/id-ed25519-prod.pub
 
 # Using `ansible_user` is unfortunately not very reliable.
 # See: https://github.com/akikanellis/homelab/issues/147
-ansible_group: ansible
-ansible_username: ansible
+ansible_admin_user_group: ansible
+ansible_admin_user_name: ansible

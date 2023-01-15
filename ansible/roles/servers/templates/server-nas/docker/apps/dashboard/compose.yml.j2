@@ -1,0 +1,15 @@
+---
+services:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:2.4.15 # editorconfig-checker-disable-line
+    environment:
+      TZ: "{{ timezone }}"
+
+      PUID: "{{ ansible_admin_user_uid }}"
+      PGID: "{{ ansible_admin_user_gid }}"
+    volumes:
+      - "{{ volumes_directory }}/heimdall:/config"
+    ports:
+      - "180:80"
+      - "1443:443"
+    restart: always
