@@ -1,3 +1,10 @@
+## [1.17.0](https://github.com/AkiKanellis/homelab/compare/v1.16.35...v1.17.0) (2023-01-15)
+
+
+### Features
+
+* add server-nas ([#216](https://github.com/AkiKanellis/homelab/issues/216)) ([89cc613](https://github.com/AkiKanellis/homelab/commit/89cc613ed05c5664e5561d6c0ac5065da58db766)), closes [#173](https://github.com/AkiKanellis/homelab/issues/173)
+
 ## [1.16.35](https://github.com/AkiKanellis/homelab/compare/v1.16.34...v1.16.35) (2023-01-14)
 
 
