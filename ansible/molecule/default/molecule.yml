@@ -24,7 +24,9 @@ platforms:
     groups: [servers]
     # See note on `cpus` above
     cpus: 2
-    memory: 2048
+    # server-nas needs extra memory primarily due to the amount of docker apps
+    # that are running
+    memory: 4096
 
   - name: server-pi
     groups: [servers]
