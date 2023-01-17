@@ -1,3 +1,10 @@
+## [1.18.0](https://github.com/AkiKanellis/homelab/compare/v1.17.0...v1.18.0) (2023-01-17)
+
+
+### Features
+
+* cycle vault values ([#218](https://github.com/AkiKanellis/homelab/issues/218)) ([c88aa6d](https://github.com/AkiKanellis/homelab/commit/c88aa6dd3722ef87184fd440effa497adace6cf3))
+
 ## [1.17.0](https://github.com/AkiKanellis/homelab/compare/v1.16.35...v1.17.0) (2023-01-15)
 
 
