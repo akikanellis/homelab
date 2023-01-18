@@ -1,3 +1,10 @@
+## [1.18.3](https://github.com/akikanellis/homelab/compare/v1.18.2...v1.18.3) (2023-01-18)
+
+
+### Build System
+
+* use `akikanellis` instead of `AkiKanellis` for username ([#220](https://github.com/akikanellis/homelab/issues/220)) ([a1c1317](https://github.com/akikanellis/homelab/commit/a1c131742dddbb64dcf699cfeae70f7e20978cc7))
+
 ## [1.18.2](https://github.com/akikanellis/homelab/compare/v1.18.1...v1.18.2) (2023-01-18)
 
 
