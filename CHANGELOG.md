@@ -1,3 +1,10 @@
+## [1.18.1](https://github.com/AkiKanellis/homelab/compare/v1.18.0...v1.18.1) (2023-01-18)
+
+
+### Bug Fixes
+
+* use correct repository URL ([#219](https://github.com/AkiKanellis/homelab/issues/219)) ([4e63245](https://github.com/AkiKanellis/homelab/commit/4e63245225a114a09ef27817eb87487e573d7f7a))
+
 ## [1.18.0](https://github.com/AkiKanellis/homelab/compare/v1.17.0...v1.18.0) (2023-01-17)
 
 
