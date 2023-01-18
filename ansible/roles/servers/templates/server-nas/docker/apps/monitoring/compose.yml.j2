@@ -1,7 +1,7 @@
 ---
 services:
   netdata:
-    image: netdata/netdata:v1.36.1 # editorconfig-checker-disable-line
+    image: netdata/netdata:v1.37.1@sha256:e789f8af0983660ca3617882adbd41636a6c6f6cdf1da7dd994e84e0b8247295 # editorconfig-checker-disable-line
     hostname: "netdata-{{ inventory_hostname }}"
     environment:
       TZ: "{{ timezone }}"
@@ -35,7 +35,7 @@ services:
     restart: always
 
   prometheus:
-    image: prom/prometheus:v2.40.2 # editorconfig-checker-disable-line
+    image: prom/prometheus:v2.41.0@sha256:1a3e9a878e50cd339ae7cf5718fda08381dda2d4ccd28e94bbaa3190d1a566c2 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
@@ -47,7 +47,7 @@ services:
     restart: always
 
   unpoller:
-    image: ghcr.io/unpoller/unpoller:v2.1.9 # editorconfig-checker-disable-line
+    image: ghcr.io/unpoller/unpoller:v2.7.10@sha256:66753ff2273bf293a6ac2d013aae9cfca00476ee338fff665ff81bf67bd8867d # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
@@ -57,7 +57,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:9.2.5 # editorconfig-checker-disable-line
+    image: grafana/grafana-oss:9.3.2@sha256:2a73ae33c9f0c51af6eced2ef185d5d3682b4c378c4fdd6941a14e8ea4a3e95b # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
@@ -72,7 +72,7 @@ services:
     restart: always
 
   graylog:
-    image: graylog/graylog:4.3.9 # editorconfig-checker-disable-line
+    image: graylog/graylog:4.3.11@sha256:b95ef8bd9c3017c0e490567a63ff3b6f7a0cf951374bfbdf73423d7e8229e56a # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:

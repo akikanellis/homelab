@@ -1,7 +1,7 @@
 ---
 services:
   home-assistant:
-    image: lscr.io/linuxserver/homeassistant:2022.11.3 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/homeassistant:2022.12.9@sha256:75b42e64c009f0454998d4561ec8cea4b6df02a1adf616022e78895259208254 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -13,7 +13,7 @@ services:
     restart: always
 
   tasmoadmin:
-    image: ghcr.io/tasmoadmin/tasmoadmin:v2.1.1 # editorconfig-checker-disable-line
+    image: ghcr.io/tasmoadmin/tasmoadmin:v2.3.2@sha256:bbed49f69e3ad8d15aaf246ece12d35aae0fc0c6969350ab31e02d8300006846 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
