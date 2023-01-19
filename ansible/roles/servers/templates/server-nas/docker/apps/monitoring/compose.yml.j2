@@ -23,7 +23,7 @@ services:
     restart: always
 
   docker-socket-proxy:
-    image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1 # editorconfig-checker-disable-line
+    image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1@sha256:6c22b9545adc95258af9deffdde6c0ce0a0a70716771e5a4e02d24d1b6e0dda1 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -99,7 +99,7 @@ services:
     restart: always
 
   mongodb:
-    image: mongo:4.4.18 # editorconfig-checker-disable-line
+    image: mongo:4.4.18@sha256:77afcc931f3035e5ee9bb3d456013274d3a3c9edd358e28ded7bafdedaf173ee # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
@@ -108,7 +108,7 @@ services:
     restart: always
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2 # editorconfig-checker-disable-line
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2@sha256:2c257b68f361872e13bdd476cba152e232a314ec61b0eedfc1f71b628ba39432 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -120,7 +120,7 @@ services:
     restart: always
 
   autoheal:
-    image: willfarrell/autoheal:1.2.0 # editorconfig-checker-disable-line
+    image: willfarrell/autoheal:1.2.0@sha256:31f580ef0279eaced5b38d631b08c474d70d8403c1c2fdd6ddcf2e879d5f3f7c # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
