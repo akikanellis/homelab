@@ -23,7 +23,7 @@ services:
     restart: always
 
   mosquitto:
-    image: eclipse-mosquitto:2.0.15 # editorconfig-checker-disable-line
+    image: eclipse-mosquitto:2.0.15@sha256:29c92f9144d4e65f7e647694d4b6aa7f0ac6a995bd102251ea05f7edf258ad20 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
@@ -36,7 +36,7 @@ services:
     restart: always
 
   node-red:
-    image: nodered/node-red:3.0.2 # editorconfig-checker-disable-line
+    image: nodered/node-red:3.0.2@sha256:524316b9b84cb5bbfe006c117f3dad31ee806804b12e4b866047a65e2080e92d # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
