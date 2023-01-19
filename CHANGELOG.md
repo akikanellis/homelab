@@ -1,3 +1,12 @@
+## [1.18.5](https://github.com/akikanellis/homelab/compare/v1.18.4...v1.18.5) (2023-01-19)
+
+
+### Build System
+
+* **deps:** pin dependencies ([#221](https://github.com/akikanellis/homelab/issues/221)) ([4bb5463](https://github.com/akikanellis/homelab/commit/4bb546327c3fd09fd2fa66f15955eebc785a2605))
+* **deps:** update lscr.io/linuxserver/heimdall:2.5.5 docker digest to 38554b8 ([#222](https://github.com/akikanellis/homelab/issues/222)) ([f3414d6](https://github.com/akikanellis/homelab/commit/f3414d67e25256fc3df2c696904999251f549a1d))
+* **deps:** update lscr.io/linuxserver/radarr:4.3.2 docker digest to 60d58da ([#223](https://github.com/akikanellis/homelab/issues/223)) ([7da5a13](https://github.com/akikanellis/homelab/commit/7da5a136d0629df51336927abb8e3c0f5477a1d6))
+
 ## [1.18.4](https://github.com/akikanellis/homelab/compare/v1.18.3...v1.18.4) (2023-01-19)
 
 
