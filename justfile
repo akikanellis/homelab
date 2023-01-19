@@ -1,7 +1,7 @@
 #!/usr/bin/env just --justfile
 
 # renovate: datasource=docker depName=github/super-linter
-super_linter_version := "slim-v4.10.0@sha256:1d86cb6bb4730483175ac4c8a641751554c320db73ae6075f3f822618c3e5ea5" # editorconfig-checker-disable-line
+super_linter_version := "slim-v4.10.1@sha256:80ecaa58ad5f9480c66e3c77af5c955831861a41fb78ce7e0ffb1b443eca0f0f" # editorconfig-checker-disable-line
 
 @_default:
   just --list
