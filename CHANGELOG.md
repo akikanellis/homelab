@@ -1,3 +1,11 @@
+## [1.18.6](https://github.com/akikanellis/homelab/compare/v1.18.5...v1.18.6) (2023-01-20)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/prowlarr docker tag to v1 ([#226](https://github.com/akikanellis/homelab/issues/226)) ([f0ee6b7](https://github.com/akikanellis/homelab/commit/f0ee6b7c9a2fc108e96aa4c4c59561977e5c283c))
+* **deps:** update pihole/pihole docker tag to v2023 ([#225](https://github.com/akikanellis/homelab/issues/225)) ([3c9966d](https://github.com/akikanellis/homelab/commit/3c9966d622df5ac3f49ee662d555e70c38b82a88))
+
 ## [1.18.5](https://github.com/akikanellis/homelab/compare/v1.18.4...v1.18.5) (2023-01-19)
 
 
