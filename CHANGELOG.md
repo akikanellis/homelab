@@ -1,3 +1,12 @@
+## [1.18.8](https://github.com/akikanellis/homelab/compare/v1.18.7...v1.18.8) (2023-01-21)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#230](https://github.com/akikanellis/homelab/issues/230)) ([e4cf0cc](https://github.com/akikanellis/homelab/commit/e4cf0ccf9de128a1033036d5982ea0e841a9b030))
+* **deps:** update lscr.io/linuxserver/homeassistant:2023.1.6 docker digest to e672860 ([#228](https://github.com/akikanellis/homelab/issues/228)) ([7a808e3](https://github.com/akikanellis/homelab/commit/7a808e382fead599ce6148aad8cc6e35460b10e4))
+* **deps:** update lscr.io/linuxserver/prowlarr:1.1.0-develop docker digest to b4f8554 ([#229](https://github.com/akikanellis/homelab/issues/229)) ([1cc4f8c](https://github.com/akikanellis/homelab/commit/1cc4f8cc3c0e3fa926bc4ccf96bfe3630073c128))
+
 ## [1.18.7](https://github.com/akikanellis/homelab/compare/v1.18.6...v1.18.7) (2023-01-20)
 
 
