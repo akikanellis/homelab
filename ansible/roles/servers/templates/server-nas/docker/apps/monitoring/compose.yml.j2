@@ -72,7 +72,7 @@ services:
     restart: always
 
   graylog:
-    image: graylog/graylog:5.0.2@sha256:ceda60c2078e5d38fe12cd7b3f56f1321f74cc873de70c4b7120649b4862fc69 # editorconfig-checker-disable-line
+    image: graylog/graylog:4.3.11@sha256:b95ef8bd9c3017c0e490567a63ff3b6f7a0cf951374bfbdf73423d7e8229e56a # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
