@@ -1,3 +1,10 @@
+## [1.18.9](https://github.com/akikanellis/homelab/compare/v1.18.8...v1.18.9) (2023-01-22)
+
+
+### Bug Fixes
+
+* limit graylog to 5.x.x ([#231](https://github.com/akikanellis/homelab/issues/231)) ([edef8e0](https://github.com/akikanellis/homelab/commit/edef8e0909a1cc224b22276d36f424211a22a575))
+
 ## [1.18.8](https://github.com/akikanellis/homelab/compare/v1.18.7...v1.18.8) (2023-01-21)
 
 
