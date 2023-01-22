@@ -96,6 +96,17 @@ v?\
       matchDatasources: ["docker"],
       matchPackageNames: ["mongo"],
       allowedVersions: "<= 4"
+    },
+    {
+      description: "Limit graylog versions to 4.x.x.\
+      Version 5.0.0 introduced a minimum MongoDB version of 5.x.x which makes\
+      it incompatible with the current mongo limitation\
+      See:\
+        - https://go2docs.graylog.org/5-0/changelogs/changelog.html\
+        - https://github.com/Graylog2/graylog2-server/issues/13660",
+      matchDatasources: ["docker"],
+      matchPackageNames: ["graylog/graylog"],
+      allowedVersions: "<= 4"
     }
   ],
   "docker-compose": {
