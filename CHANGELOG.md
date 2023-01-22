@@ -1,3 +1,10 @@
+## [1.19.0](https://github.com/akikanellis/homelab/compare/v1.18.9...v1.19.0) (2023-01-22)
+
+
+### Features
+
+* use stable versions for prowlarr ([#232](https://github.com/akikanellis/homelab/issues/232)) ([075a69f](https://github.com/akikanellis/homelab/commit/075a69f3a05f529afab03cf00bc7ce6875652033))
+
 ## [1.18.9](https://github.com/akikanellis/homelab/compare/v1.18.8...v1.18.9) (2023-01-22)
 
 
