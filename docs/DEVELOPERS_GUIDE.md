@@ -21,38 +21,50 @@ Make sure you have the following installed:
 
 ## Useful Commands
 
-1. List all commands
+List all commands
 
-    ```shell
-    just
-    ```
+```shell
+just
+```
 
-2. Install project dependencies
+Install tools and dependencies
 
-    ```shell
-    just install
-    ```
+```shell
+just install
+```
 
-3. Lint the project
+Lint project
 
-    ```shell
-    just lint
-    ```
+```shell
+just lint
+```
 
-4. Run the tests
+Run tests
 
-    ```shell
-    just test
-    ```
+```shell
+just test
+```
 
-5. Run the app
+Create hosts locally
 
-    ```shell
-    just run
-    ```
+```shell
+just up
+```
 
-6. Clean generated files
+Create and configure hosts locally
 
-    ```shell
-    just clean
-    ```
+```shell
+just run
+```
+
+Remove locally created hosts
+
+```shell
+just down
+```
+
+Clean generated files
+
+```shell
+just clean
+```
