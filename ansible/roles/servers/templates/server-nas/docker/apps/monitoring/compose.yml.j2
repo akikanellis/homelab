@@ -47,7 +47,7 @@ services:
     restart: always
 
   unpoller:
-    image: ghcr.io/unpoller/unpoller:v2.7.10@sha256:66753ff2273bf293a6ac2d013aae9cfca00476ee338fff665ff81bf67bd8867d # editorconfig-checker-disable-line
+    image: ghcr.io/unpoller/unpoller:v2.7.11@sha256:3fbf8a1ef708175926bee212d6e236e5ea21c119004813a2201b52c7f2f523a5 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
@@ -57,7 +57,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:9.3.2@sha256:2a73ae33c9f0c51af6eced2ef185d5d3682b4c378c4fdd6941a14e8ea4a3e95b # editorconfig-checker-disable-line
+    image: grafana/grafana-oss:9.3.6@sha256:58daca0c04606611ae80bf7999d1871292afb77055d4eff50945062915771349 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
