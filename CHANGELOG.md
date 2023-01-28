@@ -1,3 +1,10 @@
+## [1.19.4](https://github.com/akikanellis/homelab/compare/v1.19.3...v1.19.4) (2023-01-28)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/heimdall:2.5.5 docker digest to c73620a ([#234](https://github.com/akikanellis/homelab/issues/234)) ([9b6d7f5](https://github.com/akikanellis/homelab/commit/9b6d7f553bb469632c22e4612ef08f8c3107e604))
+
 ## [1.19.3](https://github.com/akikanellis/homelab/compare/v1.19.2...v1.19.3) (2023-01-28)
 
 
