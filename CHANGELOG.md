@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/akikanellis/homelab/compare/v1.19.0...v1.19.1) (2023-01-28)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/sonarr:3.0.9 docker digest to f128f86 ([#237](https://github.com/akikanellis/homelab/issues/237)) ([8c5acdf](https://github.com/akikanellis/homelab/commit/8c5acdfc41298d509674fb3bacf8649ab91038bf))
+
 ## [1.19.0](https://github.com/akikanellis/homelab/compare/v1.18.9...v1.19.0) (2023-01-22)
 
 
