@@ -42,6 +42,10 @@ up *extra_args:
 run *extra_args:
   just ansible/run {{extra_args}}
 
+# Log in to a locally created host
+login host:
+  just ansible/login {{host}}
+
 # Remove locally created hosts
 down *extra_args:
   just ansible/down {{extra_args}}
