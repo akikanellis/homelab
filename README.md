@@ -3,9 +3,10 @@
 <div align="center">
 
 [//]: # (TODO update logo)
-<img src="docs/images/logo.png" alt="Logo" height="100">
+<h1>
+    <img src="docs/images/logo.png" alt="Logo" height="100">
+</h1>
 
-[//]: # (TODO decide formatting here)
 Streamlined homelab setup with automated provisioning and updating of my
 workstations and servers
 
@@ -27,6 +28,8 @@ workstations and servers
 [License](#license)
 
 </div>
+
+[//]: # (TODO Add demo)
 
 ---
 
@@ -86,19 +89,18 @@ just down
 ## Contributing
 
 To contribute, have a read through the
-[contributing guidelines](docs/CONTRIBUTING.md) and the
-[developers guide](docs/DEVELOPERS_GUIDE.md). Thank you for being involved!
+[Contributing Guidelines](docs/CONTRIBUTING.md) and the
+[Developers Guide](docs/DEVELOPERS_GUIDE.md). Thank you for being involved!
+
+## Support
+
+Need help? Have a look at the [support page](docs/SUPPORT.md) for information on
+how to get in touch.
 
 ## Security
 
 For reporting vulnerabilities and other security related matters, you can refer
-to the [security policy](docs/SECURITY.md).
-
-## Support
-
-Found a bug or just need general help? Have a look at the
-[contributing guidelines](docs/CONTRIBUTING.md) for information on how to get in
-touch.
+to the [Security Policy](docs/SECURITY.md).
 
 ## Authors & Contributors
 
