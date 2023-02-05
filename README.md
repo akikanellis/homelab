@@ -27,9 +27,9 @@ workstations and servers
 •
 [License](#license)
 
-</div>
+![Demo](docs/images/demo.webp)
 
-[//]: # (TODO Add demo)
+</div>
 
 ---
 
