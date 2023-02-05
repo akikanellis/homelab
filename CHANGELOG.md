@@ -1,3 +1,11 @@
+## [1.19.7](https://github.com/akikanellis/homelab/compare/v1.19.6...v1.19.7) (2023-02-05)
+
+
+### Build System
+
+* **deps:** update grafana/grafana-oss:9.3.6 docker digest to e5a9655 ([#239](https://github.com/akikanellis/homelab/issues/239)) ([3259d3d](https://github.com/akikanellis/homelab/commit/3259d3d15a6603e859d3acbb1d735707b5adb6bb))
+* **deps:** update lscr.io/linuxserver/qbittorrent:4.5.0 docker digest to 31b3d1e ([#240](https://github.com/akikanellis/homelab/issues/240)) ([04fd110](https://github.com/akikanellis/homelab/commit/04fd1108d859db3ec9d8e2ca2b307f7d496fe321))
+
 ## [1.19.6](https://github.com/akikanellis/homelab/compare/v1.19.5...v1.19.6) (2023-02-05)
 
 
