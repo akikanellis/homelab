@@ -88,26 +88,25 @@ just down
 
 ## Contributing
 
-To contribute, have a read through the
-[Contributing Guidelines](docs/CONTRIBUTING.md) and the
-[Developers Guide](docs/DEVELOPERS_GUIDE.md). Thank you for being involved!
+To contribute, check out the [Contributing Guidelines](docs/CONTRIBUTING.md) and
+the [Developers Guide](docs/DEVELOPERS_GUIDE.md). Thank you for being involved!
 
 ## Support
 
-Need help? Have a look at the [support page](docs/SUPPORT.md) for information on
-how to get in touch.
+Need help? The [support page](docs/SUPPORT.md) can provide information on how to
+get in touch.
 
 ## Security
 
-For reporting vulnerabilities and other security related matters, you can refer
-to the [Security Policy](docs/SECURITY.md).
+You can refer to the [Security Policy](docs/SECURITY.md) for reporting
+vulnerabilities and other security-related matters.
 
 ## Authors & Contributors
 
 This project was created by [Aki Kanellis](https://github.com/akikanellis).
 
-For a full list of all authors and contributors, see the
-[contributors page](https://github.com/akikanellis/homelab/contributors).
+See the [contributors page](https://github.com/akikanellis/homelab/contributors)
+for a complete list of all authors and contributors.
 
 ## License
 
