@@ -59,6 +59,14 @@ semver\
       automerge: false
     },
     {
+      description: "Limit semantic-release versions to 19.x.x.\
+      Version 20.0.0 is not currently compatible with\
+      cycjimmy/semantic-release-action",
+      matchDatasources: ["npm"],
+      matchPackageNames: ["semantic-release"],
+      allowedVersions: "<= 19"
+    },
+    {
       description: "Use correct compatibility for github/super-linter",
       matchDatasources: ["docker"],
       matchPackageNames: ["github/super-linter"],
