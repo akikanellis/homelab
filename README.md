@@ -39,13 +39,38 @@ fully automated, seamless CI/CD pipeline.
 
 ### Features
 
-- [x] Infrastructure as code using [![Ansible](docs/images/ansible.svg) Ansible](https://www.ansible.com), [![Docker Compose](docs/images/docker.svg) Docker Compose](https://docs.docker.com/compose) and [![Jinja](docs/images/jinja.svg) Jinja](https://palletsprojects.com/p/jinja/)
-- [x] Testing using [![Molecule](docs/images/molecule.svg) Molecule](https://molecule.readthedocs.io), [![Vagrant](docs/images/vagrant.svg) Vagrant](https://www.vagrantup.com) and [![VirtualBox](docs/images/virtualbox.svg) VirtualBox](https://www.virtualbox.org)
-- [x] CI/CD using [![GitHub Actions](docs/images/github.svg) GitHub Actions](https://github.com/features/actions) with self-hosted runners
-- [x] Network infrastructure using [![UniFi](docs/images/unifi.svg) UniFi](https://ui.com), [![Pi-hole](docs/images/pihole.svg) Pi-hole](https://pi-hole.net) and [![Nginx Proxy Manager](docs/images/nginx_proxy_manager.svg) Nginx Proxy Manager](https://nginxproxymanager.com)
-- [x] Host hardening using [![DevSec Hardening](docs/images/devsec.svg) DevSec Hardening](https://dev-sec.io)
-- [x] Observability and Monitoring using [![Netdata](docs/images/netdata.svg) Netdata](https://www.netdata.cloud), [![Graylog](docs/images/graylog.svg) Graylog](https://www.graylog.org), [![Grafana](docs/images/grafana.svg) Grafana](https://grafana.com), [![Prometheus](docs/images/prometheus.svg) Prometheus](https://prometheus.io), [![Elasticsearch](docs/images/elasticsearch.svg) Elasticsearch](https://www.elastic.co) and [![Portainer](docs/images/portainer.svg) Portainer](https://www.portainer.io)
-- [x] Home automation using [![Home Assistant](docs/images/home_assistant.svg) Home Assistant](https://www.home-assistant.io) and [![Node-RED](docs/images/node_red.svg) Node-RED](https://nodered.org)
+- [x] Infrastructure as code using
+    [![Ansible](docs/images/ansible.svg) Ansible](https://www.ansible.com),
+    [![Docker Compose](docs/images/docker.svg) Docker Compose](https://docs.docker.com/compose)
+    and
+    [![Jinja](docs/images/jinja.svg) Jinja](https://palletsprojects.com/p/jinja/)
+- [x] Testing using
+    [![Molecule](docs/images/molecule.svg) Molecule](https://molecule.readthedocs.io),
+    [![Vagrant](docs/images/vagrant.svg) Vagrant](https://www.vagrantup.com)
+    and
+    [![VirtualBox](docs/images/virtualbox.svg) VirtualBox](https://www.virtualbox.org)
+- [x] CI/CD using
+    [![GitHub Actions](docs/images/github.svg) GitHub Actions](https://github.com/features/actions)
+    with self-hosted runners
+- [x] Network infrastructure using
+    [![UniFi](docs/images/unifi.svg) UniFi](https://ui.com),
+    [![Pi-hole](docs/images/pihole.svg) Pi-hole](https://pi-hole.net)
+    and
+    [![Nginx Proxy Manager](docs/images/nginx_proxy_manager.svg) Nginx Proxy Manager](https://nginxproxymanager.com)
+- [x] Host hardening using
+    [![DevSec Hardening](docs/images/devsec.svg) DevSec Hardening](https://dev-sec.io)
+- [x] Observability and Monitoring using
+    [![Netdata](docs/images/netdata.svg) Netdata](https://www.netdata.cloud),
+    [![Graylog](docs/images/graylog.svg) Graylog](https://www.graylog.org),
+    [![Grafana](docs/images/grafana.svg) Grafana](https://grafana.com),
+    [![Prometheus](docs/images/prometheus.svg) Prometheus](https://prometheus.io),
+    [![Elasticsearch](docs/images/elasticsearch.svg) Elasticsearch](https://www.elastic.co)
+    and
+    [![Portainer](docs/images/portainer.svg) Portainer](https://www.portainer.io)
+- [x] Home automation using
+    [![Home Assistant](docs/images/home_assistant.svg) Home Assistant](https://www.home-assistant.io)
+    and
+    [![Node-RED](docs/images/node_red.svg) Node-RED](https://nodered.org)
 
 ## Getting Started
 
