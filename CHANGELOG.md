@@ -1,3 +1,10 @@
+## [1.19.8](https://github.com/akikanellis/homelab/compare/v1.19.7...v1.19.8) (2023-02-11)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/plex:1.30.2 docker digest to b2afd30 ([#245](https://github.com/akikanellis/homelab/issues/245)) ([ea9d08c](https://github.com/akikanellis/homelab/commit/ea9d08cd044554482cfe5f0ed420401013d94923))
+
 ## [1.19.7](https://github.com/akikanellis/homelab/compare/v1.19.6...v1.19.7) (2023-02-05)
 
 
