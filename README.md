@@ -18,9 +18,9 @@ workstations and servers
 •
 [Contributing](#contributing)
 •
-[Security](#security)
-•
 [Support](#support)
+•
+[Security](#security)
 •
 [Authors & Contributors](#authors--contributors)
 •
