@@ -1,16 +1,30 @@
+<!-- markdownlint-disable MD041 -->
+
+<div align="center">
+
 # Support
 
-Thank you for using the project!
+[About](#about)
+•
+[Getting Help](#getting-help)
 
-<details open="open">
-<summary>Table of Contents</summary>
-
-- [Getting Help](#getting-help)
-
-</details>
+</div>
 
 ---
 
+## About
+
+Thank you for using the project! Here, you will find information on how to get
+help.
+
 ## Getting Help
 
-For help and questions about this project, please feel free to reach out to [GitHub Discussions](../../../discussions).
+If you need help with the project, please do the following:
+
+1. Search the project's [discussions](../../../discussions),
+    [issues](../../../issues) and [pull requests](../../../pulls) to see if your
+    question has already been answered
+2. Read the project's documentation to see if it answers your question
+3. If you still need help, please feel free to reach out to
+    [discussions](../../../discussions) after you have read through the
+    [Contributing Guidelines](CONTRIBUTING.md)

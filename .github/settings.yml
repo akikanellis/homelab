@@ -1,7 +1,9 @@
 ---
 repository:
   name: homelab
-  description: My personal homelab setup
+  description: >
+    Streamlined homelab setup with automated provisioning and updating of my
+    workstations and servers
   private: false
 
   has_issues: true

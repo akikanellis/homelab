@@ -32,7 +32,7 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: just install
+        run: just install-dependencies
 
       - name: Cache Vagrant boxes
         # yamllint disable-line rule:line-length

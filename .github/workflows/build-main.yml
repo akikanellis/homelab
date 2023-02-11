@@ -5,6 +5,16 @@ name: Build Main
   push:
     branches: [main]
 
+env:
+  # renovate: datasource=npm depName=@semantic-release/changelog
+  SEMANTIC_RELEASE_CHANGELOG_VERSION: 6.0.2
+
+  # renovate: datasource=npm depName=@semantic-release/git
+  SEMANTIC_RELEASE_GIT_VERSION: 10.0.1
+
+  # renovate: datasource=npm depName=conventional-changelog-conventionalcommits
+  CONVENTIONAL_CHANGELOG_CONVENTIONALCOMMITS_VERSION: 5.0.0
+
 jobs:
   lint:
     name: Lint
@@ -44,7 +54,15 @@ jobs:
         with:
           # renovate: datasource=npm depName=semantic-release
           semantic_version: 19.0.5
-          extra_plugins: conventional-changelog-conventionalcommits
+          extra_plugins:
+            "@semantic-release/changelog@\
+            ${{ env.SEMANTIC_RELEASE_CHANGELOG_VERSION }} \
+            @semantic-release/git@\
+            ${{ env.SEMANTIC_RELEASE_GIT_VERSION }} \
+            conventional-changelog-conventionalcommits@\
+            ${{ env.CONVENTIONAL_CHANGELOG_CONVENTIONALCOMMITS_VERSION }} \
+            gradle-semantic-release-plugin@\
+            ${{ env.GRADLE_SEMANTIC_RELEASE_PLUGIN_VERSION }}"
 
   deploy-to-prod:
     name: Deploy to prod

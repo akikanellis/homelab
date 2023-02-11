@@ -6,30 +6,49 @@ super_linter_version := "slim-v4.10.1@sha256:80ecaa58ad5f9480c66e3c77af5c9558318
 @_default:
   just --list
 
-# Install project dependencies
-install:
-  just ansible/install
+# Install tools and dependencies
+install: install-tools install-dependencies
 
-# Lint the project
+# Install tools
+install-tools:
+  asdf install
+
+# Install dependencies
+install-dependencies:
+  just ansible/install-dependencies
+
+# Lint project
 lint *extra_args:
   docker run \
-  -e RUN_LOCAL=true \
-  -e DEFAULT_BRANCH=main \
-  -e IGNORE_GENERATED_FILES=true \
-  -e IGNORE_GITIGNORED_FILES=true \
-  -e YAML_ERROR_ON_WARNING=true \
-  -e FILTER_REGEX_EXCLUDE=.*vault\.yml \
+  --env RUN_LOCAL=true \
+  --env DEFAULT_BRANCH=main \
+  --env IGNORE_GENERATED_FILES=true \
+  --env IGNORE_GITIGNORED_FILES=true \
+  --env YAML_ERROR_ON_WARNING=true \
+  --env FILTER_REGEX_EXCLUDE=.*vault\.yml \
+  --volume {{justfile_directory()}}:/tmp/lint \
   {{extra_args}} \
-  -v {{justfile_directory()}}:/tmp/lint \
   github/super-linter:{{super_linter_version}}
 
-# Run the tests
-test:
-  just ansible/test
+# Run tests
+test *extra_args:
+  just ansible/test {{extra_args}}
 
-# Run the app
-run:
-  just ansible/run
+# Create local instances
+up *extra_args:
+  just ansible/up {{extra_args}}
+
+# Create and configure hosts locally
+run *extra_args:
+  just ansible/run {{extra_args}}
+
+# Log in to a locally created host
+login host:
+  just ansible/login {{host}}
+
+# Remove locally created hosts
+down *extra_args:
+  just ansible/down {{extra_args}}
 
 # Clean generated files
 clean:

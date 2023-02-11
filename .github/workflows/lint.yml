@@ -34,7 +34,7 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: just install
+        run: just install-dependencies
 
       - name: Lint
         # yamllint disable-line rule:line-length

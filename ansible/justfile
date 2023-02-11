@@ -6,69 +6,77 @@ export ANSIBLE_FORCE_COLOR := "1"
 @_default:
   just --list
 
-# Install project dependencies
-install:
+# Install dependencies
+install-dependencies:
   #!/usr/bin/env bash
   python -m venv env
   source env/bin/activate
-  pip install -r requirements.txt
-  ansible-galaxy install -r requirements.yml
+  pip install --requirement requirements.txt
+  ansible-galaxy install --role-file requirements.yml
 
-# Run the tests
+# Run tests
 test *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
   molecule {{extra_args}} test
 
-# Create the app
+# Create hosts locally
 up *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
   molecule {{extra_args}} create
 
-# Run the app
+# Create and configure hosts locally
 run *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
   molecule {{extra_args}} converge
 
-# Run the app for testing
+# Create and configure hosts locally for `test` tags
 run-test *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
   molecule {{extra_args}} converge -- --tags test -vv
 
-# Run the app for testing with debugging on
-run-test-debug *extra_args:
-  #!/usr/bin/env bash
-  source env/bin/activate
-  molecule {{extra_args}} converge -- --tags test -vvv
-
-# Run the app for debugging
+# Create and configure hosts locally with debug logs
 run-debug *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
   molecule --debug {{extra_args}} converge -- -vvv
 
-# Tear down the app
+# Create and configure hosts locally for `test` tags with debug logs
+run-test-debug *extra_args:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  molecule {{extra_args}} converge -- --tags test -vvv
+
+# Log in to a locally created host
+login host:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  molecule login --host {{host}}
+
+# Remove locally created hosts
 down *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
   molecule {{extra_args}} destroy
+
+# Edit dev vault
+edit-dev-vault:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  ansible-vault edit inventories/dev/group_vars/all/vault.yml
+
+# Edit prod vault
+edit-prod-vault:
+  #!/usr/bin/env bash
+  source env/bin/activate
+  ansible-vault edit inventories/prod/group_vars/all/vault.yml
 
 # Clean generated files
 clean:
   #!/usr/bin/env bash
   source env/bin/activate
   molecule destroy
-  rm -rf env galaxy
-
-edit-dev-vault:
-  #!/usr/bin/env bash
-  source env/bin/activate
-  ansible-vault edit inventories/dev/group_vars/all/vault.yml
-
-edit-prod-vault:
-  #!/usr/bin/env bash
-  source env/bin/activate
-  ansible-vault edit inventories/prod/group_vars/all/vault.yml
+  rm --recursive --force env galaxy

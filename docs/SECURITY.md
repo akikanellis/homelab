@@ -1,4 +1,22 @@
+<!-- markdownlint-disable MD041 -->
+
+<div align="center">
+
 # Security Policy
+
+[About](#about)
+•
+[Reporting a Vulnerability](#reporting-a-vulnerability)
+
+</div>
+
+---
+
+## About
+
+This policy outlines the procedure for reporting vulnerabilities for this
+project to ensure the protection of sensitive information and maintain the
+confidentiality, integrity, and availability of data.
 
 ## Reporting a Vulnerability
 
@@ -6,8 +24,8 @@ If there are any vulnerabilities in the project, don't hesitate to
 _report them_.
 
 1. Please email hello@akikanellis.com.
-2. Provide a description of the vulnerability, the steps you took to create the
-    issue, affected versions, and, if known, how to mitigate the problem etc.
+2. Describe the vulnerability, the steps you took to create the issue, the
+    affected versions, and, if known, how to mitigate the problem.
 
     If you have a fix, that is most welcome -- please attach or summarize it in
     your message!
