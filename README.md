@@ -1,10 +1,9 @@
 <!-- markdownlint-disable MD041 -->
 
 <div align="center">
-
-[//]: # (TODO update logo)
 <h1>
-    <img src="docs/images/logo.png" alt="Logo" height="100">
+    <img src="docs/images/logo.png" alt="Logo">
+    <p>Homelab</p>
 </h1>
 
 Streamlined homelab setup with automated provisioning and updating of my
@@ -28,7 +27,6 @@ workstations and servers
 [License](#license)
 
 ![Demo](docs/images/demo.webp)
-
 </div>
 
 ---
