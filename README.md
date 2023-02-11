@@ -116,7 +116,7 @@ the [Developers Guide](docs/DEVELOPERS_GUIDE.md). Thank you for being involved!
 
 ## Support
 
-Need help? The [support page](docs/SUPPORT.md) can provide information on how to
+Need help? The [Support Page](docs/SUPPORT.md) can provide information on how to
 get in touch.
 
 ## Security
@@ -128,7 +128,7 @@ vulnerabilities and other security-related matters.
 
 This project was created by [Aki Kanellis](https://github.com/akikanellis).
 
-See the [contributors page](https://github.com/akikanellis/homelab/contributors)
+See the [Contributors Page](https://github.com/akikanellis/homelab/contributors)
 for a complete list of all authors and contributors.
 
 ## License
