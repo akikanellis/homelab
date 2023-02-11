@@ -1,3 +1,10 @@
+## [1.19.10](https://github.com/akikanellis/homelab/compare/v1.19.9...v1.19.10) (2023-02-11)
+
+
+### Build System
+
+* **deps:** update eclipse-mosquitto:2.0.15 docker digest to 73470c4 ([#243](https://github.com/akikanellis/homelab/issues/243)) ([f43ab82](https://github.com/akikanellis/homelab/commit/f43ab827ef8e05bea142d445cfa7ceedec0b17a1))
+
 ## [1.19.9](https://github.com/akikanellis/homelab/compare/v1.19.8...v1.19.9) (2023-02-11)
 
 
