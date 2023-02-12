@@ -60,9 +60,7 @@ jobs:
             @semantic-release/git@\
             ${{ env.SEMANTIC_RELEASE_GIT_VERSION }} \
             conventional-changelog-conventionalcommits@\
-            ${{ env.CONVENTIONAL_CHANGELOG_CONVENTIONALCOMMITS_VERSION }} \
-            gradle-semantic-release-plugin@\
-            ${{ env.GRADLE_SEMANTIC_RELEASE_PLUGIN_VERSION }}"
+            ${{ env.CONVENTIONAL_CHANGELOG_CONVENTIONALCOMMITS_VERSION }}"
 
   deploy-to-prod:
     name: Deploy to prod
