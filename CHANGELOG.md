@@ -1,3 +1,15 @@
+## [1.19.13](https://github.com/akikanellis/homelab/compare/v1.19.12...v1.19.13) (2023-02-12)
+
+
+### Bug Fixes
+
+* remove unnecessary gradle-semantic-release-plugin ([#250](https://github.com/akikanellis/homelab/issues/250)) ([51f24c1](https://github.com/akikanellis/homelab/commit/51f24c19066d5c3563938f45ea5a045d58ea1d00))
+
+
+### Build System
+
+* finalise docs and development setup ([#249](https://github.com/akikanellis/homelab/issues/249)) ([c33d92c](https://github.com/akikanellis/homelab/commit/c33d92c4f33265b273f326577d5899025b37cbaf)), closes [#233](https://github.com/akikanellis/homelab/issues/233)
+
 ## [1.19.12](https://github.com/akikanellis/homelab/compare/v1.19.11...v1.19.12) (2023-02-11)
 
 
