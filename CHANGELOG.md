@@ -1,3 +1,10 @@
+## [1.19.15](https://github.com/akikanellis/homelab/compare/v1.19.14...v1.19.15) (2023-02-18)
+
+
+### Build System
+
+* **deps:** update mongo:4.4.18 docker digest to d23ec07 ([#256](https://github.com/akikanellis/homelab/issues/256)) ([a12bd7a](https://github.com/akikanellis/homelab/commit/a12bd7aa95ea3a0562e54fb1bfa2a827b06e6886))
+
 ## [1.19.14](https://github.com/akikanellis/homelab/compare/v1.19.13...v1.19.14) (2023-02-18)
 
 
