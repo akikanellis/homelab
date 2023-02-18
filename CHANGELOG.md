@@ -1,3 +1,10 @@
+## [1.19.16](https://github.com/akikanellis/homelab/compare/v1.19.15...v1.19.16) (2023-02-18)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/radarr:4.3.2 docker digest to 57dd072 ([#253](https://github.com/akikanellis/homelab/issues/253)) ([d76bc5c](https://github.com/akikanellis/homelab/commit/d76bc5c3f543a737caf35dbf9bc8d129d7694ec5))
+
 ## [1.19.15](https://github.com/akikanellis/homelab/compare/v1.19.14...v1.19.15) (2023-02-18)
 
 
