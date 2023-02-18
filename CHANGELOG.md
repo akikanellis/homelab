@@ -1,3 +1,10 @@
+## [1.19.17](https://github.com/akikanellis/homelab/compare/v1.19.16...v1.19.17) (2023-02-18)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/sonarr:3.0.9 docker digest to 9499ada ([#255](https://github.com/akikanellis/homelab/issues/255)) ([247b08c](https://github.com/akikanellis/homelab/commit/247b08c1255081abcea2149e19dbdb47183a6a90))
+
 ## [1.19.16](https://github.com/akikanellis/homelab/compare/v1.19.15...v1.19.16) (2023-02-18)
 
 
