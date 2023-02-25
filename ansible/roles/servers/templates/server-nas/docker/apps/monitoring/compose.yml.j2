@@ -1,7 +1,7 @@
 ---
 services:
   netdata:
-    image: netdata/netdata:v1.38.0@sha256:74a934c0e18c867c62516cb0df5bf7e7f9dc65b9000f30abba15703adb0821a0 # editorconfig-checker-disable-line
+    image: netdata/netdata:v1.38.1@sha256:a85154c3c1aa28e5dd7a22974db2332cee03f834bc5e84be4d9283d8acc2c1c9 # editorconfig-checker-disable-line
     hostname: "netdata-{{ inventory_hostname }}"
     environment:
       TZ: "{{ timezone }}"
@@ -99,7 +99,7 @@ services:
     restart: always
 
   mongodb:
-    image: mongo:4.4.18@sha256:d23ec07162ca06646a6329c452643f37494af644d045c002a7b41873981c160d # editorconfig-checker-disable-line
+    image: mongo:4.4.19@sha256:164c3f8dd6c81f95346c478e7cc447a58804cb661c623d542f416221cd6c037c # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"

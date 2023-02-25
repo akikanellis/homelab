@@ -16,7 +16,7 @@ jobs:
 
       - name: Setup just
         # yamllint disable-line rule:line-length
-        uses: extractions/setup-just@95b912dc5d3ed106a72907f2f9b91e76d60bdb76 # v1.5.0
+        uses: extractions/setup-just@69d82fb0233557aec017ef13706851d0694e0f1d # v1.6.0
         with:
           # renovate: datasource=crate depName=just
           just-version: 1.13.0
@@ -36,7 +36,7 @@ jobs:
 
       - name: Cache Vagrant boxes
         # yamllint disable-line rule:line-length
-        uses: actions/cache@6998d139ddd3e68c71e9e398d8e40b71a2f39812 # v3.2.5
+        uses: actions/cache@69d9d449aced6a2ede0bc19182fadc3a0a42d2b0 # v3.2.6
         with:
           path: ~/.vagrant.d/boxes
           key: "${{ runner.os }}-\
