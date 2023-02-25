@@ -1,3 +1,14 @@
+## [1.19.19](https://github.com/akikanellis/homelab/compare/v1.19.18...v1.19.19) (2023-02-25)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#262](https://github.com/akikanellis/homelab/issues/262)) ([fb281e4](https://github.com/akikanellis/homelab/commit/fb281e4e241bb61788613dcf450b900c67688909))
+* **deps:** update lscr.io/linuxserver/heimdall:2.5.5 docker digest to 9fad087 ([#258](https://github.com/akikanellis/homelab/issues/258)) ([d0a5189](https://github.com/akikanellis/homelab/commit/d0a518983273d7489ac6b63a4d5161712ad2c6ed))
+* **deps:** update lscr.io/linuxserver/radarr:4.3.2 docker digest to 8830559 ([#259](https://github.com/akikanellis/homelab/issues/259)) ([9bb0d1d](https://github.com/akikanellis/homelab/commit/9bb0d1d74a1c02bf8c9a21a83bf1e6efbca2d0dd))
+* **deps:** update lscr.io/linuxserver/sabnzbd:3.7.2 docker digest to c938b84 ([#260](https://github.com/akikanellis/homelab/issues/260)) ([2b6aad6](https://github.com/akikanellis/homelab/commit/2b6aad6fb902c5cc79cef6a37d5f1e792a363703))
+* **deps:** update lscr.io/linuxserver/sonarr:3.0.9 docker digest to 1af29a2 ([#261](https://github.com/akikanellis/homelab/issues/261)) ([9b209ae](https://github.com/akikanellis/homelab/commit/9b209ae4a007fd7308396f8627c212561d627032))
+
 ## [1.19.18](https://github.com/akikanellis/homelab/compare/v1.19.17...v1.19.18) (2023-02-18)
 
 
