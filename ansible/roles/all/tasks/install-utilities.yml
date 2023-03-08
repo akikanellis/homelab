@@ -51,8 +51,12 @@
     name:
       - btop
       - httpie
-      - starship
       - yq
+
+- name: Install starship
+  community.general.snap:
+    name: starship
+    channel: edge
 
 - name: Install bat
   block:
