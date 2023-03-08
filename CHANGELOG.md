@@ -1,3 +1,10 @@
+## [1.19.20](https://github.com/akikanellis/homelab/compare/v1.19.19...v1.19.20) (2023-03-08)
+
+
+### Bug Fixes
+
+* install starship from edge channel ([#269](https://github.com/akikanellis/homelab/issues/269)) ([9ad9729](https://github.com/akikanellis/homelab/commit/9ad97299a91235f7d499abeb84b1b8e0a413f673))
+
 ## [1.19.19](https://github.com/akikanellis/homelab/compare/v1.19.18...v1.19.19) (2023-02-25)
 
 
