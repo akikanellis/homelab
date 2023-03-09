@@ -1,3 +1,12 @@
+## [1.19.22](https://github.com/akikanellis/homelab/compare/v1.19.21...v1.19.22) (2023-03-09)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/radarr:4.3.2 docker digest to 29e7385 ([#265](https://github.com/akikanellis/homelab/issues/265)) ([a2e22ab](https://github.com/akikanellis/homelab/commit/a2e22abcd8377b561da6e54b7784f5e63df71bb7))
+* **deps:** update lscr.io/linuxserver/sabnzbd:3.7.2 docker digest to b9a8d36 ([#266](https://github.com/akikanellis/homelab/issues/266)) ([9a0318d](https://github.com/akikanellis/homelab/commit/9a0318d5c1078856f6f3d3a69616051e8e9ed789))
+* **deps:** update mongo:4.4.19 docker digest to be5e699 ([#268](https://github.com/akikanellis/homelab/issues/268)) ([df392f2](https://github.com/akikanellis/homelab/commit/df392f26ae3aa216307341a1a2d7fff711eab88b))
+
 ## [1.19.21](https://github.com/akikanellis/homelab/compare/v1.19.20...v1.19.21) (2023-03-09)
 
 
