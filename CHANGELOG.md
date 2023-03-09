@@ -1,3 +1,11 @@
+## [1.19.21](https://github.com/akikanellis/homelab/compare/v1.19.20...v1.19.21) (2023-03-09)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/heimdall:2.5.5 docker digest to 075b8bc ([#263](https://github.com/akikanellis/homelab/issues/263)) ([5990197](https://github.com/akikanellis/homelab/commit/5990197b4adf7ddd2262438e15e1271525070508))
+* **deps:** update lscr.io/linuxserver/sonarr:3.0.9 docker digest to 31e2e1b ([#267](https://github.com/akikanellis/homelab/issues/267)) ([8b67c40](https://github.com/akikanellis/homelab/commit/8b67c40361b8aa5071d05d53fa489bf7c912a808))
+
 ## [1.19.20](https://github.com/akikanellis/homelab/compare/v1.19.19...v1.19.20) (2023-03-08)
 
 
