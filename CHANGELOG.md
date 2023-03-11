@@ -1,3 +1,10 @@
+## [1.19.26](https://github.com/akikanellis/homelab/compare/v1.19.25...v1.19.26) (2023-03-11)
+
+
+### Build System
+
+* **deps:** update ghcr.io/tasmoadmin/tasmoadmin docker tag to v3 ([#272](https://github.com/akikanellis/homelab/issues/272)) ([8925f2d](https://github.com/akikanellis/homelab/commit/8925f2ddbeb9724595105b5e40755f78adc71a07))
+
 ## [1.19.25](https://github.com/akikanellis/homelab/compare/v1.19.24...v1.19.25) (2023-03-11)
 
 
