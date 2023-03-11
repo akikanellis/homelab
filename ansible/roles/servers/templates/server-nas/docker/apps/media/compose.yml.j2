@@ -38,7 +38,7 @@ services:
     restart: always
 
   plex:
-    image: lscr.io/linuxserver/plex:1.31.0@sha256:c5d76d02398418c039aaf0ad06f6a529d8c6bd33d11e4ff1ebffad73383a0d0b # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/plex:1.31.1@sha256:766d267f52672c64aa57f794f653c21d14e236e887c0b8decf70c20def987014 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -81,7 +81,7 @@ services:
     restart: always
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:4.5.1@sha256:4eb878ac19516353c90f29645534dca81704ecbefe6ee85bc98ad652c4c3afd5 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/qbittorrent:4.5.2@sha256:7ce46f2acdb83cce40ff6803ed22a3de9f5c616627fbfafdea8d90071f7ef953 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -145,7 +145,7 @@ services:
     restart: always
 
   sonarr:
-    image: lscr.io/linuxserver/sonarr:3.0.9@sha256:31e2e1b25935cd4d42f1c123d8bb53ec9d3863df78ffc0140c200fcc76dbd49a # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/sonarr:3.0.10@sha256:0b3a72bcc508bcf1648304a1b969ef8e85b0418852f3fa39d7fc06d7a6629f43 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
