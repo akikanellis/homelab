@@ -1,3 +1,11 @@
+## [1.19.23](https://github.com/akikanellis/homelab/compare/v1.19.22...v1.19.23) (2023-03-11)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#271](https://github.com/akikanellis/homelab/issues/271)) ([6a741ea](https://github.com/akikanellis/homelab/commit/6a741ead905acdcd8e24890dedf5fda1789d089e))
+* **deps:** update lscr.io/linuxserver/qbittorrent:4.5.1 docker digest to 4eb878a ([#264](https://github.com/akikanellis/homelab/issues/264)) ([ec4f874](https://github.com/akikanellis/homelab/commit/ec4f8744d0edce1f6d64f0beadc386ba0ea8cbfe))
+
 ## [1.19.22](https://github.com/akikanellis/homelab/compare/v1.19.21...v1.19.22) (2023-03-09)
 
 
