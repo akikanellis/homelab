@@ -1,3 +1,10 @@
+## [1.19.24](https://github.com/akikanellis/homelab/compare/v1.19.23...v1.19.24) (2023-03-11)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/sabnzbd:3.7.2 docker digest to 5fadae5 ([#270](https://github.com/akikanellis/homelab/issues/270)) ([bb6c65d](https://github.com/akikanellis/homelab/commit/bb6c65db3e635e38b6502d62f8a2e5f09368a6cc))
+
 ## [1.19.23](https://github.com/akikanellis/homelab/compare/v1.19.22...v1.19.23) (2023-03-11)
 
 
