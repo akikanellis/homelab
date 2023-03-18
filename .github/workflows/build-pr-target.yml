@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Validate PR title
         # yamllint disable-line rule:line-length
-        uses: amannn/action-semantic-pull-request@b6bca70dcd3e56e896605356ce09b76f7e1e0d39 # v5.1.0
+        uses: amannn/action-semantic-pull-request@c3cd5d1ea3580753008872425915e343e351ab54 # v5.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -78,6 +78,6 @@ jobs:
 
       - name: Approve PR
         # yamllint disable-line rule:line-length
-        uses: hmarr/auto-approve-action@0902bf83c300168cda5cd6856731a0fcb0e731c2 # v3.2.0
+        uses: hmarr/auto-approve-action@44888193675f29a83e04faf4002fa8c0b537b1e4 # v3.2.1
         with:
           github-token: ${{ steps.get-token.outputs.token }}

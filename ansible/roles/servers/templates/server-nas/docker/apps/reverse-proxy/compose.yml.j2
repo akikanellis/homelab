@@ -12,7 +12,7 @@ networks:
 
 services:
   nginx-proxy-manager:
-    image: jc21/nginx-proxy-manager:2.9.19@sha256:82cb962fd9e6a76345f3d48a40c77da4cf691a46bd9be5a4a12251b43fac6800 # editorconfig-checker-disable-line
+    image: jc21/nginx-proxy-manager:2.9.21@sha256:883b97206966ab075cb4c4bd617471057f7db88ec48272cc78fd81629c27ffc4 # editorconfig-checker-disable-line
     volumes:
       - "{{ volumes_directory }}/nginx-proxy-manager/data:/data"
       - "{{ volumes_directory }}/nginx-proxy-manager/etc-letsencrypt:\
