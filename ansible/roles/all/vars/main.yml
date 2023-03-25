@@ -47,7 +47,7 @@ doggo_architecture: >-
   {{ architecture_to_doggo_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=sharkdp/hyperfine
-hyperfine_version: v1.16.0
+hyperfine_version: v1.16.1
 architecture_to_hyperfine_architecture:
   x86_64: amd64
   armv7l: armhf

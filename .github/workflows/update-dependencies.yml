@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout
         # yamllint disable-line rule:line-length
-        uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
+        uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v3.5.0
 
       - name: Get token
         id: get-token
@@ -30,9 +30,9 @@ jobs:
 
       - name: Update dependencies
         # yamllint disable-line rule:line-length
-        uses: renovatebot/github-action@2529763aa12e6d5b445bc911e8bd8cce2a4f205c # v36.0.1
+        uses: renovatebot/github-action@95cbcd7e8b9d0d69e15ba26208631839ce7eee48 # v36.0.2
         with:
           # renovate: datasource=docker depName=renovate/renovate
-          renovate-version: 35.11.0
+          renovate-version: 35.20.1
           configurationFile: renovate.json5
           token: x-access-token:${{ steps.get-token.outputs.token }}
