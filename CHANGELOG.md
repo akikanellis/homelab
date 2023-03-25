@@ -1,3 +1,19 @@
+## [1.19.34](https://github.com/akikanellis/homelab/compare/v1.19.33...v1.19.34) (2023-03-25)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/sonarr:3.0.10 docker digest to 5a9c361 ([#283](https://github.com/akikanellis/homelab/issues/283)) ([901b6cc](https://github.com/akikanellis/homelab/commit/901b6cc968761fd0dc1a3b07e0603e31f488a28a))
+
+## [1.19.33](https://github.com/akikanellis/homelab/compare/v1.19.32...v1.19.33) (2023-03-25)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#284](https://github.com/akikanellis/homelab/issues/284)) ([f8a6c43](https://github.com/akikanellis/homelab/commit/f8a6c435ad26edd29dd9075cc0f2657bc63e5d37))
+* **deps:** update lscr.io/linuxserver/qbittorrent:4.5.2 docker digest to 3fd349a ([#281](https://github.com/akikanellis/homelab/issues/281)) ([bebb5cf](https://github.com/akikanellis/homelab/commit/bebb5cf7e7c828d3fff18c1328a1dae4d8e889df))
+* **deps:** update lscr.io/linuxserver/sabnzbd:3.7.2 docker digest to bae4abc ([#282](https://github.com/akikanellis/homelab/issues/282)) ([926d849](https://github.com/akikanellis/homelab/commit/926d8495dcd056512ec1efd467771e3e1cd5b705))
+
 ## [1.19.32](https://github.com/akikanellis/homelab/compare/v1.19.31...v1.19.32) (2023-03-18)
 
 
