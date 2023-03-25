@@ -35,7 +35,7 @@ services:
     restart: always
 
   prometheus:
-    image: prom/prometheus:v2.42.0@sha256:d2ab0a27783fd4ad96a8853e2847b99a0be0043687b8a5d1ebfb2dd3fa4fd1b8 # editorconfig-checker-disable-line
+    image: prom/prometheus:v2.43.0@sha256:f5c29683a301d4e5427fb0d985f794b1f743498310a4eadee75e85f5dba73a6d # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
@@ -57,7 +57,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:9.4.3@sha256:76dcf36e7d2a4110c2387c1ad6e4641068dc78d7780da516d5d666d1e4623ac5 # editorconfig-checker-disable-line
+    image: grafana/grafana-oss:9.4.7@sha256:1a359d92f40ef98049b1aac3e43cb4a569f5dc0e552caa883a6b6f4ae1eacded # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
