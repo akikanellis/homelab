@@ -1,3 +1,10 @@
+## [1.19.35](https://github.com/akikanellis/homelab/compare/v1.19.34...v1.19.35) (2023-03-25)
+
+
+### Build System
+
+* **deps:** update actions/stale action to v8 ([#285](https://github.com/akikanellis/homelab/issues/285)) ([e7f9364](https://github.com/akikanellis/homelab/commit/e7f9364ec653e45c05a7fabd440458f1b70968ea))
+
 ## [1.19.34](https://github.com/akikanellis/homelab/compare/v1.19.33...v1.19.34) (2023-03-25)
 
 
