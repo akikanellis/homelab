@@ -59,6 +59,13 @@ semver\
       automerge: false
     },
     {
+      description: "Group Docker digest updates",
+      groupName: "all Docker digest dependencies",
+      groupSlug: "all-docker-digest",
+      matchDatasources: ["docker"],
+      matchUpdateTypes: ["digest"]
+    },
+    {
       description: "Limit semantic-release versions to 19.x.x.\
       Version 20.0.0 is not currently compatible with\
       cycjimmy/semantic-release-action",
