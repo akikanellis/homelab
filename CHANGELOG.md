@@ -1,3 +1,10 @@
+## [1.19.37](https://github.com/akikanellis/homelab/compare/v1.19.36...v1.19.37) (2023-04-04)
+
+
+### Build System
+
+* group Docker digest updates ([#292](https://github.com/akikanellis/homelab/issues/292)) ([4b867ed](https://github.com/akikanellis/homelab/commit/4b867ed948c00c93d9791f44ea98eb97a815b283))
+
 ## [1.19.36](https://github.com/akikanellis/homelab/compare/v1.19.35...v1.19.36) (2023-04-04)
 
 
