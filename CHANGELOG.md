@@ -1,3 +1,10 @@
+## [1.19.36](https://github.com/akikanellis/homelab/compare/v1.19.35...v1.19.36) (2023-04-04)
+
+
+### Bug Fixes
+
+* downgrade community.general to 6.4.0 ([#293](https://github.com/akikanellis/homelab/issues/293)) ([a111626](https://github.com/akikanellis/homelab/commit/a111626d3d4bb32a72292c600cd2d7338c5ce38a))
+
 ## [1.19.35](https://github.com/akikanellis/homelab/compare/v1.19.34...v1.19.35) (2023-03-25)
 
 
