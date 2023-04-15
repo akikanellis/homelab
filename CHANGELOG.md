@@ -1,3 +1,10 @@
+## [1.19.41](https://github.com/akikanellis/homelab/compare/v1.19.40...v1.19.41) (2023-04-15)
+
+
+### Build System
+
+* **deps:** update github/super-linter docker tag to v5 ([#298](https://github.com/akikanellis/homelab/issues/298)) ([5a1a22e](https://github.com/akikanellis/homelab/commit/5a1a22eb96e3d573d501917d171d02bcf8d6d156))
+
 ## [1.19.40](https://github.com/akikanellis/homelab/compare/v1.19.39...v1.19.40) (2023-04-15)
 
 
