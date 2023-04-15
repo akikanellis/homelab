@@ -47,7 +47,7 @@ services:
     restart: always
 
   unpoller:
-    image: ghcr.io/unpoller/unpoller:v2.7.11@sha256:3fbf8a1ef708175926bee212d6e236e5ea21c119004813a2201b52c7f2f523a5 # editorconfig-checker-disable-line
+    image: ghcr.io/unpoller/unpoller:v2.7.12@sha256:4b7d669a4eed84b580016fe8f078d4f296e3f787d78864943e4de83130405948 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
@@ -99,7 +99,7 @@ services:
     restart: always
 
   mongodb:
-    image: mongo:4.4.19@sha256:7fb082eda5d1096c7749bd3890f0e23ad99fc5059902b5e47df8873d059c749a # editorconfig-checker-disable-line
+    image: mongo:4.4.20@sha256:9983b477f443533a06dd85201f1028b313db6ff9568ec687745278fcad80f929 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
