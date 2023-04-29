@@ -1,3 +1,24 @@
+## [1.19.46](https://github.com/akikanellis/homelab/compare/v1.19.45...v1.19.46) (2023-04-29)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/sabnzbd docker tag to v4 ([#304](https://github.com/akikanellis/homelab/issues/304)) ([333cde9](https://github.com/akikanellis/homelab/commit/333cde9435c8929985c409ebbdd7278f8e59653c))
+
+## [1.19.45](https://github.com/akikanellis/homelab/compare/v1.19.44...v1.19.45) (2023-04-29)
+
+
+### Build System
+
+* **deps:** update all docker digest dependencies ([#302](https://github.com/akikanellis/homelab/issues/302)) ([748b2d6](https://github.com/akikanellis/homelab/commit/748b2d6d5461ffaaa68ac8a11f7413cf2e470bcf))
+
+## [1.19.44](https://github.com/akikanellis/homelab/compare/v1.19.43...v1.19.44) (2023-04-29)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#303](https://github.com/akikanellis/homelab/issues/303)) ([b7c5be0](https://github.com/akikanellis/homelab/commit/b7c5be0bb7e0ba9047b3ff6b0936a7ac1be0d54e))
+
 ## [1.19.43](https://github.com/akikanellis/homelab/compare/v1.19.42...v1.19.43) (2023-04-22)
 
 

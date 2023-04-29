@@ -1,6 +1,6 @@
 ---
 # renovate: datasource=github-releases depName=cli/cli
-github_cli_version: v2.27.0
+github_cli_version: v2.28.0
 architecture_to_github_cli_architecture:
   x86_64: amd64
   armv7l: armv6
