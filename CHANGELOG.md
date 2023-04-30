@@ -1,3 +1,10 @@
+## [1.19.47](https://github.com/akikanellis/homelab/compare/v1.19.46...v1.19.47) (2023-04-30)
+
+
+### Build System
+
+* **deps:** update dependency molecule to v5 ([#301](https://github.com/akikanellis/homelab/issues/301)) ([52031a6](https://github.com/akikanellis/homelab/commit/52031a678197f213d7f6c5ae4a96889343192efb)), closes [ansible-community/molecule-plugins#132](https://github.com/ansible-community/molecule-plugins/issues/132)
+
 ## [1.19.46](https://github.com/akikanellis/homelab/compare/v1.19.45...v1.19.46) (2023-04-29)
 
 
