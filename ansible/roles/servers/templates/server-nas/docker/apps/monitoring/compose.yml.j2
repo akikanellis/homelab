@@ -35,7 +35,7 @@ services:
     restart: always
 
   prometheus:
-    image: prom/prometheus:v2.43.0@sha256:f5c29683a301d4e5427fb0d985f794b1f743498310a4eadee75e85f5dba73a6d # editorconfig-checker-disable-line
+    image: prom/prometheus:v2.43.1@sha256:3760d0bcb02f439394aa172eaadafbb9e657baff6a995458a6e82fdb38c5b6b5 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
@@ -72,7 +72,7 @@ services:
     restart: always
 
   graylog:
-    image: graylog/graylog:4.3.14@sha256:33680d851aaf03d7c99ca7bb7e783665ed8e237865f240959f9c5e29bd0114f4 # editorconfig-checker-disable-line
+    image: graylog/graylog:4.3.15@sha256:2f6a1ba45cbd4af6382fe325d443f430beaf2cafc76b70d2ab3e90cba563f574 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
