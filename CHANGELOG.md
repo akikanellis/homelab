@@ -1,3 +1,10 @@
+## [1.19.50](https://github.com/akikanellis/homelab/compare/v1.19.49...v1.19.50) (2023-05-06)
+
+
+### Build System
+
+* **deps:** update dependency ryanoasis/nerd-fonts to v3 ([#307](https://github.com/akikanellis/homelab/issues/307)) ([035a878](https://github.com/akikanellis/homelab/commit/035a87881d6c32ffa4c02b9f74f8c660cc6ca812))
+
 ## [1.19.49](https://github.com/akikanellis/homelab/compare/v1.19.48...v1.19.49) (2023-05-06)
 
 
