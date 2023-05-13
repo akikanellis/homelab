@@ -1,7 +1,7 @@
 ---
 services:
   home-assistant:
-    image: lscr.io/linuxserver/homeassistant:2023.5.2@sha256:a212b3147a393d2dba589d9439a9c9770dd761050b608cf7be3c3b7b30b0dcf3 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/homeassistant:2023.5.2@sha256:e11da0096a8f364c353c3bb7a756857210feea2c675e67805f6ecfa86b12deee # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -13,7 +13,7 @@ services:
     restart: always
 
   tasmoadmin:
-    image: ghcr.io/tasmoadmin/tasmoadmin:v3.0.2@sha256:abdd18227cd3c44ce7e9e1b7ab94656fd7886c3f25dde488a27b60b40eda004d # editorconfig-checker-disable-line
+    image: ghcr.io/tasmoadmin/tasmoadmin:v3.0.3@sha256:065ce3e236849110c9c7c97578bc716a85e83014502688708277c7c6d883dfd0 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
@@ -23,7 +23,7 @@ services:
     restart: always
 
   mosquitto:
-    image: eclipse-mosquitto:2.0.15@sha256:0e0886befecf2bf77e2e613f926f6ee0b77b93f76e49847471177143a8b3863c # editorconfig-checker-disable-line
+    image: eclipse-mosquitto:2.0.15@sha256:786ca925d7394a38dc7be5c02fc5e4da7e686c915a2673c6b3d1652c4e8c050b # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
