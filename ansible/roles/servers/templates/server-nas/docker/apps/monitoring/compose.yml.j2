@@ -1,7 +1,7 @@
 ---
 services:
   netdata:
-    image: netdata/netdata:v1.38.1@sha256:a85154c3c1aa28e5dd7a22974db2332cee03f834bc5e84be4d9283d8acc2c1c9 # editorconfig-checker-disable-line
+    image: netdata/netdata:v1.39.0@sha256:4fa77c879e4ab8e366b1bcbab00dd1aee1d1af4334eda4ffe640d3cdbce9eb09 # editorconfig-checker-disable-line
     hostname: "netdata-{{ inventory_hostname }}"
     environment:
       TZ: "{{ timezone }}"
@@ -57,7 +57,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:9.5.1@sha256:00a4d2889c2b32f86c50673b1a82cb5b45349f1c24b0a882d11a53518e2ecae4 # editorconfig-checker-disable-line
+    image: grafana/grafana-oss:9.5.2@sha256:39c849cebccccb22c0a5194f07c535669386190e029aa440ad535226974a5809 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
