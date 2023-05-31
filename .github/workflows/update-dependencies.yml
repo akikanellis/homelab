@@ -32,7 +32,7 @@ jobs:
         # yamllint disable-line rule:line-length
         uses: renovatebot/github-action@f9a5a67d4271f326b1e80695ea86dd9398b61d58 # v38.1.0
         with:
-          # renovate: datasource=docker depName=renovate/renovate
+          # renovate: datasource=docker depName=ghcr.io/renovatebot/renovate
           renovate-version: 35.102.4
           configurationFile: renovate.json5
           token: x-access-token:${{ steps.get-token.outputs.token }}
