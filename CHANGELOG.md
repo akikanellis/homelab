@@ -1,3 +1,10 @@
+## [1.19.58](https://github.com/akikanellis/homelab/compare/v1.19.57...v1.19.58) (2023-06-01)
+
+
+### Build System
+
+* **deps:** update renovatebot/github-action action to v38 ([#315](https://github.com/akikanellis/homelab/issues/315)) ([6b24144](https://github.com/akikanellis/homelab/commit/6b24144ff43e1febd83614ceb68e0d7f31c1b82c)), closes [renovatebot/github-action#753](https://github.com/renovatebot/github-action/issues/753)
+
 ## [1.19.57](https://github.com/akikanellis/homelab/compare/v1.19.56...v1.19.57) (2023-05-27)
 
 
