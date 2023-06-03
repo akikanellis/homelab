@@ -1,7 +1,7 @@
 ---
 services:
   gluetun:
-    image: qmcgaw/gluetun:v3.34.1@sha256:8eec7847e086d7346586122d4227859db420748e790e79dc4059cef8e78daf50 # editorconfig-checker-disable-line
+    image: qmcgaw/gluetun:v3.34.3@sha256:3b4d498939ef1f9ceac9049a73598acfcda25a9e58010fcd991afed32cd16eac # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -81,7 +81,7 @@ services:
     restart: always
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:4.5.2@sha256:cd75ae74f83232b23a27ffef5d98f4bee41f247a2b626dcaf0b429b699c6b6a5 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/qbittorrent:4.5.3@sha256:925ced3eb4ff720ab5820cbe07a8c01445ca92d57f7d06ec041feb3539340ea1 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -103,7 +103,7 @@ services:
     restart: always
 
   radarr:
-    image: lscr.io/linuxserver/radarr:4.4.4@sha256:4d7f994cbf5f27ccae86c86bb600c2db7c7a0f2b106b58419241b1a1c4c3ea39 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/radarr:4.5.2@sha256:8271e9a95379c05a293fd428de0c617fddde124e3ec460b705660fb1cd4a92b3 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
