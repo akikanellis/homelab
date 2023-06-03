@@ -1,3 +1,11 @@
+## [1.19.59](https://github.com/akikanellis/homelab/compare/v1.19.58...v1.19.59) (2023-06-03)
+
+
+### Build System
+
+* **deps:** update all docker digest dependencies ([#316](https://github.com/akikanellis/homelab/issues/316)) ([82e93e3](https://github.com/akikanellis/homelab/commit/82e93e30debeb9c72a10bff931617bb1c7919fa2))
+* **deps:** update all non-major dependencies ([#317](https://github.com/akikanellis/homelab/issues/317)) ([44e725c](https://github.com/akikanellis/homelab/commit/44e725cdc54eb8f2a5a3e79773a739a4498dd7f4))
+
 ## [1.19.58](https://github.com/akikanellis/homelab/compare/v1.19.57...v1.19.58) (2023-06-01)
 
 
