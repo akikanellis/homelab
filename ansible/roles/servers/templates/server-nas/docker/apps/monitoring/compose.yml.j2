@@ -57,7 +57,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:9.5.2@sha256:39c849cebccccb22c0a5194f07c535669386190e029aa440ad535226974a5809 # editorconfig-checker-disable-line
+    image: grafana/grafana-oss:9.5.3@sha256:35e8e1b76912e4c3bbaa8de01e730aad310acdb51ea0903f84bd098b12b8d861 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"

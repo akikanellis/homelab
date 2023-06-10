@@ -38,7 +38,7 @@ services:
     restart: always
 
   plex:
-    image: lscr.io/linuxserver/plex:1.32.2@sha256:740ee687166d8322504cfd5a60c007046255438a209c29fcd97fa32cf2824cfa # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/plex:1.32.3@sha256:2bac17635873b1637aa685ceb2e42b5a401cd4912b4c6d2aa951bf1dbd6db9b2 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -124,7 +124,7 @@ services:
     restart: always
 
   sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:4.0.1@sha256:e3d9e0d3b7cfa3566968f6d15f839c0d3b819cb1a7584d49beb374125323e371 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/sabnzbd:4.0.2@sha256:8eea4768e4f76966e71313e78caab66a935b4ea4efdc4d808483e6aadc8a9501 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
