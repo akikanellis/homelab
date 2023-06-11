@@ -1,3 +1,10 @@
+## [1.19.63](https://github.com/akikanellis/homelab/compare/v1.19.62...v1.19.63) (2023-06-11)
+
+
+### Build System
+
+* **deps:** update dependency conventional-changelog-conventionalcommits to v6 ([#321](https://github.com/akikanellis/homelab/issues/321)) ([1d88c1c](https://github.com/akikanellis/homelab/commit/1d88c1c3e99a1e048ed7ccf963b600bc06c291a6))
+
 ## [1.19.62](https://github.com/akikanellis/homelab/compare/v1.19.61...v1.19.62) (2023-06-10)
 
 
