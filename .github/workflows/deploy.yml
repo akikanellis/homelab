@@ -1,9 +1,13 @@
 ---
-name: Deploy to Prod
+name: Deploy
 
 "on":
   workflow_call:
     inputs:
+      environment:
+        type: string
+        description: Deployment environment
+        required: true
       version:
         type: string
         description: Deployment version
@@ -17,6 +21,10 @@ name: Deploy to Prod
         required: true
   workflow_dispatch:
     inputs:
+      environment:
+        type: environment
+        description: Deployment environment
+        required: true
       version:
         type: string
         description: Deployment version
@@ -25,7 +33,8 @@ name: Deploy to Prod
         description: Extra ansible-playbook options
         required: false
 
-concurrency: ${{ github.workflow }}
+concurrency:
+  ${{ github.workflow }}-${{ (github.event.inputs || inputs).environment }}
 
 env:
   # renovate: datasource=pypi depName=ansible-core
@@ -35,10 +44,10 @@ env:
   NETADDR_VERSION: 0.8.0
 
 jobs:
-  deploy-to-prod:
-    name: Deploy to prod
+  deploy:
+    name: Deploy
     runs-on: self-hosted
-    environment: prod
+    environment: ${{ (github.event.inputs || inputs).environment }}
 
     steps:
       - name: Checkout

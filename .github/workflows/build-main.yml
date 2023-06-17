@@ -65,8 +65,9 @@ jobs:
     name: Deploy to prod
     needs: release
     if: needs.release.outputs.release-published == 'true'
-    uses: ./.github/workflows/deploy-to-prod.yml
+    uses: ./.github/workflows/deploy.yml
     with:
+      environment: prod
       version: v${{ needs.release.outputs.release-version }}
     secrets:
       ANSIBLE_SSH_PRIVATE_KEY: ${{ secrets.ANSIBLE_SSH_PRIVATE_KEY }}
