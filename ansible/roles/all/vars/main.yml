@@ -1,6 +1,6 @@
 ---
 # renovate: datasource=github-releases depName=asdf-vm/asdf
-asdf_version: v0.11.3
+asdf_version: v0.12.0
 
 # renovate: datasource=github-releases depName=sharkdp/bat
 bat_version: v0.23.0
