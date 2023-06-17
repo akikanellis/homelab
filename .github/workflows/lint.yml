@@ -5,7 +5,7 @@ name: Lint
   workflow_call:
     inputs:
       continue-on-error:
-        type: string
+        type: boolean
         description: Allow a workflow run to pass when this workflow fails
         required: false
         default: false
@@ -14,7 +14,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
-    continue-on-error: ${{ fromJSON(inputs.continue-on-error) }}
+    continue-on-error: ${{ inputs.continue-on-error }}
 
     steps:
       - name: Checkout
