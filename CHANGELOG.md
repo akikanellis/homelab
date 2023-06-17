@@ -1,3 +1,10 @@
+## [1.19.66](https://github.com/akikanellis/homelab/compare/v1.19.65...v1.19.66) (2023-06-17)
+
+
+### Build System
+
+* simplify deployments ([#325](https://github.com/akikanellis/homelab/issues/325)) ([8ac7f5a](https://github.com/akikanellis/homelab/commit/8ac7f5a120492488e5bcbe77ed376dea45b39ca9)), closes [/github.com/actions/runner/issues/1492#issuecomment-1031669824](https://github.com/akikanellis//github.com/actions/runner/issues/1492/issues/issuecomment-1031669824)
+
 ## [1.19.65](https://github.com/akikanellis/homelab/compare/v1.19.64...v1.19.65) (2023-06-17)
 
 
