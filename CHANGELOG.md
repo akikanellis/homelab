@@ -1,3 +1,10 @@
+## [1.19.67](https://github.com/akikanellis/homelab/compare/v1.19.66...v1.19.67) (2023-06-17)
+
+
+### Build System
+
+* **deps:** update grafana/grafana-oss docker tag to v10 ([#324](https://github.com/akikanellis/homelab/issues/324)) ([c301d53](https://github.com/akikanellis/homelab/commit/c301d53b9a2822592fa280f02c05fc580401380b))
+
 ## [1.19.66](https://github.com/akikanellis/homelab/compare/v1.19.65...v1.19.66) (2023-06-17)
 
 
