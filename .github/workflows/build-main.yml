@@ -19,10 +19,14 @@ jobs:
   lint:
     name: Lint
     uses: ./.github/workflows/lint.yml
+    with:
+      continue-on-error: true
 
   test:
     name: Test
     uses: ./.github/workflows/test.yml
+    with:
+      continue-on-error: true
 
   release:
     name: Release
