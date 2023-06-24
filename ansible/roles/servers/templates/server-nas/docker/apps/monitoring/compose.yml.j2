@@ -35,7 +35,7 @@ services:
     restart: always
 
   prometheus:
-    image: prom/prometheus:v2.44.0@sha256:0f0b7feb6f02620df7d493ad7437b6ee95b6d16d8d18799f3607124e501444b1 # editorconfig-checker-disable-line
+    image: prom/prometheus:v2.45.0@sha256:9309deb7c981e8a94584d9ed689fd62f7ac4549d816fd3881550311cf056a237 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
@@ -47,7 +47,7 @@ services:
     restart: always
 
   unpoller:
-    image: ghcr.io/unpoller/unpoller:v2.7.13@sha256:1c62067e9a40b2cd81232be5b1274bd67f1e1e1a594eda945eb3fd8375e24ec4 # editorconfig-checker-disable-line
+    image: ghcr.io/unpoller/unpoller:v2.7.14@sha256:ea297b6a31e690bd221a3881f9fd079eb56846320d913c07cc1d4e1dabbcbbb2 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
@@ -57,7 +57,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:10.0.0@sha256:a1808702a37c8b389a97aa0ded6db863725e3840dfb7d2483b1d244ba45330fe # editorconfig-checker-disable-line
+    image: grafana/grafana-oss:10.0.1@sha256:c2a9d25b77b9a7439e56efffa916e43eda09db4f7b78526082443f9c2ee18dc0 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
