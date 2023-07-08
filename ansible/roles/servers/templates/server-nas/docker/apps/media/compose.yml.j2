@@ -38,7 +38,7 @@ services:
     restart: always
 
   plex:
-    image: lscr.io/linuxserver/plex:1.32.4@sha256:2ba4a483012f2b460d43c865b5f124162f4a402672e95e98a5653b210399601a # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/plex:1.32.4@sha256:0542f64cc5ecc05c0c4e79a09d716e683e901b1a6db99dc2727e3f761a94d3c0 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -81,7 +81,7 @@ services:
     restart: always
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:4.5.4@sha256:d2d3640d3eb83bc76cda5d106100c60fd7caf78ba1dce042db854a3ab05ca8e7 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/qbittorrent:4.5.4@sha256:f3e6520e5974b51d1efd1aca0c313e34ecd3ede4426961ccc8912da30c28ac6f # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -103,7 +103,7 @@ services:
     restart: always
 
   radarr:
-    image: lscr.io/linuxserver/radarr:4.5.2@sha256:5d5a48b0e5c3937bc872de3619594099334fd15aa51f5d80cce214adabe8c476 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/radarr:4.5.2@sha256:d4f9e8c3afa1b9ae75a619c6084b4c5b80d9d79823f09da49a93b004aa14ae3f # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -124,7 +124,7 @@ services:
     restart: always
 
   sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:4.0.2@sha256:ac6933167fe1d504d4c0bace7a18bf19c7641b8d8e7b9f7c9ff22f9fa3515aea # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/sabnzbd:4.0.2@sha256:6fa745c81f6acf202e43e4e66abe140c49e00925f9eedf0bd1be8a682043d9ec # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -145,7 +145,7 @@ services:
     restart: always
 
   sonarr:
-    image: lscr.io/linuxserver/sonarr:3.0.10@sha256:b82eb17e244a03b480de5566df75c107d9789fd0fb5b29ae4fab9c6df020a495 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/sonarr:3.0.10@sha256:46509bcc8c90dd7ba8196e8d7f9cf9f17ee1e816af1931f7b3910d8e4c34f7ff # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
