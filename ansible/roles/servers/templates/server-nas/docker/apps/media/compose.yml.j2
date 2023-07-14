@@ -103,7 +103,7 @@ services:
     restart: always
 
   radarr:
-    image: lscr.io/linuxserver/radarr:4.5.2@sha256:d4f9e8c3afa1b9ae75a619c6084b4c5b80d9d79823f09da49a93b004aa14ae3f # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/radarr:4.6.4@sha256:73145b77b1771b030e85f80e848b65671bc6429fe277a2ff162e5518ea43a415 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -124,7 +124,7 @@ services:
     restart: always
 
   sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:4.0.2@sha256:6fa745c81f6acf202e43e4e66abe140c49e00925f9eedf0bd1be8a682043d9ec # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/sabnzbd:4.0.3@sha256:d2b1a8c1ff5dd035b4eb7a75cfff2e8ed15bafb65a45a500c1f21239455f3951 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
