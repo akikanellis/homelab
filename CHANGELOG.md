@@ -1,3 +1,10 @@
+## [1.19.73](https://github.com/akikanellis/homelab/compare/v1.19.72...v1.19.73) (2023-07-15)
+
+
+### Build System
+
+* **deps:** update ghcr.io/renovatebot/renovate docker tag to v36 ([#332](https://github.com/akikanellis/homelab/issues/332)) ([e4868fd](https://github.com/akikanellis/homelab/commit/e4868fdfd3781814f8701ab7236530af12952138))
+
 ## [1.19.72](https://github.com/akikanellis/homelab/compare/v1.19.71...v1.19.72) (2023-07-08)
 
 
