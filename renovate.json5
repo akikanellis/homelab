@@ -1,7 +1,7 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
-    "config:base",
+    "config:recommended",
 
     ":semanticCommitType(build)",
     ":semanticCommitTypeAll(build)",
@@ -20,8 +20,6 @@
   onboarding: false,
   requireConfig: "required",
   automerge: true,
-  platformAutomerge: true,
-  rollbackPrs: true,
   schedule: ["after 3:00 and before 6:00 on Saturday"],
   regexManagers: [
     {
@@ -48,7 +46,7 @@
 {{#if versioning}}\
 {{{versioning}}}\
 {{else}}\
-semver\
+semver-coerced\
 {{/if}}"
     }
   ],
