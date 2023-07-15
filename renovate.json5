@@ -20,7 +20,6 @@
   onboarding: false,
   requireConfig: "required",
   automerge: true,
-  platformAutomerge: true,
   schedule: ["after 3:00 and before 6:00 on Saturday"],
   regexManagers: [
     {
