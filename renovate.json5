@@ -48,7 +48,7 @@
 {{#if versioning}}\
 {{{versioning}}}\
 {{else}}\
-semver\
+semver-coerced\
 {{/if}}"
     }
   ],
