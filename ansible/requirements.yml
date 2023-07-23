@@ -1,13 +1,13 @@
 ---
 collections:
   - name: ansible.posix
-    version: 1.4.0
+    version: 1.5.4
   - name: ansible.utils
-    version: 2.7.0
+    version: 2.10.3
   - name: community.general
-    version: 6.4.0
+    version: 6.6.3
   - name: devsec.hardening
-    version: 8.4.0
+    version: 8.7.0
 
 roles:
   - name: gantsign.antigen
