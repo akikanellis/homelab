@@ -1,3 +1,10 @@
+## [1.19.78](https://github.com/akikanellis/homelab/compare/v1.19.77...v1.19.78) (2023-07-23)
+
+
+### Build System
+
+* **deps:** update dependency community.general to v7 ([#337](https://github.com/akikanellis/homelab/issues/337)) ([6b46f2a](https://github.com/akikanellis/homelab/commit/6b46f2a15e76f19cc14923e9d5c954c135e7771d))
+
 ## [1.19.77](https://github.com/akikanellis/homelab/compare/v1.19.76...v1.19.77) (2023-07-23)
 
 
