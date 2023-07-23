@@ -39,7 +39,7 @@ docker_distribution: >-
   }}
 
 # renovate: datasource=github-releases depName=mr-karan/doggo
-doggo_version: v0.5.5
+doggo_version: v0.5.6
 architecture_to_doggo_architecture:
   x86_64: amd64
   armv7l:
@@ -55,7 +55,7 @@ hyperfine_architecture: >-
   {{ architecture_to_hyperfine_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jesseduffield/lazydocker
-lazydocker_version: v0.20.0
+lazydocker_version: v0.21.0
 architecture_to_lazydocker_architecture:
   x86_64: x86_64
   armv7l: armv7
@@ -63,7 +63,7 @@ lazydocker_architecture: >-
   {{ architecture_to_lazydocker_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jesseduffield/lazygit
-lazygit_version: v0.35
+lazygit_version: v0.39.3
 architecture_to_lazygit_architecture:
   x86_64: x86_64
   armv7l: armv6
