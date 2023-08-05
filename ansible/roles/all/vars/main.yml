@@ -55,7 +55,7 @@ hyperfine_architecture: >-
   {{ architecture_to_hyperfine_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jesseduffield/lazydocker
-lazydocker_version: v0.21.0
+lazydocker_version: v0.21.1
 architecture_to_lazydocker_architecture:
   x86_64: x86_64
   armv7l: armv7
@@ -63,7 +63,7 @@ lazydocker_architecture: >-
   {{ architecture_to_lazydocker_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jesseduffield/lazygit
-lazygit_version: v0.39.4
+lazygit_version: v0.40.0
 architecture_to_lazygit_architecture:
   x86_64: x86_64
   armv7l: armv6
@@ -71,7 +71,7 @@ lazygit_architecture: >-
   {{ architecture_to_lazygit_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=ajeetdsouza/zoxide
-zoxide_version: v0.9.1
+zoxide_version: v0.9.2
 architecture_to_zoxide_architecture:
   x86_64: amd64
   armv7l: armv7
