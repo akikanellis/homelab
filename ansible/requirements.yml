@@ -5,9 +5,9 @@ collections:
   - name: ansible.utils
     version: 2.10.3
   - name: community.general
-    version: 7.2.0
+    version: 7.2.1
   - name: devsec.hardening
-    version: 8.7.0
+    version: 8.8.0
 
 roles:
   - name: gantsign.antigen
