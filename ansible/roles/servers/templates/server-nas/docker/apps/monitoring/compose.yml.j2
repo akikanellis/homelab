@@ -1,7 +1,7 @@
 ---
 services:
   netdata:
-    image: netdata/netdata:v1.41.0@sha256:2801d57b2050bc9071be8279d6f70a3ffe71a7881c84b524104080375ae0cb46 # editorconfig-checker-disable-line
+    image: netdata/netdata:v1.42.0@sha256:ef61fb64d8e6d7d44865f2a291cc01be4e2ff38e4d6a197a289fa4756e3bbbad # editorconfig-checker-disable-line
     hostname: "netdata-{{ inventory_hostname }}"
     environment:
       TZ: "{{ timezone }}"
@@ -47,7 +47,7 @@ services:
     restart: always
 
   unpoller:
-    image: ghcr.io/unpoller/unpoller:v2.8.0@sha256:839b6a6924a7176b03210f623303bddba6c88dd15af79c73b7a01b401fc685cb # editorconfig-checker-disable-line
+    image: ghcr.io/unpoller/unpoller:v2.8.1@sha256:cca00aabddd802637c93461263cf9f60e879fbca93fa80fa49ec2ca97e136e63 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
