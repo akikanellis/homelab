@@ -41,6 +41,9 @@ jobs:
       - name: Install dependencies
         run: just install-dependencies
 
+      - name: Install VirtualBox
+        run: brew install virtualbox
+
       - name: Cache Vagrant boxes
         # yamllint disable-line rule:line-length
         uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
