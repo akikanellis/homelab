@@ -1,7 +1,7 @@
 ---
 services:
   netdata:
-    image: netdata/netdata:v1.42.1@sha256:c1943ce672822b07103ea4b17050d60167f31f3e409eb2fe02a1241f0352c060 # editorconfig-checker-disable-line
+    image: netdata/netdata:v1.42.2@sha256:068dccfac13bee73296e5fb775dbe95b622ec9921d8b7e2d21aa1bb7801b9355 # editorconfig-checker-disable-line
     hostname: "netdata-{{ inventory_hostname }}"
     environment:
       TZ: "{{ timezone }}"
@@ -57,7 +57,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:10.0.3@sha256:423040d62678074111e4e72d7dcef23480a94eb4f21b9173204d1a5ee972ec59 # editorconfig-checker-disable-line
+    image: grafana/grafana-oss:10.1.0@sha256:047c1c5aa6fef257b6c2516f95c8fcd9f28707c201c6413dd78328b6cbedff6f # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
@@ -99,7 +99,7 @@ services:
     restart: always
 
   mongodb:
-    image: mongo:4.4.23@sha256:de5682f87f037eda383ef3c0f198d52e34cded92c53efac50f44be4eaef86c7c # editorconfig-checker-disable-line
+    image: mongo:4.4.24@sha256:033255f596fb18ee947fabef1377f666f96ff0c0328242a7ff219c284537a76f # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
