@@ -1,3 +1,10 @@
+## [1.19.91](https://github.com/akikanellis/homelab/compare/v1.19.90...v1.19.91) (2023-09-02)
+
+
+### Build System
+
+* **deps:** update cycjimmy/semantic-release-action action to v4 ([#352](https://github.com/akikanellis/homelab/issues/352)) ([8f6afd8](https://github.com/akikanellis/homelab/commit/8f6afd882ae48b1ca2c49adb079f5640100b1227))
+
 ## [1.19.90](https://github.com/akikanellis/homelab/compare/v1.19.89...v1.19.90) (2023-09-02)
 
 
