@@ -57,7 +57,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:10.1.1@sha256:d1dbafe040557e06ca76b374b089fc910bd620aef34b25e48f954a0266e291a0 # editorconfig-checker-disable-line
+    image: grafana/grafana-oss:10.1.1@sha256:1b9ca4bbc4a2eebda7de79834d61106efe57402a7720b3fb95f27b2b6793374f # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
@@ -99,7 +99,7 @@ services:
     restart: always
 
   mongodb:
-    image: mongo:4.4.24@sha256:033255f596fb18ee947fabef1377f666f96ff0c0328242a7ff219c284537a76f # editorconfig-checker-disable-line
+    image: mongo:4.4.24@sha256:90e9402437d0fafc818fde2cc108ccb445e02b0c85b230bcf3a55def0f0029ec # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
