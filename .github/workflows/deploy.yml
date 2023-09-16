@@ -38,7 +38,7 @@ concurrency:
 
 env:
   # renovate: datasource=pypi depName=ansible-core
-  ANSIBLE_CORE_VERSION: 2.15.3
+  ANSIBLE_CORE_VERSION: 2.15.4
 
   # renovate: datasource=pypi depName=netaddr
   NETADDR_VERSION: 0.8.0
