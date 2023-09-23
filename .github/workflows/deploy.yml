@@ -41,7 +41,7 @@ env:
   ANSIBLE_CORE_VERSION: 2.15.4
 
   # renovate: datasource=pypi depName=netaddr
-  NETADDR_VERSION: 0.8.0
+  NETADDR_VERSION: 0.9.0
 
 jobs:
   deploy:
