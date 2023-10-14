@@ -3,7 +3,7 @@
 asdf_version: v0.13.1
 
 # renovate: datasource=github-releases depName=sharkdp/bat
-bat_version: v0.23.0
+bat_version: v0.24.0
 architecture_to_bat_architecture:
   x86_64: amd64
   armv7l: armhf
@@ -55,7 +55,7 @@ hyperfine_architecture: >-
   {{ architecture_to_hyperfine_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jesseduffield/lazydocker
-lazydocker_version: v0.21.1
+lazydocker_version: v0.23.1
 architecture_to_lazydocker_architecture:
   x86_64: x86_64
   armv7l: armv7
