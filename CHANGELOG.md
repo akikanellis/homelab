@@ -1,3 +1,23 @@
+## [1.19.92](https://github.com/akikanellis/homelab/compare/v1.19.91...v1.19.92) (2023-10-14)
+
+
+### Build System
+
+* **deps:** update all docker digest dependencies ([#354](https://github.com/akikanellis/homelab/issues/354)) ([94e3b43](https://github.com/akikanellis/homelab/commit/94e3b4343ab893d7637476878c9a09a6ec0ba235))
+* **deps:** update all docker digest dependencies ([#357](https://github.com/akikanellis/homelab/issues/357)) ([0fdabfa](https://github.com/akikanellis/homelab/commit/0fdabfad5b535351dd59cc549cdc05feb0c7bdea))
+* **deps:** update all docker digest dependencies ([#359](https://github.com/akikanellis/homelab/issues/359)) ([f9b0c6a](https://github.com/akikanellis/homelab/commit/f9b0c6a41cb4df120ea0771714d5a035baa119f7))
+* **deps:** update all docker digest dependencies ([#361](https://github.com/akikanellis/homelab/issues/361)) ([2f3221a](https://github.com/akikanellis/homelab/commit/2f3221a3853df62175edd7f83494af7a900c4655))
+* **deps:** update all docker digest dependencies ([#364](https://github.com/akikanellis/homelab/issues/364)) ([b155b39](https://github.com/akikanellis/homelab/commit/b155b399011fa4ac5130f67a38244c194f57b39d))
+* **deps:** update all docker digest dependencies ([#366](https://github.com/akikanellis/homelab/issues/366)) ([b33f376](https://github.com/akikanellis/homelab/commit/b33f376b4bd7972e69708d84f2465603891ce0f5))
+* **deps:** update all non-major dependencies ([#355](https://github.com/akikanellis/homelab/issues/355)) ([5fa87aa](https://github.com/akikanellis/homelab/commit/5fa87aae77d917eeb1e01984e8ecd941d99143d6))
+* **deps:** update all non-major dependencies ([#358](https://github.com/akikanellis/homelab/issues/358)) ([6a7e969](https://github.com/akikanellis/homelab/commit/6a7e969c95a878bc56a31f8618fbe12ef065c377))
+* **deps:** update all non-major dependencies ([#360](https://github.com/akikanellis/homelab/issues/360)) ([db795e6](https://github.com/akikanellis/homelab/commit/db795e649912b979832470b12cd165691dbf5d07))
+* **deps:** update all non-major dependencies ([#362](https://github.com/akikanellis/homelab/issues/362)) ([50cfffd](https://github.com/akikanellis/homelab/commit/50cfffdcc51b914ab8c55e3ae3fe3f5d057e75db))
+* **deps:** update all non-major dependencies ([#365](https://github.com/akikanellis/homelab/issues/365)) ([f1f5284](https://github.com/akikanellis/homelab/commit/f1f5284cb171a47681a83e46476ec3d2b963436b))
+* **deps:** update all non-major dependencies ([#367](https://github.com/akikanellis/homelab/issues/367)) ([863b41a](https://github.com/akikanellis/homelab/commit/863b41a50795170702eca91c2bf8e46e095afd1a))
+* **deps:** update dependency conventional-changelog-conventionalcommits to v7 ([#353](https://github.com/akikanellis/homelab/issues/353)) ([1f345b7](https://github.com/akikanellis/homelab/commit/1f345b74ba9aa52e122b17d22d1943742f44e74b))
+* limit semantic release and plugin versions ([#369](https://github.com/akikanellis/homelab/issues/369)) ([b5c2a29](https://github.com/akikanellis/homelab/commit/b5c2a29fcd1a8a0749063eefb8fcb33e138ec144))
+
 ## [1.19.91](https://github.com/akikanellis/homelab/compare/v1.19.90...v1.19.91) (2023-09-02)
 
 
