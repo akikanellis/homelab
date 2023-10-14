@@ -64,12 +64,20 @@ semver-coerced\
       matchUpdateTypes: ["digest"]
     },
     {
-      description: "Limit semantic-release versions to 19.x.x.\
-      Version 20.0.0 is not currently compatible with\
-      cycjimmy/semantic-release-action",
+      description: "Limit semantic-release versions to 21.x.x.\
+      Version 22.x.x is currently not compatible with\
+      gradle-semantic-release-plugin",
       matchDatasources: ["npm"],
       matchPackageNames: ["semantic-release"],
-      allowedVersions: "<= 19"
+      allowedVersions: "<= 21"
+    },
+    {
+      description: "Limit conventional-changelog-conventionalcommits versions\
+      to 6.x.x. Version 7.x.x is currently only compatible with\
+      semantic-release >= 22",
+      matchDatasources: ["npm"],
+      matchPackageNames: ["conventional-changelog-conventionalcommits"],
+      allowedVersions: "<= 6"
     },
     {
       description: "Use correct compatibility for github/super-linter",
