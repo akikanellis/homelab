@@ -26,7 +26,7 @@ jobs:
         uses: extractions/setup-just@69d82fb0233557aec017ef13706851d0694e0f1d # v1.6.0
         with:
           # renovate: datasource=crate depName=just
-          just-version: 1.14.0
+          just-version: 1.15.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
