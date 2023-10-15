@@ -1,3 +1,10 @@
+## [1.19.93](https://github.com/akikanellis/homelab/compare/v1.19.92...v1.19.93) (2023-10-15)
+
+
+### Build System
+
+* **deps:** update actions/checkout action to v4 ([#356](https://github.com/akikanellis/homelab/issues/356)) ([b7d738c](https://github.com/akikanellis/homelab/commit/b7d738cbffc651c92ec9bae70e6b0cb6ed839db4))
+
 ## [1.19.92](https://github.com/akikanellis/homelab/compare/v1.19.91...v1.19.92) (2023-10-14)
 
 
