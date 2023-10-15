@@ -1,3 +1,10 @@
+## [1.19.95](https://github.com/akikanellis/homelab/compare/v1.19.94...v1.19.95) (2023-10-15)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/radarr docker tag to v5 ([#368](https://github.com/akikanellis/homelab/issues/368)) ([4abc3b8](https://github.com/akikanellis/homelab/commit/4abc3b81f72270cda3921bb6bfe98fa308fa77e7))
+
 ## [1.19.94](https://github.com/akikanellis/homelab/compare/v1.19.93...v1.19.94) (2023-10-15)
 
 
