@@ -23,7 +23,7 @@ confidentiality, integrity, and availability of data.
 If there are any vulnerabilities in the project, don't hesitate to
 _report them_.
 
-1. Please email hello@akikanellis.com.
+1. Please email [hello@akikanellis.com](mailto:hello@akikanellis.com).
 2. Describe the vulnerability, the steps you took to create the issue, the
     affected versions, and, if known, how to mitigate the problem.
 

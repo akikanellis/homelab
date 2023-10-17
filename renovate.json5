@@ -21,9 +21,10 @@
   requireConfig: "required",
   automerge: true,
   schedule: ["after 3:00 and before 6:00 on Saturday"],
-  regexManagers: [
+  customManagers: [
     {
       description: "Any other file with dependencies",
+      customType: "regex",
       fileMatch: [
         /* eslint-disable jsonc/no-useless-escape */
         "(^|/)justfile$",
@@ -80,9 +81,10 @@ semver-coerced\
       allowedVersions: "<= 6"
     },
     {
-      description: "Use correct compatibility for github/super-linter",
+      description: "Use correct compatibility for\
+      ghcr.io/super-linter/super-linter",
       matchDatasources: ["docker"],
-      matchPackageNames: ["github/super-linter"],
+      matchPackageNames: ["ghcr.io/super-linter/super-linter"],
       versioning: "\
 regex:\
 ^((?<compatibility>.+)-)?\
