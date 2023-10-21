@@ -1,7 +1,7 @@
 ---
 services:
   home-assistant:
-    image: lscr.io/linuxserver/homeassistant:2023.10.3@sha256:f0b62be4799b473d36445ffa22c19f42384b9ec80c1fc9b12f507b4cb92942d3 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/homeassistant:2023.10.3@sha256:3ad82dff3fc7498436e0e37081484730e58e93b3b151a0566e054aaa48b2be65 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -23,7 +23,7 @@ services:
     restart: always
 
   mosquitto:
-    image: eclipse-mosquitto:2.0.18@sha256:ddf2025790f12e23cf8750c1d2188a9511641d7676e7c70350e105c79fe1bef7 # editorconfig-checker-disable-line
+    image: eclipse-mosquitto:2.0.18@sha256:d29d5247803ee979f1a9c7af6307e6840e9604456c913be4ede175a9d7be9ac4 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
