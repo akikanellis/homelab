@@ -1,7 +1,7 @@
 #!/usr/bin/env just --justfile
 
 # renovate: datasource=docker depName=ghcr.io/super-linter/super-linter
-super_linter_version := "slim-v5.4.3@sha256:b8d5d1a9a3d7eeec1a78190e17368a998cbeba7d6f571c642ec53a02dfded058" # editorconfig-checker-disable-line
+super_linter_version := "slim-v5.5.0" # editorconfig-checker-disable-line
 
 @_default:
   just --list
@@ -27,6 +27,7 @@ lint *extra_args:
   --env YAML_ERROR_ON_WARNING=true \
   --env FILTER_REGEX_EXCLUDE=.*vault\.yml \
   --volume {{justfile_directory()}}:/tmp/lint \
+  --workdir /tmp/lint \
   {{extra_args}} \
   ghcr.io/super-linter/super-linter:{{super_linter_version}}
 
