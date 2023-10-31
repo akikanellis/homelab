@@ -10,7 +10,7 @@ architecture_to_bat_architecture:
 bat_architecture: "{{ architecture_to_bat_architecture[ansible_architecture] }}"
 
 # renovate: datasource=github-releases depName=rs/curlie
-curlie_version: v1.7.1
+curlie_version: v1.7.2
 architecture_to_curlie_architecture:
   x86_64: amd64
   armv7l: armv6
