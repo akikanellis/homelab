@@ -3,7 +3,7 @@ name: monitoring
 
 services:
   netdata:
-    image: netdata/netdata:v1.43.0@sha256:a3b217677de7a742fb2e65445cf76c9af0ef04d6fbb37d3b28105feddbd209af # editorconfig-checker-disable-line
+    image: netdata/netdata:v1.43.2@sha256:0116a5a4dbfedd84d80eba320f5d99d547da5d9bc0841adde0d7f13bed25f73a # editorconfig-checker-disable-line
     hostname: "netdata-{{ inventory_hostname }}"
     environment:
       TZ: "{{ timezone }}"
