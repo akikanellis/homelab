@@ -6,7 +6,8 @@ collections:
     version: 2.11.0
   - name: community.general
     version: 7.5.1
-  # We temporarily need to specify the bellow git commit hash due to a fix that was committed but not released yet.
+  # We temporarily need to specify the bellow git commit hash
+  # due to a fix that was committed but not released yet.
   # See: https://github.com/dev-sec/ansible-collection-hardening/pull/718
   - name: devsec-hardening
     type: git
