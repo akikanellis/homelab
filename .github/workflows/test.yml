@@ -15,6 +15,12 @@ jobs:
     name: Test
     runs-on: macos-12
     continue-on-error: ${{ inputs.continue-on-error }}
+    strategy:
+      matrix:
+        platform-name:
+          - workstation-pop-os
+          - server-nas
+          - server-pi
 
     steps:
       - name: Checkout
@@ -52,4 +58,4 @@ jobs:
           restore-keys: ${{ runner.os }}-vagrant-
 
       - name: Test
-        run: just test
+        run: just test --platform-name ${{ matrix.platform-name }}
