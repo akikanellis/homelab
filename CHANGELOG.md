@@ -1,3 +1,10 @@
+## [1.19.103](https://github.com/akikanellis/homelab/compare/v1.19.102...v1.19.103) (2023-11-25)
+
+
+### Build System
+
+* update devsec.hardening to "a15159d" ([#383](https://github.com/akikanellis/homelab/issues/383)) ([1e97eea](https://github.com/akikanellis/homelab/commit/1e97eea6a51cd542f763582c623a71ae09426978))
+
 ## [1.19.102](https://github.com/akikanellis/homelab/compare/v1.19.101...v1.19.102) (2023-11-21)
 
 
