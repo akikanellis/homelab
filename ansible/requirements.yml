@@ -6,8 +6,13 @@ collections:
     version: 2.11.0
   - name: community.general
     version: 7.5.1
-  - name: devsec.hardening
-    version: 8.8.0
+  # We temporarily need to specify the bellow git commit hash
+  # due to a fix that was committed but not released yet.
+  # See: https://github.com/dev-sec/ansible-collection-hardening/pull/718
+  - name: devsec-hardening
+    type: git
+    source: https://github.com/dev-sec/ansible-collection-hardening
+    version: "a15159d0726d509baa066698021d9470c97a8768"
 
 roles:
   - name: gantsign.antigen
