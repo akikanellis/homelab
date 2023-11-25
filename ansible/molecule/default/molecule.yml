@@ -12,18 +12,20 @@ driver:
 platforms:
   - name: workstation-pop-os
     groups: [workstations]
-    # `cpus` need to roughly match the core count used by the CI. Currently, we
-    # are using a 3-core macos-12 instance in '.github/workflows/test.yml',
-    # therefore we are using 2x 2-core instances with vagrant.
+    # `cpus` need to roughly match the core count used by the CI, otherwise
+    # there is a risk of GitHub shutting the runner down due to overloading.
+    # Currently, we are using a 3-core macos-12 instance in
+    # '.github/workflows/test.yml' which runs a single vagrant instance per
+    # matrix test, therefore we are using 2 cores per instance with vagrant.
     # See:
     # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
-    cpus: 2
+    cpus: 1
     memory: 2048
 
   - name: server-nas
     groups: [servers]
     # See note on `cpus` above
-    cpus: 2
+    cpus: 1
     # server-nas needs extra memory primarily due to the amount of docker apps
     # that are running
     memory: 4096
@@ -31,7 +33,7 @@ platforms:
   - name: server-pi
     groups: [servers]
     # See note on `cpus` above
-    cpus: 2
+    cpus: 1
     memory: 2048
 
 provisioner:
