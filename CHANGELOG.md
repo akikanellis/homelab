@@ -1,3 +1,10 @@
+## [1.19.105](https://github.com/akikanellis/homelab/compare/v1.19.104...v1.19.105) (2023-12-02)
+
+
+### Build System
+
+* temporarily disable VM tests ([#386](https://github.com/akikanellis/homelab/issues/386)) ([e1c0bb7](https://github.com/akikanellis/homelab/commit/e1c0bb71eaa58156d6a28116077fd9d67a1fa149))
+
 ## [1.19.104](https://github.com/akikanellis/homelab/compare/v1.19.103...v1.19.104) (2023-11-27)
 
 
