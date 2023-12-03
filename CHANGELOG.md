@@ -1,3 +1,10 @@
+## [1.19.108](https://github.com/akikanellis/homelab/compare/v1.19.107...v1.19.108) (2023-12-03)
+
+
+### Build System
+
+* **deps:** update dependency ansible.utils to v3 ([#385](https://github.com/akikanellis/homelab/issues/385)) ([e6dc109](https://github.com/akikanellis/homelab/commit/e6dc1091a140b33c30711ecef6fc2ebd364e2fca))
+
 ## [1.19.107](https://github.com/akikanellis/homelab/compare/v1.19.106...v1.19.107) (2023-12-02)
 
 
