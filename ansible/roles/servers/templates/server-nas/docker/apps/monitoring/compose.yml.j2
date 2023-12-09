@@ -1,7 +1,7 @@
 ---
 services:
   netdata:
-    image: netdata/netdata:v1.43.2@sha256:0116a5a4dbfedd84d80eba320f5d99d547da5d9bc0841adde0d7f13bed25f73a # editorconfig-checker-disable-line
+    image: netdata/netdata:v1.44.0@sha256:a1f0e22077e0258fc2ac26d133a46cc1dfbada31002610a5a283cc7edeb18e40 # editorconfig-checker-disable-line
     hostname: "netdata-{{ inventory_hostname }}"
     environment:
       TZ: "{{ timezone }}"
@@ -35,7 +35,7 @@ services:
     restart: always
 
   prometheus:
-    image: prom/prometheus:v2.48.0@sha256:b440bc0e8aa5bab44a782952c09516b6a50f9d7b2325c1ffafac7bc833298e2e # editorconfig-checker-disable-line
+    image: prom/prometheus:v2.48.1@sha256:a67e5e402ff5410b86ec48b39eab1a3c4df2a7e78a71bf025ec5e32e09090ad4 # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
