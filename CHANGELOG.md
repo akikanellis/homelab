@@ -1,3 +1,10 @@
+## [1.19.112](https://github.com/akikanellis/homelab/compare/v1.19.111...v1.19.112) (2023-12-10)
+
+
+### Build System
+
+* **deps:** update actions/stale action to v9 ([#390](https://github.com/akikanellis/homelab/issues/390)) ([a5321fa](https://github.com/akikanellis/homelab/commit/a5321fadf12416a1e3980178b47be9d3f3fc77ad))
+
 ## [1.19.111](https://github.com/akikanellis/homelab/compare/v1.19.110...v1.19.111) (2023-12-09)
 
 
