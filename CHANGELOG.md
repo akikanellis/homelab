@@ -1,3 +1,10 @@
+## [1.19.113](https://github.com/akikanellis/homelab/compare/v1.19.112...v1.19.113) (2023-12-10)
+
+
+### Build System
+
+* **deps:** update actions/setup-python action to v5 ([#389](https://github.com/akikanellis/homelab/issues/389)) ([3f8cd4a](https://github.com/akikanellis/homelab/commit/3f8cd4a4a3ad83420f85f20f5834bdf031cffd78))
+
 ## [1.19.112](https://github.com/akikanellis/homelab/compare/v1.19.111...v1.19.112) (2023-12-10)
 
 
