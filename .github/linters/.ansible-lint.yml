@@ -1,4 +1,9 @@
 ---
 use_default_rules: true
 parseable: true
-skip_list: [yaml]
+skip_list:
+  # Temporarily disabled due to outdated ansible-lint in Super-Linter.
+  # Will re-enable after switching to MegaLinter.
+  - schema[tasks]
+  # YAML linting is handled by yamllint
+  - yaml
