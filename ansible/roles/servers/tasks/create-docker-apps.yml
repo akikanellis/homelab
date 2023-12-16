@@ -96,6 +96,10 @@
       up
       --detach
       --remove-orphans
+  environment:
+    # Compose frequently times out in some apps due to a lack of processing
+    # power in the server and a default timeout of 60.
+    COMPOSE_HTTP_TIMEOUT: 120
   loop: "{{ apps }}"
   register: docker_compose_up_result
   changed_when: >
