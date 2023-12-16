@@ -1,3 +1,15 @@
+## [1.19.116](https://github.com/akikanellis/homelab/compare/v1.19.115...v1.19.116) (2023-12-16)
+
+
+### Miscellaneous Chores
+
+* update prod vault ([#393](https://github.com/akikanellis/homelab/issues/393)) ([4cf2225](https://github.com/akikanellis/homelab/commit/4cf22258b51d80026c838f7eb3a7c7d3d6def36f))
+
+
+### Build System
+
+* **deps:** update ghcr.io/renovatebot/renovate docker tag to v37.100.2 ([#394](https://github.com/akikanellis/homelab/issues/394)) ([a670773](https://github.com/akikanellis/homelab/commit/a67077323f39e157a55145495b5d2e9ca2a85a76))
+
 ## [1.19.115](https://github.com/akikanellis/homelab/compare/v1.19.114...v1.19.115) (2023-12-16)
 
 
