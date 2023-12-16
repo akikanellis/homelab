@@ -1,3 +1,10 @@
+## [1.19.117](https://github.com/akikanellis/homelab/compare/v1.19.116...v1.19.117) (2023-12-16)
+
+
+### Bug Fixes
+
+* set compose HTTP timeout to 120 ([#395](https://github.com/akikanellis/homelab/issues/395)) ([0b2367a](https://github.com/akikanellis/homelab/commit/0b2367a2f150104ea0184f846b31cb02d0de3d8f))
+
 ## [1.19.116](https://github.com/akikanellis/homelab/compare/v1.19.115...v1.19.116) (2023-12-16)
 
 
