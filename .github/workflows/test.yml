@@ -52,9 +52,4 @@ jobs:
           restore-keys: ${{ runner.os }}-vagrant-
 
       - name: Test
-        run: >
-          echo "Tests are temporarily disabled.
-          See:
-            - https://github.com/actions/runner-images/issues/8730
-            - https://github.com/actions/runner-images/issues/8642
-          "
+        run: just test
