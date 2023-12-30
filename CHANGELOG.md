@@ -1,3 +1,10 @@
+## [1.19.122](https://github.com/akikanellis/homelab/compare/v1.19.121...v1.19.122) (2023-12-30)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/sonarr docker tag to v4 ([#401](https://github.com/akikanellis/homelab/issues/401)) ([cde904c](https://github.com/akikanellis/homelab/commit/cde904c012a393befabb97e54edd569c3b6a1ecc))
+
 ## [1.19.121](https://github.com/akikanellis/homelab/compare/v1.19.120...v1.19.121) (2023-12-30)
 
 
