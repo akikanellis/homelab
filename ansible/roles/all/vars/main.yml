@@ -1,7 +1,4 @@
 ---
-# renovate: datasource=github-releases depName=asdf-vm/asdf
-asdf_version: v0.13.1
-
 # renovate: datasource=github-releases depName=sharkdp/bat
 bat_version: v0.24.0
 architecture_to_bat_architecture:
@@ -69,6 +66,14 @@ architecture_to_lazygit_architecture:
   armv7l: armv6
 lazygit_architecture: >-
   {{ architecture_to_lazygit_architecture[ansible_architecture] }}
+
+# renovate: datasource=github-releases depName=jdx/rtx
+rtx_version: v2023.12.40
+architecture_to_rtx_architecture:
+  x86_64: x64
+  armv7l: armv7
+rtx_architecture: >-
+  {{ architecture_to_rtx_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=ajeetdsouza/zoxide
 zoxide_version: v0.9.2

@@ -1,23 +1,23 @@
 ---
-- name: Install asdf plugins
+- name: Install rtx plugins
   ansible.builtin.import_role:
     name: common
-    tasks_from: asdf
+    tasks_from: rtx
   vars:
-    asdf_plugins:
+    rtx_plugins:
       - name: nodejs
       - name: python
 
-- name: Install tldr
+- name: Install Node utilities
   ansible.builtin.import_role:
     name: common
     tasks_from: npm
   vars:
     package_names: [tldr]
 
-- name: Install pip_search
+- name: Install Python utilities
   ansible.builtin.import_role:
     name: common
     tasks_from: pip
   vars:
-    package_names: pip_search
+    package_names: [pip_search]

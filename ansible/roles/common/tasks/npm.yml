@@ -6,8 +6,12 @@
 - name: Install "aki" user global npm packages
   become_user: aki
   ansible.builtin.command:
-    cmd: >
-      zsh -c "source ~/.asdf/asdf.sh &&
-      direnv exec ~ npm install --global {{ item }}"
-    creates: "{{ npm_binaries_dir }}/{{ item }}"
-  loop: "{{ package_names }}"
+    cmd: >-
+      zsh -c
+      "rtx exec --
+      npm install --global {{ package_names | join(' ') }}"
+  register: npm_install
+  retries: 10
+  delay: 2
+  until: npm_install is success
+  changed_when: "'added' in npm_install.stdout"

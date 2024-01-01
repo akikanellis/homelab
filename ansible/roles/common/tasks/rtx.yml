@@ -1,0 +1,62 @@
+---
+- name: Set plugin names
+  ansible.builtin.set_fact:
+    rtx_plugins_names: "{{ rtx_plugins | map(attribute='name') | list }}"
+
+- name: Install "nodejs" rtx plugin dependencies
+  ansible.builtin.package:
+    name:
+      - dirmngr
+      - gpg
+  when: "'nodejs' in rtx_plugins_names"
+
+# Needed by the python plugin due to pyenv
+# See: https://github.com/pyenv/pyenv/wiki#suggested-build-environment
+- name: Install "python" rtx plugin dependencies
+  ansible.builtin.package:
+    name:
+      - libbz2-dev
+      - libffi-dev
+      - liblzma-dev
+      - libncursesw5-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - libxml2-dev
+      - libxmlsec1-dev
+      - llvm
+      - tk-dev
+      - xz-utils
+      - zlib1g-dev
+  when: "'python' in rtx_plugins_names"
+
+- name: Install "aki" user rtx plugins
+  become_user: aki
+  ansible.builtin.command:
+    cmd: >-
+      zsh -c "
+      rtx use --global --yes
+      {{
+      rtx_plugins |
+      map(attribute='name') |
+      zip(rtx_plugins | map(attribute='version') | map('default', 'latest')) |
+      map('join', '@') |
+      join(' ')
+      }}"
+  register: rtx_install
+  retries: 10
+  delay: 2
+  until: rtx_install is success
+  changed_when: "'installed' in rtx_install.stdout"
+
+- name: Discover "aki" user pip executable
+  become_user: aki
+  ansible.builtin.command:
+    cmd: zsh -c "rtx which pip"
+  register: which_pip
+  changed_when: false
+  when: "'python' in rtx_plugins_names"
+
+- name: Set pip executable
+  ansible.builtin.set_fact:
+    pip_executable: "{{ which_pip.stdout }}"
+  when: "'python' in rtx_plugins_names"
