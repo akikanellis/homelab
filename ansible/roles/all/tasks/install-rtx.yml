@@ -1,21 +1,17 @@
 ---
-- name: Clone asdf
-  become_user: aki
-  ansible.builtin.git:
-    repo: https://github.com/asdf-vm/asdf.git
-    dest: ~/.asdf
-    version: "{{ asdf_version }}"
-    single_branch: true
-    force: true
+- name: Install rtx
+  ansible.builtin.get_url:
+    url:
+      "https://github.com/jdx/rtx/releases/download/\
+      {{ rtx_version }}/\
+      rtx-\
+      {{ rtx_version }}-\
+      {{ ansible_system | lower }}-{{ rtx_architecture }}"
+    dest: /home/aki/.local/bin/rtx
+    owner: aki
+    group: aki
+    mode: 0700
   register: result
   retries: 10
   delay: 2
   until: result is success
-
-- name: Install direnv
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: asdf
-  vars:
-    asdf_plugins:
-      - name: direnv

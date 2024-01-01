@@ -13,8 +13,8 @@ source ~/.zsh/options.zsh
 source ~/.zsh/starship.zsh
 source ~/.zsh/zoxide.zsh
 
-# Created from `asdf direnv setup --shell zsh --version system`
-# See: https://github.com/asdf-community/asdf-direnv#setup
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+# Created from `echo 'eval "$(rtx activate zsh)"' >> "${ZDOTDIR-$HOME}/.zshrc"`
+# See: https://rtx.jdx.dev/getting-started.html#zsh
+eval "$(rtx activate zsh)"
 
 source ~/.zsh/extra-zshrc-config.zsh

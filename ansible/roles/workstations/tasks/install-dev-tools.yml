@@ -3,14 +3,14 @@
   ansible.builtin.package:
     name: vagrant
 
-- name: Install "aki" user asdf dev tools
+- name: Install "aki" user rtx dev tools
   ansible.builtin.import_role:
     name: common
-    tasks_from: asdf
+    tasks_from: rtx
   vars:
-    asdf_plugins:
+    rtx_plugins:
       - name: java
-        version: latest:temurin-18
+        version: temurin
 
       - name: kotlin
       - name: groovy
@@ -53,7 +53,19 @@
       ansible.builtin.package:
         name: terraform
 
-- name: Install python dev tools
+- name: Install Node dev tools
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: npm
+  vars:
+    package_names:
+      - eslint
+      - nx
+      - prettier
+      - svgo
+      - yarn
+
+- name: Install Python dev tools
   ansible.builtin.import_role:
     name: common
     tasks_from: pip

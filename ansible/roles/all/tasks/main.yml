@@ -26,8 +26,8 @@
 - name: Setup ZSH
   ansible.builtin.import_tasks: setup-zsh.yml
 
-- name: Install asdf
-  ansible.builtin.import_tasks: install-asdf.yml
+- name: Install rtx
+  ansible.builtin.import_tasks: install-rtx.yml
 
-- name: Install asdf utilities
-  ansible.builtin.import_tasks: install-asdf-utilities.yml
+- name: Install rtx utilities
+  ansible.builtin.import_tasks: install-rtx-utilities.yml

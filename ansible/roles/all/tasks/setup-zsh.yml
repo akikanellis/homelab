@@ -10,7 +10,6 @@
         antigen_theme:
           name: robbyrussell
         antigen_bundles:
-          - name: asdf
           - name: aws
           - name: brew
           - name: dirhistory

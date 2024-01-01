@@ -24,7 +24,7 @@ test this project.
 Install the following software
 
 - [just](https://github.com/casey/just)
-- [asdf](https://github.com/asdf-vm/asdf)
+- [rtx](https://github.com/jdx/rtx)
 - [![VirtualBox](images/virtualbox.svg) VirtualBox](https://www.virtualbox.org)
 
 ## Useful Commands

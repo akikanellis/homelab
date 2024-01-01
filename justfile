@@ -11,7 +11,7 @@ install: install-tools install-dependencies
 
 # Install tools
 install-tools:
-  asdf install
+  rtx install
 
 # Install dependencies
 install-dependencies:
