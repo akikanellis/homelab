@@ -1,3 +1,10 @@
+## [1.20.0](https://github.com/akikanellis/homelab/compare/v1.19.122...v1.20.0) (2024-01-01)
+
+
+### Features
+
+* replace asdf with rtx ([#402](https://github.com/akikanellis/homelab/issues/402)) ([079f316](https://github.com/akikanellis/homelab/commit/079f3164ad2c57be37e09f75e8c76bd1db4cce45))
+
 ## [1.19.122](https://github.com/akikanellis/homelab/compare/v1.19.121...v1.19.122) (2023-12-30)
 
 
