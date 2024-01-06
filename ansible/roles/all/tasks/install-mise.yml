@@ -1,0 +1,17 @@
+---
+- name: Install mise
+  ansible.builtin.get_url:
+    url:
+      "https://github.com/jdx/mise/releases/download/\
+      {{ mise_version }}/\
+      mise-\
+      {{ mise_version }}-\
+      {{ ansible_system | lower }}-{{ mise_architecture }}"
+    dest: /home/aki/.local/bin/mise
+    owner: aki
+    group: aki
+    mode: 0700
+  register: result
+  retries: 10
+  delay: 2
+  until: result is success

@@ -37,10 +37,10 @@ function update() {
     echo "brew updated!"
   fi
 
-  if command_exists rtx; then
-    echo "Updating rtx..."
-    rtx upgrade --yes
-    echo "rtx updated!"
+  if command_exists mise; then
+    echo "Updating mise..."
+    mise upgrade --yes
+    echo "mise updated!"
   fi
 
   if command_exists npm; then

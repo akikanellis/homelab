@@ -1,18 +1,18 @@
 ---
 - name: Set plugin names
   ansible.builtin.set_fact:
-    rtx_plugins_names: "{{ rtx_plugins | map(attribute='name') | list }}"
+    mise_plugins_names: "{{ mise_plugins | map(attribute='name') | list }}"
 
-- name: Install "nodejs" rtx plugin dependencies
+- name: Install "nodejs" mise plugin dependencies
   ansible.builtin.package:
     name:
       - dirmngr
       - gpg
-  when: "'nodejs' in rtx_plugins_names"
+  when: "'nodejs' in mise_plugins_names"
 
 # Needed by the python plugin due to pyenv
 # See: https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-- name: Install "python" rtx plugin dependencies
+- name: Install "python" mise plugin dependencies
   ansible.builtin.package:
     name:
       - libbz2-dev
@@ -27,36 +27,36 @@
       - tk-dev
       - xz-utils
       - zlib1g-dev
-  when: "'python' in rtx_plugins_names"
+  when: "'python' in mise_plugins_names"
 
-- name: Install "aki" user rtx plugins
+- name: Install "aki" user mise plugins
   become_user: aki
   ansible.builtin.command:
     cmd: >-
       zsh -c "
-      rtx use --global --yes
+      mise use --global --yes
       {{
-      rtx_plugins |
+      mise_plugins |
       map(attribute='name') |
-      zip(rtx_plugins | map(attribute='version') | map('default', 'latest')) |
+      zip(mise_plugins | map(attribute='version') | map('default', 'latest')) |
       map('join', '@') |
       join(' ')
       }}"
-  register: rtx_install
+  register: mise_install
   retries: 10
   delay: 2
-  until: rtx_install is success
-  changed_when: "'installed' in rtx_install.stdout"
+  until: mise_install is success
+  changed_when: "'installed' in mise_install.stdout"
 
 - name: Discover "aki" user pip executable
   become_user: aki
   ansible.builtin.command:
-    cmd: zsh -c "rtx which pip"
+    cmd: zsh -c "mise which pip"
   register: which_pip
   changed_when: false
-  when: "'python' in rtx_plugins_names"
+  when: "'python' in mise_plugins_names"
 
 - name: Set pip executable
   ansible.builtin.set_fact:
     pip_executable: "{{ which_pip.stdout }}"
-  when: "'python' in rtx_plugins_names"
+  when: "'python' in mise_plugins_names"
