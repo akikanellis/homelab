@@ -1,3 +1,10 @@
+## [1.20.3](https://github.com/akikanellis/homelab/compare/v1.20.2...v1.20.3) (2024-01-06)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/homeassistant docker tag to v2024 ([#406](https://github.com/akikanellis/homelab/issues/406)) ([c9a465a](https://github.com/akikanellis/homelab/commit/c9a465ae14c28faa0f9c9065357a24b6c758d630))
+
 ## [1.20.2](https://github.com/akikanellis/homelab/compare/v1.20.1...v1.20.2) (2024-01-06)
 
 
