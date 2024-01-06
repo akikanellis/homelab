@@ -1,10 +1,10 @@
 ---
-- name: Install rtx plugins
+- name: Install mise plugins
   ansible.builtin.import_role:
     name: common
-    tasks_from: rtx
+    tasks_from: mise
   vars:
-    rtx_plugins:
+    mise_plugins:
       - name: nodejs
       - name: python
 

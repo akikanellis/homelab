@@ -79,7 +79,7 @@ fully automated, seamless CI/CD pipeline.
 Install the following software
 
 - [just](https://github.com/casey/just)
-- [rtx](https://github.com/jdx/rtx)
+- [mise](https://github.com/jdx/mise)
 - [![VirtualBox](docs/images/virtualbox.svg) VirtualBox](https://www.virtualbox.org)
 
 ### Usage

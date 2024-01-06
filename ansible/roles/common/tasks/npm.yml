@@ -8,7 +8,7 @@
   ansible.builtin.command:
     cmd: >-
       zsh -c
-      "rtx exec --
+      "mise exec --
       npm install --global {{ package_names | join(' ') }}"
   register: npm_install
   retries: 10

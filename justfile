@@ -11,7 +11,7 @@ install: install-tools install-dependencies
 
 # Install tools
 install-tools:
-  rtx install
+  mise install
 
 # Install dependencies
 install-dependencies:

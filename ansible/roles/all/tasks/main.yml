@@ -26,8 +26,8 @@
 - name: Setup ZSH
   ansible.builtin.import_tasks: setup-zsh.yml
 
-- name: Install rtx
-  ansible.builtin.import_tasks: install-rtx.yml
+- name: Install mise
+  ansible.builtin.import_tasks: install-mise.yml
 
-- name: Install rtx utilities
-  ansible.builtin.import_tasks: install-rtx-utilities.yml
+- name: Install mise utilities
+  ansible.builtin.import_tasks: install-mise-utilities.yml

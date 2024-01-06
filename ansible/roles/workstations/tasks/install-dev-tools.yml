@@ -3,12 +3,12 @@
   ansible.builtin.package:
     name: vagrant
 
-- name: Install "aki" user rtx dev tools
+- name: Install "aki" user mise dev tools
   ansible.builtin.import_role:
     name: common
-    tasks_from: rtx
+    tasks_from: mise
   vars:
-    rtx_plugins:
+    mise_plugins:
       - name: java
         version: temurin
 
