@@ -1,3 +1,10 @@
+## [1.20.5](https://github.com/akikanellis/homelab/compare/v1.20.4...v1.20.5) (2024-01-06)
+
+
+### Bug Fixes
+
+* rename rtx to mise ([#407](https://github.com/akikanellis/homelab/issues/407)) ([903b5cc](https://github.com/akikanellis/homelab/commit/903b5cca48ba5e29afbbdba1c99181c1713154dc))
+
 ## [1.20.4](https://github.com/akikanellis/homelab/compare/v1.20.3...v1.20.4) (2024-01-06)
 
 
