@@ -1,7 +1,7 @@
 ---
 services:
   gluetun:
-    image: qmcgaw/gluetun:v3.36.0@sha256:011bea4f0743864d4eda5a569217a6fe18e3a52f5d6df31b4ceb9f7763bfbf6b # editorconfig-checker-disable-line
+    image: qmcgaw/gluetun:v3.37.0@sha256:ba9688ff9abaf73bbc0b257be547b51a097ca74324fedddeeb709732c2692eef # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -63,7 +63,7 @@ services:
     restart: always
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:1.10.5@sha256:ae4e4cf3144459de7dc11b1ee909c64a67dbd0020006be1b3cc9b5a5f8382921 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/prowlarr:1.11.4@sha256:7f77401423754f8a3b0a7e27d12248cf5549cda27ce0b4d32c7580b6fcbc7328 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -124,7 +124,7 @@ services:
     restart: always
 
   sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:4.1.0@sha256:4b654fcb49a6301305dc8db42ef119734ed35fd2ef1d3b9144cce90f0cc64a09 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/sabnzbd:4.2.1@sha256:c105585c067b07e05e8d958a97d9432798e9d8fca483b199f016cf70a611d6fd # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
