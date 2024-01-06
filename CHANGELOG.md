@@ -1,3 +1,10 @@
+## [1.20.4](https://github.com/akikanellis/homelab/compare/v1.20.3...v1.20.4) (2024-01-06)
+
+
+### Build System
+
+* **deps:** update dependency jdx/rtx to v2024 ([#405](https://github.com/akikanellis/homelab/issues/405)) ([7f78c46](https://github.com/akikanellis/homelab/commit/7f78c46fb83cc30f5fd3c6843e2bced3bc6bb2f6))
+
 ## [1.20.3](https://github.com/akikanellis/homelab/compare/v1.20.2...v1.20.3) (2024-01-06)
 
 
