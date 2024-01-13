@@ -26,7 +26,7 @@ jobs:
         uses: extractions/setup-just@69d82fb0233557aec017ef13706851d0694e0f1d # v1.6.0
         with:
           # renovate: datasource=crate depName=just
-          just-version: 1.22.0
+          just-version: 1.23.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -43,7 +43,7 @@ jobs:
 
       - name: Cache Vagrant boxes
         # yamllint disable-line rule:line-length
-        uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3.3.2
+        uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3.3.3
         with:
           path: ~/.vagrant.d/boxes
           key: "${{ runner.os }}-\
