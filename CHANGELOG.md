@@ -1,3 +1,10 @@
+## [1.20.7](https://github.com/akikanellis/homelab/compare/v1.20.6...v1.20.7) (2024-01-13)
+
+
+### Build System
+
+* **deps:** update pihole/pihole docker tag to v2024 ([#410](https://github.com/akikanellis/homelab/issues/410)) ([e1ced12](https://github.com/akikanellis/homelab/commit/e1ced121e58c9bf26b534ae0ecd134937c60c638))
+
 ## [1.20.6](https://github.com/akikanellis/homelab/compare/v1.20.5...v1.20.6) (2024-01-13)
 
 
