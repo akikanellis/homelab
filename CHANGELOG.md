@@ -1,3 +1,10 @@
+## [1.20.9](https://github.com/akikanellis/homelab/compare/v1.20.8...v1.20.9) (2024-01-14)
+
+
+### Bug Fixes
+
+* allow netdata to write in config directory ([#411](https://github.com/akikanellis/homelab/issues/411)) ([ea15495](https://github.com/akikanellis/homelab/commit/ea154956e0dbaf348eeff5a9384db5c8f35ce4c1))
+
 ## [1.20.8](https://github.com/akikanellis/homelab/compare/v1.20.7...v1.20.8) (2024-01-13)
 
 
