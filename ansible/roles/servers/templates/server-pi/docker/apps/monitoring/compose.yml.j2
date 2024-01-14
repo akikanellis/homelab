@@ -10,7 +10,7 @@ services:
 
       DOCKER_HOST: docker-socket-proxy:2375
     volumes:
-      - "{{ volumes_directory }}/netdata:/etc/netdata:ro"
+      - "{{ volumes_directory }}/netdata:/etc/netdata"
 
       - /etc/group:/host/etc/group:ro
       - /etc/passwd:/host/etc/passwd:ro
