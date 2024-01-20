@@ -71,7 +71,7 @@ jobs:
 
       - name: Run playbook
         # yamllint disable-line rule:line-length
-        uses: dawidd6/action-ansible-playbook@5d970176ea4bfd99a3f5004d48e293fe0994eda1 # tag=v2.6.1
+        uses: dawidd6/action-ansible-playbook@00765f79cffbf77b8bef397c00d492d8241502be # v2.7.0
         with:
           directory: ansible
           playbook: apply-configuration.yml

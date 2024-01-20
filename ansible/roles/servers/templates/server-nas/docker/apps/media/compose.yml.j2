@@ -63,7 +63,7 @@ services:
     restart: always
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:1.11.4@sha256:5dfd12db2f4238f63af5d1263f4908e220253bddb00c9623786dd4ba708e9683 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/prowlarr:1.12.2@sha256:2fe513645d0c13f4675e8c5af4c94c05b72fd8a18dde79088c6f49e3aa456414 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -81,7 +81,7 @@ services:
     restart: always
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:4.6.2@sha256:ef49e9a76faa73c5a594e2dbd89b5a7a3503abe53bcde5277f999f869658cdf6 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/qbittorrent:4.6.3@sha256:1bf8c6e34f9d7eab3d46da158948f3be52c8a83f9f2a6dbd534de4fa2c3e4fb1 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
