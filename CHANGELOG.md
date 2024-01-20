@@ -1,3 +1,10 @@
+## [1.20.13](https://github.com/akikanellis/homelab/compare/v1.20.12...v1.20.13) (2024-01-20)
+
+
+### Build System
+
+* **deps:** update actions/cache action to v4 ([#414](https://github.com/akikanellis/homelab/issues/414)) ([2a01de8](https://github.com/akikanellis/homelab/commit/2a01de83316d723be7d338946a867840183b78fb))
+
 ## [1.20.12](https://github.com/akikanellis/homelab/compare/v1.20.11...v1.20.12) (2024-01-20)
 
 
