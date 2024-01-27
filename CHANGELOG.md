@@ -1,3 +1,10 @@
+## [1.20.16](https://github.com/akikanellis/homelab/compare/v1.20.15...v1.20.16) (2024-01-27)
+
+
+### Build System
+
+* **deps:** update eclipse-mosquitto:2.0.18 docker digest to da38d58 ([#418](https://github.com/akikanellis/homelab/issues/418)) ([84085bf](https://github.com/akikanellis/homelab/commit/84085bf4752e0d0c16c6adc3232ce40bfce465ce))
+
 ## [1.20.15](https://github.com/akikanellis/homelab/compare/v1.20.14...v1.20.15) (2024-01-27)
 
 
