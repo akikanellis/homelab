@@ -25,7 +25,7 @@ jobs:
 
       - name: Setup just
         # yamllint disable-line rule:line-length
-        uses: extractions/setup-just@69d82fb0233557aec017ef13706851d0694e0f1d # v1.6.0
+        uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2.0.0
         with:
           # renovate: datasource=crate depName=just
           just-version: 1.23.0
