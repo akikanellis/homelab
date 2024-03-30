@@ -1,3 +1,10 @@
+## [1.20.28](https://github.com/akikanellis/homelab/compare/v1.20.27...v1.20.28) (2024-03-30)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/qbittorrent:4.6.3 docker digest to 5b3a3a3 ([#437](https://github.com/akikanellis/homelab/issues/437)) ([714be10](https://github.com/akikanellis/homelab/commit/714be10e2a262bba5400be35c339a62dd3132526))
+
 ## [1.20.27](https://github.com/akikanellis/homelab/compare/v1.20.26...v1.20.27) (2024-03-23)
 
 
