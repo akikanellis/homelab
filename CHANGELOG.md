@@ -1,3 +1,10 @@
+## [1.20.29](https://github.com/akikanellis/homelab/compare/v1.20.28...v1.20.29) (2024-03-31)
+
+
+### Build System
+
+* **deps:** update hmarr/auto-approve-action action to v4 ([#428](https://github.com/akikanellis/homelab/issues/428)) ([22d7c42](https://github.com/akikanellis/homelab/commit/22d7c42991311024b7fc0d39de3741f70c311ff0))
+
 ## [1.20.28](https://github.com/akikanellis/homelab/compare/v1.20.27...v1.20.28) (2024-03-30)
 
 
