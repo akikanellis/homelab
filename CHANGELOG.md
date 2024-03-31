@@ -1,3 +1,52 @@
+## [1.20.28](https://github.com/akikanellis/homelab/compare/v1.20.27...v1.20.28) (2024-03-30)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/qbittorrent:4.6.3 docker digest to 5b3a3a3 ([#437](https://github.com/akikanellis/homelab/issues/437)) ([714be10](https://github.com/akikanellis/homelab/commit/714be10e2a262bba5400be35c339a62dd3132526))
+
+## [1.20.27](https://github.com/akikanellis/homelab/compare/v1.20.26...v1.20.27) (2024-03-23)
+
+
+### Build System
+
+* **deps:** update all docker digest dependencies ([#436](https://github.com/akikanellis/homelab/issues/436)) ([e0cdfb0](https://github.com/akikanellis/homelab/commit/e0cdfb0884749fbc1266704829fe5f90d2de2267))
+
+## [1.20.26](https://github.com/akikanellis/homelab/compare/v1.20.25...v1.20.26) (2024-03-16)
+
+
+### Build System
+
+* **deps:** update eclipse-mosquitto:2.0.18 docker digest to b2ad81c ([#435](https://github.com/akikanellis/homelab/issues/435)) ([bb84812](https://github.com/akikanellis/homelab/commit/bb848122721890e4c27d22b3fec1fc9d5649b26a))
+
+## [1.20.25](https://github.com/akikanellis/homelab/compare/v1.20.24...v1.20.25) (2024-03-16)
+
+
+### Build System
+
+* **deps:** update all docker digest dependencies ([#434](https://github.com/akikanellis/homelab/issues/434)) ([dee5a8c](https://github.com/akikanellis/homelab/commit/dee5a8c8cee82a295f52db14a6eecf5198805251))
+
+## [1.20.24](https://github.com/akikanellis/homelab/compare/v1.20.23...v1.20.24) (2024-03-09)
+
+
+### Build System
+
+* **deps:** update all docker digest dependencies ([#433](https://github.com/akikanellis/homelab/issues/433)) ([e9d0ae5](https://github.com/akikanellis/homelab/commit/e9d0ae5b7a152bdcaae841637e52e3b5dbe75713))
+
+## [1.20.23](https://github.com/akikanellis/homelab/compare/v1.20.22...v1.20.23) (2024-03-02)
+
+
+### Build System
+
+* **deps:** update all docker digest dependencies ([#431](https://github.com/akikanellis/homelab/issues/431)) ([5060337](https://github.com/akikanellis/homelab/commit/50603370d3e6aef6f62be508eac95af104a082fe))
+
+## [1.20.22](https://github.com/akikanellis/homelab/compare/v1.20.21...v1.20.22) (2024-02-24)
+
+
+### Build System
+
+* **deps:** update all docker digest dependencies ([#430](https://github.com/akikanellis/homelab/issues/430)) ([af2537b](https://github.com/akikanellis/homelab/commit/af2537b7046be6c5cf9e98edaad8711c5012bcd9))
+
 ## [1.20.21](https://github.com/akikanellis/homelab/compare/v1.20.20...v1.20.21) (2024-02-17)
 
 
