@@ -1,3 +1,10 @@
+## [1.20.30](https://github.com/akikanellis/homelab/compare/v1.20.29...v1.20.30) (2024-03-31)
+
+
+### Build System
+
+* **deps:** update myoung34/github-runner to 2.315.0 ([#439](https://github.com/akikanellis/homelab/issues/439)) ([0e8386b](https://github.com/akikanellis/homelab/commit/0e8386b9b4498df4f3e8c74d85efa4f3f6279e7a))
+
 ## [1.20.29](https://github.com/akikanellis/homelab/compare/v1.20.28...v1.20.29) (2024-03-31)
 
 
