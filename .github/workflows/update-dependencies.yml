@@ -22,6 +22,7 @@ jobs:
         with:
           application_id: ${{ secrets.AKI_BOT_APP_ID }}
           application_private_key: ${{ secrets.AKI_BOT_APP_PRIVATE_KEY }}
+          revoke_token: true
           permissions: >
             contents:write,
             issues:write,
