@@ -1,3 +1,10 @@
+## [1.20.32](https://github.com/akikanellis/homelab/compare/v1.20.31...v1.20.32) (2024-04-01)
+
+
+### Build System
+
+* **deps:** update extractions/setup-just action to v2 ([#432](https://github.com/akikanellis/homelab/issues/432)) ([28f028e](https://github.com/akikanellis/homelab/commit/28f028e05d090331a665160b1adfbf29a48e781e))
+
 ## [1.20.31](https://github.com/akikanellis/homelab/compare/v1.20.30...v1.20.31) (2024-04-01)
 
 
