@@ -1,3 +1,10 @@
+## [1.20.31](https://github.com/akikanellis/homelab/compare/v1.20.30...v1.20.31) (2024-04-01)
+
+
+### Build System
+
+* **deps:** update peter-murray/workflow-application-token-action action to v3 ([#421](https://github.com/akikanellis/homelab/issues/421)) ([a3279ce](https://github.com/akikanellis/homelab/commit/a3279ce4fdba1eaa4932e9da8174aa5bb8375e58))
+
 ## [1.20.30](https://github.com/akikanellis/homelab/compare/v1.20.29...v1.20.30) (2024-03-31)
 
 
