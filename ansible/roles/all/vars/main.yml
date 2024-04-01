@@ -15,7 +15,7 @@ curlie_architecture: >-
   {{ architecture_to_curlie_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=dandavison/delta
-delta_version: 0.16.5
+delta_version: 0.17.0
 architecture_to_delta_architecture:
   x86_64: amd64
   armv7l: armhf
@@ -60,7 +60,7 @@ lazydocker_architecture: >-
   {{ architecture_to_lazydocker_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jesseduffield/lazygit
-lazygit_version: v0.40.2
+lazygit_version: v0.41.0
 architecture_to_lazygit_architecture:
   x86_64: x86_64
   armv7l: armv6
@@ -68,7 +68,7 @@ lazygit_architecture: >-
   {{ architecture_to_lazygit_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jdx/mise
-mise_version: v2024.2.4
+mise_version: v2024.3.11
 architecture_to_mise_architecture:
   x86_64: x64
   armv7l: armv7
@@ -76,7 +76,7 @@ mise_architecture: >-
   {{ architecture_to_mise_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=ajeetdsouza/zoxide
-zoxide_version: v0.9.2
+zoxide_version: v0.9.4
 architecture_to_zoxide_architecture:
   x86_64: amd64
   armv7l: armv7

@@ -28,16 +28,16 @@ jobs:
         uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2.0.0
         with:
           # renovate: datasource=crate depName=just
-          just-version: 1.23.0
+          just-version: 1.25.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Python
         # yamllint disable-line rule:line-length
-        uses: actions/setup-python@0a5c61591373683505ea898e09a3ea4f39ef2b9c # v5.0.0
+        uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5.1.0
         with:
           # renovate: datasource=docker depName=python versioning=docker
-          python-version: 3.12.1
+          python-version: 3.12.2
           cache: pip
 
       - name: Install dependencies

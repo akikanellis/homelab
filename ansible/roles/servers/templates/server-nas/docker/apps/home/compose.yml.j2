@@ -1,7 +1,7 @@
 ---
 services:
   home-assistant:
-    image: lscr.io/linuxserver/homeassistant:2024.1.6@sha256:82cb911b6677af0ca4e2e85e6ef427d1bcc1e9e34865a8f29dfd6fa37e975eff # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/homeassistant:2024.3.3@sha256:e091ceb4f6056fc9a7643fee3707c6249bf690b591c2247c3ce6ac44d90c19eb # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -36,7 +36,7 @@ services:
     restart: always
 
   node-red:
-    image: nodered/node-red:3.1.3@sha256:75e48924159f6c6bf4221017069a8b496cab8d0b21d3d0b1fcaf058af8294865 # editorconfig-checker-disable-line
+    image: nodered/node-red:3.1.8@sha256:c2990ca2ed6ca3d36cc558f25c21e261ca966b3dc7194fc4df83352573cfb5f9 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
