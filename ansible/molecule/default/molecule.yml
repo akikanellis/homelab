@@ -9,20 +9,24 @@ driver:
   name: vagrant
   default_box: ubuntu/jammy64
 
+# We currently use a 4-core ubuntu-latest instance in the
+# '.github/workflows/test.yml' workflow. After performance testing the runners
+# with different platform core and memory allocations, we found that 2-core
+# platforms with 2GB of memory were the optimal configurations for test
+# runtime. Higher core counts were slower, most likely due to inefficient
+# virtualisation in GitHub Action runners, which led to increased resource
+# contention and I/O overhead.
+#
+# See:
+# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
 platforms:
   - name: workstation-pop-os
     groups: [workstations]
-    # `cpus` need to roughly match the core count used by the CI. Currently, we
-    # are using a 3-core macos-12 instance in '.github/workflows/test.yml',
-    # therefore we are using 2x 2-core instances with vagrant.
-    # See:
-    # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
     cpus: 2
     memory: 2048
 
   - name: server-nas
     groups: [servers]
-    # See note on `cpus` above
     cpus: 2
     # server-nas needs extra memory primarily due to the amount of docker apps
     # that are running
@@ -30,7 +34,6 @@ platforms:
 
   - name: server-pi
     groups: [servers]
-    # See note on `cpus` above
     cpus: 2
     memory: 2048
 
