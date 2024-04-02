@@ -1,3 +1,10 @@
+## [1.20.36](https://github.com/akikanellis/homelab/compare/v1.20.35...v1.20.36) (2024-04-02)
+
+
+### Build System
+
+* **deps:** update dependency netaddr to v1 ([#426](https://github.com/akikanellis/homelab/issues/426)) ([961f47d](https://github.com/akikanellis/homelab/commit/961f47dc0bd34cb2f0a87bcd577ef468bd43577f))
+
 ## [1.20.35](https://github.com/akikanellis/homelab/compare/v1.20.34...v1.20.35) (2024-04-02)
 
 
