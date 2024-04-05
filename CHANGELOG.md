@@ -1,3 +1,10 @@
+## [1.20.37](https://github.com/akikanellis/homelab/compare/v1.20.36...v1.20.37) (2024-04-05)
+
+
+### Build System
+
+* **deps:** update dependency molecule to v24 ([#425](https://github.com/akikanellis/homelab/issues/425)) ([97c7d2f](https://github.com/akikanellis/homelab/commit/97c7d2f2f4b43a01264a51b21e414002cf61c3ba))
+
 ## [1.20.36](https://github.com/akikanellis/homelab/compare/v1.20.35...v1.20.36) (2024-04-02)
 
 
