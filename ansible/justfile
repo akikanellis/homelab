@@ -18,37 +18,37 @@ install-dependencies:
 test *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
-  molecule {{extra_args}} test
+  molecule test {{extra_args}}
 
 # Create hosts locally
 up *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
-  molecule {{extra_args}} create
+  molecule create {{extra_args}}
 
 # Create and configure hosts locally
 run *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
-  molecule {{extra_args}} converge
+  molecule converge {{extra_args}}
 
 # Create and configure hosts locally for `test` tags
 run-test *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
-  molecule {{extra_args}} converge -- --tags test -vv
+  molecule converge {{extra_args}} -- --tags test -vv
 
 # Create and configure hosts locally with debug logs
 run-debug *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
-  molecule --debug {{extra_args}} converge -- -vvv
+  molecule --debug converge {{extra_args}} -- -vvv
 
 # Create and configure hosts locally for `test` tags with debug logs
 run-test-debug *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
-  molecule {{extra_args}} converge -- --tags test -vvv
+  molecule converge {{extra_args}} -- --tags test -vvv
 
 # Log in to a locally created host
 login host:
@@ -60,7 +60,7 @@ login host:
 down *extra_args:
   #!/usr/bin/env bash
   source env/bin/activate
-  molecule {{extra_args}} destroy
+  molecule destroy {{extra_args}}
 
 # Edit dev vault
 edit-dev-vault:

@@ -80,6 +80,7 @@ Install the following software
 
 - [just](https://github.com/casey/just)
 - [mise](https://github.com/jdx/mise)
+- [![Vagrant](docs/images/vagrant.svg) Vagrant](https://www.vagrantup.com)
 - [![VirtualBox](docs/images/virtualbox.svg) VirtualBox](https://www.virtualbox.org)
 
 ### Usage

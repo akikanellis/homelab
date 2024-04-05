@@ -11,12 +11,45 @@ name: Test
         default: false
 
 jobs:
-  test:
-    name: Test
-    runs-on: macos-12
-    continue-on-error: ${{ inputs.continue-on-error }}
+  set-platforms:
+    name: Set platforms
+    runs-on: ubuntu-latest
+
+    outputs:
+      platforms: ${{ steps.set-platforms.outputs.result }}
 
     steps:
+      - name: Checkout
+        # yamllint disable-line rule:line-length
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Set platforms
+        id: set-platforms
+        uses: mikefarah/yq@c35ec752e38ea0c096d3c44e13cfc0797ac394d8 # v4.43.1
+        with:
+          cmd: >
+            yq --output-format=json --indent=0
+            '[.platforms[].name]'
+            ansible/molecule/default/molecule.yml
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: set-platforms
+    continue-on-error: ${{ inputs.continue-on-error }}
+    strategy:
+      matrix:
+        platform: ${{ fromJson(needs.set-platforms.outputs.platforms) }}
+
+    steps:
+      # GitHub Actions hosted runners provide around 21GB of free storage, but
+      # the instances need around 25GB. This action frees up an additional
+      # 24GB, giving us a total of 45GB, which is enough disk space to run each
+      # VM.
+      - name: Free disk space
+        # yamllint disable-line rule:line-length
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+
       - name: Checkout
         # yamllint disable-line rule:line-length
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -38,8 +71,13 @@ jobs:
           python-version: 3.12.2
           cache: pip
 
+      - name: Update apt
+        run: sudo apt update
+
       - name: Install dependencies
-        run: just install-dependencies
+        run: |
+          sudo apt install vagrant virtualbox
+          just install-dependencies
 
       - name: Cache Vagrant boxes
         # yamllint disable-line rule:line-length
@@ -52,9 +90,4 @@ jobs:
           restore-keys: ${{ runner.os }}-vagrant-
 
       - name: Test
-        run: >
-          echo "Tests are temporarily disabled.
-          See:
-            - https://github.com/actions/runner-images/issues/8730
-            - https://github.com/actions/runner-images/issues/8642
-          "
+        run: just test --platform-name=${{ matrix.platform }}
