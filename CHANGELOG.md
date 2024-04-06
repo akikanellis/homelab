@@ -1,3 +1,10 @@
+## [1.20.39](https://github.com/akikanellis/homelab/compare/v1.20.38...v1.20.39) (2024-04-06)
+
+
+### Build System
+
+* **deps:** update all docker digest dependencies ([#440](https://github.com/akikanellis/homelab/issues/440)) ([1b29f7b](https://github.com/akikanellis/homelab/commit/1b29f7b597f3824dd6c6c82ce4e4cf9bd7570b8e))
+
 ## [1.20.38](https://github.com/akikanellis/homelab/compare/v1.20.37...v1.20.38) (2024-04-06)
 
 
