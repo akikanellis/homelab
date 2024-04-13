@@ -14,4 +14,4 @@ google_chrome_architecture:
   "{{ architecture_to_google_chrome_architecture[ansible_architecture] }}"
 
 # renovate: datasource=github-releases depName=ryanoasis/nerd-fonts
-nerd_fonts_version: v3.2.0
+nerd_fonts_version: v3.2.1
