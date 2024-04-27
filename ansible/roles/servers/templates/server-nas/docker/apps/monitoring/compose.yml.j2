@@ -99,7 +99,7 @@ services:
     restart: always
 
   mongodb:
-    image: mongo:4.4.29@sha256:d41dabba79a5b5ef19067da6e770f513b339b6ad3126d394c21d516d3c7b1906 # editorconfig-checker-disable-line
+    image: mongo:4.4.29@sha256:b905109283edf236f514e41353cc67ea7cbe6c13f10864653f197f74e0f27aff # editorconfig-checker-disable-line
     user: "{{ ansible_admin_user_uid }}:{{ ansible_admin_user_gid }}"
     environment:
       TZ: "{{ timezone }}"
