@@ -1,3 +1,10 @@
+## [1.20.55](https://github.com/akikanellis/homelab/compare/v1.20.54...v1.20.55) (2024-05-26)
+
+
+### Build System
+
+* **deps:** update dependency community.general to v9 ([#458](https://github.com/akikanellis/homelab/issues/458)) ([08057cd](https://github.com/akikanellis/homelab/commit/08057cde02ce9d58d11c4cd68600aaf1e3ee357d))
+
 ## [1.20.54](https://github.com/akikanellis/homelab/compare/v1.20.53...v1.20.54) (2024-05-25)
 
 
