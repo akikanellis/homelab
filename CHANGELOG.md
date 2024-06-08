@@ -1,3 +1,10 @@
+## [1.20.59](https://github.com/akikanellis/homelab/compare/v1.20.58...v1.20.59) (2024-06-08)
+
+
+### Build System
+
+* **deps:** update lscr.io/linuxserver/homeassistant:2024.5.5 docker digest to 41a311f ([#462](https://github.com/akikanellis/homelab/issues/462)) ([a00e190](https://github.com/akikanellis/homelab/commit/a00e1908e8b8f8fdc7b86de5a5f52623b5a8f437))
+
 ## [1.20.58](https://github.com/akikanellis/homelab/compare/v1.20.57...v1.20.58) (2024-06-01)
 
 
