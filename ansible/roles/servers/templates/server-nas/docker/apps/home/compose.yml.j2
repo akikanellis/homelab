@@ -1,7 +1,7 @@
 ---
 services:
   home-assistant:
-    image: lscr.io/linuxserver/homeassistant:2024.5.5@sha256:41a311f7838c1dc4014c738d51a356f0038aebd02219ca4cda57d8fdffd1aa56 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/homeassistant:2024.6.2@sha256:074d780bd453f085fd79cb60dc70c6582c7210633d1a74bf5874047097b86184 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -13,7 +13,7 @@ services:
     restart: always
 
   tasmoadmin:
-    image: ghcr.io/tasmoadmin/tasmoadmin:v4.1.0@sha256:9131d6416def83f0255ec45bafc9273c196d3d3e7af31211a49ca1db7392cbbd # editorconfig-checker-disable-line
+    image: ghcr.io/tasmoadmin/tasmoadmin:v4.1.1@sha256:24c951a872c1d1aa6f7112e610a21b38611530bba1d83d660d8ef8af9abe8ee7 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
@@ -36,7 +36,7 @@ services:
     restart: always
 
   node-red:
-    image: nodered/node-red:3.1.9@sha256:4872f67418a36ac2adf9f2793cfab1e3130796dd0c874acce7eddaca2e2e96e6 # editorconfig-checker-disable-line
+    image: nodered/node-red:3.1.10@sha256:13b5783bf170e87df18d3b881750d2b00c0164163f89ad47d03f6fc4cbe5e2d9 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
     volumes:
