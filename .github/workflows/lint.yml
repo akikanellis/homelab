@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Checkout
         # yamllint disable-line rule:line-length
-        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4.1.6
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           fetch-depth: 0
 
@@ -28,7 +28,7 @@ jobs:
         uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2.0.0
         with:
           # renovate: datasource=crate depName=just
-          just-version: 1.28.0
+          just-version: 1.29.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
