@@ -1,3 +1,10 @@
+## [1.20.65](https://github.com/akikanellis/homelab/compare/v1.20.64...v1.20.65) (2024-06-25)
+
+
+### Build System
+
+* **deps:** update all non-major dependencies ([#470](https://github.com/akikanellis/homelab/issues/470)) ([3dcc784](https://github.com/akikanellis/homelab/commit/3dcc7847a6b4d7464beb02a4a58bfe967832271a))
+
 ## [1.20.64](https://github.com/akikanellis/homelab/compare/v1.20.63...v1.20.64) (2024-06-22)
 
 
