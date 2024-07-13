@@ -38,7 +38,7 @@ services:
     restart: always
 
   plex:
-    image: lscr.io/linuxserver/plex:1.40.3@sha256:3a449d946fdaabc2e05591cfcafc03dbc42ecd5fa4538da6956860f1e6368cad # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/plex:1.40.4@sha256:1d314f16fca8fbb3f337dfe7ec3abcaf902eb78790faa9ebb91dc0cda793fc73 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -63,7 +63,7 @@ services:
     restart: always
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:1.19.0@sha256:35bb980c34527287a0261e2854e2fa651eb501f03542f20f45eb9c6dc974a877 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/prowlarr:1.20.1@sha256:7b3408b3110c95231e7543a8b099be1e5f519be6f3fd0aebbed9ff1c061f2c3e # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
