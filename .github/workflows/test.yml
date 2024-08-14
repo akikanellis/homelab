@@ -25,7 +25,7 @@ jobs:
 
       - name: Set platforms
         id: set-platforms
-        uses: mikefarah/yq@f15500b20a1c991c8729870ba60a4dc3524b6a94 # v4.44.2
+        uses: mikefarah/yq@bbdd97482f2d439126582a59689eb1c855944955 # v4.44.3
         with:
           cmd: >
             yq --output-format=json --indent=0
@@ -68,7 +68,7 @@ jobs:
         uses: actions/setup-python@39cd14951b08e74b54015e9e001cdefcf80e669f # v5.1.1
         with:
           # renovate: datasource=docker depName=python versioning=docker
-          python-version: 3.12.4
+          python-version: 3.12.5
           cache: pip
 
       - name: Update apt
