@@ -81,7 +81,7 @@ services:
     restart: always
 
   qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:4.6.5@sha256:6843a94d923e472f80a9505cfae77eb3689b2931f1fdf23358e459d3d0cdc9d0 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/qbittorrent:4.6.6@sha256:1e0c0ffcd63a0f92d39fcaa796d284f5659112f8137fe2a5391c04fa7c5cf134 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -103,7 +103,7 @@ services:
     restart: always
 
   radarr:
-    image: lscr.io/linuxserver/radarr:5.8.3@sha256:938281e82a91da0115d0f8b0a2260acf0f07052c8c78dfaf7e407c843ae242f5 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/radarr:5.9.1@sha256:b034531ff81d3e5e1f9fd70c969746040b40e6484c88981ea5d0dee732c10bc3 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -124,7 +124,7 @@ services:
     restart: always
 
   sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:4.3.2@sha256:95179d6de1c660d7dcd4bd3991b33871c88df1120ab84bc553c4a67e8cc412d2 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/sabnzbd:4.3.3@sha256:6a8db539588665971f24a42e31ddf2240d7be114c08007dc409aff7638c8edf6 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
