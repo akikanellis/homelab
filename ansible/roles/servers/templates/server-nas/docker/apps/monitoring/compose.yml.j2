@@ -1,7 +1,7 @@
 ---
 services:
   netdata:
-    image: netdata/netdata:v1.47.0@sha256:84ae61184a74d2c777c44d010b777d7bfa2a251c9cea4bf84880fb232ef93b57 # editorconfig-checker-disable-line
+    image: netdata/netdata:v1.47.1@sha256:9aec543d8da83ff68da5032ed01b862ca96e55e3b20ab6ca98f95cab2e8ea255 # editorconfig-checker-disable-line
     hostname: "netdata-{{ inventory_hostname }}"
     environment:
       TZ: "{{ timezone }}"
@@ -23,7 +23,7 @@ services:
     restart: always
 
   docker-socket-proxy:
-    image: ghcr.io/tecnativa/docker-socket-proxy:0.2.0@sha256:083bd0ed8783e366d745f332f0e4489816dd35d984bef8f16e6d89484a22c082 # editorconfig-checker-disable-line
+    image: ghcr.io/tecnativa/docker-socket-proxy:0.3.0@sha256:9e4b9e7517a6b660f2cc903a19b257b1852d5b3344794e3ea334ff00ae677ac2 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
