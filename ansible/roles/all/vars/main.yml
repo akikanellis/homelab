@@ -36,7 +36,7 @@ docker_distribution: >-
   }}
 
 # renovate: datasource=github-releases depName=mr-karan/doggo
-doggo_version: v0.5.7
+doggo_version: v1.0.5
 architecture_to_doggo_architecture:
   x86_64: amd64
   armv7l:
