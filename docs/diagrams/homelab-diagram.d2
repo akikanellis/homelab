@@ -1,0 +1,146 @@
+VLAN1: {
+  label: "VLAN 1 - Blackhole"
+  UNKNOWN_DEVICES: "Unknown Devices"
+}
+
+VLAN10: {
+  label: "VLAN 10 - Management - 10.10.10.0/24"
+  ROUTERS: "Routers"
+  SWITCHES: "Switches"
+  ACCESS_POINTS: "Access Points"
+}
+
+VLAN20: {
+  label: "VLAN 20 - Personal - 10.10.20.0/24"
+  PERSONAL_DEVICES: "Personal Devices"
+  WORKSTATION_PC: "PC"
+  WORKSTATION_DOMANTE_LAPTOP: "Domante Laptop"
+}
+
+VLAN30: {
+  label: "VLAN 30 - Server - 10.10.30.0/24"
+  NAS_HOST: {
+    label: "NAS Host - Synology OS"
+    NETDATA: "Netdata"
+  }
+  HYPERVISOR_HOST: {
+    label: "Hypervisor Host - Proxmox"
+    DNS_VM: {
+      label: "DNS - NixOS"
+      PIHOLE: "Pi-hole"
+      DNS_VM_NETDATA: "Netdata"
+    }
+    HOME_ASSISTANT_VM: {
+      label: "Home Assistant - NixOS"
+      icon: ./images/home_assistant.svg
+      HOME_ASSISTANT: {
+        label: "Home Assistant"
+        icon: ./images/home_assistant.svg
+        shape: image
+      }
+      NODE_RED: "NodeRed"
+      TASMO_ADMIN: "TasmoAdmin"
+      MOSQUITTO: "Mosquitto"
+      NETDATA: "Netdata"
+    }
+    APP_SERVER_VM: {
+      label: "App Server - NixOS"
+      APP_SERVER_VM_DOCKER_CONTAINERS: {
+        label: "Docker Containers"
+        icon: ./images/docker.svg
+        PORTAINER: "Portainer"
+        HEIMDALL: "Heimdall"
+        PROMETHEUS: "Prometheus"
+        GRAFANA: "Grafana"
+        GRAYLOG: "Graylog"
+        NGINX_PROXY_MANAGER: {
+          label: Nginx Proxy Manager
+          icon: ./images/nginx_proxy_manager.svg
+          shape: image
+        }
+        PLEX: "Plex"
+        SONARR: "Sonarr"
+        RADARR: "Radarr"
+        PROWLARR: "Prowlarr"
+        NZB_HYDRA: "NZBHydra"
+        JACKETT: "Jackett"
+        SABNZBD: "SABnzbd"
+        QBITTORRENT: "qBittorrent"
+      }
+      NETDATA: "Netdata"
+    }
+  }
+}
+
+VLAN40: {
+  label: "VLAN 40 - CCTV - 10.10.40.0/24"
+  CAMERAS: "Cameras"
+}
+
+VLAN50: {
+  label: "VLAN 50 - IoT - 10.10.50.0/24"
+  IOT_DEVICES: "IoT Devices"
+  SHIELD: "NVIDIA Shield"
+}
+
+VLAN60: {
+  label: "VLAN 60 - NoT - 10.10.60.0/24"
+  NOT_DEVICES: "NoT Devices"
+}
+
+VLAN100: {
+  label: "VLAN 100 - Work - 10.10.100.0/24"
+  WORK_DEVICES: "Work Devices"
+}
+
+VLAN110: {
+  label: "VLAN 110 - Untrusted - 10.10.110.0/24"
+  UNTRUSTED_DEVICES: "Untrusted Devices"
+}
+
+VLAN120: {
+  label: "VLAN 120 - Guest - 10.10.120.0/24"
+  GUEST_DEVICES: "Guest Devices"
+}
+
+INTERNET: "INTERNET"
+
+# Connections between VLANs and devices
+VLAN10 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
+VLAN10 -> INTERNET
+
+VLAN20 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
+VLAN20 -> INTERNET
+VLAN20 -> VLAN10
+VLAN20 -> VLAN30
+VLAN20 -> VLAN40
+VLAN20 -> VLAN50
+VLAN20 -> VLAN60
+VLAN20 -> VLAN100
+VLAN20 -> VLAN110
+VLAN20 -> VLAN120
+
+VLAN30 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
+VLAN30 -> INTERNET
+
+VLAN40 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
+
+VLAN50 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
+VLAN50 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.NGINX_PROXY_MANAGER
+VLAN50 -> VLAN30.HYPERVISOR_HOST.HOME_ASSISTANT_VM.MOSQUITTO
+VLAN50 -> INTERNET
+VLAN50.SHIELD -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.PLEX
+VLAN50.SHIELD -> VLAN20.WORKSTATION_PC
+VLAN50.SHIELD -> VLAN20.WORKSTATION_DOMANTE_LAPTOP
+
+VLAN60 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
+VLAN60 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.NGINX_PROXY_MANAGER
+VLAN60 -> VLAN30.HYPERVISOR_HOST.HOME_ASSISTANT_VM.MOSQUITTO
+
+VLAN100 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
+VLAN100 -> INTERNET
+
+VLAN120 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
+VLAN120 -> INTERNET
+
+VLAN30.HYPERVISOR_HOST.APP_SERVER_VM -> VLAN30.NAS_HOST
