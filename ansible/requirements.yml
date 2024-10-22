@@ -7,7 +7,7 @@ collections:
   - name: community.general
     version: 9.5.0
   - name: devsec.hardening
-    version: 9.0.1
+    version: 10.1.0
 
 roles:
   - name: gantsign.antigen
