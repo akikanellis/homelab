@@ -38,7 +38,7 @@ services:
     restart: always
 
   plex:
-    image: lscr.io/linuxserver/plex:1.41.0@sha256:c8e5ab6336b20f89b4106945fa2ee035c0d0e8e9ad13a24b7e14b924b5c68090 # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/plex:1.41.1@sha256:88f1b42fa90799ba491fa0b96046467174f28f18c236c7b39e135c029a30cfcf # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -63,7 +63,7 @@ services:
     restart: always
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:1.24.3@sha256:3001f0ea0341f370e889467aa1825c42fb8decede85b784c7e380b9ccaad1d4e # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/prowlarr:1.25.4@sha256:295528cb3a94c96871b1e90f690668fc267738116be6383ee14f044468f1eed3 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
@@ -145,7 +145,7 @@ services:
     restart: always
 
   sonarr:
-    image: lscr.io/linuxserver/sonarr:4.0.9@sha256:db80ed8022dd15143644752a57db0553e48e23e3da54bdb9833d28ff89206a3c # editorconfig-checker-disable-line
+    image: lscr.io/linuxserver/sonarr:4.0.10@sha256:c0281bd62b9a75f088fa4a09e5f8776431921883766633cb5e5fbd5a74761155 # editorconfig-checker-disable-line
     environment:
       TZ: "{{ timezone }}"
 
