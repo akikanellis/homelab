@@ -68,7 +68,7 @@ lazygit_architecture: >-
   {{ architecture_to_lazygit_architecture[ansible_architecture] }}
 
 # renovate: datasource=github-releases depName=jdx/mise
-mise_version: v2024.10.10
+mise_version: v2024.11.0
 architecture_to_mise_architecture:
   x86_64: x64
   armv7l: armv7
