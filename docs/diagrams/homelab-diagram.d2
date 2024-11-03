@@ -1,146 +1,344 @@
-VLAN1: {
-  label: "VLAN 1 - Blackhole"
-  UNKNOWN_DEVICES: "Unknown Devices"
+vars: {
+  d2-config: {
+    layout-engine: elk
+    # TODO set theme with theme-id
+    theme-id: 200
+  }
 }
 
+direction: down
+
+classes: {
+  *: {
+    label: ""
+    shape: rectangle
+    style: {
+      border-radius: 10
+    }
+  }
+  vlan: {
+    style: {
+      stroke-dash: 4
+    }
+  }
+}
+
+VLAN1: {
+  label: "VLAN 1 - Blackhole"
+  icon: ../images/vlan.svg
+  UNKNOWN_DEVICES: {
+    label: "Unknown Devices"
+    icon: ../images/warning.svg
+    shape: image
+  }
+}
+
+# TODO nicer icons for Unifi devices
 VLAN10: {
   label: "VLAN 10 - Management - 10.10.10.0/24"
-  ROUTERS: "Routers"
-  SWITCHES: "Switches"
-  ACCESS_POINTS: "Access Points"
+  icon: ../images/vlan.svg
+  ROUTER: {
+    label: "Router - UniFi Dream Machine Pro Max"
+    icon: ../images/router.svg
+    shape: image
+  }
+  SWITCH_MAIN: {
+    label: "Switch Main - UniFi Pro Max 24 PoE"
+    icon: ../images/network_switch.svg
+    shape: image
+  }
+  SWITCH_OFFICE: {
+    label: "Switch Office - UniFi Flex Mini 2.5G"
+    icon: ../images/network_switch.svg
+    shape: image
+  }
+  SWITCH_LOUNGE: {
+    label: "Switch Lounge - UniFi Flex Mini 2.5G"
+    icon: ../images/network_switch.svg
+    shape: image
+  }
+  WIFI: {
+    label: "WiFi"
+    icon: ../images/access_point.svg
+    AP_OFFICE: {
+      label: "Access Point Office - UniFi U7 Pro Max"
+      icon: ../images/access_point.svg
+      shape: image
+    }
+  }
+
+  ROUTER -- SWITCH_MAIN {style: {stroke-dash: 8}}
+  SWITCH_MAIN -- SWITCH_OFFICE {style: {stroke-dash: 8}}
+  SWITCH_MAIN -- SWITCH_LOUNGE {style: {stroke-dash: 8}}
+  SWITCH_MAIN -- WIFI.AP_OFFICE {style: {stroke-dash: 8}}
 }
 
 VLAN20: {
   label: "VLAN 20 - Personal - 10.10.20.0/24"
-  PERSONAL_DEVICES: "Personal Devices"
-  WORKSTATION_PC: "PC"
-  WORKSTATION_DOMANTE_LAPTOP: "Domante Laptop"
+  icon: ../images/vlan.svg
+  OTHER_PERSONAL_DEVICES: {
+    label: "Other Personal Devices"
+    icon: ../images/laptop.svg
+    shape: image
+  }
+  WORKSTATION_PC: {
+    label: "PC"
+    icon: ../images/pc.svg
+    shape: image
+  }
 }
 
 VLAN30: {
   label: "VLAN 30 - Server - 10.10.30.0/24"
+  icon: ../images/vlan.svg
   NAS_HOST: {
     label: "NAS Host - Synology OS"
-    NETDATA: "Netdata"
+    icon: ../images/synology.svg
+    NETDATA: {
+      label: "Netdata"
+      icon: ../images/netdata.svg
+      shape: image
+    }
   }
   HYPERVISOR_HOST: {
     label: "Hypervisor Host - Proxmox"
-    DNS_VM: {
-      label: "DNS - NixOS"
-      PIHOLE: "Pi-hole"
-      DNS_VM_NETDATA: "Netdata"
-    }
+    icon: ../images/proxmox.svg
     HOME_ASSISTANT_VM: {
       label: "Home Assistant - NixOS"
-      icon: ./images/home_assistant.svg
+      icon: ../images/home_assistant.svg
       HOME_ASSISTANT: {
         label: "Home Assistant"
-        icon: ./images/home_assistant.svg
+        icon: ../images/home_assistant.svg
         shape: image
       }
-      NODE_RED: "NodeRed"
-      TASMO_ADMIN: "TasmoAdmin"
-      MOSQUITTO: "Mosquitto"
-      NETDATA: "Netdata"
+      NODE_RED: {
+        label: "NodeRed"
+        icon: ../images/node_red.svg
+        shape: image
+      }
+      TASMO_ADMIN: {
+        label: "TasmoAdmin"
+        icon: ../images/tasmo_admin.svg
+        shape: image
+      }
+      MOSQUITTO: {
+        label: "Mosquitto"
+        icon: ../images/mosquitto.svg
+        shape: image
+      }
+      NETDATA: {
+        label: "Netdata"
+        icon: ../images/netdata.svg
+        shape: image
+      }
     }
     APP_SERVER_VM: {
       label: "App Server - NixOS"
+      icon: ../images/nixos.svg
       APP_SERVER_VM_DOCKER_CONTAINERS: {
         label: "Docker Containers"
-        icon: ./images/docker.svg
-        PORTAINER: "Portainer"
-        HEIMDALL: "Heimdall"
-        PROMETHEUS: "Prometheus"
-        GRAFANA: "Grafana"
-        GRAYLOG: "Graylog"
-        NGINX_PROXY_MANAGER: {
-          label: Nginx Proxy Manager
-          icon: ./images/nginx_proxy_manager.svg
+        icon: ../images/docker.svg
+        PIHOLE: {
+          label: "Pi-hole"
+          icon: ../images/pihole.svg
           shape: image
         }
-        PLEX: "Plex"
-        SONARR: "Sonarr"
-        RADARR: "Radarr"
-        PROWLARR: "Prowlarr"
-        NZB_HYDRA: "NZBHydra"
-        JACKETT: "Jackett"
-        SABNZBD: "SABnzbd"
-        QBITTORRENT: "qBittorrent"
+        PORTAINER: {
+          label: "Portainer"
+          icon: ../images/portainer.svg
+          shape: image
+        }
+        HEIMDALL: {
+          label: "Heimdall"
+          icon: ../images/heimdall.svg
+          shape: image
+        }
+        PROMETHEUS: {
+          label: "Prometheus"
+          icon: ../images/prometheus.svg
+          shape: image
+        }
+        GRAFANA: {
+          label: "Grafana"
+          icon: ../images/grafana.svg
+          shape: image
+        }
+        GRAYLOG: {
+          label: "Graylog"
+          icon: ../images/graylog.svg
+          shape: image
+        }
+        NGINX_PROXY_MANAGER: {
+          label: "Nginx Proxy Manager"
+          icon: ../images/nginx_proxy_manager.svg
+          shape: image
+        }
+        PLEX: {
+          label: "Plex"
+          icon: ../images/plex.svg
+          shape: image
+        }
+        SONARR: {
+          label: "Sonarr"
+          icon: ../images/sonarr.svg
+          shape: image
+        }
+        RADARR: {
+          label: "Radarr"
+          icon: ../images/radarr.svg
+          shape: image
+        }
+        PROWLARR: {
+          label: "Prowlarr"
+          icon: ../images/prowlarr.svg
+          shape: image
+        }
+        SABNZBD: {
+          label: "SABnzbd"
+          icon: ../images/sabnzbd.svg
+          shape: image
+        }
+        QBITTORRENT: {
+          label: "qBittorrent"
+          icon: ../images/qbittorrent.svg
+          shape: image
+        }
       }
-      NETDATA: "Netdata"
+      NETDATA: {
+        label: "Netdata"
+        icon: ../images/netdata.svg
+        shape: image
+      }
     }
   }
 }
 
 VLAN40: {
   label: "VLAN 40 - CCTV - 10.10.40.0/24"
-  CAMERAS: "Cameras"
+  icon: ../images/vlan.svg
+  CAMERAS: {
+    label: "Cameras"
+    icon: ../images/camera.svg
+    shape: image
+  }
 }
 
 VLAN50: {
   label: "VLAN 50 - IoT - 10.10.50.0/24"
-  IOT_DEVICES: "IoT Devices"
-  SHIELD: "NVIDIA Shield"
+  icon: ../images/vlan.svg
+  OTHER_IOT_DEVICES: {
+    label: "IoT Devices"
+    icon: ../images/iot.svg
+    shape: image
+  }
+  SHIELD: {
+    label: "NVIDIA Shield"
+    icon: ../images/nvidia.svg
+    shape: image
+  }
 }
 
 VLAN60: {
   label: "VLAN 60 - NoT - 10.10.60.0/24"
-  NOT_DEVICES: "NoT Devices"
+  icon: ../images/vlan.svg
+  OTHER_NOT_DEVICES: {
+    label: "Other NoT Devices"
+    icon: ../images/not.svg
+    shape: image
+  }
+  PRINTER: {
+    label: "Printer"
+    icon: ../images/printer.svg
+    shape: image
+  }
+  LABEL_PRINTER: {
+    label: "Label Printer"
+    icon: ../images/label_printer.svg
+    shape: image
+  }
 }
 
 VLAN100: {
   label: "VLAN 100 - Work - 10.10.100.0/24"
-  WORK_DEVICES: "Work Devices"
+  icon: ../images/vlan.svg
+  OTHER_WORK_DEVICES: {
+    label: "Other Work Devices"
+    icon: ../images/phone.svg
+    shape: image
+  }
+  WORK_LAPTOP: {
+    label: "Work Laptop"
+    icon: ../images/laptop.svg
+    shape: image
+  }
 }
 
 VLAN110: {
   label: "VLAN 110 - Untrusted - 10.10.110.0/24"
-  UNTRUSTED_DEVICES: "Untrusted Devices"
+  icon: ../images/vlan.svg
+  UNTRUSTED_DEVICES: {
+    label: "Untrusted Devices"
+    icon: ../images/warning.svg
+    shape: image
+  }
 }
 
 VLAN120: {
   label: "VLAN 120 - Guest - 10.10.120.0/24"
-  GUEST_DEVICES: "Guest Devices"
+  icon: ../images/vlan.svg
+  GUEST_DEVICES: {
+    label: "Guest Devices"
+    icon: ../images/phone.svg
+    shape: image
+  }
 }
 
-INTERNET: "INTERNET"
+INTERNET: {
+  label: "INTERNET"
+  icon: ../images/internet.svg
+  shape: image
+}
+
+INTERNET -- VLAN10.ROUTER {style: {stroke-dash: 8}}
+
+VLAN10.SWITCH_MAIN -- VLAN30.HYPERVISOR_HOST {style: {stroke-dash: 8}}
+VLAN10.SWITCH_MAIN -- VLAN30.NAS_HOST {style: {stroke-dash: 8}}
+VLAN10.SWITCH_MAIN -- VLAN40.CAMERAS {style: {stroke-dash: 8}}
+VLAN10.SWITCH_MAIN -- VLAN60.PRINTER {style: {stroke-dash: 8}}
+VLAN10.SWITCH_MAIN -- VLAN60.LABEL_PRINTER {style: {stroke-dash: 8}}
+
+VLAN10.SWITCH_OFFICE -- VLAN20.WORKSTATION_PC {style: {stroke-dash: 8}}
+VLAN10.SWITCH_OFFICE -- VLAN100.WORK_LAPTOP {style: {stroke-dash: 8}}
+
+VLAN10.SWITCH_LOUNGE -- VLAN50.SHIELD {style: {stroke-dash: 8}}
+
+VLAN10.WIFI -- VLAN20.OTHER_PERSONAL_DEVICES {style: {stroke-dash: 4}}
+VLAN10.WIFI -- VLAN50.OTHER_IOT_DEVICES {style: {stroke-dash: 4}}
+VLAN10.WIFI -- VLAN60.OTHER_NOT_DEVICES {style: {stroke-dash: 4}}
+VLAN10.WIFI -- VLAN100.OTHER_WORK_DEVICES {style: {stroke-dash: 4}}
+VLAN10.WIFI -- VLAN120.GUEST_DEVICES {style: {stroke-dash: 4}}
 
 # Connections between VLANs and devices
-VLAN10 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
-VLAN10 -> INTERNET
+#VLAN10 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.PIHOLE
+#VLAN10 -> INTERNET
 
-VLAN20 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
-VLAN20 -> INTERNET
-VLAN20 -> VLAN10
-VLAN20 -> VLAN30
-VLAN20 -> VLAN40
-VLAN20 -> VLAN50
-VLAN20 -> VLAN60
-VLAN20 -> VLAN100
-VLAN20 -> VLAN110
-VLAN20 -> VLAN120
+#VLAN20 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.PIHOLE
+#VLAN20 -> INTERNET
+#VLAN20 -> VLAN10
+#VLAN20 -> VLAN30
+#VLAN20 -> VLAN40
+#VLAN20 -> VLAN50
+#VLAN20 -> VLAN60
+#VLAN20 -> VLAN100
+#VLAN20 -> VLAN110
+#VLAN20 -> VLAN120
 
-VLAN30 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
-VLAN30 -> INTERNET
+#VLAN30 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.PIHOLE
+#VLAN30 -> INTERNET
 
-VLAN40 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
+#VLAN40 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.PIHOLE
 
-VLAN50 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
-VLAN50 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.NGINX_PROXY_MANAGER
-VLAN50 -> VLAN30.HYPERVISOR_HOST.HOME_ASSISTANT_VM.MOSQUITTO
-VLAN50 -> INTERNET
-VLAN50.SHIELD -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.PLEX
-VLAN50.SHIELD -> VLAN20.WORKSTATION_PC
-VLAN50.SHIELD -> VLAN20.WORKSTATION_DOMANTE_LAPTOP
-
-VLAN60 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
-VLAN60 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.NGINX_PROXY_MANAGER
-VLAN60 -> VLAN30.HYPERVISOR_HOST.HOME_ASSISTANT_VM.MOSQUITTO
-
-VLAN100 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
-VLAN100 -> INTERNET
-
-VLAN120 -> VLAN30.HYPERVISOR_HOST.DNS_VM.PIHOLE
-VLAN120 -> INTERNET
-
-VLAN30.HYPERVISOR_HOST.APP_SERVER_VM -> VLAN30.NAS_HOST
+#VLAN50 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.PIHOLE
+#VLAN50 -> VLAN30.HYPERVISOR_HOST.APP_SERVER_VM.APP_SERVER_VM_DOCKER_CONTAINERS.NGINX_PROXY_MANAGER
+#VLAN50 -> VLAN30.HYPERVISOR_HOST.HOME_ASSISTANT_VM.MOSQUITTO
+#VLAN50 -> INTERNET
