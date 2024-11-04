@@ -1,0 +1,320 @@
+vars: {
+  d2-config: {
+    layout-engine: elk
+    theme-id: 300
+  }
+}
+
+direction: down
+
+classes: {
+  *: {
+    label: ""
+    shape: rectangle
+    style: {
+      border-radius: 10
+    }
+  }
+  room: {
+    style: {
+      stroke-dash: 4
+    }
+  }
+  area
+  device: {
+    shape: image
+    height: 200
+    width: 200
+  }
+  long-device: {
+    shape: image
+    height: 100
+    width: 400
+  }
+  host
+  vm
+  containers
+  app: {
+    shape: image
+  }
+  sfp+-10gbe: {
+    label: SFP+\n10Gbe
+    style: {
+      stroke-dash: 1
+    }
+  }
+  cat6: {
+    label: Cat6
+    style: {
+      stroke-dash: 2
+    }
+  }
+  cat6-1gbe: {
+    label: Cat6\n1Gbe
+    style: {
+      stroke-dash: 2
+    }
+  }
+  cat6-2_5gbe: {
+    label: Cat6\n2.5Gbe
+    style: {
+      stroke-dash: 2
+    }
+  }
+  cat6-poe-100mb: {
+    label: Cat6\nPoE\n100mb
+    style: {
+      stroke-dash: 2
+    }
+  }
+  cat6-poe-1gbe: {
+    label: Cat6\nPoE\n1Gbe
+    style: {
+      stroke-dash: 2
+    }
+  }
+  cat6-poe-2_5gbe: {
+    label: Cat6\nPoE\n2.5Gbe
+    style: {
+      stroke-dash: 2
+    }
+  }
+  cat6-poe+-2_5gbe: {
+    label: Cat6\nPoE+\n2.5Gbe
+    style: {
+      stroke-dash: 2
+    }
+  }
+  wifi7: {
+    style: {
+      stroke-dash: 4
+    }
+  }
+  kvm: {}
+}
+
+internet: {
+  class: device
+  label: "Internet"
+  icon: ../images/internet.svg
+}
+
+# TODO nicer icons for Unifi devices
+office: {
+  class: room
+  label: Office
+  icon: ../images/office.svg
+
+  server-rack: {
+    class: area
+    label: Server Rack
+
+    router: {
+      class: long-device
+      label: Router\nUbiquiti Dream Machine Pro Max
+      icon: ../images/ubiquiti_udm_pro_max.svg
+    }
+    switch: {
+      class: long-device
+      label: Switch\nUbiquiti Pro Max 24 PoE
+      icon: ../images/ubiquiti_usw_pro_max_24_poe.svg
+    }
+    patch-panel: {
+      class: long-device
+      label: Patch Panel\nUbiquiti 24-Blank Keystone Patch Panel
+      icon: ../images/ubiquiti_uacc_rack_panel_patch_blank_24.svg
+    }
+
+    host-kvm: {
+      class: device
+      label: Host\nKVM\nBlicube BliKVM v4 Allwinner
+      icon: ../images/blicube_blikvm_v4_allwinner.svg
+    }
+    host-nas: {
+      class: device
+      label: Host\nNAS\nSynology DS218+
+      icon: ../images/synology_ds218+.svg
+    }
+    host-hypervisor: {
+      class: device
+      label: Host\nHypervisor\nHP ProDesk 400 G6 Desktop Mini PC
+      icon: ../images/hp_prodesk_400_g6_desktop_mini_pc.svg
+    }
+  }
+
+  desk: {
+    class: area
+    label: Desk
+    icon: ../images/desk.svg
+
+    switch: {
+      class: device
+      label: Switch\nUbiquiti Flex Mini 2.5G
+      icon: ../images/ubiquiti_usw_flex_2.5g_5.svg
+    }
+
+    workstation-pc: {
+      class: device
+      label: Workstation\nPC
+      icon: ../images/fractal_design_define_r6_tg.svg
+    }
+    workstation-work-laptop: {
+      class: device
+      label: Workstation\nWork Laptop
+      icon: ../images/macbook_pro.svg
+    }
+  }
+
+  ap: {
+    class: device
+    label: Access Point\nUbiquiti U7 Pro Max
+    icon: ../images/ubiquiti_u7_pro_max.svg
+  }
+  camera: {
+    class: device
+    label: Camera\nUbiquiti G5 Flex
+    icon: ../images/ubiquiti_uvc_g5_flex.svg
+  }
+  printer: {
+    class: device
+    label: Printer\nLaser
+    icon: ../images/hp_colour_laserjet_pro_m283fdw.svg
+  }
+  label-printer: {
+    class: device
+    label: Printer\nLabels
+    icon: ../images/brother_ql_820nwb.svg
+  }
+}
+
+corridor: {
+  class: room
+  label: Corridor
+  icon: ../images/corridor.svg
+
+  camera: {
+    class: device
+    label: Camera\nUbiquiti G5 Flex
+    icon: ../images/ubiquiti_uvc_g5_flex.svg
+  }
+}
+
+lounge: {
+  class: room
+  label: Lounge
+  icon: ../images/lounge.svg
+
+  switch: {
+    class: device
+    label: Switch\nUbiquiti Flex Mini 2.5G
+    icon: ../images/ubiquiti_usw_flex_2.5g_5.svg
+  }
+  poe-adapter: {
+    class: device
+    label: PoE Adapter\nUbiquiti PoE Adapter (15W)
+    icon: ../images/ubiquiti_u_poe_af.svg
+  }
+  camera: {
+    class: device
+    label: Camera\nUbiquiti G5 Flex
+    icon: ../images/ubiquiti_uvc_g5_flex.svg
+  }
+
+  shield: {
+    class: device
+    label: NVIDIA SHIELD
+    icon: ../images/nvidia_shield_tv_2017.svg
+  }
+  playstation5: {
+    class: device
+    label: Playstation 5 Slim
+    icon: ../images/sony_ps5_slim.svg
+  }
+}
+
+# Connections
+
+internet -- office.server-rack.router: {
+  class: cat6-1gbe
+  target-arrowhead: 9
+}
+
+office.server-rack.router -- office.server-rack.switch: {
+  class: sfp+-10gbe
+  source-arrowhead: 11
+  target-arrowhead: 26
+}
+
+office.server-rack.switch -- office.server-rack.patch-panel: {
+  class: cat6
+}
+
+office.server-rack.patch-panel -- office.desk.switch: {
+  class: cat6-poe-2_5gbe
+  source-arrowhead: 24
+  target-arrowhead: 5
+}
+office.server-rack.patch-panel -- lounge.switch: {
+  class: cat6-poe-2_5gbe
+  source-arrowhead: 23
+  target-arrowhead: 5
+}
+office.server-rack.patch-panel -- corridor.camera: {
+  class: cat6-poe-100mb
+  source-arrowhead: 1
+}
+office.server-rack.patch-panel -- office.ap: {
+  class: cat6-poe+-2_5gbe
+  source-arrowhead: 22
+}
+office.server-rack.patch-panel -- office.camera: {
+  class: cat6-poe-100mb
+  source-arrowhead: 2
+}
+office.server-rack.patch-panel -- office.server-rack.host-kvm: {
+  class: cat6-poe-1gbe
+  source-arrowhead: 3
+}
+office.server-rack.patch-panel -- office.server-rack.host-hypervisor: {
+  class: cat6-2_5gbe
+  source-arrowhead: 21
+}
+office.server-rack.patch-panel -- office.server-rack.host-nas: {
+  class: cat6-2_5gbe
+  source-arrowhead: 20
+}
+office.server-rack.patch-panel -- office.printer: {
+  class: cat6-1gbe
+  source-arrowhead: 4
+}
+office.server-rack.patch-panel -- office.label-printer: {
+  class: cat6-1gbe
+  source-arrowhead: 5
+}
+
+office.server-rack.host-kvm -- office.server-rack.host-hypervisor: {
+  class: kvm
+}
+
+office.desk.switch -- office.desk.workstation-pc: {
+  class: cat6-2_5gbe
+  source-arrowhead: 1
+}
+office.desk.switch -- office.desk.workstation-work-laptop: {
+  class: cat6-2_5gbe
+  source-arrowhead: 2
+}
+
+lounge.switch -- lounge.poe-adapter: {
+  class: cat6-poe-100mb
+  source-arrowhead: 1
+}
+lounge.poe-adapter -- lounge.camera: {class: cat6-poe-100mb}
+lounge.switch -- lounge.shield: {
+  class: cat6-2_5gbe
+  source-arrowhead: 2
+}
+lounge.switch -- lounge.playstation5: {
+  class: cat6-1gbe
+  source-arrowhead: 3
+}
