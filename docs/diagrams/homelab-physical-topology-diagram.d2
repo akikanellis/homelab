@@ -1,26 +1,20 @@
 vars: {
   d2-config: {
     layout-engine: elk
-    theme-id: 300
+    theme-id: 200
   }
 }
 
 direction: down
 
 classes: {
-  *: {
-    label: ""
-    shape: rectangle
-    style: {
-      border-radius: 10
-    }
-  }
-  room: {
-    style: {
-      stroke-dash: 4
-    }
-  }
-  area
+  # # Groups
+
+  room: { style: { stroke-dash: 10 } }
+  area: { style: { stroke-dash: 5 } }
+
+  # # Nodes
+
   device: {
     shape: image
     height: 200
@@ -31,75 +25,86 @@ classes: {
     height: 100
     width: 400
   }
-  host
-  vm
-  containers
-  app: {
+  apc-be850g2-uk: {
+    label: UPS\nAPC BackUPS 850 (520W, 8 outlets)
+    icon: ../images/apc_be850g2_uk.svg
     shape: image
+    height: 200
+    width: 200
   }
-  sfp+-10gbe: {
-    label: SFP+\n10Gbe
-    style: {
-      stroke-dash: 1
-    }
+  ubiquiti-flex-mini-2_5g: {
+    label: Switch\nUbiquiti Flex Mini 2.5G
+    icon: ../images/ubiquiti_usw_flex_2.5g_5.svg
+    shape: image
+    height: 200
+    width: 200
   }
-  cat6: {
-    label: Cat6
-    style: {
-      stroke-dash: 2
-    }
+  ubiquiti-g5-flex: {
+    label: Camera\nUbiquiti G5 Flex
+    icon: ../images/ubiquiti_uvc_g5_flex.svg
+    shape: image
+    height: 200
+    width: 200
   }
-  cat6-1gbe: {
-    label: Cat6\n1Gbe
-    style: {
-      stroke-dash: 2
-    }
-  }
-  cat6-2_5gbe: {
-    label: Cat6\n2.5Gbe
-    style: {
-      stroke-dash: 2
-    }
-  }
-  cat6-poe-100mb: {
-    label: Cat6\nPoE\n100mb
-    style: {
-      stroke-dash: 2
-    }
-  }
-  cat6-poe-1gbe: {
-    label: Cat6\nPoE\n1Gbe
-    style: {
-      stroke-dash: 2
-    }
-  }
-  cat6-poe-2_5gbe: {
-    label: Cat6\nPoE\n2.5Gbe
-    style: {
-      stroke-dash: 2
-    }
-  }
-  cat6-poe+-2_5gbe: {
-    label: Cat6\nPoE+\n2.5Gbe
-    style: {
-      stroke-dash: 2
-    }
-  }
-  wifi7: {
-    style: {
-      stroke-dash: 4
-    }
-  }
-  kvm: {}
+
+  # # Connections
+
+  # ## Power
+
+  power-mains: { style: { stroke: crimson } }
+  surge-protected: { label: 🛡️ }
+  surge-and-battery-protected: { label: 🛡️+🔋 }
+
+  # ## Network
+
+  # ### Wired
+  cat6-any: { style: { stroke: ghostwhite } }
+  cat6-100mb: { style: { stroke: orange } }
+  cat6-1gbe: { style: { stroke: limegreen } }
+  cat6-2_5gbe: { style: { stroke: fuchsia } }
+
+  poe: { label: ⚡ }
+  poe+: { label: ⚡➕ }
+  poe++: { label: ⚡➕➕ }
+
+  sfp+-10gbe: { style: { stroke: turquoise } }
+
+  # ### Wireless
+
+  wifi7: { style: { stroke-dash: 4 } }
+
+  # ## Misc
+
+  kvm: { label: Video + USB; style: { stroke: black } }
+  ups: { label: RJ11 to USB; style: { stroke: black } }
 }
 
 internet: {
   class: device
-  label: "Internet"
+  label: Internet\n750mbps Symmetrical Speed
   icon: ../images/internet.svg
 }
 
-# TODO nicer icons for Unifi devices
+mains-power: {
+  class: device
+  label: Mains Power
+  icon: ../images/mains_power.svg
+}
+
+corridor: {
+  class: room
+  label: Corridor
+  icon: ../images/corridor.svg
+
+  isp-termination: {
+    class: device
+    label: ISP Termination
+    icon: ../images/rj45_wall_plate.svg
+  }
+
+  camera: { class: ubiquiti-g5-flex }
+}
+
 office: {
   class: room
   label: Office
@@ -108,6 +113,13 @@ office: {
   server-rack: {
     class: area
     label: Server Rack
+
+    ups: { class: apc-be850g2-uk }
+    pdu: {
+      class: long-device
+      label: PDU
+      icon: ../images/pdu.svg
+    }
 
     router: {
       class: long-device
@@ -147,11 +159,18 @@ office: {
     label: Desk
     icon: ../images/desk.svg
 
-    switch: {
+    surge_protection: {
       class: device
-      label: Switch\nUbiquiti Flex Mini 2.5G
-      icon: ../images/ubiquiti_usw_flex_2.5g_5.svg
+      label: Surge Protection\nBelkin SurgeCube 1 Way
+      icon: ../images/belkin_bsv102af.svg
     }
+    extension_lead: {
+      class: long-device
+      label: Extension Lead\nBrennenstuhl Premium-Line 12 Way
+      icon: ../images/brennenstuhl_premium_line_12_way_extension_lead.svg
+    }
+
+    switch: { class: ubiquiti-flex-mini-2_5g }
 
     workstation-pc: {
       class: device
@@ -161,8 +180,14 @@ office: {
     workstation-work-laptop: {
       class: device
       label: Workstation\nWork Laptop
-      icon: ../images/macbook_pro.svg
+      icon: ../images/apple_macbook_pro.svg
     }
+  }
+
+  surge_protection: {
+    class: long-device
+    label: Surge Protection\nBelkin Extension Lead 8 Way
+    icon: ../images/belkin_bsv804.svg
   }
 
   ap: {
@@ -170,32 +195,16 @@ office: {
     label: Access Point\nUbiquiti U7 Pro Max
     icon: ../images/ubiquiti_u7_pro_max.svg
   }
-  camera: {
-    class: device
-    label: Camera\nUbiquiti G5 Flex
-    icon: ../images/ubiquiti_uvc_g5_flex.svg
-  }
+  camera: { class: ubiquiti-g5-flex }
   printer: {
     class: device
-    label: Printer\nLaser
+    label: Printer\nHP Colour LaserJet Pro M283FDW
     icon: ../images/hp_colour_laserjet_pro_m283fdw.svg
   }
   label-printer: {
     class: device
-    label: Printer\nLabels
+    label: Printer\nBrother QL-820NWB Label Printer
     icon: ../images/brother_ql_820nwb.svg
-  }
-}
-
-corridor: {
-  class: room
-  label: Corridor
-  icon: ../images/corridor.svg
-
-  camera: {
-    class: device
-    label: Camera\nUbiquiti G5 Flex
-    icon: ../images/ubiquiti_uvc_g5_flex.svg
   }
 }
 
@@ -204,38 +213,83 @@ lounge: {
   label: Lounge
   icon: ../images/lounge.svg
 
-  switch: {
-    class: device
-    label: Switch\nUbiquiti Flex Mini 2.5G
-    icon: ../images/ubiquiti_usw_flex_2.5g_5.svg
-  }
+  ups: { class: apc-be850g2-uk }
+
+  switch: { class: ubiquiti-flex-mini-2_5g }
   poe-adapter: {
     class: device
     label: PoE Adapter\nUbiquiti PoE Adapter (15W)
     icon: ../images/ubiquiti_u_poe_af.svg
   }
-  camera: {
-    class: device
-    label: Camera\nUbiquiti G5 Flex
-    icon: ../images/ubiquiti_uvc_g5_flex.svg
-  }
+  camera: { class: ubiquiti-g5-flex }
 
   shield: {
     class: device
     label: NVIDIA SHIELD
     icon: ../images/nvidia_shield_tv_2017.svg
   }
-  playstation5: {
+  ps5: {
     class: device
     label: Playstation 5 Slim
     icon: ../images/sony_ps5_slim.svg
   }
 }
 
-# Connections
+# # Connections
 
-internet -- office.server-rack.router: {
-  class: cat6-1gbe
+# ## Mains Power
+
+# ### Office
+
+# #### Server Rack
+
+mains-power -- office.server-rack.ups: {class: power-mains}
+
+office.server-rack.ups -- office.server-rack.pdu: {class: [power-mains; surge-and-battery-protected]}
+
+office.server-rack.pdu -- office.server-rack.router: {class: [power-mains; surge-and-battery-protected]}
+office.server-rack.pdu -- office.server-rack.switch: {class: [power-mains; surge-and-battery-protected]}
+office.server-rack.pdu -- office.server-rack.host-nas: {class: [power-mains; surge-and-battery-protected]}
+office.server-rack.pdu -- office.server-rack.host-hypervisor: {class: [power-mains; surge-and-battery-protected]}
+
+# #### Desk
+
+mains-power -- office.desk.surge_protection: {class: power-mains}
+
+office.desk.surge_protection -- office.desk.extension_lead: {class: [power-mains; surge-protected]}
+
+office.desk.extension_lead -- office.desk.workstation-pc: {class: [power-mains; surge-protected]}
+office.desk.extension_lead -- office.desk.workstation-work-laptop: {class: [power-mains; surge-protected]}
+
+# #### Other
+
+mains-power -- office.surge_protection: {class: power-mains}
+
+office.surge_protection -- office.printer: {class: [power-mains; surge-protected]}
+office.surge_protection -- office.label-printer: {class: [power-mains; surge-protected]}
+
+# ### Lounge
+
+# #### Other
+
+mains-power -- lounge.ups: {class: power-mains}
+
+lounge.ups -- lounge.poe-adapter: {class: [power-mains; surge-and-battery-protected]}
+lounge.ups -- lounge.shield: {class: [power-mains; surge-and-battery-protected]}
+lounge.ups -- lounge.ps5: {class: [power-mains; surge-and-battery-protected]}
+
+# ## Network
+
+# ### Corridor
+
+internet -- corridor.isp-termination: { class: cat6-any }
+
+# ### Office
+
+# #### Server Rack
+
+corridor.isp-termination -- office.server-rack.router: {
+  class: cat6-any
   target-arrowhead: 9
 }
 
@@ -245,34 +299,32 @@ office.server-rack.router -- office.server-rack.switch: {
   target-arrowhead: 26
 }
 
-office.server-rack.switch -- office.server-rack.patch-panel: {
-  class: cat6
-}
+office.server-rack.switch -- office.server-rack.patch-panel: { class: cat6-any }
 
 office.server-rack.patch-panel -- office.desk.switch: {
-  class: cat6-poe-2_5gbe
+  class: [cat6-2_5gbe; poe]
   source-arrowhead: 24
   target-arrowhead: 5
 }
 office.server-rack.patch-panel -- lounge.switch: {
-  class: cat6-poe-2_5gbe
+  class: [cat6-2_5gbe; poe]
   source-arrowhead: 23
   target-arrowhead: 5
 }
 office.server-rack.patch-panel -- corridor.camera: {
-  class: cat6-poe-100mb
+  class: [cat6-100mb; poe]
   source-arrowhead: 1
 }
 office.server-rack.patch-panel -- office.ap: {
-  class: cat6-poe+-2_5gbe
+  class: [cat6-2_5gbe; poe+]
   source-arrowhead: 22
 }
 office.server-rack.patch-panel -- office.camera: {
-  class: cat6-poe-100mb
+  class: [cat6-100mb; poe]
   source-arrowhead: 2
 }
 office.server-rack.patch-panel -- office.server-rack.host-kvm: {
-  class: cat6-poe-1gbe
+  class: [cat6-1gbe; poe]
   source-arrowhead: 3
 }
 office.server-rack.patch-panel -- office.server-rack.host-hypervisor: {
@@ -288,13 +340,11 @@ office.server-rack.patch-panel -- office.printer: {
   source-arrowhead: 4
 }
 office.server-rack.patch-panel -- office.label-printer: {
-  class: cat6-1gbe
+  class: cat6-100mb
   source-arrowhead: 5
 }
 
-office.server-rack.host-kvm -- office.server-rack.host-hypervisor: {
-  class: kvm
-}
+# #### Desk
 
 office.desk.switch -- office.desk.workstation-pc: {
   class: cat6-2_5gbe
@@ -305,16 +355,26 @@ office.desk.switch -- office.desk.workstation-work-laptop: {
   source-arrowhead: 2
 }
 
+# ### Lounge
+
+# #### Other
+
 lounge.switch -- lounge.poe-adapter: {
-  class: cat6-poe-100mb
+  class: cat6-100mb
   source-arrowhead: 1
 }
-lounge.poe-adapter -- lounge.camera: {class: cat6-poe-100mb}
 lounge.switch -- lounge.shield: {
   class: cat6-2_5gbe
   source-arrowhead: 2
 }
-lounge.switch -- lounge.playstation5: {
+lounge.switch -- lounge.ps5: {
   class: cat6-1gbe
   source-arrowhead: 3
 }
+
+lounge.poe-adapter -- lounge.camera: {class: [cat6-100mb; poe]}
+
+# ## Other
+
+office.server-rack.ups -- office.server-rack.host-hypervisor: { class: ups }
+office.server-rack.host-kvm -- office.server-rack.host-hypervisor: { class: kvm }
