@@ -39,13 +39,6 @@ classes: {
     height: 200
     width: 200
   }
-  ubiquiti-g5-flex: {
-    label: Camera\nUbiquiti G5 Flex
-    icon: ../images/ubiquiti_uvc_g5_flex.svg
-    shape: image
-    height: 200
-    width: 200
-  }
 
   # # Connections
 
@@ -102,7 +95,7 @@ corridor: {
     icon: ../images/rj45_wall_plate.svg
   }
 
-  camera: { class: ubiquiti-g5-flex }
+  camera: @models.ubiquiti-g5-flex
 }
 
 office: {
@@ -195,7 +188,7 @@ office: {
     label: Access Point\nUbiquiti U7 Pro Max
     icon: ../images/ubiquiti_u7_pro_max.svg
   }
-  camera: { class: ubiquiti-g5-flex }
+  camera: @models.ubiquiti-g5-flex
   printer: {
     class: device
     label: Printer\nHP Colour LaserJet Pro M283FDW
@@ -221,7 +214,7 @@ lounge: {
     label: PoE Adapter\nUbiquiti PoE Adapter (15W)
     icon: ../images/ubiquiti_u_poe_af.svg
   }
-  camera: { class: ubiquiti-g5-flex }
+  camera: @models.ubiquiti-g5-flex
 
   shield: {
     class: device
